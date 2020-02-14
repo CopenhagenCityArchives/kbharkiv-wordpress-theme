@@ -4,7 +4,7 @@ if [ $# -lt 2 ]
     exit
 fi
 
-url="https://api.travis-ci.org/repo/CopenhagenCityArchives/kbharkiv-wordpress-infrastructure/requests"
+url="https://api.travis-ci.org/repo/CopenhagenCityArchives%2Fkbharkiv-wordpress-infrastructure/requests"
 body='{
 "request": {
 "branch":"'$1'"
