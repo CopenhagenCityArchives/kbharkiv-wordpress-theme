@@ -1,0 +1,83 @@
+.module-groupedlinks {
+  display: flex;
+  color: $white;
+  flex-direction: column;
+
+  .container-fluid {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
+  @include media-breakpoint-up(lg) {
+    flex-direction: row;
+  }
+
+  a {
+    display: block;
+    text-decoration: none;
+    font-family: $font-family-sans-serif;
+    color: $white;
+    font-weight: $font-weight-normal;
+    font-size: 1.25rem;
+    padding: 1rem 0;
+  }
+
+  .groups-wrap {
+    flex: 1 0 0;
+    background-color: $green;
+    display: flex;
+    align-items: center;
+
+    .group-link {
+      font-weight: $font-weight-bold;
+      font-size: 2.25rem;
+      opacity: 0.4;
+      line-height: 1.1;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      &.active {
+        opacity: 1;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .links-wrap {
+    overflow: hidden;
+
+    @include media-breakpoint-up(lg) {
+      flex: 1 0 0;
+    }
+  }
+
+  .links-animate {
+    transition: transform 1000ms $ease;
+  }
+
+  .link-wrap {
+    background-color: lighten($green, 4);
+    display: flex;
+    align-items: center;
+
+    &:nth-child(even) {
+      background-color: lighten($green, 8);
+    }
+
+    li {
+      border-bottom: 1px solid $border-light;
+
+      .icon {
+        margin-left: $spacer;
+        transition: transform 600ms $ease;
+      }
+
+      a:hover .icon {
+        transform: translateX($spacer);
+      }
+    }
+  }
+}

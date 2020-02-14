@@ -1,0 +1,336 @@
+header.menu-top {
+  position: fixed;
+  width: 100%;
+  height: 64px;
+  z-index: 100;
+  background-color: $white;
+  transition: height 300ms ease;
+  overflow: hidden;
+
+  @include media-breakpoint-up(lg) {
+    height: 80px;
+    overflow: visible;
+  }
+
+  .skip-menu {
+    background-color: $grey;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 20px 0 20px 0;
+    transform: translateY(-100%);
+    transition: transform 400ms $ease;
+
+    @include media-breakpoint-up(lg) {
+      padding: 25px 0 28px 0;
+    }
+
+    &:focus {
+      transform: translateY(0);
+    }
+  }
+
+  .nav-toggle {
+    padding: 30px 64px;
+    margin-right: -64px;
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  .hamburger {
+    background-color: $dark;
+    display: block;
+    height: 2px;
+    width: 1.5rem;
+    transition: all 600ms $ease;
+
+    &::before,
+    &::after {
+      content: "";
+      background-color: rgba(0, 0, 0, 1);
+      display: block;
+      height: 2px;
+      width: 1.5rem;
+      transition: all 600ms $ease;
+    }
+
+    &::before {
+      transform: translate3d(0, -8px, 0);
+    }
+
+    &::after {
+      transform: translate3d(0, 6px, 0);
+    }
+  }
+
+  &.active {
+    height: 100%;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+
+    .hamburger {
+      background-color: rgba(0, 0, 0, 0);
+
+      &::before {
+        transform: translate3d(0, 0, 0) rotate(-45deg);
+      }
+
+      &::after {
+        transform: translate3d(0, -2px, 0) rotate(45deg);
+      }
+    }
+
+    @include media-breakpoint-up(lg) {
+      height: 80px;
+    }
+  }
+
+  ul {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+  }
+
+  nav {
+    position: relative;
+    top: 128px;
+    letter-spacing: 0.5px;
+
+    @include media-breakpoint-up(lg) {
+      display: flex;
+      top: 0;
+    }
+
+    > ul {
+      display: flex;
+      flex-direction: column;
+
+      @include media-breakpoint-up(lg) {
+        flex-direction: row;
+      }
+    }
+  }
+
+  .menu-item {
+    > a {
+      position: relative;
+      display: block;
+      color: $dark;
+      padding: 20px 24px 20px 0;
+      font-size: 32px;
+      font-weight: 600;
+
+      @include media-breakpoint-up(lg) {
+        padding: 25px 24px 28px 0;
+        font-size: 18px;
+      }
+    }
+
+    .icon {
+      width: 24px;
+      height: 24px;
+      margin-left: 8px;
+      transition: transform 600ms $ease;
+
+      @include media-breakpoint-up(lg) {
+        width: 16px;
+        height: 16px;
+        margin-left: 4px;
+      }
+    }
+
+    &.active {
+      .icon {
+        transform: rotate(180deg);
+      }
+    }
+
+    &:last-child > a {
+      padding: 20px 0;
+
+      @include media-breakpoint-up(lg) {
+        padding: 25px 0 28px;
+      }
+    }
+
+    // &.current-menu-item a {
+    //   &::before {
+    //     content: "";
+    //     display: block;
+    //     background-color: $yellow;
+    //     width: 8px;
+    //     height: 8px;
+    //     position: absolute;
+    //     border-radius: 50%;
+    //     top: 42px;
+    //     left: -4px;
+    //
+    //     @include media-breakpoint-up(md) {
+    //       left: -24px;
+    //     }
+    //
+    //     @include media-breakpoint-up(lg) {
+    //       width: 6px;
+    //       height: 6px;
+    //       top: 56px;
+    //       left: 50%;
+    //       margin-left: -3px;
+    //     }
+    //   }
+    // }
+  }
+
+  .brand {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    padding: 14px 16px 18px;
+
+    @include media-breakpoint-up(lg) {
+      padding: 16px 16px 24px;
+    }
+
+    img {
+      width: auto;
+      height: $spacer*2;
+
+      @include media-breakpoint-up(lg) {
+        height: $spacer*2.5;
+      }
+    }
+  }
+
+  .menu-secondary {
+    @include media-breakpoint-up(lg) {
+      position: absolute;
+      right: 0;
+    }
+  }
+
+  .sub-menu-wrapper {
+    background-color: #f4f3f2;
+    height: 0;
+    width: 100vw;
+    margin-left: -1.5rem;
+    overflow: hidden;
+    transition: height 600ms $ease;
+
+    @include media-breakpoint-up(md) {
+      margin-left: -4rem;
+    }
+
+    @include media-breakpoint-up(lg) {
+      background-color: $white;
+      position: fixed;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      z-index: 20;
+      margin-left: 0;
+
+      .admin-bar & {
+        top: 112px;
+      }
+    }
+
+    .container-fluid {
+      padding-top: 1rem;
+
+      @include media-breakpoint-up(lg) {
+        padding-top: 0;
+      }
+    }
+
+    .sub-menu {
+      @include media-breakpoint-up(md) {
+        column-count: 2;
+      }
+
+      @include media-breakpoint-up(lg) {
+        padding: 6rem 6rem 6rem 0;
+      }
+
+      li {
+        display: inline-block;
+        width: 100%;
+      }
+
+      a {
+        font-size: 32px;
+        font-weight: 600;
+        padding: $spacer*0.75 0;
+        line-height: 1.2;
+      }
+    }
+  }
+
+  .contact {
+    background-color: darken($light, 4);
+    margin-top: 2rem;
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    padding: 1.5rem 1.5rem 2rem;
+
+    @include media-breakpoint-up(md) {
+      margin-left: -4rem;
+      margin-right: -4rem;
+      padding: 1.5rem 4rem 2rem;
+    }
+
+    @include media-breakpoint-up(lg) {
+      background-color: $light;
+      margin-top: 0;
+      padding: 7rem 3rem;
+    }
+
+    img {
+      flex: 0 0 64px;
+    }
+  }
+
+  .active {
+    .sub-menu-wrapper {
+      height: auto;
+
+      @include media-breakpoint-up(lg) {
+        height: 50%;
+      }
+    }
+  }
+}
+
+body {
+  &::after {
+    @include media-breakpoint-up(lg) {
+      content: "";
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 0;
+      width: 100%;
+      z-index: 60;
+      background: rgba(0, 0, 0, 0);
+      transition: background 600ms, height 0s linear 600ms;
+    }
+  }
+
+  &.backdrop {
+    @include media-breakpoint-up(lg) {
+      overflow: hidden;
+
+      &::after {
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        transition: background 600ms, height 0s;
+      }
+    }
+  }
+}

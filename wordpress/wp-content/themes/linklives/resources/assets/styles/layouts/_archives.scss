@@ -1,0 +1,137 @@
+.module-news,
+.blog,
+.archive {
+  .post-type {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-color: $border-dark;
+    border-style: solid;
+    border-width: 0;
+    border-bottom-width: 1px;
+    border-right-width: 0;
+
+    article {
+      flex-direction: column;
+
+      @include media-breakpoint-up(sm) {
+        flex-direction: row;
+      }
+
+      @include media-breakpoint-up(lg) {
+        flex-direction: column;
+      }
+
+      @include media-breakpoint-up(xl) {
+        flex-direction: row;
+      }
+    }
+
+    .thumbnail-bg {
+      width: 100%;
+      min-height: 16rem;
+      background-size: cover;
+      background-position: center center;
+    }
+
+    .content {
+      .icon {
+        display: block;
+        color: $yellow;
+        transition: transform 600ms $ease;
+        margin-top: 1rem;
+      }
+    }
+
+    .thumbnail-bg,
+    .thumbnail-bg + .content {
+      flex-grow: 1;
+      flex-basis: 0;
+    }
+
+    &.text-white {
+      border-color: $border-light;
+    }
+
+    &.sticky {
+      background-color: $blue;
+
+      @extend .text-white;
+    }
+
+    @include media-breakpoint-only(md) {
+      &:not(.last-md) {
+        border-right-width: 1px;
+      }
+    }
+
+    @include media-breakpoint-only(lg) {
+      &:not(.last-lg) {
+        border-right-width: 1px;
+      }
+    }
+
+    @include media-breakpoint-only(xl) {
+      &:not(.last-xl) {
+        border-right-width: 1px;
+      }
+    }
+  }
+
+  a.post-type:hover {
+    text-decoration: none;
+
+    h5 {
+      text-decoration: underline;
+    }
+
+    .icon {
+      transform: translateX($spacer);
+    }
+  }
+}
+
+.post-type-archive-partner,
+.post-type-archive-associeret_partner,
+.post-type-archive-fond {
+  @include media-breakpoint-only(md) {
+    @include article(1);
+  }
+
+  @include media-breakpoint-only(lg) {
+    @include article(2);
+  }
+
+  @include media-breakpoint-only(xl) {
+    @include article(2);
+  }
+
+  .post-type {
+    padding-bottom: 2.5rem;
+
+    @include media-breakpoint-up(sm) {
+      padding-right: 6rem;
+    }
+
+    @include media-breakpoint-up(lg) {
+      padding-right: 4rem;
+    }
+
+    @include media-breakpoint-up(xl) {
+      padding-right: 10rem;
+    }
+  }
+
+  div.thumbnail {
+    margin-bottom: 0.5rem;
+
+    svg {
+      max-height: 6rem;
+      width: auto;
+      max-width: 9rem;
+    }
+  }
+
+  img.thumbnail {
+    margin-bottom: 1rem;
+  }
+}

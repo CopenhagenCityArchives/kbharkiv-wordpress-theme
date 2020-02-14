@@ -1,0 +1,16 @@
+
+# Ignore everything but /wordpress/wp-content
+!/wordpress
+/wordpress/*
+!/wordpress/wp-content
+/wordpress/wp-content/*
+
+!/wordpress/wp-content/languages
+
+!/wordpress/wp-content/plugins
+
+!/wordpress/wp-content/themes
+
+/wordpress/wp-content/uploads
+
+.DS_Store

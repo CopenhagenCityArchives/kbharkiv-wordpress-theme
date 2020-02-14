@@ -1,0 +1,26 @@
+blockquote.wp-block-quote {
+  margin-bottom: $spacer*2.5;
+
+  p {
+    font-family: $font-family-serif;
+    font-size: 1.5rem;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+  }
+
+  cite {
+    display: flex;
+    align-items: center;
+    font-weight: $font-weight-normal;
+    font-style: normal;
+
+    &::before {
+      content: "";
+      display: block;
+      background-color: $dark;
+      width: $spacer;
+      height: 1px;
+      margin-right: $spacer;
+    }
+  }
+}

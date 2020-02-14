@@ -1,0 +1,20 @@
+.breadcrumbs {
+  line-height: 52.8px;
+
+  .link,
+  .current {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .link::after {
+    content: "";
+    position: relative;
+    height: 1px;
+    width: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    margin: 0 1.5rem;
+    top: -4px;
+  }
+}

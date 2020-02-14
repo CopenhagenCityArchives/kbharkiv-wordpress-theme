@@ -1,0 +1,10 @@
+.tags {
+  font-weight: $font-weight-normal;
+
+  li {
+    @include media-breakpoint-down(md) {
+      display: inline-block;
+      margin-right: $spacer;
+    }
+  }
+}

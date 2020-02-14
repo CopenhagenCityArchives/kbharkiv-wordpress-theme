@@ -1,0 +1,15 @@
+.module-news {
+  img {
+    display: none;
+  }
+
+  .post-type {
+    @include media-breakpoint-down(md) {
+      border-right-width: 0 !important;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    @include article(3);
+  }
+}

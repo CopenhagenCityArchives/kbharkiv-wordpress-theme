@@ -1,0 +1,10 @@
+@mixin article($cols) {
+  .post-type:nth-child(#{$cols}n) {
+    border-right-width: 0 !important;
+  }
+
+  .post-type:nth-child(#{$cols}n+1):nth-last-child(-n+#{$cols}),
+  .post-type:nth-child(#{$cols}n+1):nth-last-child(-n+#{$cols}) ~ .post-type {
+    border-bottom-width: 0;
+  }
+}

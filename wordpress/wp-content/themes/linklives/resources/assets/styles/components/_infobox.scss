@@ -1,0 +1,25 @@
+.infobox {
+  background-color: $blue;
+  color: $white;
+  padding: $spacer*2;
+  margin-bottom: 3rem;
+
+  p {
+    font-size: 1rem;
+  }
+
+  a {
+    color: $white !important;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    margin-left: 3rem;
+    margin-right: -192px;
+    float: right;
+    width: 256px;
+  }
+}
