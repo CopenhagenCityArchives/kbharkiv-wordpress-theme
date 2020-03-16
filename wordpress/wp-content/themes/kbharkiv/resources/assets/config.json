@@ -6,14 +6,11 @@
     ],
     "customizer": [
       "./scripts/customizer.js"
-    ],
-    "editor": [
-      "./scripts/editor.js"
     ]
   },
-  "publicPath": "/wp-content/themes/linklives",
-  "devUrl": "http://localhost:8888",
-  "proxyUrl": "http://localhost:3000",
+  "publicPath": "/wp-content/themes/kbharkiv",
+  "devUrl": "localhost:8888",
+  "proxyUrl": "http://localhost:8888",
   "cacheBusting": "[name]_[hash:8]",
   "watch": [
     "app/**/*.php",

@@ -1,9 +1,6 @@
-<time class="updated mr-3" datetime="{{ get_post_time('c', true) }}">{{ get_the_date(pll__( 'j. M Y' )) }}</time>
-
-@php
-  $wordCount = str_word_count(strip_tags($post->post_content));
-  $wordsPerMinute = 200;
-  $readingTimeInMinutes = ceil($wordCount / $wordsPerMinute);
-@endphp
-
-<span class="light">{{$readingTimeInMinutes == 1 ? pll__( 'Et minut' ) : $readingTimeInMinutes . ' ' . pll__( 'minutter' )}}</span>
+<time class="updated" datetime="{{ get_post_time('c', true) }}">{{ get_the_date() }}</time>
+<p class="byline author vcard">
+  {{ __('By', 'sage') }} <a href="{{ get_author_posts_url(get_the_author_meta('ID')) }}" rel="author" class="fn">
+    {{ get_the_author() }}
+  </a>
+</p>

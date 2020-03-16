@@ -27,17 +27,10 @@ add_filter('body_class', function (array $classes) {
 });
 
 /**
- * Limit length of the excerpt
- */
-add_filter( 'excerpt_length', function($length) {
-    return 20;
-} );
-
-/**
  * Add "… Continued" to the excerpt
  */
 add_filter('excerpt_more', function () {
-    return '…';
+    return ' &hellip; <a href="' . get_permalink() . '">' . __('Continued', 'sage') . '</a>';
 });
 
 /**
@@ -96,12 +89,3 @@ add_filter('comments_template', function ($comments_template) {
 
     return $comments_template;
 }, 100);
-
-// add_action( 'template_redirect', function() {
-//   if( is_archive() && !is_index() ) {
-//       wp_redirect( get_post_type_archive_link(get_page_template_slug()), 301 );
-//       exit();
-//   }
-// });
-//
-// @php echo get_page_template_slug('') @endphp

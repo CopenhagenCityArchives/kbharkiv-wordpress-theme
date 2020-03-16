@@ -20,19 +20,6 @@ add_action('wp_enqueue_scripts', function () {
 }, 100);
 
 /**
- * Editor assets
- */
-add_action( 'enqueue_block_editor_assets', function () {
-  wp_enqueue_script(
-    'sage/editor.js',
-    asset_path('scripts/editor.js'),
-    array( 'wp-blocks', 'wp-dom-ready', 'wp-edit-post' ),
-    get_stylesheet_directory( asset_path('scripts/editor.js') ),
-    true
-  );
-}, 100);
-
-/**
  * Theme setup
  */
 add_action('after_setup_theme', function () {
@@ -57,9 +44,7 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
      */
     register_nav_menus([
-        'primary_navigation' => __('Primary Navigation', 'sage'),
-        'secondary_navigation' => __('Secondary Navigation', 'sage'),
-        'footer_navigation' => __('Footer Navigation', 'sage')
+        'primary_navigation' => __('Primary Navigation', 'sage')
     ]);
 
     /**
@@ -67,13 +52,6 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
      */
     add_theme_support('post-thumbnails');
-    add_image_size('profile-image-x1', 64, 64, true );
-    add_image_size('profile-image-x2', 128, 128, true );
-    add_image_size('profile-image-x3', 192, 192, true );
-    add_image_size('thumbnail-image-x1', 600, 450, true );
-    add_image_size('thumbnail-image-x2', 1200, 900, true );
-    add_image_size('post-image-x1', 1020 );
-    add_image_size('post-image-x2', 2040 );
 
     /**
      * Enable HTML5 markup support
@@ -87,15 +65,32 @@ add_action('after_setup_theme', function () {
      */
     add_theme_support('customize-selective-refresh-widgets');
 
-    add_theme_support( 'disable-custom-colors' );
-
-    add_theme_support( 'editor-styles' );
     /**
      * Use main stylesheet for visual editor
      * @see resources/assets/styles/layouts/_tinymce.scss
      */
-    //add_editor_style(asset_path('styles/gutenberg.css'));
+    add_editor_style(asset_path('styles/main.css'));
 }, 20);
+
+/**
+ * Register sidebars
+ */
+add_action('widgets_init', function () {
+    $config = [
+        'before_widget' => '<section class="widget %1$s %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h3>',
+        'after_title'   => '</h3>'
+    ];
+    register_sidebar([
+        'name'          => __('Primary', 'sage'),
+        'id'            => 'sidebar-primary'
+    ] + $config);
+    register_sidebar([
+        'name'          => __('Footer', 'sage'),
+        'id'            => 'sidebar-footer'
+    ] + $config);
+});
 
 /**
  * Updates the `$post` variable on each iteration of the loop.
@@ -136,28 +131,9 @@ add_action('after_setup_theme', function () {
     });
 });
 
-// Define path and URL to the ACF plugin.
-define( 'acf_path', get_stylesheet_directory() . '/acf/' );
-define( 'acf_url', get_stylesheet_directory_uri() . '/acf/' );
-
-// Include the ACF plugin.
-include_once( acf_path . 'acf.php' );
-
-// Customize the url setting to fix incorrect asset URLs.
-add_filter('acf/settings/url', function ( $url ) {
-  return acf_url;
-});
-
-// register options page.
-add_action('acf/init', function () {
-  if( function_exists('acf_add_options_page') ) {
-    $option_page = acf_add_options_page(array(
-      'page_title'    => __('Andet'),
-      'menu_title'    => __('Andet'),
-      'menu_slug'     => 'andet',
-      'position'      => '51.5',
-      'capability'    => 'edit_posts',
-      'redirect'      => false
-    ));
-  }
+/**
+ * Add tags to pages
+ */
+add_action( 'init', function () {
+  register_taxonomy_for_object_type( 'post_tag', 'page' );
 });

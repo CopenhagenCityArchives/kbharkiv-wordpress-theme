@@ -1,4 +1,3 @@
-@import "common/mixins";
 @import "common/variables";
 
 /** Import everything from autoload */
@@ -14,29 +13,13 @@
 
 /** Import theme styles */
 @import "common/global";
-@import "common/fonts";
-@import "common/typography";
-@import "modules/modules";
-@import "modules/modules-contact";
-@import "modules/modules-grid";
-@import "modules/modules-groupedlinks";
-@import "modules/modules-hero";
-@import "modules/modules-news";
-@import "components/breadcrumbs";
 @import "components/buttons";
-@import "components/bylines";
-@import "components/cookie";
-@import "components/icons";
-@import "components/images";
-@import "components/infobox";
-@import "components/nav-article";
-@import "components/page-header";
-@import "components/profile-img";
-@import "components/quotes";
-@import "components/tags";
-@import "components/tags-filter";
-@import "layouts/archives";
-@import "layouts/archive-members";
-@import "layouts/footer";
+@import "components/comments";
+@import "components/forms";
+@import "components/wp-classes";
 @import "layouts/header";
+@import "layouts/sidebar";
+@import "layouts/footer";
+@import "layouts/pages";
 @import "layouts/posts";
+@import "layouts/tinymce";
