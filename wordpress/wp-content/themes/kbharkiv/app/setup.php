@@ -52,6 +52,8 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
      */
     add_theme_support('post-thumbnails');
+    add_image_size('herox2', 2400, 1260, true );
+    add_image_size('herox1', 1200, 630, true );
 
     /**
      * Enable HTML5 markup support

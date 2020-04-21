@@ -110,4 +110,53 @@ class Kbharkiv_Walker_Nav_Menu extends Walker_Nav_Menu {
 		 */
 		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 	}
-} // Rational_Walker_Nav_Menu
+} // Kbharkiv_Walker_Nav_Menu
+
+
+class Kbharkiv_Walker_Nav_Children extends Walker_Page {
+	public function start_el(&$output, $page, $depth, $args, $current_page) {
+		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+
+    extract($args, EXTR_SKIP);
+
+    $css_class = array('page-item', $depth == 0 ? 'col-md-4' : '');
+
+    // if ( !empty($current_page) ) {
+	  //   $_current_page = get_page( $current_page );
+	  //   _get_post_ancestors($_current_page);
+	  //   if ( isset($_current_page->ancestors) && in_array($page->ID, (array) $_current_page->ancestors) )
+	  //     $css_class[] = 'current_page_ancestor';
+	  //   if ( $page->ID == $current_page )
+	  //     $css_class[] = 'current_page_item';
+	  //   elseif ( $_current_page && $page->ID == $_current_page->post_parent )
+	  //   	$css_class[] = 'current_page_parent';
+    // } elseif ( $page->ID == get_option('page_for_posts') ) {
+    //   $css_class[] = 'current_page_parent';
+    // }
+
+    $css_class = implode(' ', apply_filters( 'page_css_class', $css_class, $page, $depth, $args, $current_page ));
+
+		$element = $depth == 0 ? 'div' : 'li';
+		$thumbnail = has_post_thumbnail($page->ID) && $depth == 0 ? get_the_post_thumbnail($page->ID, 'herox1') : '';
+		$headline = $depth == 0 ? 'h3' : 'h5';
+		$icon = $depth == 0 ? '<svg class="icon"><use xlink:href="' . App\asset_path('images/feather-sprite.svg') . '#arrow-right"/></svg>' : '';
+
+    //Modification
+    $content = $link_before . $thumbnail . '<' . $headline .'>' . get_the_title($page->ID) . '</' . $headline .'>' . $icon . $link_after;
+
+    $output .= $indent . '<' . $element . ' class="' . $css_class . '"><a href="' . get_permalink($page->ID) . '">' . $content . '</a>';
+    //End Modification
+	}
+
+	public function end_el( &$output, $item, $depth = 0, $args = null ) {
+    if ( isset( $args->item_spacing ) && 'discard' === $args->item_spacing ) {
+        $t = '';
+        $n = '';
+    } else {
+        $t = "\t";
+        $n = "\n";
+    }
+		$element = $depth == 0 ? 'div' : 'li';
+    $output .= "</" . $element . ">{$n}";
+	}
+}	// Kbharkiv_Walker_Nav_Children
