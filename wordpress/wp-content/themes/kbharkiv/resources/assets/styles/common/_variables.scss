@@ -10,3 +10,25 @@ $grid-gutter-width:           24px !default;
 /** Bootstrap navbar fix (https://git.io/fADqW) */
 $navbar-dark-toggler-icon-bg: none;
 $navbar-light-toggler-icon-bg: none;
+
+// Typography
+//
+// Font, line-height, and color for body text, headings, and more.
+
+$font-family-sans-serif:      "kbh", Helvetica, Arial, sans-serif !default;
+$font-family-serif:           "kbh", "Times New Roman", Times, serif !default;
+
+$font-weight-lighter:         400 !default;
+$font-weight-light:           500 !default;
+$font-weight-normal:          600 !default;
+$font-weight-bold:            700 !default;
+$font-weight-bolder:          800 !default;
+
+$font-weight-base:            $font-weight-lighter !default;
+
+$headings-font-weight:        700 !default;
+
+$display1-weight:             800 !default;
+$display2-weight:             800 !default;
+$display3-weight:             800 !default;
+$display4-weight:             800 !default;
