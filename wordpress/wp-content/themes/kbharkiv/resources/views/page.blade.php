@@ -19,7 +19,7 @@
         {{ wp_list_pages($args) }}
       </div>
 
-    @else
+    @elseif (has_post_thumbnail())
       @php the_post_thumbnail( 'herox2' ); @endphp
     @endif
 

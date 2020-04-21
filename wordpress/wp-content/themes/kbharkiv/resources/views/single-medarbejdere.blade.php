@@ -7,6 +7,11 @@
     {{ get_field('employee_title') }}
   @endif
 
+  @if (has_post_thumbnail())
+    @php the_post_thumbnail(); @endphp
+  @endif
+
+
   @while(have_posts()) @php the_post() @endphp
     @include('partials.content-single-'.get_post_type())
   @endwhile

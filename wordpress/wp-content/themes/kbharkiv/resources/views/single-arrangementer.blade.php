@@ -5,6 +5,10 @@
     @include('partials.content-single-'.get_post_type())
   @endwhile
 
+  @if (has_post_thumbnail())
+    @php the_post_thumbnail(); @endphp
+  @endif
+
   @if( have_rows('modules') )
     @while ( have_rows('modules') )
       @php the_row() @endphp
