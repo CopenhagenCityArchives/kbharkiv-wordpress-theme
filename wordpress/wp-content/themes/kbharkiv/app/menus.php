@@ -114,7 +114,7 @@ class Kbharkiv_Walker_Nav_Menu extends Walker_Nav_Menu {
 
 
 class Kbharkiv_Walker_Nav_Children extends Walker_Page {
-	public function start_el(&$output, $page, $depth, $args, $current_page) {
+	public function start_el( &$output, $item, $depth = 0, $args = array(), $current_page = 0 ) {
 		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
 
     extract($args, EXTR_SKIP);
