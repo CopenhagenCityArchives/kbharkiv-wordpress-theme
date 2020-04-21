@@ -1,0 +1,114 @@
+{
+    "key": "group_5e984b9727ef0",
+    "title": "Arrangement",
+    "fields": [
+        {
+            "key": "field_5e984b9b6c56b",
+            "label": "Pris",
+            "name": "event_price",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": ""
+        },
+        {
+            "key": "field_5e984bc36c56c",
+            "label": "Link til billet",
+            "name": "event_link",
+            "type": "url",
+            "instructions": "Link til tilmeld eller køb billet",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_5e984bfd6c56d",
+            "label": "Lokation",
+            "name": "event_location",
+            "type": "text",
+            "instructions": "Navn på lokation",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5e984c9ba3a6a",
+            "label": "Starttidspunkt",
+            "name": "event_start",
+            "type": "date_time_picker",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "d\/m\/Y H:i",
+            "return_format": "Y-m-d H:i:s",
+            "first_day": 1
+        },
+        {
+            "key": "field_5e984cffa3a6b",
+            "label": "Sluttidspunkt",
+            "name": "event_end",
+            "type": "date_time_picker",
+            "instructions": "Udfyld kun hvis arrangementet skal være en periode og derfor have et sluttidspunkt.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "d\/m\/Y H:i",
+            "return_format": "Y-m-d H:i:s",
+            "first_day": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "arrangementer"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1587499701
+}
