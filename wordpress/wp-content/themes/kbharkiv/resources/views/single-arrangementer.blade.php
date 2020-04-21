@@ -33,7 +33,7 @@
 
   <h6>Køb billet</h6>
   @if( get_field('event_link') )
-    <a href="{{ get_field('event_link') }}">Køb billet</a>
+    <a target="_blank" href="{{ get_field('event_link') }}">Køb billet</a>
   @endif
 
   <h6>Pris</h6>
