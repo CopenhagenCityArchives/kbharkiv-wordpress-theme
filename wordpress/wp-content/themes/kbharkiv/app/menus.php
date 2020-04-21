@@ -124,27 +124,27 @@ class Kbharkiv_Walker_Nav_Children extends Walker_Page {
     // if ( !empty($current_page) ) {
 	  //   $_current_page = get_page( $current_page );
 	  //   _get_post_ancestors($_current_page);
-	  //   if ( isset($_current_page->ancestors) && in_array($page->ID, (array) $_current_page->ancestors) )
+	  //   if ( isset($_current_page->ancestors) && in_array($item->ID, (array) $_current_page->ancestors) )
 	  //     $css_class[] = 'current_page_ancestor';
-	  //   if ( $page->ID == $current_page )
+	  //   if ( $item->ID == $current_page )
 	  //     $css_class[] = 'current_page_item';
-	  //   elseif ( $_current_page && $page->ID == $_current_page->post_parent )
+	  //   elseif ( $_current_page && $item->ID == $_current_page->post_parent )
 	  //   	$css_class[] = 'current_page_parent';
-    // } elseif ( $page->ID == get_option('page_for_posts') ) {
+    // } elseif ( $item->ID == get_option('page_for_posts') ) {
     //   $css_class[] = 'current_page_parent';
     // }
 
-    $css_class = implode(' ', apply_filters( 'page_css_class', $css_class, $page, $depth, $args, $current_page ));
+    $css_class = implode(' ', apply_filters( 'page_css_class', $css_class, $item, $depth, $args, $current_page ));
 
 		$element = $depth == 0 ? 'div' : 'li';
-		$thumbnail = has_post_thumbnail($page->ID) && $depth == 0 ? get_the_post_thumbnail($page->ID, 'herox1') : '';
+		$thumbnail = has_post_thumbnail($item->ID) && $depth == 0 ? get_the_post_thumbnail($item->ID, 'herox1') : '';
 		$headline = $depth == 0 ? 'h3' : 'h5';
 		$icon = $depth == 0 ? '<svg class="icon"><use xlink:href="' . App\asset_path('images/feather-sprite.svg') . '#arrow-right"/></svg>' : '';
 
     //Modification
-    $content = $link_before . $thumbnail . '<' . $headline .'>' . get_the_title($page->ID) . '</' . $headline .'>' . $icon . $link_after;
+    $content = $link_before . $thumbnail . '<' . $headline .'>' . get_the_title($item->ID) . '</' . $headline .'>' . $icon . $link_after;
 
-    $output .= $indent . '<' . $element . ' class="' . $css_class . '"><a href="' . get_permalink($page->ID) . '">' . $content . '</a>';
+    $output .= $indent . '<' . $element . ' class="' . $css_class . '"><a href="' . get_permalink($item->ID) . '">' . $content . '</a>';
     //End Modification
 	}
 
