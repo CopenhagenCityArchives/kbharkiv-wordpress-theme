@@ -1,0 +1,303 @@
+{
+    "key": "group_5d243314c17f3",
+    "title": "Moduler",
+    "fields": [
+        {
+            "key": "field_5d243339768f0",
+            "label": "Moduler",
+            "name": "modules",
+            "type": "flexible_content",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layouts": {
+                "layout_5d2433407f0d6": {
+                    "key": "layout_5d2433407f0d6",
+                    "name": "modules_news",
+                    "label": "Nyheder",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5d243359768f1",
+                            "label": "Overskrift",
+                            "name": "modules_news_headline",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5d2433a6768f2",
+                            "label": "Nyheder",
+                            "name": "modules_news_news",
+                            "type": "relationship",
+                            "instructions": "Vælg indlæg, hvis IKKE modulet skal vise seneste nyheder",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "post_type": [
+                                "post"
+                            ],
+                            "taxonomy": "",
+                            "filters": [
+                                "search",
+                                "post_type",
+                                "taxonomy"
+                            ],
+                            "elements": [
+                                "featured_image"
+                            ],
+                            "min": "",
+                            "max": 3,
+                            "return_format": "object"
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_5d2c2eccd45b6": {
+                    "key": "layout_5d2c2eccd45b6",
+                    "name": "modules_shortcuts",
+                    "label": "Genveje",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5e96c080ee7e4",
+                            "label": "Genvej",
+                            "name": "modules_shortcuts_shortcuts",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "collapsed": "",
+                            "min": 0,
+                            "max": 0,
+                            "layout": "table",
+                            "button_label": "",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5e96c0abee7e5",
+                                    "label": "Overskrift",
+                                    "name": "modules_shortcuts_shortcuts_headline",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_5d36244f1939c": {
+                    "key": "layout_5d36244f1939c",
+                    "name": "modules_content",
+                    "label": "Indhold",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5d36245f1939d",
+                            "label": "Indhold",
+                            "name": "modules_content_wysiwyg",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_5d3813c9e02c2": {
+                    "key": "layout_5d3813c9e02c2",
+                    "name": "modules_newsletter",
+                    "label": "Nyhedsbrev",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5d3a2d577c0c9",
+                            "label": "Overskrift",
+                            "name": "modules_newsletter_headline",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "acfe_permissions": "",
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": "",
+                            "acfe_validate": "",
+                            "acfe_update": ""
+                        },
+                        {
+                            "key": "field_5d795c34b2868",
+                            "label": "Brødtekst",
+                            "name": "modules_newsletter_copy",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "acfe_permissions": "",
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0,
+                            "acfe_validate": "",
+                            "acfe_update": ""
+                        },
+                        {
+                            "key": "field_5d3a2f66267d2",
+                            "label": "Type",
+                            "name": "modules_newsletter_type",
+                            "type": "radio",
+                            "instructions": "Vælg om modulet er til at tilmelde eller framelde sig nyhedsbrevet.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "acfe_permissions": "",
+                            "choices": {
+                                "true": "Tilmeld",
+                                "false": "Afmeld"
+                            },
+                            "allow_null": 0,
+                            "other_choice": 0,
+                            "default_value": "true",
+                            "layout": "vertical",
+                            "return_format": "value",
+                            "acfe_validate": "",
+                            "acfe_update": "",
+                            "save_other_choice": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_5e96c0f7ee7e6": {
+                    "key": "layout_5e96c0f7ee7e6",
+                    "name": "modules_script",
+                    "label": "Script",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5e96c10aee7e7",
+                            "label": "Script",
+                            "name": "modules_script_script",
+                            "type": "acf_code_field",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "mode": "htmlmixed",
+                            "theme": "monokai"
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                }
+            },
+            "button_label": "Tilføj modul",
+            "min": "",
+            "max": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "arrangementer"
+            }
+        ]
+    ],
+    "menu_order": 1,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1587463438
+}
