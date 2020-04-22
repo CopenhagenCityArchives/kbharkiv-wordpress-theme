@@ -261,6 +261,43 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_5e9fec6083407": {
+                    "key": "layout_5e9fec6083407",
+                    "name": "modules_sdk",
+                    "label": "SDK",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5e9fec6d83408",
+                            "label": "SDK",
+                            "name": "modules_sdk_sdk",
+                            "type": "select",
+                            "instructions": "Vælg det SDK du vil køre",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "Almindelig søgning": "Almindelig søgning",
+                                "Avanceret søgning": "Avanceret søgning",
+                                "Søge resultat": "Søgeresultat",
+                                "Status for indtastning": "Status for indtastning"
+                            },
+                            "default_value": [],
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value",
+                            "ajax": 0,
+                            "placeholder": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "button_label": "Tilføj modul",
@@ -299,5 +336,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1587463438
+    "modified": 1587539212
 }

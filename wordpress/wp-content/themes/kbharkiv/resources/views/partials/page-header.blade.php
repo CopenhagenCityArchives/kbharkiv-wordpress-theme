@@ -1,4 +1,4 @@
-<div style="background-color: {{ isset($color_theme) ? $color_theme : 'yellow' }}">
+<div>
   <div class="page-header">
     <h1>{!! App::title() !!}</h1>
   </div>
