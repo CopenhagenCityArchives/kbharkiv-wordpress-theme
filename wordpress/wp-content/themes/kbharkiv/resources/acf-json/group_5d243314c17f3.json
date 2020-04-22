@@ -234,17 +234,17 @@
                     "min": "",
                     "max": ""
                 },
-                "layout_5e96c0f7ee7e6": {
-                    "key": "layout_5e96c0f7ee7e6",
-                    "name": "modules_script",
-                    "label": "Script",
+                "layout_5e9fec6083407": {
+                    "key": "layout_5e9fec6083407",
+                    "name": "modules_sdkkildeviser",
+                    "label": "SDK Kildeviser",
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_5e96c10aee7e7",
-                            "label": "Script",
-                            "name": "modules_script_script",
-                            "type": "acf_code_field",
+                            "key": "field_5ea02c04dcdb0",
+                            "label": "Id",
+                            "name": "modules_sdkkildeviser_id",
+                            "type": "text",
                             "instructions": "",
                             "required": 1,
                             "conditional_logic": 0,
@@ -255,25 +255,26 @@
                             },
                             "default_value": "",
                             "placeholder": "",
-                            "mode": "htmlmixed",
-                            "theme": "monokai"
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
                         }
                     ],
                     "min": "",
                     "max": ""
                 },
-                "layout_5e9fec6083407": {
-                    "key": "layout_5e9fec6083407",
-                    "name": "modules_sdk",
-                    "label": "SDK",
+                "layout_5ea03574ee5cc": {
+                    "key": "layout_5ea03574ee5cc",
+                    "name": "modules_sdkkildetaster",
+                    "label": "SDK Kildetaster",
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_5e9fec6d83408",
-                            "label": "SDK",
-                            "name": "modules_sdk_sdk",
-                            "type": "select",
-                            "instructions": "Vælg det SDK du vil køre",
+                            "key": "field_5ea03574ee5cd",
+                            "label": "Id",
+                            "name": "modules_sdkkildetaster_id",
+                            "type": "text",
+                            "instructions": "",
                             "required": 1,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -281,19 +282,173 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "choices": {
-                                "Almindelig søgning": "Almindelig søgning",
-                                "Avanceret søgning": "Avanceret søgning",
-                                "Søge resultat": "Søgeresultat",
-                                "Status for indtastning": "Status for indtastning"
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5ea082a8daccf",
+                            "label": "1. overskrift",
+                            "name": "modules_sdkkildetaster_headline_1",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
                             },
-                            "default_value": [],
-                            "allow_null": 0,
-                            "multiple": 0,
-                            "ui": 0,
-                            "return_format": "value",
-                            "ajax": 0,
-                            "placeholder": ""
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5ea082d3dacd0",
+                            "label": "2. overskrift",
+                            "name": "modules_sdkkildetaster_headline_2",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_5ea0314ae0f30": {
+                    "key": "layout_5ea0314ae0f30",
+                    "name": "modules_sdksearch",
+                    "label": "SDK Search",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5ea0315ce0f31",
+                            "label": "Simple search text",
+                            "name": "modules_sdksearch_simple-search-text",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0
+                        },
+                        {
+                            "key": "field_5ea085511e3c4",
+                            "label": "Upper text",
+                            "name": "modules_sdksearch_upper-text",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0
+                        },
+                        {
+                            "key": "field_5ea085891e3c5",
+                            "label": "Lower text",
+                            "name": "modules_sdksearch_lower-text",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0
+                        },
+                        {
+                            "key": "field_5ea085a41e3c6",
+                            "label": "Advanced search lower",
+                            "name": "modules_sdksearch_advanced-search-lower",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0
+                        },
+                        {
+                            "key": "field_5ea03251d4c71",
+                            "label": "Error",
+                            "name": "modules_sdksearch_error",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0
+                        },
+                        {
+                            "key": "field_5ea085c41e3c7",
+                            "label": "No results",
+                            "name": "modules_sdksearch_no-results",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0
                         }
                     ],
                     "min": "",
@@ -336,5 +491,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1587539212
+    "modified": 1587578333
 }

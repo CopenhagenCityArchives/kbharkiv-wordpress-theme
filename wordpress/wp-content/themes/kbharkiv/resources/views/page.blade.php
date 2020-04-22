@@ -4,6 +4,8 @@
   @while(have_posts()) @php the_post() @endphp
     @include('partials.page-header')
 
+    @include('partials.modules')
+
     @php
       $args = [
         'child_of' => $post->ID,

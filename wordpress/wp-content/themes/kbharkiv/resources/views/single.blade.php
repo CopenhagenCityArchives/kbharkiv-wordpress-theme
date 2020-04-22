@@ -5,11 +5,6 @@
     @include('partials.content-single-'.get_post_type())
   @endwhile
 
-  @if( have_rows('modules') )
-    @while ( have_rows('modules') )
-      @php the_row() @endphp
-      @include('partials.content-' . str_replace('_', '-', get_row_layout()))
-    @endwhile
-  @endif
+  @include('partials.modules')
 
 @endsection

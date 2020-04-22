@@ -9,12 +9,7 @@
     @php the_post_thumbnail(); @endphp
   @endif
 
-  @if( have_rows('modules') )
-    @while ( have_rows('modules') )
-      @php the_row() @endphp
-      @include('partials.modules.content-' . str_replace('_', '-', get_row_layout()))
-    @endwhile
-  @endif
+  @include('partials.modules')
 
   <h6>Lokation</h6>
   @if( get_field('event_location') )
