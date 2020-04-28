@@ -55,6 +55,6 @@
   <div ui-view="">&nbsp;</div>
 </div>
 
-<script src="https://www.kbhkilder.dk/software/kildetaster/resources/js/sdk.js" type="text/javascript"></script>
+<script src="https://www.kbhkilder.dk/software/kildetaster-new-site/resources/js/sdk.js" type="text/javascript"></script>
 
 <!-- SDK END -->
