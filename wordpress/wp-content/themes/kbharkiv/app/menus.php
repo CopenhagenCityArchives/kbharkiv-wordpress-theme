@@ -28,14 +28,17 @@ class Kbharkiv_Walker_Nav_Menu extends Walker_Nav_Menu {
 
 		// Cleaner class array to replace default
 		$new_classes = array();
-		if ( in_array( 'menu-item-has-children', $classes ) )
+		$level = '';
+		if ( in_array( 'menu-item-has-children', $classes ) ) {
 			$new_classes[] = 'parent';
+			$level = ' data-level="' . ($depth + 1) . '"';
+		}
 		if ( in_array( 'current-menu-item', $classes ) )
-			$new_classes[] = 'active';
+			$new_classes[] = 'current';
 		if ( in_array( 'current-menu-ancestor', $classes ) )
-			$new_classes[] = 'active-ancestor';
+			$new_classes[] = 'current-ancestor';
 		if ( in_array( 'current-menu-parent', $classes ) )
-			$new_classes[] = 'active-parent';
+			$new_classes[] = 'current-parent';
 		$classes = $new_classes;
 
 		/**
@@ -52,7 +55,7 @@ class Kbharkiv_Walker_Nav_Menu extends Walker_Nav_Menu {
 		$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
 
 		// removed the ID
-		$output .= $indent . '<li' . $class_names .'>';
+		$output .= $indent . '<li' . $class_names . $level . '>';
 
 		$atts = array();
 		$atts['title']  = ! empty( $item->attr_title ) ? $item->attr_title : '';
@@ -87,8 +90,11 @@ class Kbharkiv_Walker_Nav_Menu extends Walker_Nav_Menu {
 			}
 		}
 
+		$attributes .= $item->menu_item_parent ? ' tabindex="-1"' : '';
+		$attributes .= in_array( 'menu-item-has-children', $classes ) ? ' aria-haspopup="true" aria-expanded="false"' : '';
+
 		$item_output = $args->before;
-		$item_output .= '<a'. $attributes .'>';
+		$item_output .= '<a'. $attributes . '>';
 		/** This filter is documented in wp-includes/post-template.php */
 		$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
 		$item_output .= '</a>';
@@ -109,6 +115,34 @@ class Kbharkiv_Walker_Nav_Menu extends Walker_Nav_Menu {
 		 * @param array  $args        An array of {@see wp_nav_menu()} arguments.
 		 */
 		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+	}
+
+	public function start_lvl( &$output, $depth = 0, $args = null ) {
+    if ( isset( $args->item_spacing ) && 'discard' === $args->item_spacing ) {
+        $t = '';
+        $n = '';
+    } else {
+        $t = "\t";
+        $n = "\n";
+    }
+    $indent = str_repeat( $t, $depth );
+
+    // Default class.
+	    $classes = array( 'sub-menu' );
+
+    /**
+     * Filters the CSS class(es) applied to a menu list element.
+     *
+     * @since 4.8.0
+     *
+     * @param string[] $classes Array of the CSS classes that are applied to the menu `<ul>` element.
+     * @param stdClass $args    An object of `wp_nav_menu()` arguments.
+     * @param int      $depth   Depth of menu item. Used for padding.
+     */
+    $class_names = join( ' ', apply_filters( 'nav_menu_submenu_css_class', $classes, $args, $depth ) );
+    $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
+
+    $output .= "{$n}{$indent}<ul$class_names><li class='nav-back d-lg-none'><a tabindex='-1' href='#'>Tilbage</a></li>{$n}";
 	}
 } // Kbharkiv_Walker_Nav_Menu
 
