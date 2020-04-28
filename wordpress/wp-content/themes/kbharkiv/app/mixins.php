@@ -58,6 +58,6 @@ function theme_color($dark = 0) {
 			return $theme_colors = explode(',', get_field('color_theme', $parent_id))[$dark ? '1' : '0'];
 		}
 	} else {
-		return ['#F7F7F7', '#000000'][$dark ? '1' : '0'];
+		return ['#ffffff', '#000000'][$dark ? '1' : '0'];
 	}
 }

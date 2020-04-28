@@ -46,7 +46,7 @@
                             "label": "Nyheder",
                             "name": "modules_news_news",
                             "type": "relationship",
-                            "instructions": "Vælg indlæg, hvis IKKE modulet skal vise seneste nyheder",
+                            "instructions": "Vælg indlæg, hvis IKKE modulet skal vise de seneste nyheder",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -66,8 +66,66 @@
                             "elements": [
                                 "featured_image"
                             ],
-                            "min": "",
-                            "max": 3,
+                            "min": 3,
+                            "max": 6,
+                            "return_format": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_5ea7d9a92c538": {
+                    "key": "layout_5ea7d9a92c538",
+                    "name": "modules_events",
+                    "label": "Arrangementer",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5ea7d9a92c539",
+                            "label": "Overskrift",
+                            "name": "modules_events_headline",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5ea7d9a92c53a",
+                            "label": "Arrangementer",
+                            "name": "modules_events_events",
+                            "type": "relationship",
+                            "instructions": "Vælg arrangementer, hvis IKKE modulet skal vise de seneste",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "post_type": [
+                                "arrangementer"
+                            ],
+                            "taxonomy": "",
+                            "filters": [
+                                "search",
+                                "post_type",
+                                "taxonomy"
+                            ],
+                            "elements": [
+                                "featured_image"
+                            ],
+                            "min": 2,
+                            "max": 6,
                             "return_format": "object"
                         }
                     ],
@@ -83,7 +141,7 @@
                         {
                             "key": "field_5e96c080ee7e4",
                             "label": "Genvej",
-                            "name": "modules_shortcuts_shortcuts",
+                            "name": "modules_shortcuts_repeater",
                             "type": "repeater",
                             "instructions": "",
                             "required": 0,
@@ -94,15 +152,39 @@
                                 "id": ""
                             },
                             "collapsed": "",
-                            "min": 0,
-                            "max": 0,
-                            "layout": "table",
+                            "min": 6,
+                            "max": 6,
+                            "layout": "",
                             "button_label": "",
                             "sub_fields": [
                                 {
+                                    "key": "field_5ea7d9162c537",
+                                    "label": "Ikon",
+                                    "name": "modules_shortcuts_repeater_icon",
+                                    "type": "image",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "id",
+                                    "preview_size": "thumbnail",
+                                    "library": "",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": ""
+                                },
+                                {
                                     "key": "field_5e96c0abee7e5",
                                     "label": "Overskrift",
-                                    "name": "modules_shortcuts_shortcuts_headline",
+                                    "name": "modules_shortcuts_repeater_headline",
                                     "type": "text",
                                     "instructions": "",
                                     "required": 1,
@@ -117,6 +199,44 @@
                                     "prepend": "",
                                     "append": "",
                                     "maxlength": ""
+                                },
+                                {
+                                    "key": "field_5ea7d8e12c536",
+                                    "label": "Brødtekst",
+                                    "name": "modules_shortcuts_repeater_copy",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "maxlength": "",
+                                    "rows": "",
+                                    "new_lines": ""
+                                },
+                                {
+                                    "key": "field_5ea7e4c209970",
+                                    "label": "Link",
+                                    "name": "modules_shortcuts_repeater_url",
+                                    "type": "page_link",
+                                    "instructions": "",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "post_type": "",
+                                    "taxonomy": "",
+                                    "allow_null": 0,
+                                    "allow_archives": 1,
+                                    "multiple": 0
                                 }
                             ]
                         }
@@ -491,5 +611,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1587578333
+    "modified": 1588061439
 }
