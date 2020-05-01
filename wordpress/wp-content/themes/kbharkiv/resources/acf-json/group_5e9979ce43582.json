@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_5e9979d30c2fb",
-            "label": "Farvetema",
+            "label": "Farve",
             "name": "color_theme",
             "type": "select",
             "instructions": "",
@@ -15,6 +15,7 @@
                 "class": "",
                 "id": ""
             },
+            "acfe_permissions": "",
             "choices": {
                 "#F2E9CE,#7B766A": "Gul",
                 "#DBEDD7,#3F5B58": "Grøn",
@@ -41,33 +42,32 @@
         ],
         [
             {
-                "param": "post_type",
+                "param": "post_type_list",
                 "operator": "==",
-                "value": "post"
-            }
-        ],
-        [
+                "value": "all"
+            },
             {
-                "param": "post_type",
-                "operator": "==",
-                "value": "arrangementer"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "medarbejdere"
+                "param": "post_type_list",
+                "operator": "!=",
+                "value": "page"
             }
         ]
     ],
     "menu_order": 0,
-    "position": "normal",
+    "position": "side",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1587546863
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_permissions": "",
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1588319485
 }
