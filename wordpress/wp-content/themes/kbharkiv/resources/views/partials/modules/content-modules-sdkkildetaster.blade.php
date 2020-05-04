@@ -5,5 +5,3 @@
   <h2>{{ get_sub_field('modules_sdkkildetaster_headline_2') }}</h2>
   <taskunits-list task-id="{{ get_sub_field('modules_sdkkildetaster_id') }}"></taskunits-list>
 </div>
-
-<script src="https://www.kbhkilder.dk/software/kildetaster/resources/js/sdk.js" type="text/javascript"></script>
