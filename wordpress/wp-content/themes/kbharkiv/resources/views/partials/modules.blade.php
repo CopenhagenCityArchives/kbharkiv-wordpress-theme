@@ -1,5 +1,3 @@
-@php $kildetaster @endphp
-
 @if (have_rows('modules'))
   @while ( have_rows('modules') )
     @php
@@ -14,7 +12,7 @@
   @endwhile
 @endif
 
-@if($kildetaster)
+@if(isset($kildetaster))
   @php
     wp_enqueue_style('kildetaster.css', 'https://www.kbhkilder.dk/software/kildetaster-new-site/resources/css/sdk.css');
     wp_enqueue_script('kildetaster.js', 'https://www.kbhkilder.dk/software/kildetaster/resources/js/sdk.js');
