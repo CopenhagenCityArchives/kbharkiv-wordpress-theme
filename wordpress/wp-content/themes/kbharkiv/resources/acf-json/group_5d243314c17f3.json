@@ -3,6 +3,33 @@
     "title": "Moduler",
     "fields": [
         {
+            "acfe_flexible_advanced": 0,
+            "acfe_flexible_stylised_button": 0,
+            "acfe_flexible_hide_empty_message": 0,
+            "acfe_flexible_empty_message": "",
+            "acfe_flexible_disable_ajax_title": 0,
+            "acfe_flexible_layouts_thumbnails": 0,
+            "acfe_flexible_layouts_settings": 0,
+            "acfe_flexible_layouts_ajax": 0,
+            "acfe_flexible_layouts_templates": 0,
+            "acfe_flexible_layouts_previews": 0,
+            "acfe_flexible_layouts_placeholder": 0,
+            "acfe_flexible_title_edition": 0,
+            "acfe_flexible_clone": 0,
+            "acfe_flexible_copy_paste": 0,
+            "acfe_flexible_close_button": 0,
+            "acfe_flexible_remove_add_button": 0,
+            "acfe_flexible_remove_delete_button": 0,
+            "acfe_flexible_lock": 0,
+            "acfe_flexible_modal_edition": 0,
+            "acfe_flexible_modal": {
+                "acfe_flexible_modal_enabled": false,
+                "acfe_flexible_modal_title": false,
+                "acfe_flexible_modal_col": "4",
+                "acfe_flexible_modal_categories": false
+            },
+            "acfe_flexible_layouts_state": "",
+            "acfe_flexible_layouts_remove_collapse": 0,
             "key": "field_5d243339768f0",
             "label": "Moduler",
             "name": "modules",
@@ -72,7 +99,14 @@
                         }
                     ],
                     "min": "",
-                    "max": ""
+                    "max": "",
+                    "acfe_flexible_thumbnail": false,
+                    "acfe_flexible_category": false,
+                    "acfe_flexible_render_template": false,
+                    "acfe_flexible_render_style": false,
+                    "acfe_flexible_render_script": false,
+                    "acfe_flexible_settings": false,
+                    "acfe_flexible_settings_size": "medium"
                 },
                 "layout_5ea7d9a92c538": {
                     "key": "layout_5ea7d9a92c538",
@@ -130,7 +164,14 @@
                         }
                     ],
                     "min": "",
-                    "max": ""
+                    "max": "",
+                    "acfe_flexible_thumbnail": false,
+                    "acfe_flexible_category": false,
+                    "acfe_flexible_render_template": false,
+                    "acfe_flexible_render_style": false,
+                    "acfe_flexible_render_script": false,
+                    "acfe_flexible_settings": false,
+                    "acfe_flexible_settings_size": "medium"
                 },
                 "layout_5d2c2eccd45b6": {
                     "key": "layout_5d2c2eccd45b6",
@@ -182,10 +223,10 @@
                                     "mime_types": ""
                                 },
                                 {
-                                    "key": "field_5e96c0abee7e5",
-                                    "label": "Overskrift",
-                                    "name": "modules_shortcuts_repeater_headline",
-                                    "type": "text",
+                                    "key": "field_5ea7e4c209970",
+                                    "label": "Link",
+                                    "name": "modules_shortcuts_repeater_url",
+                                    "type": "link",
                                     "instructions": "",
                                     "required": 1,
                                     "conditional_logic": 0,
@@ -194,11 +235,8 @@
                                         "class": "",
                                         "id": ""
                                     },
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "maxlength": ""
+                                    "acfe_permissions": "",
+                                    "return_format": "array"
                                 },
                                 {
                                     "key": "field_5ea7d8e12c536",
@@ -218,31 +256,19 @@
                                     "maxlength": "",
                                     "rows": "",
                                     "new_lines": ""
-                                },
-                                {
-                                    "key": "field_5ea7e4c209970",
-                                    "label": "Link",
-                                    "name": "modules_shortcuts_repeater_url",
-                                    "type": "page_link",
-                                    "instructions": "",
-                                    "required": 1,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "post_type": "",
-                                    "taxonomy": "",
-                                    "allow_null": 0,
-                                    "allow_archives": 1,
-                                    "multiple": 0
                                 }
                             ]
                         }
                     ],
                     "min": "",
-                    "max": ""
+                    "max": "",
+                    "acfe_flexible_thumbnail": false,
+                    "acfe_flexible_category": false,
+                    "acfe_flexible_render_template": false,
+                    "acfe_flexible_render_style": false,
+                    "acfe_flexible_render_script": false,
+                    "acfe_flexible_settings": false,
+                    "acfe_flexible_settings_size": "medium"
                 },
                 "layout_5d36244f1939c": {
                     "key": "layout_5d36244f1939c",
@@ -271,7 +297,14 @@
                         }
                     ],
                     "min": "",
-                    "max": ""
+                    "max": "",
+                    "acfe_flexible_thumbnail": false,
+                    "acfe_flexible_category": false,
+                    "acfe_flexible_render_template": false,
+                    "acfe_flexible_render_style": false,
+                    "acfe_flexible_render_script": false,
+                    "acfe_flexible_settings": false,
+                    "acfe_flexible_settings_size": "medium"
                 },
                 "layout_5d3813c9e02c2": {
                     "key": "layout_5d3813c9e02c2",
@@ -352,7 +385,14 @@
                         }
                     ],
                     "min": "",
-                    "max": ""
+                    "max": "",
+                    "acfe_flexible_thumbnail": false,
+                    "acfe_flexible_category": false,
+                    "acfe_flexible_render_template": false,
+                    "acfe_flexible_render_style": false,
+                    "acfe_flexible_render_script": false,
+                    "acfe_flexible_settings": false,
+                    "acfe_flexible_settings_size": "medium"
                 },
                 "layout_5e9fec6083407": {
                     "key": "layout_5e9fec6083407",
@@ -381,7 +421,14 @@
                         }
                     ],
                     "min": "",
-                    "max": ""
+                    "max": "",
+                    "acfe_flexible_thumbnail": false,
+                    "acfe_flexible_category": false,
+                    "acfe_flexible_render_template": false,
+                    "acfe_flexible_render_style": false,
+                    "acfe_flexible_render_script": false,
+                    "acfe_flexible_settings": false,
+                    "acfe_flexible_settings_size": "medium"
                 },
                 "layout_5ea03574ee5cc": {
                     "key": "layout_5ea03574ee5cc",
@@ -448,7 +495,14 @@
                         }
                     ],
                     "min": "",
-                    "max": ""
+                    "max": "",
+                    "acfe_flexible_thumbnail": false,
+                    "acfe_flexible_category": false,
+                    "acfe_flexible_render_template": false,
+                    "acfe_flexible_render_style": false,
+                    "acfe_flexible_render_script": false,
+                    "acfe_flexible_settings": false,
+                    "acfe_flexible_settings_size": "medium"
                 },
                 "layout_5ea0314ae0f30": {
                     "key": "layout_5ea0314ae0f30",
@@ -572,7 +626,14 @@
                         }
                     ],
                     "min": "",
-                    "max": ""
+                    "max": "",
+                    "acfe_flexible_thumbnail": false,
+                    "acfe_flexible_category": false,
+                    "acfe_flexible_render_template": false,
+                    "acfe_flexible_render_style": false,
+                    "acfe_flexible_render_script": false,
+                    "acfe_flexible_settings": false,
+                    "acfe_flexible_settings_size": "medium"
                 }
             },
             "button_label": "Tilføj modul",
@@ -611,5 +672,13 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1588062562
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_permissions": "",
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1588682500
 }

@@ -4,20 +4,55 @@
 add_action('acf/init', function() {
 	if( function_exists('acf_register_block') ) {
 		acf_register_block(array(
-			'name'				=> 'infobox',
-			'title'				=> 'Infoboks',
-			'description'		=> 'En infoboks i højreside af indholdssider.',
+			'name'						=> 'infobox',
+			'title'						=> 'Infoboks',
+			'description'			=> 'En infoboks i højreside af indholdssider.',
 			'render_callback'	=> 'block_infobox',
-			'category'			=> 'formatting',
-			'icon'				=> 'info',
-			'keywords'			=> array( 'infobox', 'info', 'infoboks', 'indhold' ),
+			'category'				=> 'formatting',
+			'icon'						=> 'info',
+			'mode' 						=> 'edit',
+			'keywords'				=> array( 'infobox', 'info', 'infoboks', 'indhold' ),
+		));
+
+		acf_register_block(array(
+			'name'						=> 'links',
+			'title'						=> 'Links',
+			'description'			=> 'Et afsnit med et eller flere links',
+			'render_callback'	=> 'block_links',
+			'category'				=> 'formatting',
+			'icon'						=> 'admin-links',
+			'mode' 						=> 'edit',
+			'keywords'				=> array( 'links', 'link', 'linking', 'henvisning', 'fil', 'download' ),
 		));
 	}
 });
 
 function block_infobox( $block ) {
-  if(function_exists('get_field')) :
+  if(function_exists('get_field')):
     echo '<aside class="infobox">' . get_field('block_infobox') . '</aside>';
+  endif;
+}
+
+function block_links( $block ) {
+  if(function_exists('get_field')) :
+		if( have_rows('block_links') ) :
+			echo '<ul class="block-links">';
+			while ( have_rows('block_links') ) : the_row();
+				echo '<li>';
+					if( get_sub_field('block_links_type') == 'link' ) :
+						$link = get_sub_field('block_links_type_link');
+						$link_url = $link['url'];
+						$link_title = $link['title'];
+						$link_target = $link['target'] ? $link['target'] : '_self';
+						echo '<a href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '"><svg class="icon"><use xlink:href="' . App\asset_path('images/feather-sprite.svg') . '#arrow-right-circle"/></svg>' . esc_html( $link_title ) . '</a>';
+					elseif( get_sub_field('block_links_type') == 'download') :
+						echo '<a href="' . get_sub_field('block_links_type_download')['url'] . '" download><svg class="icon"><use xlink:href="' . App\asset_path('images/feather-sprite.svg') . '#download"/></svg>' . get_sub_field('block_links_type_title') . '</a>';
+					endif;
+
+				echo '</li>';
+			endwhile;
+			echo '</ul>';
+		endif;
   endif;
 }
 
@@ -30,7 +65,9 @@ add_filter( 'allowed_block_types', function( $allowed_blocks ) {
     'core/quote',
     'core/video',
     'core/table',
+    'core/separator',
     'acf/infobox',
+		'acf/links',
     'core/embed',
     'core-embed/twitter',
     'core-embed/youtube',
