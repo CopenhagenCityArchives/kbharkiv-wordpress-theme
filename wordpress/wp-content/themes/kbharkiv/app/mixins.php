@@ -36,7 +36,7 @@ function block_infobox( $block ) {
 function block_links( $block ) {
   if(function_exists('get_field')) :
 		if( have_rows('block_links') ) :
-			echo '<ul class="block-links">';
+			echo '<ul>';
 			while ( have_rows('block_links') ) : the_row();
 				echo '<li>';
 					if( get_sub_field('block_links_type') == 'link' ) :

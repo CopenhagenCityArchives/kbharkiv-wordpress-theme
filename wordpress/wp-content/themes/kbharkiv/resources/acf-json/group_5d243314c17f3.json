@@ -42,6 +42,7 @@
                 "class": "",
                 "id": ""
             },
+            "acfe_permissions": "",
             "layouts": {
                 "layout_5d2433407f0d6": {
                     "key": "layout_5d2433407f0d6",
@@ -294,6 +295,153 @@
                             "toolbar": "full",
                             "media_upload": 1,
                             "delay": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": "",
+                    "acfe_flexible_thumbnail": false,
+                    "acfe_flexible_category": false,
+                    "acfe_flexible_render_template": false,
+                    "acfe_flexible_render_style": false,
+                    "acfe_flexible_render_script": false,
+                    "acfe_flexible_settings": false,
+                    "acfe_flexible_settings_size": "medium"
+                },
+                "layout_5eb265fd8f8e9": {
+                    "key": "layout_5eb265fd8f8e9",
+                    "name": "modules_links",
+                    "label": "Links",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5eb2660b8f8ea",
+                            "label": "Links",
+                            "name": "modules_links_links",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "acfe_permissions": "",
+                            "acfe_repeater_stylised_button": 0,
+                            "collapsed": "",
+                            "min": 1,
+                            "max": 0,
+                            "layout": "row",
+                            "button_label": "Tilføj link",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5eb266508f8eb",
+                                    "label": "Type",
+                                    "name": "modules_links_links_type",
+                                    "type": "select",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "acfe_permissions": "",
+                                    "choices": {
+                                        "link": "Link",
+                                        "download": "Download fil"
+                                    },
+                                    "default_value": [],
+                                    "allow_null": 0,
+                                    "multiple": 0,
+                                    "ui": 0,
+                                    "return_format": "value",
+                                    "ajax": 0,
+                                    "placeholder": ""
+                                },
+                                {
+                                    "key": "field_5eb266d18f8ec",
+                                    "label": "Titel",
+                                    "name": "modules_links_links_type_title",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_5eb266508f8eb",
+                                                "operator": "==",
+                                                "value": "download"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "acfe_permissions": "",
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_5eb267068f8ed",
+                                    "label": "Download",
+                                    "name": "modules_links_links_type_download",
+                                    "type": "file",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_5eb266508f8eb",
+                                                "operator": "==",
+                                                "value": "download"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "acfe_permissions": "",
+                                    "acfe_uploader": "wp",
+                                    "return_format": "array",
+                                    "library": "all",
+                                    "min_size": "",
+                                    "max_size": "",
+                                    "mime_types": ""
+                                },
+                                {
+                                    "key": "field_5eb2673f8f8ee",
+                                    "label": "Link",
+                                    "name": "modules_links_links_type_link",
+                                    "type": "link",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_5eb266508f8eb",
+                                                "operator": "==",
+                                                "value": "link"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "acfe_permissions": "",
+                                    "return_format": "array"
+                                }
+                            ]
                         }
                     ],
                     "min": "",
@@ -680,5 +828,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1588682500
+    "modified": 1588751942
 }
