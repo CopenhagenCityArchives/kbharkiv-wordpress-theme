@@ -141,8 +141,9 @@ class Kbharkiv_Walker_Nav_Menu extends Walker_Nav_Menu {
      */
     $class_names = join( ' ', apply_filters( 'nav_menu_submenu_css_class', $classes, $args, $depth ) );
     $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
+		$level = ' data-level="' . ($depth + 1) . '"';
 
-    $output .= "{$n}{$indent}<ul$class_names><li class='nav-back d-lg-none'><a tabindex='-1' href='#'>Tilbage</a></li>{$n}";
+    $output .= "{$n}{$indent}<ul$class_names $level><li class='nav-back d-lg-none'><a tabindex='-1' href='#'>Tilbage</a></li>{$n}";
 	}
 } // Kbharkiv_Walker_Nav_Menu
 

@@ -2,149 +2,209 @@ export default {
   init() {
     function initMenu() {
       let viewportWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-      let hamburgerMenu = viewportWidth < 922;
-      let hamburgerOpen;
-      let subMenuOpen;
-      let currentSubMenuLevel;
+      let mobileMenu = viewportWidth < 922;
+      let mobileMenuOpen;
+      let currentSubMenuLevel = 0;
+      let $tabbable;
+      let $firstTabbable;
+      let $lastTabbable;
 
-      // $('header .level-1 > a, header .menu-secondary a').attr( 'tabindex', hamburgerMenu ? '-1' : '0' );
-      //
-      function changeSubMenu() {
-        $('header ul.menu').attr('data-level', currentSubMenuLevel)
+      function updateSubMenu() {
+        $('.top-menu ul.menu').attr('data-current-level', currentSubMenuLevel)
+      }
+
+      function removeTabbable() {
+        if ($lastTabbable != null) {
+          $lastTabbable.off('keydown');
+          $firstTabbable.off('keydown');
+        }
+      }
+      function setTabbable() {
+        // Unbind tab events
+        removeTabbable();
+
+        // Select tabbable elements in current submenu level
+        if(currentSubMenuLevel == 0) {
+          $tabbable = $('.top-menu-focusable, .top-menu ul.menu > li > a');
+        } else if (mobileMenu) {
+          $tabbable = $('.top-menu-focusable, .top-menu ul.menu .active[data-level="' + currentSubMenuLevel + '"] > .sub-menu > li > a');
+        } else {
+          $tabbable = $('.top-menu-focusable, .top-menu ul.menu > li > a, .top-menu ul.menu .active a');
+        }
+
+        $firstTabbable = $tabbable.first();
+        $lastTabbable = $tabbable.last();
+
+        // Trap tab focus inside the filter menu. When last tabbable element is focussed the next will be the first tabbable elemenet
+        $lastTabbable.keydown(function(e) {
+          if (e.which === 9 && !e.shiftKey) {
+            e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+            $firstTabbable.focus();
+          }
+        });
+
+        // Trap tab focus inside the filter menu. Same as above but in the other direction.
+        $firstTabbable.keydown(function(e) {
+          if (e.which === 9 && e.shiftKey) {
+            e.preventDefault();
+            $lastTabbable.focus();
+          }
+        });
       }
 
       function openSubMenu($menuItem) {
-        //$('header ul.menu a').attr( 'tabindex', '-1' );
-        subMenuOpen = true;
-
+        currentSubMenuLevel = $menuItem.data('level')
         $menuItem.addClass('active');
         $menuItem.find('> a').attr( 'aria-expanded', true );
-        $menuItem.find('> .sub-menu > li > a').attr( 'tabindex', '0' );
 
-        changeSubMenu();
+        if(mobileMenu) {
+          $('.top-menu ul.menu a').attr( 'tabindex', '-1' );
+          $menuItem.find('> .sub-menu > li > a').attr( 'tabindex', '0' );
+        } else {
+          $('.top-menu').addClass('active');
+          $('.top-menu ul.menu .sub-menu a').attr( 'tabindex', '-1' );
+          $menuItem.find('> .sub-menu a').attr( 'tabindex', '0' );
+        }
+
+        updateSubMenu();
+        setTabbable();
       }
 
+      // Note to self: Merge with closeSubMenuLevel
       function closeSubMenu() {
         currentSubMenuLevel = 0;
-        subMenuOpen = false;
-        $('header .sub-menu li').removeClass('active')
-        $('header .sub-menu a').attr( 'aria-expanded', false ).attr( 'tabindex', '-1' );
-        changeSubMenu();
+        $('.top-menu ul.menu li').removeClass('active')
+        $('.top-menu .sub-menu a').attr( 'aria-expanded', false ).attr( 'tabindex', '-1' );
+        $('.top-menu ul.menu > li > a').attr( 'tabindex', '' );
+
+        updateSubMenu();
+        removeTabbable();
       }
 
       function closeSubMenuLevel() {
         let $menuItem = $('.parent.active[data-level="' + currentSubMenuLevel + '"');
 
-        currentSubMenuLevel --;
-        subMenuOpen = currentSubMenuLevel == 0 ? false : true;
-
         $menuItem.removeClass('active')
         $menuItem.find('> a').attr( 'aria-expanded', false )
-        $menuItem.find('> .sub-menu > li > a').attr( 'tabindex', '-1' );
 
-        changeSubMenu();
+        // Disable tabbing on closed submenu
+        mobileMenu ? $menuItem.find('> .sub-menu > li > a').attr( 'tabindex', '-1' ) : $menuItem.find('> .sub-menu a').attr( 'tabindex', '-1' );
+
+        currentSubMenuLevel --;
+
+        updateSubMenu();
+
+        if (currentSubMenuLevel > 0) {
+          // Enable tabbing on parent menu (only mobile)
+          $('.parent.active[data-level="' + currentSubMenuLevel + '"] > .sub-menu > li > a').attr( 'tabindex', '0' );
+          setTabbable();
+        } else if (mobileMenu) {
+          // Mobile
+          // Enable tabbing on top level menu
+          $('.top-menu-focusable, .top-menu ul.menu > li > a').attr( 'tabindex', '0' );
+          setTabbable();
+        } else {
+          // Desktop
+          // Enable tabbing on top level menu
+          $('.top-menu-focusable, .top-menu ul.menu > li > a').attr( 'tabindex', '0' );
+          $('.top-menu').removeClass('active');
+          removeTabbable();
+        }
       }
 
-      function openHamburgerMenu() {
-        hamburgerOpen = true;
+      function openMobileMenu() {
+        mobileMenuOpen = true;
         $('.nav-toggle').attr( 'aria-expanded', 'true')
-        $('header').addClass('active')
+        $('.top-menu').addClass('active')
           .find('.nav-toggle .sr-only').text('Luk menu');
-        //$('header .level-1 > a, header .menu-secondary a').attr( 'tabindex', '0' );
+
+        setTabbable();
       }
 
-      function closeHamburgerMenu() {
-        hamburgerOpen = false;
-        closeSubMenu()
-        $('.nav-toggle').attr( 'aria-expanded', 'false')
-        $('header').removeClass('active')
-          .find('.nav-toggle .sr-only').text('Åbn menu');
+      function closeMobileMenu() {
+        mobileMenuOpen = false;
+        closeSubMenu();
+        $('.nav-toggle').attr( 'aria-expanded', 'false');
+        $('.top-menu').removeClass('active').find('.nav-toggle .sr-only').text('Åbn menu');
       }
 
       // Add click-event to hamburger menu btn
       $('.nav-toggle').click(function() {
-        if(!hamburgerOpen) {
-          openHamburgerMenu()
+        if(!mobileMenuOpen) {
+          openMobileMenu()
         } else {
-          closeHamburgerMenu()
+          closeMobileMenu()
         }
       })
 
       // Add click-event to menu-items with sub-menu
-      $('header nav .parent > a').click(function(e) {
-        e.preventDefault ? e.preventDefault() : (e.returnValue = false);
-        let $menuItem = $(this).parent()
-        currentSubMenuLevel = $menuItem.data('level')
+      $('.top-menu nav .parent > a').click(function(e) {
 
-        if($menuItem.hasClass('active')) {
-          closeSubMenuLevel();
-        } else {
-          openSubMenu($menuItem);
+        let $menuItem = $(this).parent()
+
+        // Prevent default click if mobile menu or top level of desktop
+        if(mobileMenu || $menuItem.attr('data-level') == '1' ) {
+          e.preventDefault ? e.preventDefault() : (e.returnValue = false);
         }
 
-        // if($menuItem.hasClass('active')) {
-        //   // Close clicked sub-menu
-        //   closeSubMenuLevel()
-        // } else if($('.menu-item-has-children').hasClass('active')) {
-        //   // Close open sub-menu and open clicked sub-menu
-        //   closeSubMenuLevel(true)
-        //   openSubMenu($menuItem, $wrapper);
-        // } else {
-        //   // Open clicked sub-menu
-        //   openSubMenu($menuItem, $wrapper, true);
-        // }
+        if($menuItem.hasClass('active')) {
+          // If menu item is already open. Close it.
+          closeSubMenuLevel();
+        } else if(!mobileMenu && $('.top-menu ul.menu > li.active').length) {
+          // If another menu item is already open. Close it before opening a new one
+          closeSubMenuLevel();
+          openSubMenu($menuItem);
+        } else {
+          // Else just open
+          openSubMenu($menuItem);
+        }
+        //}
       });
 
-      $('header nav .nav-back').click(function(e) {
+      // Add mouseenter-event to menu-items with sub-menu
+      // $('.top-menu nav .parent > a').mouseenter(function() {
+      //   var $this = $(this);
+      //   if (!mobileMenu) {
+      //     setTimeout(function () {
+      //       if ($this.parent().find($this.selector + ':hover').length > 0) {
+      //         openSubMenu($this.parent());
+      //       }
+      //     }, 400);
+      //
+      //     // $('.top-menu nav .parent > a').mouseenter(function() {
+      //     //
+      //     // })
+      //
+      //   }
+      // })
+
+      $('.top-menu nav .nav-back').click(function(e) {
         e.preventDefault ? e.preventDefault() : (e.returnValue = false);
         closeSubMenuLevel();
       });
 
-      //
-      // // Close sub-menu if focus shifts away
-      // $('.sub-menu-wrapper').each(function(){
-      //   $(this).find('a').last().blur(function() {
-      //     closeSubMenuLevel();
-      //   });
-      // })
-
-      // Close hamburger-menu if hamburgerMenu is true and focus shifts away
-      $('header a').last().blur(function() {
-        hamburgerMenu && closeHamburgerMenu();
-      });
-
-      // // Close sub-menu when clicking on element outside menu
-      // $(window).click(function(e){
-      //   if($(e.target).closest('.menu-top').length)
-      //     return;
-      //     closeSubMenuLevel();
-      // });
-
-      // Close sub-menu when hitting the esc keyboard btn
+      //Close sub-menu when hitting the esc keyboard btn
       $(window).keyup(function(e) {
-        if (e.key === 'Escape' && subMenuOpen) {
+        if (e.key === 'Escape' && currentSubMenuLevel > 0) {
           closeSubMenuLevel();
-        } else if(e.key === 'Escape' && hamburgerOpen) {
-          closeHamburgerMenu();
+        } else if(e.key === 'Escape' && mobileMenuOpen) {
+          closeMobileMenu();
         }
       });
 
       function setMenuLayout() {
         // Return if we're not changing menu layout
-        if (hamburgerMenu == viewportWidth < 992) return;
+        if (mobileMenu == viewportWidth < 992) return;
 
-        if (hamburgerOpen) {
-          closeHamburgerMenu();
+        if (mobileMenuOpen) {
+          closeMobileMenu();
         }
 
-        if (subMenuOpen) {
+        if (currentSubMenuLevel > 0) {
           closeSubMenu();
         }
 
-        hamburgerMenu = viewportWidth < 992;
-
-        // Make first level and language menu accessable with tab based on layout
-        //$('header .level-1 > a, header .menu-secondary a').attr( 'tabindex', hamburgerMenu ? '-1' : '0' );
+        mobileMenu = viewportWidth < 992;
       }
 
       $( window ).resize(function() {

@@ -16,8 +16,8 @@ header.top-menu {
 
   .nav-toggle {
     background-color: $blue;
+    width: 3rem;
     height: 3rem;
-    flex: 0 0 3rem;
     border: 0;
     border-radius: 50%;
 
@@ -54,6 +54,7 @@ header.top-menu {
 
     @include media-breakpoint-up(lg) {
       display: block;
+      width: auto;
     }
 
     .sub-menu {
@@ -78,20 +79,45 @@ header.top-menu {
         }
       }
 
-      @for $i from 2 through 4 {
-        &:nth-child(#{$i}n) {
-          transform: translate3d(( $i - 1 ) * 100%, 0, 0);
+      @include media-breakpoint-down(md) {
+        @for $i from 2 through 4 {
+          &:nth-child(#{$i}n) {
+            transform: translate3d(( $i - 1 ) * 100%, 0, 0);
+          }
         }
-      }
 
-      @for $i from 1 through 4 {
-        &.menu[data-level="#{$i}"] {
-          transform: translate3d($i * -100%, 0, 0);
+        @for $i from 1 through 4 {
+          &.menu[data-current-level="#{$i}"] {
+            transform: translate3d($i * -100%, 0, 0);
+          }
         }
       }
 
       &.menu {
         top: 88px;
+
+        @include media-breakpoint-up(lg) {
+          position: relative;
+          top: 0;
+        }
+
+        > li {
+          @include media-breakpoint-up(lg) {
+            display: inline-block;
+          }
+
+          .sub-menu[data-level="1"] {
+            @include media-breakpoint-up(lg) {
+              top: 120px;
+            }
+          }
+
+          .sub-menu[data-level="2"] {
+            @include media-breakpoint-up(lg) {
+              position: relative;
+            }
+          }
+        }
       }
     }
   }
@@ -118,6 +144,13 @@ header.top-menu {
     .parent.active > .sub-menu {
       opacity: 1;
       pointer-events: auto;
+    }
+
+    .parent.active .sub-menu {
+      @include media-breakpoint-up(lg) {
+        opacity: 1;
+        pointer-events: auto;
+      }
     }
   }
 }
