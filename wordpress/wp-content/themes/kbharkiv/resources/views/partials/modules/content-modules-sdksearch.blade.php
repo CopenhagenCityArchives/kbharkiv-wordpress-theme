@@ -54,7 +54,4 @@
 <div class="sdk-search" data-sdk-app>
   <div ui-view="">&nbsp;</div>
 </div>
-
-<script src="https://www.kbhkilder.dk/software/kildetaster-new-site/resources/js/sdk.js" type="text/javascript"></script>
-
 <!-- SDK END -->
