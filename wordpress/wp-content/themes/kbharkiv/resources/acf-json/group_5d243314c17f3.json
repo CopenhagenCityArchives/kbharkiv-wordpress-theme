@@ -307,6 +307,51 @@
                     "acfe_flexible_settings": false,
                     "acfe_flexible_settings_size": "medium"
                 },
+                "layout_5ebb08090f6a5": {
+                    "key": "layout_5ebb08090f6a5",
+                    "name": "modules_gallery",
+                    "label": "Galleri",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5ebb08320f6a6",
+                            "label": "Billede(r)",
+                            "name": "modules_gallery_images",
+                            "type": "gallery",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "acfe_permissions": "",
+                            "return_format": "array",
+                            "preview_size": "medium",
+                            "insert": "append",
+                            "library": "all",
+                            "min": 1,
+                            "max": "",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": "",
+                    "acfe_flexible_thumbnail": false,
+                    "acfe_flexible_category": false,
+                    "acfe_flexible_render_template": false,
+                    "acfe_flexible_render_style": false,
+                    "acfe_flexible_render_script": false,
+                    "acfe_flexible_settings": false,
+                    "acfe_flexible_settings_size": "medium"
+                },
                 "layout_5eb265fd8f8e9": {
                     "key": "layout_5eb265fd8f8e9",
                     "name": "modules_links",
@@ -697,5 +742,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1589292577
+    "modified": 1589315695
 }

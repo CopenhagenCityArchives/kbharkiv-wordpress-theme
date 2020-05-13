@@ -145,6 +145,19 @@ class Kbharkiv_Walker_Nav_Menu extends Walker_Nav_Menu {
 
     $output .= "{$n}{$indent}<ul$class_names $level><li class='nav-back d-lg-none'><a tabindex='-1' href='#'>Tilbage</a></li>{$n}";
 	}
+
+	public function end_lvl( &$output, $depth = 0, $args = null ) {
+	    if ( isset( $args->item_spacing ) && 'discard' === $args->item_spacing ) {
+	        $t = '';
+	        $n = '';
+	    } else {
+	        $t = "\t";
+	        $n = "\n";
+	    }
+			$close_menu = $depth == 0 ? '<button class="nav-toggle desktop-menu-toggle top-menu-focusable"><span class="sr-only">Luk menu</span><div class="hamburger"></div></button>' : '';
+	    $indent  = str_repeat( $t, $depth );
+	    $output .= "$indent $close_menu</ul>{$n}";
+	}
 } // Kbharkiv_Walker_Nav_Menu
 
 
@@ -154,20 +167,7 @@ class Kbharkiv_Walker_Nav_Children extends Walker_Page {
 
     extract($args, EXTR_SKIP);
 
-    $css_class = array('page-item', $depth == 0 ? 'col-md-4' : '');
-
-    // if ( !empty($current_page) ) {
-	  //   $_current_page = get_page( $current_page );
-	  //   _get_post_ancestors($_current_page);
-	  //   if ( isset($_current_page->ancestors) && in_array($item->ID, (array) $_current_page->ancestors) )
-	  //     $css_class[] = 'current_page_ancestor';
-	  //   if ( $item->ID == $current_page )
-	  //     $css_class[] = 'current_page_item';
-	  //   elseif ( $_current_page && $item->ID == $_current_page->post_parent )
-	  //   	$css_class[] = 'current_page_parent';
-    // } elseif ( $item->ID == get_option('page_for_posts') ) {
-    //   $css_class[] = 'current_page_parent';
-    // }
+    $css_class = array('page-item', $depth == 0 ? 'col-sm-6 col-md-5 col-lg-4 col-xl-3' : '');
 
     $css_class = implode(' ', apply_filters( 'page_css_class', $css_class, $item, $depth, $args, $current_page ));
 
@@ -192,6 +192,7 @@ class Kbharkiv_Walker_Nav_Children extends Walker_Page {
         $n = "\n";
     }
 		$element = $depth == 0 ? 'div' : 'li';
-    $output .= "</" . $element . ">{$n}";
+		$blank_col = $depth == 0 ? '<div class="d-none d-md-block col-md-1 d-lg-none col-xl-1 d-xl-block"></div>' : '';
+    $output .= "</" . $element . ">{$n}$blank_col";
 	}
 }	// Kbharkiv_Walker_Nav_Children

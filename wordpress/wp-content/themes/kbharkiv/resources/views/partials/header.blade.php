@@ -8,7 +8,7 @@
         <div>Stadsarkiv</div>
       </a>
 
-      <button class="nav-toggle d-lg-none ml-auto top-menu-focusable">
+      <button class="nav-toggle mobile-menu-toggle d-lg-none ml-auto top-menu-focusable">
         <span class="sr-only">Åbn menu</span>
         <div class="hamburger"></div>
       </button>

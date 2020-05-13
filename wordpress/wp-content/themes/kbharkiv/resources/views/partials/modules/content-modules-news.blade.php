@@ -3,15 +3,16 @@
   global $post;
 @endphp
 
-<section>
-  <a href="{{ get_post_type_archive_link( 'post' ) }}">{{ get_sub_field('modules_news_headline') }}</a>
+<section class="module module-news">
+  <div class="container-fluid">
+    <a href="{{ get_post_type_archive_link( 'post' ) }}">{{ get_sub_field('modules_news_headline') }}</a>
 
-  @if( $posts )
-  	@foreach( $posts as $key => $post )
-      @php setup_postdata($post) @endphp
-      @include('partials.content')
-  	@endforeach
-    @php wp_reset_postdata() @endphp
-  @endif
-
+    @if( $posts )
+    	@foreach( $posts as $key => $post )
+        @php setup_postdata($post) @endphp
+        @include('partials.content')
+    	@endforeach
+      @php wp_reset_postdata() @endphp
+    @endif
+  </div>
 </section>

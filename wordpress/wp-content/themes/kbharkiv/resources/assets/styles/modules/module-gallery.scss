@@ -1,0 +1,26 @@
+.module-gallery {
+  .module-inner {
+    padding: 3rem 0;
+    margin: 4rem 0;
+    background-color: $blue;
+  }
+}
+
+.gallery-modal {
+  .modal-dialog {
+    max-width: 100%;
+    margin: 3rem 0;
+  }
+
+  .modal-content {
+    // overwrite in variables:
+    border-radius: 0;
+    border: 0;
+    background-color: transparent;
+  }
+}
+
+// .modal-dialog {
+//     /* max-width: 630px; */
+//     margin: 3rem;
+//     max-height: calc(100vh - 6rem);

@@ -1,5 +1,6 @@
 export default {
   init() {
+
     function initMenu() {
       let viewportWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
       let mobileMenu = viewportWidth < 922;
@@ -114,26 +115,24 @@ export default {
 
       function openMobileMenu() {
         mobileMenuOpen = true;
-        $('.nav-toggle').attr( 'aria-expanded', 'true')
+        $('.mobile-menu-toggle').attr( 'aria-expanded', 'true').find('.sr-only').text('Luk menu')
         $('.top-menu').addClass('active')
-          .find('.nav-toggle .sr-only').text('Luk menu');
-
         setTabbable();
       }
 
       function closeMobileMenu() {
         mobileMenuOpen = false;
         closeSubMenu();
-        $('.nav-toggle').attr( 'aria-expanded', 'false');
-        $('.top-menu').removeClass('active').find('.nav-toggle .sr-only').text('Åbn menu');
+        $('.mobile-menu-toggle').attr( 'aria-expanded', 'false').find('.sr-only').text('Åbn menu');
+        $('.top-menu').removeClass('active');
       }
 
       // Add click-event to hamburger menu btn
       $('.nav-toggle').click(function() {
-        if(!mobileMenuOpen) {
-          openMobileMenu()
+        if(mobileMenu) {
+          mobileMenuOpen ? closeMobileMenu() : openMobileMenu();
         } else {
-          closeMobileMenu()
+          closeSubMenuLevel();
         }
       })
 
