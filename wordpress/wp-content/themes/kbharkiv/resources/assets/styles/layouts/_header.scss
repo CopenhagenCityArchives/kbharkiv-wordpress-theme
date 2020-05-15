@@ -115,6 +115,7 @@ header.top-menu {
         @include media-breakpoint-up(lg) {
           font-size: 1rem;
           font-weight: 500;
+          margin-bottom: 0.5rem;
           padding: 0;
         }
       }
@@ -138,12 +139,28 @@ header.top-menu {
           .sub-menu[data-level="1"] {
             @include media-breakpoint-up(lg) {
               position: fixed;
-              left: 4rem;
-              top: 8rem;
+              display: flex;
+              align-content: start;
+              flex-direction: column;
+              flex-wrap: wrap;
+              top: 5rem;
+              padding: 3rem 4rem 4rem;
+              height: calc(100vh - 16rem);
+
+              > li {
+                font-weight: 600;
+                margin-bottom: 2rem;
+                width: 25%;
+              }
+
+              > .parent > a {
+                display: block;
+                margin-bottom: 1rem;
+              }
             }
 
             @include media-breakpoint-up(xl) {
-              left: 6rem;
+              padding: 3rem 6rem 4rem;
             }
 
             @include media-breakpoint-up(xxl) {
@@ -156,7 +173,7 @@ header.top-menu {
               position: relative;
 
               li {
-                font-size: 14px;
+                font-size: 15px;
                 font-weight: 400;
               }
             }
