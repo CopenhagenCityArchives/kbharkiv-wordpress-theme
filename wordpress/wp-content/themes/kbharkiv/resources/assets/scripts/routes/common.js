@@ -1,6 +1,5 @@
 export default {
   init() {
-
     function initMenu() {
       let viewportWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
       let mobileMenu = viewportWidth < 922;
@@ -62,6 +61,7 @@ export default {
           $('.top-menu ul.menu a').attr( 'tabindex', '-1' );
           $menuItem.find('> .sub-menu > li > a').attr( 'tabindex', '0' );
         } else {
+          $('body').addClass('modal-open');
           $('.top-menu').addClass('active');
           $('.top-menu ul.menu .sub-menu a').attr( 'tabindex', '-1' );
           $menuItem.find('> .sub-menu a').attr( 'tabindex', '0' );
@@ -108,6 +108,7 @@ export default {
           // Desktop
           // Enable tabbing on top level menu
           $('.top-menu-focusable, .top-menu ul.menu > li > a').attr( 'tabindex', '0' );
+          $('body').removeClass('modal-open');
           $('.top-menu').removeClass('active');
           removeTabbable();
         }
@@ -116,7 +117,8 @@ export default {
       function openMobileMenu() {
         mobileMenuOpen = true;
         $('.mobile-menu-toggle').attr( 'aria-expanded', 'true').find('.sr-only').text('Luk menu')
-        $('.top-menu').addClass('active')
+        $('body').addClass('modal-open');
+        $('.top-menu').addClass('active');
         setTabbable();
       }
 
@@ -124,6 +126,7 @@ export default {
         mobileMenuOpen = false;
         closeSubMenu();
         $('.mobile-menu-toggle').attr( 'aria-expanded', 'false').find('.sr-only').text('Åbn menu');
+        $('body').removeClass('modal-open');
         $('.top-menu').removeClass('active');
       }
 
@@ -213,6 +216,20 @@ export default {
     }
 
     initMenu();
+
+    $('.module-gallery .carousel').each(function() {
+      $(this).on('slid.bs.carousel', function () {
+        let activeImageDescriptionId = $(this).find('.carousel-item.active').attr('data-description');
+        let $description = $(activeImageDescriptionId);
+
+        //console.log(activeImageDescriptionId);
+        //console.log($description);
+        console.log($(this).closest('.row').find('.gallery-description-item.active'));
+
+        $(this).closest('.row').find('.gallery-description-item.active').removeClass('active');
+        $description.addClass('active');
+      })
+    })
   },
   finalize() {
     // JavaScript to be fired on all pages, after page specific JS is fired

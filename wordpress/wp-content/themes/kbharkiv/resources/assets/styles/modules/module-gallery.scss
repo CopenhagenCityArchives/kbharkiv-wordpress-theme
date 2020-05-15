@@ -4,6 +4,19 @@
     margin: 4rem 0;
     background-color: $blue;
   }
+
+  .carousel-item {
+    cursor: zoom-in;
+  }
+
+  .gallery-description-item {
+    display: none;
+    color: white;
+
+    &.active {
+      display: block;
+    }
+  }
 }
 
 .gallery-modal {

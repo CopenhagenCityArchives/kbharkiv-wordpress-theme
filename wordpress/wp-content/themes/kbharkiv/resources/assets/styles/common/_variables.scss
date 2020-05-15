@@ -107,12 +107,12 @@ $font-family-sans-serif:      "kbh", Helvetica, Arial, sans-serif !default;
 $font-family-serif:           "kbh", "Times New Roman", Times, serif !default;
 
 $font-weight-lighter:         400 !default;
-$font-weight-light:           500 !default;
-$font-weight-normal:          600 !default;
-$font-weight-bold:            700 !default;
+$font-weight-light:           400 !default;
+$font-weight-normal:          400 !default;
+$font-weight-bold:            600 !default;
 $font-weight-bolder:          800 !default;
 
-$font-weight-base:            $font-weight-lighter !default;
+$font-weight-base:            $font-weight-normal !default;
 
 $headings-font-weight:        700 !default;
 
@@ -120,3 +120,33 @@ $display1-weight:             800 !default;
 $display2-weight:             800 !default;
 $display3-weight:             800 !default;
 $display4-weight:             800 !default;
+
+// Grid breakpoints
+//
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1872px,
+) !default;
+
+// Breadcrumbs
+//
+// $breadcrumb-padding-y:              0.75rem !default;
+// $breadcrumb-padding-x:              1rem !default;
+// $breadcrumb-item-padding:           0.5rem !default;
+//
+// $breadcrumb-margin-bottom:          1rem !default;
+//
+
+$breadcrumb-bg:                     $blue !default;
+$breadcrumb-divider-color:          rgba(255, 255, 255, 0.75) !default;
+$breadcrumb-active-color:           rgba(255, 255, 255, 0.75) !default;
+// $breadcrumb-divider:                quote("/") !default;
+
+$breadcrumb-border-radius:          0 !default;

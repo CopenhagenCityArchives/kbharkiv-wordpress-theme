@@ -1,4 +1,4 @@
-<header style="background-color: {{ theme_color() }}">
+<header class="page-header" style="background-color: {{ theme_color() }}">
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-6 col-xl-4">
@@ -27,6 +27,4 @@
   </div>
 </header>
 
-<div class="container-fluid">
-  {{ the_breadcrumb() }}
-</div>
+{{ the_breadcrumb() }}

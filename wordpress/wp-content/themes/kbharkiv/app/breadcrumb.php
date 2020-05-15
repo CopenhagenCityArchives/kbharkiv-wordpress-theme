@@ -30,14 +30,15 @@ function custom_get_category_parents( $id, $visited = array() ) {
 function the_breadcrumb() {
   global $post;
 
-  $html = '<nav aria-label="Brødkrummesti"><ol class="breadcrumb" style="background-color: ' . theme_color(true) . '">';
+  $html = '<nav class="breadcrumb-wrapper container-fluid" aria-label="Brødkrummesti"><ol class="breadcrumb" style="background-color: ' . theme_color(true) . '">';
 
   if ( (is_front_page()) || (is_home()) ) {
-    $html .= '<li class="breadcrumb-item active">Hjem</li>';
+    return;
+    // $html .= '<li class="breadcrumb-item active">Hjem</li>';
   }
 
   else {
-    $html .= '<li class="breadcrumb-item"><a href="'.esc_url(home_url('/')).'">Hjem</a></li>';
+    $html .= '<li class="breadcrumb-item"><a href="'.esc_url(home_url('/')).'"><svg class="icon" aria-hidden="true"><use xlink:href="' . App\asset_path('images/feather-sprite.svg') . '#home"/></svg><span class="sr-only">Hjem</span></a></li>';
 
     if ( is_attachment() ) {
       $parent = get_post($post->post_parent);
@@ -59,6 +60,10 @@ function the_breadcrumb() {
       }
 
       $html .= '<li class="breadcrumb-item active">' . single_cat_title( '', false ) . '</li>';
+    }
+
+    elseif (is_archive() ) {
+      $html .= '<li class="breadcrumb-item active">' . post_type_archive_title('', false) . '</li>';
     }
 
     elseif ( is_page() && !is_front_page() ) {
@@ -89,6 +94,14 @@ function the_breadcrumb() {
         $html .= custom_get_category_parents($categories[0]);
       }
 
+      $html .= '<li class="breadcrumb-item active">' . get_the_title() . '</li>';
+    }
+
+    elseif ( is_singular( ) ) {
+      $post_type = get_post_type_object(get_post_type());
+      $post_type_link = get_post_type_archive_link(get_post_type());
+
+      $html .= '<li class="breadcrumb-item"><a href="' . $post_type_link . '">' . $post_type->labels->name . '</a></li>';
       $html .= '<li class="breadcrumb-item active">' . get_the_title() . '</li>';
     }
 

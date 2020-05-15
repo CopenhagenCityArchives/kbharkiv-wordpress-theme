@@ -25,15 +25,15 @@ add_action('acf/init', function() {
 			'keywords'				=> array( 'links', 'link', 'linking', 'henvisning', 'fil', 'download' ),
 		));
 
-		acf_register_block(array(
-			'name'						=> 'image',
-			'title'						=> 'Billede',
-			'render_callback'	=> 'block_image',
-			'category'				=> 'common',
-			'icon'						=> 'format-image',
-			'mode' 						=> 'edit',
-			'keywords'				=> array( 'billede', 'image', 'gallery', 'galleri', 'billeder' ),
-		));
+		// acf_register_block(array(
+		// 	'name'						=> 'image',
+		// 	'title'						=> 'Billede',
+		// 	'render_callback'	=> 'block_image',
+		// 	'category'				=> 'common',
+		// 	'icon'						=> 'format-image',
+		// 	'mode' 						=> 'edit',
+		// 	'keywords'				=> array( 'billede', 'image', 'gallery', 'galleri', 'billeder' ),
+		// ));
 	}
 });
 
@@ -66,20 +66,20 @@ function block_links( $block ) {
   endif;
 }
 
-function block_image( $block ) {
-  if(function_exists('get_field')):
-		$img = get_field('block_image');
-		// echo '<pre>';
-		// print_r($img);
-		// echo '</pre>';
-		echo '<a class="lightbox" href="' . $img['sizes']['medium'] . '" title="' . $img['title'] . '">';
-		echo wp_get_attachment_image($img['ID']);
-		echo '</a>';
-		// <a class="chocolat-image" href="https://images.unsplash.com/photo-1589180883060-7e17fc2efaf6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1372&q=80" title="caption image 3">
-		// 		<img width="100" src="https://images.unsplash.com/photo-1589180883060-7e17fc2efaf6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1372&q=80"/>
-		// </a>
-  endif;
-}
+// function block_image( $block ) {
+//   if(function_exists('get_field')):
+// 		$img = get_field('block_image');
+// 		// echo '<pre>';
+// 		// print_r($img);
+// 		// echo '</pre>';
+// 		echo '<a class="lightbox" href="' . $img['sizes']['medium'] . '" title="' . $img['title'] . '">';
+// 		echo wp_get_attachment_image($img['ID']);
+// 		echo '</a>';
+// 		// <a class="chocolat-image" href="https://images.unsplash.com/photo-1589180883060-7e17fc2efaf6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1372&q=80" title="caption image 3">
+// 		// 		<img width="100" src="https://images.unsplash.com/photo-1589180883060-7e17fc2efaf6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1372&q=80"/>
+// 		// </a>
+//   endif;
+// }
 
 add_filter( 'allowed_block_types', function( $allowed_blocks ) {
 	return array(

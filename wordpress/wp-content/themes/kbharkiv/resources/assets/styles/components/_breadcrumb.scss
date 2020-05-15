@@ -1,0 +1,35 @@
+.breadcrumb-wrapper {
+  overflow-x: auto;
+
+  @include media-breakpoint-down(sm) {
+    padding: 0;
+  }
+
+  @include media-breakpoint-up(md) {
+    margin-bottom: 4rem;
+  }
+}
+
+.breadcrumb {
+  display: inline-block;
+  white-space: nowrap;
+  margin-bottom: 0;
+
+  @include media-breakpoint-down(sm) {
+    padding: 0.75rem 1.5rem;
+    min-width: 100%;
+  }
+
+  .breadcrumb-item {
+    display: inline-block;
+
+    a {
+      color: $white;
+    }
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
+}
