@@ -51,7 +51,7 @@
       </div>
     </div>
 
-    <div class="modal fade gallery-modal" id="gallery-modal-{{get_row_index()}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade gallery-modal" id="gallery-modal-{{get_row_index()}}" tabindex="-1" role="dialog" aria-label="Forstørret galleri-visning" aria-hidden="true">
       <div class="modal-dialog container-fluid" role="document">
         <div class="modal-content">
           <div class="row">
