@@ -17,19 +17,19 @@
             },
             "acfe_permissions": "",
             "choices": {
-                "#F2E9CE,#7B766A": "Gul",
-                "#DBEDD7,#3F5B58": "Grøn",
-                "#DACBD8,#685966": "Lilla",
-                "#C9E4F2,#04436E": "Blå",
-                "#E7C0B0,#8A3314": "Rød"
+                "yellow": "Gul",
+                "green": "Grøn",
+                "purple": "Lilla",
+                "blue": "Blå",
+                "red": "Rød"
             },
             "default_value": [],
-            "allow_null": 0,
+            "allow_null": 1,
             "multiple": 0,
             "ui": 0,
             "return_format": "value",
-            "ajax": 0,
-            "placeholder": ""
+            "placeholder": "",
+            "ajax": 0
         }
     ],
     "location": [
@@ -69,5 +69,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1588319485
+    "modified": 1589800558
 }
