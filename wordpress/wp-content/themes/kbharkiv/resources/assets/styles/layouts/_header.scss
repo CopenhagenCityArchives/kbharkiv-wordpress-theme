@@ -144,8 +144,8 @@ header.top-menu {
               flex-direction: column;
               flex-wrap: wrap;
               top: 5rem;
-              padding: 3rem 4rem 4rem;
-              height: calc(100vh - 16rem);
+              padding: 2.5rem 4rem;
+              height: calc(100vh - 5rem);
 
               > li {
                 font-weight: 600;
@@ -160,11 +160,13 @@ header.top-menu {
             }
 
             @include media-breakpoint-up(xl) {
-              padding: 3rem 6rem 4rem;
+              padding: 2.5rem 6rem;
             }
 
             @include media-breakpoint-up(xxl) {
+              padding: 2.5rem 0;
               left: calc(50% - 840px);
+              max-width: 1680px;
             }
           }
 
