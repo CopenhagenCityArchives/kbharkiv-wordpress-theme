@@ -155,7 +155,7 @@ class Kbharkiv_Walker_Nav_Menu extends Walker_Nav_Menu {
 	        $n = "\n";
 	    }
 			$close_menu = $depth == 0 ? '<button class="nav-toggle desktop-menu-toggle top-menu-focusable"><span class="sr-only">Luk menu</span><div class="hamburger"></div></button>' : '';
-	    $indent  = str_repeat( $t, $depth );
+			$indent  = str_repeat( $t, $depth );
 	    $output .= "$indent $close_menu</ul>{$n}";
 	}
 } // Kbharkiv_Walker_Nav_Menu
@@ -196,3 +196,32 @@ class Kbharkiv_Walker_Nav_Children extends Walker_Page {
     $output .= "</" . $tag . ">{$n}$blank_col";
 	}
 }	// Kbharkiv_Walker_Nav_Children
+
+
+add_filter('wp_nav_menu_items', function( $items, $args ) {
+
+	// get menu
+	$menu = wp_get_nav_menu_object($args->menu);
+
+
+	// modify primary only
+	if( $args->theme_location == 'primary_navigation' ) {
+
+		$login_page = get_field('login', $menu);
+		$right_menu = '<li class="login ml-auto"><a class="d-flex align-items-center" href="'. $login_page .'">Log ind <svg class="icon ml-2"><use xlink:href="' . App\asset_path('images/feather-sprite.svg') . '#lock"/></svg></a></li>' .
+									'<li class="search parent" data-level="1">' .
+										'<a class="d-flex align-items-center" href="#">Søg<svg class="icon ml-2"><use xlink:href="' . App\asset_path('images/feather-sprite.svg') . '#search"/></svg></a>' .
+										'<ul class="sub-menu" data-level="1">' .
+											'<li class="nav-back d-lg-none"><a tabindex="0" href="#">Tilbage</a></li>' .
+											'<li class="parent" data-level="2"><a href="#" tabindex="0">Søgefelter her</a>' .
+										'</ul>' .
+									'</li>';
+
+		$items = $items . $right_menu;
+	}
+
+
+	// return
+	return $items;
+
+}, 10, 2);
