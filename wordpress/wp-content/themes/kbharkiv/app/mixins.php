@@ -56,7 +56,7 @@ function block_links( $block ) {
 						$link_target = $link['target'] ? $link['target'] : '_self';
 						echo '<a href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '"><svg class="icon"><use xlink:href="' . App\asset_path('images/feather-sprite.svg') . '#arrow-right-circle"/></svg>' . esc_html( $link_title ) . '</a>';
 					elseif( get_sub_field('block_links_type') == 'download') :
-						echo '<a href="' . get_sub_field('block_links_type_download')['url'] . '" download><svg class="icon"><use xlink:href="' . App\asset_path('images/feather-sprite.svg') . '#download"/></svg>' . get_sub_field('block_links_type_title') . '</a>';
+						echo '<a href="' . get_sub_field('block_links_type_download')['url'] . '" download><svg class="icon"><use xlink:href="' . App\asset_path('images/feather-sprite.svg') . '#download"/></svg>' . get_sub_field('block_links_type_title')  . '</a>';
 					endif;
 
 				echo '</li>';
@@ -118,16 +118,20 @@ add_filter( 'pre_get_posts', function( $query ) {
 });
 
 // Return the lead of current
-function the_lead() {
+function get_the_lead() {
 	if(get_field('lead', get_post_type() . '_options')) {
-		echo '<p class="lead">' . get_field('lead', get_post_type() . '_options') . '</p>';
+		return get_field('lead', get_post_type() . '_options');
 	} elseif ( get_field('lead')) {
-		echo '<p class="lead">' . get_field('lead') . '</p>';
+		return get_field('lead');
 	}
 }
 
 // Function for returning color theme array. $dark boolean is optional for returning the dark theme color
 function theme_color($dark = 0) {
+	if (is_front_page()) {
+		return '#ffffff';
+	}
+
 	global $post;
 
 	$colors = [

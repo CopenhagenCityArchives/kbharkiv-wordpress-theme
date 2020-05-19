@@ -167,19 +167,19 @@ class Kbharkiv_Walker_Nav_Children extends Walker_Page {
 
     extract($args, EXTR_SKIP);
 
-    $css_class = array('page-item', $depth == 0 ? 'col-sm-6 col-md-5 col-lg-4 col-xl-3' : '');
+    $css_class = array('page-item', $depth == 0 ? 'col-sm-6 col-md-5 col-lg-4 col-xl-3 mb-5' : '');
 
     $css_class = implode(' ', apply_filters( 'page_css_class', $css_class, $item, $depth, $args, $current_page ));
 
-		$element = $depth == 0 ? 'div' : 'li';
-		$thumbnail = has_post_thumbnail($item->ID) && $depth == 0 ? get_the_post_thumbnail($item->ID, 'herox1') : '';
-		$headline = $depth == 0 ? 'h3' : 'h5';
-		$icon = $depth == 0 ? '<svg class="icon"><use xlink:href="' . App\asset_path('images/feather-sprite.svg') . '#arrow-right"/></svg>' : '';
+		$tag = $depth == 0 ? 'div' : 'li';
+		$thumbnail = $depth == 0 ? has_post_thumbnail($item->ID) ? get_the_post_thumbnail($item->ID, 'herox1', ['class' => 'mb-4']) : '<div role="presentation" class="mb-4" style="padding-top: 52.5%; background-color: ' . theme_color(1) . '"></div>' : '';
+		$headline = $depth == 0 ? 'h3' : 'div';
+		$icon = $depth == 0 ? '<svg class="icon d-inline-block"><use xlink:href="' . App\asset_path('images/feather-sprite.svg') . '#arrow-right-circle"/></svg>' : '';
 
     //Modification
-    $content = $link_before . $thumbnail . '<' . $headline .'>' . get_the_title($item->ID) . '</' . $headline .'>' . $icon . $link_after;
-
-    $output .= $indent . '<' . $element . ' class="' . $css_class . '"><a href="' . get_permalink($item->ID) . '">' . $content . '</a>';
+    $content = $link_before . $thumbnail . '<div class="d-flex align-items-center mb-2"><' . $headline .'>' . get_the_title($item->ID) . '</' . $headline .'>' . $icon . '</div>' . $link_after;
+		$lead = $depth == 0 && null !== get_field('lead', $item->ID) ? '<div>' . get_field('lead', $item->ID) . '</div>' : '';
+    $output .= $indent . '<' . $tag . ' class="' . $css_class . '"><a href="' . get_permalink($item->ID) . '">' . $content . $lead . '</a>';
     //End Modification
 	}
 
@@ -191,8 +191,8 @@ class Kbharkiv_Walker_Nav_Children extends Walker_Page {
         $t = "\t";
         $n = "\n";
     }
-		$element = $depth == 0 ? 'div' : 'li';
+		$tag = $depth == 0 ? 'div' : 'li';
 		$blank_col = $depth == 0 ? '<div class="d-none d-md-block col-md-1 d-lg-none col-xl-1 d-xl-block"></div>' : '';
-    $output .= "</" . $element . ">{$n}$blank_col";
+    $output .= "</" . $tag . ">{$n}$blank_col";
 	}
 }	// Kbharkiv_Walker_Nav_Children

@@ -38,10 +38,18 @@ img {
   height: auto;
 }
 
+.content {
+  margin-bottom: 3rem;
+}
+
 .modal-backdrop {
   background-color: $blue;
 
   &.show {
     opacity: 1;
   }
+}
+
+h1 {
+  font-weight: 800;
 }

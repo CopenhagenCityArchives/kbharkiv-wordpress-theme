@@ -104,7 +104,9 @@ $navbar-light-toggler-icon-bg: none;
 // Font, line-height, and color for body text, headings, and more.
 
 $font-family-sans-serif:      "kbh", Helvetica, Arial, sans-serif !default;
-$font-family-serif:           "kbh", "Times New Roman", Times, serif !default;
+$font-family-serif:           "kbh", Helvetica, Arial, sans-serif !default;
+
+$font-size-base:              1rem !default; // Assumes the browser default, typically `16px`
 
 $font-weight-lighter:         400 !default;
 $font-weight-light:           400 !default;
@@ -114,12 +116,21 @@ $font-weight-bolder:          800 !default;
 
 $font-weight-base:            $font-weight-normal !default;
 
+$h1-font-size:                $font-size-base * 2.5 !default;
+$h2-font-size:                $font-size-base * 1.5 !default;
+$h3-font-size:                $font-size-base * 1.25 !default;
+$h4-font-size:                $font-size-base * 1 !default;
+$h5-font-size:                $font-size-base * 0.875 !default;
+$h6-font-size:                $font-size-base * 0.75 !default;
+
 $headings-font-weight:        700 !default;
 
-$display1-weight:             800 !default;
-$display2-weight:             800 !default;
-$display3-weight:             800 !default;
-$display4-weight:             800 !default;
+$lead-font-weight:            400 !default;
+
+// $display1-weight:             800 !default;
+// $display2-weight:             800 !default;
+// $display3-weight:             800 !default;
+// $display4-weight:             800 !default;
 
 // Grid breakpoints
 //

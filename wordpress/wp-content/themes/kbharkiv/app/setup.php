@@ -54,6 +54,8 @@ add_action('after_setup_theme', function () {
     add_theme_support('post-thumbnails');
     add_image_size('herox2', 2400, 1260, true );
     add_image_size('herox1', 1200, 630, true );
+    add_image_size('shortcutx4', 160, 160, true );
+    add_image_size('shortcutx1', 40, 40, true );
 
     /**
      * Enable HTML5 markup support

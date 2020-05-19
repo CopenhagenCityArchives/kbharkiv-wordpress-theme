@@ -29,7 +29,7 @@
                     "name": "block_links_type",
                     "type": "select",
                     "instructions": "",
-                    "required": 0,
+                    "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
@@ -85,7 +85,7 @@
                     "name": "block_links_type_download",
                     "type": "file",
                     "instructions": "",
-                    "required": 0,
+                    "required": 1,
                     "conditional_logic": [
                         [
                             {
@@ -114,7 +114,7 @@
                     "name": "block_links_type_link",
                     "type": "link",
                     "instructions": "",
-                    "required": 0,
+                    "required": 1,
                     "conditional_logic": [
                         [
                             {
@@ -160,5 +160,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1588750190
+    "modified": 1589875033
 }

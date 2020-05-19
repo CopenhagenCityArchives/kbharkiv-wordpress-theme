@@ -1,7 +1,7 @@
 <section class="module module-links">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-lg-5 offset-lg-1 offset-xl-2 order-lg-2">
+      <div class="col-lg-8 col-xl-6 offset-lg-2 offset-xl-3">
         @if( have_rows('modules_links_links') )
           <ul>
           @while ( have_rows('modules_links_links') )
