@@ -1,0 +1,17 @@
+.infobox {
+  padding: $spacer*1.5;
+  margin-bottom: 3rem;
+  max-width: 400px;
+
+  @include media-breakpoint-up(lg) {
+    width: 240px;
+    position: absolute;
+    right: -240px;
+  }
+
+  @include media-breakpoint-up(xl) {
+    width: 280px;
+    position: absolute;
+    right: calc(-280px - 1.5rem);
+  }
+}

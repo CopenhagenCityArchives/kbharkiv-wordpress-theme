@@ -39,7 +39,7 @@ add_action('acf/init', function() {
 
 function block_infobox( $block ) {
   if(function_exists('get_field')):
-    echo '<aside class="infobox">' . get_field('block_infobox') . '</aside>';
+    echo '<aside class="infobox small" style="background-color: ' . theme_color() . '">' . get_field('block_infobox') . '</aside>';
   endif;
 }
 

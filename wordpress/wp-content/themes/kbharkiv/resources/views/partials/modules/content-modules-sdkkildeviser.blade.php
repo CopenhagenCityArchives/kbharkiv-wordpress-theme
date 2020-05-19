@@ -1,7 +1,7 @@
 <section class="module module-kildeviser">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-lg-8 col-xl-6 offset-lg-2 offset-xl-3">
+      <div class="col-lg-8 col-xl-6 offset-lg-1 offset-xl-3">
         <div id="module-kildeviser-{{get_row_index()}}"></div>
       </div>
     </div>

@@ -14,7 +14,7 @@
 
       @if ( !empty( get_the_content() ))
         <div class="row">
-          <div class="col-lg-8 col-xl-6 offset-lg-2 offset-xl-3">
+          <div class="col-lg-8 col-xl-6 offset-lg-1 offset-xl-3">
             @php the_content() @endphp
             {!! wp_link_pages(['echo' => 0, 'before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']) !!}
           </div>
