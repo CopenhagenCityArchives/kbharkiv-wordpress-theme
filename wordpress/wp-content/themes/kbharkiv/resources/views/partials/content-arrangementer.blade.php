@@ -56,5 +56,3 @@
   </div>
 
 </article>
-
-@php $prev_date = $event_start @endphp

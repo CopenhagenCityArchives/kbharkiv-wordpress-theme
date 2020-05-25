@@ -1,14 +1,12 @@
-.post-type-archive-arrangementer {
-  article.arrangementer {
-    padding: 1.5rem 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  }
+article.arrangementer {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
 
-  .month {
-    margin: 1rem 0;
-  }
+.month {
+  margin: 1rem 0;
+}
 
-  article.arrangementer + .month {
-    margin-top: 3rem;
-  }
+article.arrangementer + .month {
+  margin-top: 3rem;
 }

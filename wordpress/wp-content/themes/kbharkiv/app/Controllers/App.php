@@ -19,6 +19,10 @@ class App extends Controller
             }
             return __('Latest Posts', 'sage');
         }
+        if (is_tax()) {
+          $tax = get_queried_object();
+          return $tax->name;
+        }
         if (is_archive()) {
             return post_type_archive_title();
         }
@@ -27,6 +31,9 @@ class App extends Controller
         }
         if (is_404()) {
             return __('Not Found', 'sage');
+        }
+        if (is_tag()) {
+            return __('TAX', 'sage');
         }
         return get_the_title();
     }

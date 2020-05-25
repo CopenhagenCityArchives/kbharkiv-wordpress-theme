@@ -1,0 +1,12 @@
+article.medarbejdere {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+  .profile-image {
+    filter: grayscale(100%);
+  }
+
+  dl {
+    margin-bottom: 0;
+  }
+}

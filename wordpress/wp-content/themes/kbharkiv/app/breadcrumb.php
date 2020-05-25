@@ -62,6 +62,12 @@ function the_breadcrumb() {
       $html .= '<li class="breadcrumb-item active">' . single_cat_title( '', false ) . '</li>';
     }
 
+    elseif (is_tax()) {
+      $post_type = get_post_type();
+      $html .= '<li class="breadcrumb-item"><a href="' . get_post_type_archive_link($post_type) . '">' . get_post_type_object($post_type)->label . '</a></li>';
+      $html .= '<li class="breadcrumb-item active">' . App::title() . '</li>';
+    }
+
     elseif (is_archive() ) {
       $html .= '<li class="breadcrumb-item active">' . post_type_archive_title('', false) . '</li>';
     }
