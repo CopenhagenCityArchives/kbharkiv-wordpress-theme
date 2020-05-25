@@ -1,21 +1,60 @@
-<article @php post_class('col-12') @endphp>
-  <h6><?php echo get_the_term_list( get_the_ID(), 'event_category', '', ', ', '' ) ?></h6>
-  <header>
-    <h2 class="entry-title"><a href="{{ get_permalink() }}">{!! get_the_title() !!}</a></h2>
-  </header>
-  <div class="entry-summary">
-    @php the_excerpt() @endphp
-  </div>
-  <h6>Køb billet</h6>
-  @if( get_field('event_link') )
-    <a target="_blank" href="{{ get_field('event_link') }}">Køb billet</a>
-  @endif
+@php $event_start = strtotime(get_field('event_start')) @endphp
+@php $event_end = strtotime(get_field('event_end')) @endphp
 
-  <h6>Pris</h6>
-  @if( get_field('event_price') )
-    {{ get_field('event_price') }}
-  @else
-    Gratis
-  @endif
+{{-- {{ date("ym", $event_start) }} --}}
+
+@if (date("ym", $event_start) != date("ym", $prev_date))
+    <div class="month h1" role="presentation">{{ date("F Y", $event_start) }}</div>
+@endif
+
+<article @php post_class() @endphp>
+  <div class="row">
+
+    <div class="col-lg-2" role="presentation">
+      <time datetime="{{ date("Y-m-d H:i", $event_start) }}">
+        <div class="h1" style="color: {{theme_color(1)}}">{{ date("d", $event_start) }}.</div>
+        {{ date("H:i", $event_start) }}
+      </time>
+      @if( $event_end )
+        <time datetime="{{ date("Y-m-d H:i", $event_end) }}">
+          – {{ date("H:i", $event_end) }}
+        </time>
+      @endif
+    </div>
+    <div class="col-lg-3">
+      <a href="{{ get_permalink() }}">
+        @php the_post_thumbnail('medium'); @endphp
+      </a>
+    </div>
+    <div class="col-lg-5">
+      <h6>{!! get_the_term_list( get_the_ID(), 'event_category', '', ', ', '' ) !!}</h6>
+      <a href="{{ get_permalink() }}">
+        <header>
+          <h2 class="entry-title">{{ the_title() }}</h2>
+        </header>
+        <div class="entry-summary">
+          {{ get_the_lead(get_the_ID()) }}
+        </div>
+      </a>
+    </div>
+
+    <div class="col-lg-2">
+      <h6>Pris</h6>
+      <div class="h4 mb-4">
+        @if( get_field('event_price') )
+          {{ get_field('event_price') }} kr.
+        @else
+          Gratis
+        @endif
+      </div>
+
+      @if( get_field('event_link') )
+        <a class="btn btn-primary" target="_blank" href="{{ get_field('event_link') }}" role="button">Køb billet</a>
+      @endif
+
+    </div>
+  </div>
 
 </article>
+
+@php $prev_date = $event_start @endphp

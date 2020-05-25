@@ -17,8 +17,6 @@
 @import "components/buttons";
 @import "components/chat-buttons";
 @import "components/child-pages";
-@import "components/comments";
-@import "components/forms";
 @import "components/icons";
 @import "components/page-header";
 @import "components/wp-classes";
@@ -26,9 +24,11 @@
 @import "modules/module-gallery";
 @import "modules/module-links";
 @import "modules/module-shortcuts";
+@import "layouts/archive-arrangementer";
 @import "layouts/header";
 @import "layouts/sidebar";
 @import "layouts/footer";
 @import "layouts/pages";
 @import "layouts/posts";
+@import "layouts/single-arrangementer";
 @import "layouts/tinymce";

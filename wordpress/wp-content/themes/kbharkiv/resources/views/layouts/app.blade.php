@@ -17,6 +17,11 @@
         @endif --}}
       </div>
     </div>
+
+    <button class="btn btn-primary chat-btn" type="button" name="button">
+      <span class="sr-only">Chat</span>
+      @include('partials.icon', ['icon' => 'message-square'])
+    </button>
     @php do_action('get_footer') @endphp
     @include('partials.footer')
     @php wp_footer() @endphp

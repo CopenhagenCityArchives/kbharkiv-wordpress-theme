@@ -1,9 +1,22 @@
 .chat-btn {
   position: fixed;
   bottom: 3rem;
-  right: 1.5rem;
   width: 3rem;
   height: 3rem;
+  right: 1.5rem;
   border-radius: 50%;
-  background-color: blue;
+
+  @include media-breakpoint-up(md) {
+    right: 1.5rem;
+  }
+
+  @include media-breakpoint-up(lg) {
+    width: 3.5rem;
+    height: 3.5rem;
+    right: 2.25rem;
+  }
+
+  @include media-breakpoint-up(xl) {
+    right: 1.25rem;
+  }
 }

@@ -230,6 +230,54 @@ export default {
         $description.addClass('active');
       })
     })
+
+    let last_known_scroll_position = 0;
+    let ticking = false;
+    let bgDefault = $('.page-header').attr('style').slice(-7);
+    let bgScrolled = colorLuminance(bgDefault, -0.08);
+
+    function doSomething(scroll_pos) {
+      if(scroll_pos > 0) {
+         $('body').addClass('scrolled');
+         $('.page-header').css('background-color', bgScrolled);
+
+      } else {
+        $('body').removeClass('scrolled');
+        $('.page-header').css('background-color', bgDefault);
+
+      }
+    }
+
+    // ADD TO MANUALLY TO PHP COLOR ARRAY
+    function colorLuminance(hex, lum) {
+      // validate hex string
+      hex = String(hex).replace(/[^0-9a-f]/gi, '');
+      if (hex.length < 6) {
+        hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
+      }
+      lum = lum || 0;
+      // convert to decimal and change luminosity
+      var rgb = '#', c, i;
+      for (i = 0; i < 3; i++) {
+        c = parseInt(hex.substr(i*2,2), 16);
+        c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
+        rgb += ('00'+c).substr(c.length);
+      }
+      return rgb;
+    }
+
+    window.addEventListener('scroll', function() {
+      last_known_scroll_position = window.scrollY;
+
+      if (!ticking) {
+        window.requestAnimationFrame(function() {
+          doSomething(last_known_scroll_position);
+          ticking = false;
+        });
+
+        ticking = true;
+      }
+    });
   },
   finalize() {
     // JavaScript to be fired on all pages, after page specific JS is fired

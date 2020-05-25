@@ -118,8 +118,10 @@ add_filter( 'pre_get_posts', function( $query ) {
 });
 
 // Return the lead of current
-function get_the_lead() {
-	if(get_field('lead', get_post_type() . '_options')) {
+function get_the_lead($id = 0) {
+	if ($id && get_field('lead', $id)) {
+		return get_field('lead', $id);
+	} elseif (get_field('lead', get_post_type() . '_options')) {
 		return get_field('lead', get_post_type() . '_options');
 	} elseif ( get_field('lead')) {
 		return get_field('lead');
@@ -166,3 +168,12 @@ function theme_color($dark = 0) {
 		return $colors['default'][$dark ? 1 : 0];
 	}
 }
+
+// Make events sort by date
+add_action( 'pre_get_posts', function($query) {
+	if($query->is_main_query() && is_post_type_archive('arrangementer')):
+		$query->set( 'meta_key', 'event_start' );
+		$query->set( 'orderby', 'meta_value' );
+		$query->set( 'order', 'DESC' );
+	endif;
+});
