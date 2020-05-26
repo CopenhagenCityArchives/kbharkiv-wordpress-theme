@@ -13,6 +13,32 @@ footer {
     }
   }
 
+  .menu,
+  .sub-menu {
+    padding: 0;
+    list-style: none;
+  }
+
+  .sub-menu {
+    margin-bottom: 3rem;
+    font-weight: 500;
+
+    li {
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+  }
+
+  .menu {
+    > li > a {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+  }
+
   .kk-logo {
     width: 6rem;
 
