@@ -20,9 +20,10 @@
       ]);
     @endphp
 
-    <nav class="mb-4">
+    <nav class="category-filter">
+      <a href="{{ get_post_type_archive_link('medarbejdere') }}" class="{{ is_archive('medarbejdere') && !is_tax() ? 'active' : ''}}">Alle medarbejdere</a>
       @foreach($terms as $term)
-        <a href="{{ get_term_link($term->term_id) }}" class="mr-4">{{ $term->name }}</a>
+        <a href="{{ get_term_link($term->term_id) }}" class="{{ is_tax('employee_category', $term->slug) ? 'active' : '' }}">{{ $term->name }}</a>
       @endforeach
     </nav>
 

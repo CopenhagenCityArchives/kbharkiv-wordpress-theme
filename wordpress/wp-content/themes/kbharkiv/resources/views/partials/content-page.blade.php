@@ -5,7 +5,7 @@
         <figure class="row">
           <div class="col-lg-10 offset-lg-1">
             @php the_post_thumbnail( 'herox2' ); @endphp
-            <figcaption>
+            <figcaption class="">
               {{get_post(get_post_thumbnail_id())->post_excerpt}}
             </figcaption>
           </div>

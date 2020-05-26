@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-4 col-sm-12 col-lg-4">
         @if ( has_post_thumbnail())
-          {!! wp_get_attachment_image(get_post_thumbnail_id(), ['48', '48'], false, ['class' => 'profile-image']) !!}
+          @php the_post_thumbnail( 'profilex2', ['class' => 'profile-image'] ); @endphp
         @else
           Billede kommer snart
         @endif
@@ -19,8 +19,7 @@
 
         <dl class="row small">
           @if( get_field('employee_email') )
-            {{-- <h6>Email</h6> --}}
-            <dt class="col-3 col-lg-2">Mail</dt>
+            <dt class="col-3 col-lg-2">Email</dt>
             <dd class="col-9"><a class="text-break" aria-label="Email {!! get_the_title() !!}" href="mailto:{{get_field('employee_email')}}" target="_blank">{{get_field('employee_email')}}</a></dd>
           @endif
           @if( get_field('employee_phone') )

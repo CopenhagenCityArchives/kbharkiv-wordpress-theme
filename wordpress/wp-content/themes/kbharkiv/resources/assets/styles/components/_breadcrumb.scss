@@ -1,5 +1,6 @@
 .breadcrumb-wrapper {
   overflow-x: auto;
+  margin-bottom: 2rem;
 
   @include media-breakpoint-down(sm) {
     padding: 0;

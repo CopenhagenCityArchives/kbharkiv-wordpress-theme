@@ -114,6 +114,10 @@ add_filter( 'pre_get_posts', function( $query ) {
      'post', 'arrangementer', 'medarbejdere'
     ));
   }
+
+	if ( is_post_type_archive( 'medarbejdere' ) ) {
+  	$query->set('posts_per_page', -1 );
+  }
   return $query;
 });
 
