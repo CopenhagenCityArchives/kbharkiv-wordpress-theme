@@ -107,14 +107,15 @@ add_filter( 'wpseo_metabox_prio', function () {
 	return 'low';
 });
 
-// Make Archives.php Include Custom Post Types
 add_filter( 'pre_get_posts', function( $query ) {
+	// Make Archives.php Include Custom Post Types
   if( (is_category() || is_tag()) && $query->is_archive() && empty( $query->query_vars['suppress_filters'] ) ) {
     $query->set( 'post_type', array(
      'post', 'arrangementer', 'medarbejdere'
     ));
   }
 
+ // Make employee archive show all employees
 	if ( is_post_type_archive( 'medarbejdere' ) ) {
   	$query->set('posts_per_page', -1 );
   }
@@ -181,3 +182,14 @@ add_action( 'pre_get_posts', function($query) {
 		$query->set( 'order', 'DESC' );
 	endif;
 });
+
+
+if( function_exists('acf_add_options_page') ) {
+
+	acf_add_options_page(array(
+		'page_title' 	=> 'Footer',
+		'menu_title'	=> 'Footer',
+		'menu_slug' 	=> 'footer',
+		'capability'	=> 'edit_posts',
+	));
+}
