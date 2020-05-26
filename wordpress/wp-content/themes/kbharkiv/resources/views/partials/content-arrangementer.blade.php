@@ -49,7 +49,7 @@
       </div>
 
       @if( get_field('event_link') )
-        <a class="btn btn-primary" target="_blank" href="{{ get_field('event_link') }}" role="button">Køb billet</a>
+        <a class="btn btn-primary" target="_blank" href="{{ get_field('event_link') }}" role="button">{{ get_field('event_price') && get_field('event_price') > 0 ? 'Køb billet' : 'Tilmeld' }}</a>
       @endif
 
     </div>
