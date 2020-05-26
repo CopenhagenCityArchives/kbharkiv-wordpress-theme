@@ -116,9 +116,19 @@ add_filter( 'pre_get_posts', function( $query ) {
   }
 
  // Make employee archive show all employees
-	if ( is_post_type_archive( 'medarbejdere' ) ) {
+	if( ($query->is_main_query() && is_post_type_archive( 'medarbejdere' )) || ($query->is_main_query() && is_tax( 'employee_category' )) ) {
   	$query->set('posts_per_page', -1 );
+		$query->set('orderby', 'title');
+		$query->set('order', 'ASC');
   }
+
+	// Make events sort by date
+	if( $query->is_main_query() && is_post_type_archive('arrangementer') ) {
+		$query->set( 'meta_key', 'event_start' );
+		$query->set( 'orderby', 'meta_value' );
+		$query->set( 'order', 'DESC' );
+	}
+
   return $query;
 });
 
@@ -173,16 +183,6 @@ function theme_color($dark = 0) {
 		return $colors['default'][$dark ? 1 : 0];
 	}
 }
-
-// Make events sort by date
-add_action( 'pre_get_posts', function($query) {
-	if($query->is_main_query() && is_post_type_archive('arrangementer')):
-		$query->set( 'meta_key', 'event_start' );
-		$query->set( 'orderby', 'meta_value' );
-		$query->set( 'order', 'DESC' );
-	endif;
-});
-
 
 if( function_exists('acf_add_options_page') ) {
 
