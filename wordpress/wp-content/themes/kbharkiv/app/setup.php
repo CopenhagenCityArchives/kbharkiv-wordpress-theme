@@ -57,8 +57,8 @@ add_action('after_setup_theme', function () {
     add_image_size('herox1', 1200, 630, true );
     add_image_size('shortcutx4', 160, 160, true );
     add_image_size('shortcutx1', 40, 40, true );
-    add_image_size('profilex2', 480, 480, true );
-    add_image_size('profilex1', 240, 240, true );
+    add_image_size('profilex2', 480, 560, true );
+    add_image_size('profilex1', 240, 280, true );
 
 
     /**

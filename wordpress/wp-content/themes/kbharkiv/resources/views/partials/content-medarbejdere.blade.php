@@ -9,7 +9,9 @@
         @endif
       </div>
       <div class="col-8 col-sm-12 col-lg-8">
-        <h6>{!! get_the_term_list( get_the_ID(), 'employee_category', '', ', ', '' ) !!}</h6>
+        @if (get_field('employee_title'))
+          <h6>{{get_field('employee_title')}}</h6>
+        @endif
         <header>
           <h3 class="entry-title">{!! get_the_title() !!}</h3>
         </header>
