@@ -1,6 +1,7 @@
 export default {
   init() {
     function initMenu() {
+      let currentSubMenuColor;
       let viewportWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
       let mobileMenu = viewportWidth < 922;
       let mobileMenuOpen;
@@ -53,7 +54,10 @@ export default {
       }
 
       function openSubMenu($menuItem) {
-        currentSubMenuLevel = $menuItem.data('level')
+        currentSubMenuColor = $menuItem.data('color');
+        $('.top-menu').css('background-color', currentSubMenuColor);
+
+        currentSubMenuLevel = $menuItem.data('level');
         $menuItem.addClass('active');
         $menuItem.find('> a').attr( 'aria-expanded', true );
 
@@ -71,7 +75,6 @@ export default {
         setTabbable();
       }
 
-      // Note to self: Merge with closeSubMenuLevel
       function closeSubMenu() {
         currentSubMenuLevel = 0;
         $('.top-menu ul.menu li').removeClass('active')
@@ -104,6 +107,8 @@ export default {
           // Enable tabbing on top level menu
           $('.top-menu-focusable, .top-menu ul.menu > li > a').attr( 'tabindex', '0' );
           setTabbable();
+          currentSubMenuColor = $('.top-menu').data('color');
+          $('.top-menu').css('background-color', currentSubMenuColor);
         } else {
           // Desktop
           // Enable tabbing on top level menu
@@ -111,6 +116,8 @@ export default {
           $('body').removeClass('modal-open');
           $('.top-menu').removeClass('active');
           removeTabbable();
+          currentSubMenuColor = $('.top-menu').data('color');
+          $('.top-menu').css('background-color', currentSubMenuColor);
         }
       }
 

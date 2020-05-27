@@ -29,9 +29,19 @@ class Kbharkiv_Walker_Nav_Menu extends Walker_Nav_Menu {
 		// Cleaner class array to replace default
 		$new_classes = array();
 		$level = '';
+		$color = '';
+
 		if ( in_array( 'menu-item-has-children', $classes ) ) {
 			$new_classes[] = 'parent';
 			$level = ' data-level="' . ($depth + 1) . '"';
+
+			$post_id = get_post_meta( $item->ID, '_menu_item_object_id', true );
+
+			if ($depth == 0 && get_field('color_theme', $post_id)) {
+				$color = ' data-color="' . color(get_field('color_theme', $post_id), 0) . '"';
+			} elseif($depth == 0 && !get_field('color_theme', $post_id)) {
+				$color = ' data-color="' . color('default', 0) . '"';
+			}
 		}
 		if ( in_array( 'current-menu-item', $classes ) )
 			$new_classes[] = 'current';
@@ -55,7 +65,7 @@ class Kbharkiv_Walker_Nav_Menu extends Walker_Nav_Menu {
 		$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
 
 		// removed the ID
-		$output .= $indent . '<li' . $class_names . $level . '>';
+		$output .= $indent . '<li' . $class_names . $level . $color . '>';
 
 		$atts = array();
 		$atts['title']  = ! empty( $item->attr_title ) ? $item->attr_title : '';
@@ -128,7 +138,7 @@ class Kbharkiv_Walker_Nav_Menu extends Walker_Nav_Menu {
     $indent = str_repeat( $t, $depth );
 
     // Default class.
-	    $classes = array( 'sub-menu' );
+	  $classes = array( 'sub-menu' );
 
     /**
      * Filters the CSS class(es) applied to a menu list element.
@@ -164,7 +174,6 @@ add_filter('wp_nav_menu_items', function( $items, $args ) {
 
 	// get menu
 	$menu = wp_get_nav_menu_object($args->menu);
-
 
 	// modify primary only
 	if( $args->theme_location == 'primary_navigation' ) {

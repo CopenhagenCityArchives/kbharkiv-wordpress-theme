@@ -143,47 +143,6 @@ function get_the_lead($id = 0) {
 	}
 }
 
-// Function for returning color theme array. $dark boolean is optional for returning the dark theme color
-function theme_color($dark = 0) {
-	if (is_front_page()) {
-		return '#ffffff';
-	}
-
-	global $post;
-
-	$colors = [
-	  'yellow' => ['#F2E9CE', '#7B766A'],
-		'green' => ['#DBEDD7', '#3F5B58'],
-		'purple' => ['#DACBD8', '#685966'],
-		'blue' => ['#C9E4F2', '#04436E'],
-		'red' => ['#E7C0B0', '#8A3314'],
-		'default' => ['#C9E4F2', '#04436E'],
-	];
-
-	// if cpt archive or post archive
-	if ((is_post_type_archive() && isset($colors[get_field('color_theme', get_post_type() . '_options')])) || (is_home() && isset($colors[get_field('color_theme', get_post_type() . '_options')]))) {
-		return $colors[get_field('color_theme', get_post_type() . '_options')][$dark ? 1 : 0];
-	// if color_theme exists
-	} elseif (isset($colors[get_field('color_theme', $post->ID)])) {
-		//return get_field('color_theme');
-		return $colors[get_field('color_theme', $post->ID)][$dark ? 1 : 0];
-	// if top level parent color_theme exists
-	} elseif($post->post_parent) {
-		$ancestors = get_post_ancestors($post->ID);
-		$root = count($ancestors)-1;
-		$parent_id = $ancestors[$root];
-
-		if (get_field('color_theme', $parent_id) && isset($colors[get_field('color_theme', $parent_id)])) {
-			return $colors[get_field('color_theme', $parent_id)][$dark ? 1 : 0];
-		} else {
-			return $colors['default'][$dark ? 1 : 0];
-		}
-	// else default color theme
-	} else {
-		return $colors['default'][$dark ? 1 : 0];
-	}
-}
-
 if( function_exists('acf_add_options_page') ) {
 
 	acf_add_options_page(array(

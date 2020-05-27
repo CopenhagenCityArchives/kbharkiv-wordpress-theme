@@ -5,7 +5,7 @@ header.top-menu {
   z-index: 1000;
   height: 88px;
   -webkit-overflow-scrolling: touch;
-  transition: height 400ms ease;
+  transition: height 400ms ease, background-color 400ms ease;
 
   .brand {
     font-weight: 800;

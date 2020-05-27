@@ -30,7 +30,7 @@ function custom_get_category_parents( $id, $visited = array() ) {
 function the_breadcrumb() {
   global $post;
 
-  $html = '<nav class="breadcrumb-wrapper container-fluid" aria-label="Brødkrummesti"><ol class="breadcrumb" style="background-color: ' . theme_color(true) . '">';
+  $html = '<nav class="breadcrumb-wrapper container-fluid" aria-label="Brødkrummesti"><ol class="breadcrumb" style="background-color: ' . theme_color(1) . '">';
 
   if ( (is_front_page()) || (is_home()) ) {
     return;
