@@ -32,115 +32,112 @@ function the_breadcrumb() {
 
   $html = '<nav class="breadcrumb-wrapper container-fluid" aria-label="Brødkrummesti"><ol class="breadcrumb" style="background-color: ' . theme_color(1) . '">';
 
-  if ( (is_front_page()) || (is_home()) ) {
-    return;
-    // $html .= '<li class="breadcrumb-item active">Hjem</li>';
+  $html .= '<li class="breadcrumb-item"><a href="'.esc_url(home_url('/')).'"><svg class="icon" aria-hidden="true"><use xlink:href="' . App\asset_path('images/feather-sprite.svg') . '#home"/></svg><span class="sr-only">Hjem</span></a></li>';
+
+  if ( is_attachment() ) {
+    $parent = get_post($post->post_parent);
+    $categories = get_the_category($parent->ID);
+
+    if ( $categories[0] ) {
+      $html .= custom_get_category_parents($categories[0]);
+    }
+
+    $html .= '<li class="breadcrumb-item"><a href="' . esc_url( get_permalink( $parent ) ) . '">' . $parent->post_title . '</a></li>';
+    $html .= '<li class="breadcrumb-item active">' . get_the_title() . '</li>';
   }
 
-  else {
-    $html .= '<li class="breadcrumb-item"><a href="'.esc_url(home_url('/')).'"><svg class="icon" aria-hidden="true"><use xlink:href="' . App\asset_path('images/feather-sprite.svg') . '#home"/></svg><span class="sr-only">Hjem</span></a></li>';
+  elseif (is_home()) {
+    $html .= '<li class="breadcrumb-item active">' . App::title() . '</li>';
+  }
 
-    if ( is_attachment() ) {
-      $parent = get_post($post->post_parent);
-      $categories = get_the_category($parent->ID);
+  elseif ( is_category() ) {
+    $category = get_category( get_query_var( 'cat' ) );
 
-      if ( $categories[0] ) {
-        $html .= custom_get_category_parents($categories[0]);
+    if ( $category->parent != 0 ) {
+      $html .= custom_get_category_parents( $category->parent );
+    }
+
+    $html .= '<li class="breadcrumb-item active">' . single_cat_title( '', false ) . '</li>';
+  }
+
+  elseif (is_tax()) {
+    $post_type = get_post_type();
+    $html .= '<li class="breadcrumb-item"><a href="' . get_post_type_archive_link($post_type) . '">' . get_post_type_object($post_type)->label . '</a></li>';
+    $html .= '<li class="breadcrumb-item active">' . App::title() . '</li>';
+  }
+
+  elseif (is_archive() ) {
+    $html .= '<li class="breadcrumb-item active">' . post_type_archive_title('', false) . '</li>';
+  }
+
+  elseif ( is_page() && !is_front_page() ) {
+    $parent_id = $post->post_parent;
+    $parent_pages = array();
+
+    while ( $parent_id ) {
+      $page = get_page($parent_id);
+      $parent_pages[] = $page;
+      $parent_id = $page->post_parent;
+    }
+
+    $parent_pages = array_reverse( $parent_pages );
+
+    if ( !empty( $parent_pages ) ) {
+      foreach ( $parent_pages as $parent ) {
+        $html .= '<li class="breadcrumb-item"><a href="' . esc_url( get_permalink( $parent->ID ) ) . '">' . get_the_title( $parent->ID ) . '</a></li>';
       }
-
-      $html .= '<li class="breadcrumb-item"><a href="' . esc_url( get_permalink( $parent ) ) . '">' . $parent->post_title . '</a></li>';
-      $html .= '<li class="breadcrumb-item active">' . get_the_title() . '</li>';
     }
 
-    elseif ( is_category() ) {
-      $category = get_category( get_query_var( 'cat' ) );
+    $html .= '<li class="breadcrumb-item active">' . get_the_title() . '</li>';
+  }
 
-      if ( $category->parent != 0 ) {
-        $html .= custom_get_category_parents( $category->parent );
-      }
+  elseif ( is_singular( 'post' ) ) {
+    // $categories = get_the_category();
+    //
+    // if ( $categories[0] ) {
+    //   $html .= custom_get_category_parents($categories[0]);
+    // }
+    $html .= '<li class="breadcrumb-item"><a href="' . get_post_type_archive_link( 'post' ) . '">' . get_the_title( get_option('page_for_posts', true) ) . '</a></li>';
 
-      $html .= '<li class="breadcrumb-item active">' . single_cat_title( '', false ) . '</li>';
-    }
+    $html .= '<li class="breadcrumb-item active">' . App::title() . '</li>';
+  }
 
-    elseif (is_tax()) {
-      $post_type = get_post_type();
-      $html .= '<li class="breadcrumb-item"><a href="' . get_post_type_archive_link($post_type) . '">' . get_post_type_object($post_type)->label . '</a></li>';
-      $html .= '<li class="breadcrumb-item active">' . App::title() . '</li>';
-    }
+  elseif ( is_singular( ) ) {
+    $post_type = get_post_type_object(get_post_type());
+    $post_type_link = get_post_type_archive_link(get_post_type());
 
-    elseif (is_archive() ) {
-      $html .= '<li class="breadcrumb-item active">' . post_type_archive_title('', false) . '</li>';
-    }
+    $html .= '<li class="breadcrumb-item"><a href="' . $post_type_link . '">' . $post_type->labels->name . '</a></li>';
+    $html .= '<li class="breadcrumb-item active">' . get_the_title() . '</li>';
+  }
 
-    elseif ( is_page() && !is_front_page() ) {
-      $parent_id = $post->post_parent;
-      $parent_pages = array();
+  elseif ( is_tag() ) {
+    $html .= '<li class="breadcrumb-item active">' . single_tag_title( '', false ) . '</li>';
+  }
 
-      while ( $parent_id ) {
-        $page = get_page($parent_id);
-        $parent_pages[] = $page;
-        $parent_id = $page->post_parent;
-      }
+  elseif ( is_day() ) {
+    $html .= '<li class="breadcrumb-item"><a href="' . esc_url( get_year_link( get_the_time( 'Y' ) ) ) . '">' . get_the_time( 'Y' ) . '</a></li>';
+    $html .= '<li class="breadcrumb-item"><a href="' . esc_url( get_month_link( get_the_time( 'Y' ), get_the_time( 'm' ) ) ) . '">' . get_the_time( 'm' ) . '</a></li>';
+    $html .= '<li class="breadcrumb-item active">' . get_the_time('d') . '</li>';
+  }
 
-      $parent_pages = array_reverse( $parent_pages );
+  elseif ( is_month() ) {
+    $html .= '<li class="breadcrumb-item"><a href="' . esc_url( get_year_link( get_the_time( 'Y' ) ) ) . '">' . get_the_time( 'Y' ) . '</a></li>';
+    $html .= '<li class="breadcrumb-item active">' . get_the_time( 'F' ) . '</li>';
+  }
 
-      if ( !empty( $parent_pages ) ) {
-        foreach ( $parent_pages as $parent ) {
-          $html .= '<li class="breadcrumb-item"><a href="' . esc_url( get_permalink( $parent->ID ) ) . '">' . get_the_title( $parent->ID ) . '</a></li>';
-        }
-      }
+  elseif ( is_year() ) {
+    $html .= '<li class="breadcrumb-item active">' . get_the_time( 'Y' ) . '</li>';
+  }
 
-      $html .= '<li class="breadcrumb-item active">' . get_the_title() . '</li>';
-    }
+  elseif ( is_author() ) {
+    $html .= '<li class="breadcrumb-item active">' . get_the_author() . '</li>';
+  }
 
-    elseif ( is_singular( 'post' ) ) {
-      $categories = get_the_category();
+  elseif ( is_search() ) {
 
-      if ( $categories[0] ) {
-        $html .= custom_get_category_parents($categories[0]);
-      }
+  }
 
-      $html .= '<li class="breadcrumb-item active">' . get_the_title() . '</li>';
-    }
-
-    elseif ( is_singular( ) ) {
-      $post_type = get_post_type_object(get_post_type());
-      $post_type_link = get_post_type_archive_link(get_post_type());
-
-      $html .= '<li class="breadcrumb-item"><a href="' . $post_type_link . '">' . $post_type->labels->name . '</a></li>';
-      $html .= '<li class="breadcrumb-item active">' . get_the_title() . '</li>';
-    }
-
-    elseif ( is_tag() ) {
-      $html .= '<li class="breadcrumb-item active">' . single_tag_title( '', false ) . '</li>';
-    }
-
-    elseif ( is_day() ) {
-      $html .= '<li class="breadcrumb-item"><a href="' . esc_url( get_year_link( get_the_time( 'Y' ) ) ) . '">' . get_the_time( 'Y' ) . '</a></li>';
-      $html .= '<li class="breadcrumb-item"><a href="' . esc_url( get_month_link( get_the_time( 'Y' ), get_the_time( 'm' ) ) ) . '">' . get_the_time( 'm' ) . '</a></li>';
-      $html .= '<li class="breadcrumb-item active">' . get_the_time('d') . '</li>';
-    }
-
-    elseif ( is_month() ) {
-      $html .= '<li class="breadcrumb-item"><a href="' . esc_url( get_year_link( get_the_time( 'Y' ) ) ) . '">' . get_the_time( 'Y' ) . '</a></li>';
-      $html .= '<li class="breadcrumb-item active">' . get_the_time( 'F' ) . '</li>';
-    }
-
-    elseif ( is_year() ) {
-      $html .= '<li class="breadcrumb-item active">' . get_the_time( 'Y' ) . '</li>';
-    }
-
-    elseif ( is_author() ) {
-      $html .= '<li class="breadcrumb-item active">' . get_the_author() . '</li>';
-    }
-
-    elseif ( is_search() ) {
-
-    }
-
-    elseif ( is_404() ) {
-
-    }
+  elseif ( is_404() ) {
 
   }
 

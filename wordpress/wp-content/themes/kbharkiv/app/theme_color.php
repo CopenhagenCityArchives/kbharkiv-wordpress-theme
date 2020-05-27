@@ -23,8 +23,8 @@ function theme_color($darkness = 0) {
 	if (is_front_page()) {
 		return color('white', $darkness);
 	}
-	// if cpt archive or post archive
-	elseif ((is_post_type_archive() && get_field('color_theme', get_post_type() . '_options')) || (is_home() && get_field('color_theme', get_post_type() . '_options')) ) {
+	// if cpt archive or post archive or single post
+	elseif ((is_post_type_archive() && get_field('color_theme', get_post_type() . '_options')) || (is_home() && get_field('color_theme', get_post_type() . '_options')) || (is_single() && get_field('color_theme', get_post_type() . '_options')) ) {
 		return color(get_field('color_theme', get_post_type() . '_options'), $darkness);
 	}
 	//return get_field('color_theme');

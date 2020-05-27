@@ -17,12 +17,11 @@
 
       @include('partials.modules')
     </div>
-
     <div class="offset-lg-1 col-lg-4">
       <div class="event-info" style="background-color: {{ theme_color(1) }}">
         <time class="event-start" datetime="{{ date("Y-m-d H:i", $event_start) }}">
           <div class="date font-weight-bold">{{ date("d", $event_start) }}</div>
-          <div class="month font-weight-bolder">{{ date("F", $event_start) }}</div>
+          <div class="month font-weight-bolder">{{ date_i18n("F", $event_start) }}</div>
 
           <div class="h6">Tid</div>
           <span class="h4">
@@ -52,7 +51,7 @@
         @endif
 
         <div class="h6">Pris</div>
-        <div class="h4">{{ get_field('event_price') ? get_field('event_price') : 'Gratis'}}</div>
+        <div class="h4">{{ get_field('event_price') ? get_field('event_price') . ' kr.': 'Gratis'}}</div>
 
         @if( get_field('event_link') )
           <a class="btn btn-primary btn-lg" href="{{ get_field('event_link') }}" role="button" target="_blank">{{ get_field('event_price') || get_field('event_price') > 1 ? 'Køb billet' : 'Tilmeld'}}</a>

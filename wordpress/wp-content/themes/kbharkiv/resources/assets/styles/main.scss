@@ -13,6 +13,7 @@
 /** Import theme styles */
 @import "common/global";
 @import "components/block-infobox";
+@import "components/block-links";
 @import "components/breadcrumb";
 @import "components/buttons";
 @import "components/chat-buttons";
@@ -24,13 +25,14 @@
 @import "modules/module-gallery";
 @import "modules/module-links";
 @import "modules/module-shortcuts";
-@import "layouts/archive";
 @import "layouts/archive-arrangementer";
 @import "layouts/archive-medarbejdere";
+@import "layouts/archive-post";
 @import "layouts/header";
 @import "layouts/sidebar";
 @import "layouts/footer";
 @import "layouts/pages";
 @import "layouts/posts";
 @import "layouts/single-arrangementer";
+@import "layouts/single-post";
 @import "layouts/tinymce";

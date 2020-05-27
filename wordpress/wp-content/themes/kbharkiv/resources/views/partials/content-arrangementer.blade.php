@@ -4,7 +4,7 @@
 {{-- {{ date("ym", $event_start) }} --}}
 
 @if (date("ym", $event_start) != date("ym", $prev_date))
-    <div class="month h1" role="presentation">{{ date("F Y", $event_start) }}</div>
+  <div class="month h1" role="presentation">{{ date_i18n("F Y", $event_start) }}</div>
 @endif
 
 <article @php post_class() @endphp>
