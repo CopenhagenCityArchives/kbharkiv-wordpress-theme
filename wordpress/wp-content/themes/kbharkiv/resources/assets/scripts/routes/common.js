@@ -240,10 +240,10 @@ export default {
 
     let last_known_scroll_position = 0;
     let ticking = false;
-    let bgDefault = $('.page-header').attr('style').slice(-7);
+    let bgDefault = $('.top-menu').data('color');
     let bgScrolled = colorLuminance(bgDefault, -0.08);
 
-    function doSomething(scroll_pos) {
+    function changeBackground(scroll_pos) {
       if(scroll_pos > 0) {
          $('body').addClass('scrolled');
          $('.page-header').css('background-color', bgScrolled);
@@ -278,13 +278,23 @@ export default {
 
       if (!ticking) {
         window.requestAnimationFrame(function() {
-          doSomething(last_known_scroll_position);
+          changeBackground(last_known_scroll_position);
           ticking = false;
         });
 
         ticking = true;
       }
     });
+
+    $('.chat-btn').popover({
+      placement: 'top',
+      html: true,
+      content: function () {
+        // Get the content from the hidden sibling.
+        return $('#chat').clone()
+      },
+    });
+
   },
   finalize() {
     // JavaScript to be fired on all pages, after page specific JS is fired
