@@ -144,11 +144,17 @@ function get_the_lead($id = 0) {
 }
 
 if( function_exists('acf_add_options_page') ) {
-
 	acf_add_options_page(array(
 		'page_title' 	=> 'Footer',
 		'menu_title'	=> 'Footer',
 		'menu_slug' 	=> 'footer',
+		'capability'	=> 'edit_posts',
+	));
+
+	acf_add_options_page(array(
+		'page_title' 	=> 'Chat',
+		'menu_title'	=> 'Chat',
+		'menu_slug' 	=> 'chat',
 		'capability'	=> 'edit_posts',
 	));
 }

@@ -279,6 +279,7 @@ export default {
       if (!ticking) {
         window.requestAnimationFrame(function() {
           changeBackground(last_known_scroll_position);
+          checkChatScroll(last_known_scroll_position);
           ticking = false;
         });
 
@@ -286,14 +287,31 @@ export default {
       }
     });
 
+    function checkChatScroll(scroll_pos) {
+      let footer_pos = $('footer').offset().top;
+      let chat_btn_stop = footer_pos - window.innerHeight;
+      if(scroll_pos > chat_btn_stop) {
+        $('.chat-btn').removeClass('fixed')
+          // footer position top - (btn height + 3rem distance from btn to footer)
+          .css('top', footer_pos - 88);
+      } else {
+        $('.chat-btn').addClass('fixed')
+          .css('top', '');
+
+      }
+    }
+
     $('.chat-btn').popover({
+      container: $('.chat-holder'),
       placement: 'top',
       html: true,
       content: function () {
         // Get the content from the hidden sibling.
         return $('#chat').clone()
       },
-    });
+    }).on('shown.bs.popover	', function () {
+      $('.chat-holder #chat-name').trigger('focus');
+    })
 
   },
   finalize() {

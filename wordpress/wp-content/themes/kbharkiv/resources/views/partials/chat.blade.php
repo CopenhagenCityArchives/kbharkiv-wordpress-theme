@@ -1,10 +1,15 @@
-<button class="btn btn-primary chat-btn" type="button" name="button">
+<button class="btn btn-primary chat-btn fixed" type="button" name="button">
   <span class="sr-only">Chat</span>
   @include("partials.icon", ["icon" => "message-square"])
 </button>
 
+<div class="chat-holder"></div>
+
 <div class="chat-wrapper">
   <form target="_blank" action="{{get_the_permalink()}}" method="post" id="chat">
+    @if (get_field('chat_text', 'option'))
+      <p>{{ get_field('chat_text', 'option') }}</p>
+    @endif
     <div class="form-group">
       <label for="chat-name">Navn</label>
       <input class="form-control" type="text" name="navn" id="chat-name" placeholder="Indtast navn" maxlength="100">
