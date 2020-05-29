@@ -89,6 +89,17 @@ $theme-colors: map-merge(
   $theme-colors
 );
 
+// Links
+//
+// Style anchor elements.
+
+$link-color:                              theme-color("primary") !default;
+$link-decoration:                         none !default;
+$link-hover-color:                        darken($link-color, 15%) !default;
+$link-hover-decoration:                   underline !default;
+// Darken percentage for links with `.text-*` class (e.g. `.text-success`)
+$emphasized-link-hover-darken-percentage: 15% !default;
+
 // Grid columns
 //
 // Set the number of columns and specify the width of the gutters.
@@ -148,6 +159,15 @@ $grid-breakpoints: (
   xxl: 1872px,
 ) !default;
 
+// Components
+//
+// Define common padding and border radius sizes and more.
+
+$border-width:                2px !default;
+
+$border-radius:               0.25rem !default;
+$border-radius-lg:            0.25rem !default;
+$border-radius-sm:            0.125rem !default;
 // Breadcrumbs
 //
 // $breadcrumb-padding-y:              0.75rem !default;
@@ -163,3 +183,30 @@ $breadcrumb-active-color:           rgba(255, 255, 255, 0.75) !default;
 // $breadcrumb-divider:                quote("/") !default;
 
 $breadcrumb-border-radius:          0 !default;
+
+// Pagination
+
+// $pagination-padding-y:              0.5rem !default;
+// $pagination-padding-x:              0.75rem !default;
+// $pagination-padding-y-sm:           0.25rem !default;
+// $pagination-padding-x-sm:           0.5rem !default;
+// $pagination-padding-y-lg:           0.75rem !default;
+// $pagination-padding-x-lg:           1.5rem !default;
+// $pagination-line-height:            1.25 !default;
+//
+//$pagination-color:                  $link-color !default;
+//$pagination-bg:                     $white !default;
+$pagination-border-width:           $border-width !default;
+$pagination-border-color:           $white !default;
+//
+// $pagination-hover-color:            $link-hover-color !default;
+// $pagination-hover-bg:               $gray-200 !default;
+// $pagination-hover-border-color:     $gray-300 !default;
+
+$pagination-active-color:           $link-color !default;
+$pagination-active-bg:              $white !default;
+$pagination-active-border-color:    $link-color !default;
+//
+// $pagination-disabled-color:         $gray-600 !default;
+// $pagination-disabled-bg:            $white !default;
+// $pagination-disabled-border-color:  $gray-300 !default;

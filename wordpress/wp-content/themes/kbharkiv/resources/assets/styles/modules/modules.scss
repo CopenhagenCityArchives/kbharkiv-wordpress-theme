@@ -1,0 +1,7 @@
+section[class^="module"] {
+  margin-bottom: 3rem;
+
+  @include media-breakpoint-up(md) {
+    margin-bottom: 4rem;
+  }
+}

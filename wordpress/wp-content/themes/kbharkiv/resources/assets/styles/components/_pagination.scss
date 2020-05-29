@@ -1,0 +1,24 @@
+.pagination {
+  margin-top: 3rem;
+  justify-content: center;
+
+  .page-item {
+    .page-link {
+      border-radius: $border-radius-sm;
+    }
+
+    .next {
+      margin-right: auto;
+      padding: 0.5rem;
+    }
+
+    .prev {
+      margin-left: auto;
+      padding: 0.5rem;
+    }
+
+    &.active .page-link {
+      border: 2px solid $blue;
+    }
+  }
+}

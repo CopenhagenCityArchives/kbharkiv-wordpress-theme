@@ -1,0 +1,24 @@
+.module-news {
+  .sticky article {
+    position: sticky;
+    top: 8rem;
+
+    header,
+    .entry-summary {
+      max-width: 33rem;
+    }
+  }
+
+  .news article {
+    padding: 3rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .wp-post-image {
+    margin-bottom: 1rem;
+  }
+
+  .news a:first-child article {
+    padding-top: 0;
+  }
+}

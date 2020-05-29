@@ -2,5 +2,9 @@
   article.post {
     padding: 2rem 0 4rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+    .wp-post-image {
+      margin-bottom: 1rem;
+    }
   }
 }

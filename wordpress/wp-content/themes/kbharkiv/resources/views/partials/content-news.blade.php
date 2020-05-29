@@ -1,4 +1,4 @@
-<a href="{{ get_permalink() }}" class="col-md-3 d-flex align-self-stretch">
+<a href="{{ get_permalink() }}" class="{{ $class }}">
   <article @php post_class() @endphp>
 
     @if ( has_post_thumbnail())
@@ -14,5 +14,3 @@
 
   </article>
 </a>
-
-<div class="col-md-1"></div>
