@@ -57,7 +57,7 @@ function pagination( \WP_Query $wp_query = null, $echo = true, $params = [] ) {
     $pagination = '<nav aria-label="Paginering"><ul class="pagination">';
 
     foreach ( $pages as $page ) {
-      $pagination .= '<li class="page-item' . (strpos($page, 'current') !== false ? ' active' : '') . '"> ' . $page . str_replace('page-numbers', 'page-link', $page) . '</li>';
+      $pagination .= '<li class="page-item' . (strpos($page, 'current') !== false ? ' active' : '') . '"> ' . str_replace('page-numbers', 'page-link', $page) . '</li>';
     }
 
     $pagination .= '</ul></nav>';
