@@ -123,10 +123,19 @@ add_filter( 'pre_get_posts', function( $query ) {
   }
 
 	// Make events sort by date
-	if( $query->is_main_query() && is_post_type_archive('arrangementer') ) {
+	if( !is_admin() && $query->is_main_query() && is_post_type_archive('arrangementer') ) {
 		$query->set( 'meta_key', 'event_start' );
 		$query->set( 'orderby', 'meta_value' );
-		$query->set( 'order', 'DESC' );
+		$query->set( 'order', 'ASC' );
+		$query->set( 'meta_query', [
+        'relation' => 'AND',
+        [
+            'key' => 'event_start',
+            'value' => date('Y-m-d H:i:s'),
+            'compare' => '>=',
+            'type' => 'DATE'
+        ],
+    ]);
 	}
 
   return $query;

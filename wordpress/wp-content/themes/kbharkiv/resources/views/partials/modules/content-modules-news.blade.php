@@ -1,7 +1,7 @@
 <section class="module module-news">
   <div class="container-fluid">
 
-    <a class="h4 d-block mb-4" href="{{ get_post_type_archive_link( 'post' ) }}">{{ get_sub_field('modules_news_headline') }} @include('partials.icon', ['icon' => 'arrow-right-circle'])</a>
+    <a class="h4 d-block mb-4" href="{{ get_post_type_archive_link( 'post' ) }}">{{ get_sub_field('modules_news_headline') ? get_sub_field('modules_news_headline') : 'Nyheder' }} @include('partials.icon', ['icon' => 'arrow-right-circle'])</a>
 
     <div class="row">
 

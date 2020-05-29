@@ -24,8 +24,12 @@ function theme_color($darkness = 0) {
 		return color('white', $darkness);
 	}
 	// if cpt archive or post archive or single post
-	elseif ((is_post_type_archive() && get_field('color_theme', get_post_type() . '_options')) || (is_home() && get_field('color_theme', get_post_type() . '_options')) || (is_single() && get_field('color_theme', get_post_type() . '_options')) ) {
-		return color(get_field('color_theme', get_post_type() . '_options'), $darkness);
+	elseif (is_post_type_archive() || is_home() || is_single()) {
+		if (get_field('color_theme', get_post_type() . '_options')) {
+			return color(get_field('color_theme', get_post_type() . '_options'), $darkness);
+		} else {
+			return color('default', $darkness);
+		}
 	}
 	//return get_field('color_theme');
 	elseif (get_field('color_theme', $post->ID)) {
