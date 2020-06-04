@@ -6,7 +6,7 @@
             "key": "field_5ec3bf76204ad",
             "label": "Log ind side",
             "name": "login_page",
-            "type": "page_link",
+            "type": "link",
             "instructions": "",
             "required": 1,
             "conditional_logic": 0,
@@ -15,11 +15,8 @@
                 "class": "",
                 "id": ""
             },
-            "post_type": "",
-            "taxonomy": "",
-            "allow_null": 0,
-            "allow_archives": 1,
-            "multiple": 0
+            "acfe_permissions": "",
+            "return_format": "array"
         },
         {
             "acfe_flexible_advanced": 0,
@@ -376,5 +373,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1591277917
+    "modified": 1591280199
 }
