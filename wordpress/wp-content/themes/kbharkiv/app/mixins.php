@@ -108,10 +108,11 @@ add_filter( 'wpseo_metabox_prio', function () {
 });
 
 add_filter( 'pre_get_posts', function( $query ) {
+
 	// Make Archives.php Include Custom Post Types
   if( (is_category() || is_tag()) && $query->is_archive() && empty( $query->query_vars['suppress_filters'] ) ) {
     $query->set( 'post_type', array(
-     'post', 'arrangementer', 'medarbejdere'
+     'post', 'arrangementer', 'page'
     ));
   }
 

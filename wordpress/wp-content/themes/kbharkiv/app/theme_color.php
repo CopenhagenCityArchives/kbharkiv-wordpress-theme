@@ -35,11 +35,11 @@ function theme_color($darkness = 0) {
 		}
 	}
 	//return get_field('color_theme');
-	elseif (get_field('color_theme', $post->ID)) {
+	elseif (isset($post) && get_field('color_theme', $post->ID)) {
 		return color(get_field('color_theme', $post->ID), $darkness);
 	}
 	// if top level parent color_theme exists
-	elseif($post->post_parent) {
+	elseif(isset($post) && $post->post_parent) {
 
 		// Get ID of top level parent
 		$ancestors = get_post_ancestors($post->ID);

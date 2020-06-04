@@ -4,6 +4,7 @@
       <div class="row">
         <div class="col-lg-6 col-xl-4">
           <h1>{!! App::title() !!}</h1>
+          {{ !is_tag() ? the_tags() : '' }}
         </div>
         <div class="col-lg-6">
           <p class="lead">{{ get_the_lead() }}<p>
@@ -11,7 +12,7 @@
         <div class="col-xl-2">
           @php $authors = get_field('author'); @endphp
 
-          @if( $authors )
+          @if( !is_tag() && $authors )
             @foreach( $authors as $author )
               @if ( has_post_thumbnail($author->ID))
                 {!! wp_get_attachment_image(get_post_thumbnail_id($author->ID), ['48', '48'], false, ['class' => 'rounded-circle ']) !!}

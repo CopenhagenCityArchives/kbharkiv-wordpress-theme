@@ -23,9 +23,6 @@ class App extends Controller
           $tax = get_queried_object();
           return $tax->name;
         }
-        if (is_archive()) {
-            return post_type_archive_title();
-        }
         if (is_search()) {
             return sprintf(__('Søgeresultater for %s', 'sage'), get_search_query());
         }
@@ -33,7 +30,10 @@ class App extends Controller
             return __('Ikke fundet', 'sage');
         }
         if (is_tag()) {
-            return __('Emne', 'sage');
+            return sprintf( __( 'Emne: %s' ), single_tag_title( '', false ) );
+        }
+        if (is_archive()) {
+            return post_type_archive_title();
         }
         return get_the_title();
     }
