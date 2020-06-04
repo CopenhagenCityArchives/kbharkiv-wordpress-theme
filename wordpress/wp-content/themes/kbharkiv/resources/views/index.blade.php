@@ -13,7 +13,11 @@
   <div class="container-fluid">
     <div class="row">
       @while (have_posts()) @php the_post() @endphp
-        @include('partials.content-'.get_post_type())
+        @if (is_tag())
+          @include('partials.content-search')
+        @else
+          @include('partials.content-'.get_post_type())
+        @endif
       @endwhile
     </div>
   </div>

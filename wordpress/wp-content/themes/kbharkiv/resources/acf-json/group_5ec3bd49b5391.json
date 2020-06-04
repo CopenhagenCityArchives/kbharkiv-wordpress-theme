@@ -51,7 +51,7 @@
             "acfe_flexible_layouts_remove_collapse": 0,
             "key": "field_5ed8b93248757",
             "label": "Søg",
-            "name": "search",
+            "name": "search_menu",
             "type": "flexible_content",
             "instructions": "",
             "required": 0,
@@ -376,5 +376,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1591264779
+    "modified": 1591277917
 }

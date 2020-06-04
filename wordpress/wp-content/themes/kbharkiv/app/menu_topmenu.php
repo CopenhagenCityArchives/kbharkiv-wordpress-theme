@@ -181,10 +181,10 @@ add_filter('wp_nav_menu_items', function( $items, $args ) {
 		$login_url = get_field('login', $menu);
 		$search = '';
 
-		if( have_rows('search', $menu) ) {
-	    while ( have_rows('search', $menu) ) {
+		if( have_rows('search_menu', $menu) ) {
+	    while ( have_rows('search_menu', $menu) ) {
 				the_row();
-				$search .= App\template('partials.search.content-' . str_replace('_', '-', get_row_layout()), ['menu' => $menu]);
+				$search .= App\template('partials.search.content-' . str_replace('_', '-', get_row_layout()));
 			}
 		}
 

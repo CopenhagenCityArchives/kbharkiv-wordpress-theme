@@ -11,7 +11,7 @@
           </div>
         </figure>
       @endif
-
+      single page
       @if ( !empty( get_the_content() ))
         <div class="row">
           <div class="col-lg-8 col-xl-6 offset-lg-1 offset-xl-3">
