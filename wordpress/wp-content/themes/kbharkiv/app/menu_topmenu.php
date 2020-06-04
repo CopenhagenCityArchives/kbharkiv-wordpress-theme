@@ -172,17 +172,14 @@ class Kbharkiv_Walker_Nav_Menu extends Walker_Nav_Menu {
 
 add_filter('wp_nav_menu_items', function( $items, $args ) {
 
-	// get menu
-	$menu = wp_get_nav_menu_object($args->menu);
-
 	// modify primary only
 	if( $args->theme_location == 'primary_navigation' ) {
 
-		$login_url = get_field('login', $menu);
+		$login_url = get_field('login_page', 'option')['url'];
 		$search = '';
 
-		if( have_rows('search_menu', $menu) ) {
-	    while ( have_rows('search_menu', $menu) ) {
+		if( have_rows('search_menu', 'option') ) {
+	    while ( have_rows('search_menu', 'option') ) {
 				the_row();
 				$search .= App\template('partials.search.content-' . str_replace('_', '-', get_row_layout()));
 			}

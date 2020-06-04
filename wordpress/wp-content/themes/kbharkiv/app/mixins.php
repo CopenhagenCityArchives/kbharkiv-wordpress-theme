@@ -162,6 +162,13 @@ if( function_exists('acf_add_options_page') ) {
 	));
 
 	acf_add_options_page(array(
+		'page_title' 	=> 'Menu',
+		'menu_title'	=> 'Menu',
+		'menu_slug' 	=> 'menu',
+		'capability'	=> 'edit_posts',
+	));
+
+	acf_add_options_page(array(
 		'page_title' 	=> 'Chat',
 		'menu_title'	=> 'Chat',
 		'menu_slug' 	=> 'chat',
