@@ -11,7 +11,7 @@ function color($color, $darkness) {
 		'default' => ['#C9E4F2', '#04436E'],
 	];
 
-	return $colors[$color][$darkness];
+	return array_key_exists($color, $colors) ? $colors[$color][$darkness] : $colors['default'][$darkness];
 }
 
 // Function for returning color theme array. $darkness boolean is optional for returning the dark theme color
@@ -22,6 +22,9 @@ function theme_color($darkness = 0) {
 	// if front page
 	if (is_front_page()) {
 		return color('white', $darkness);
+	}
+	elseif (is_search() || is_404()) {
+		return color('default', $darkness);
 	}
 	// if cpt archive or post archive or single post
 	elseif (is_post_type_archive() || is_home() || is_single()) {

@@ -17,7 +17,7 @@ class App extends Controller
             if ($home = get_option('page_for_posts', true)) {
                 return get_the_title($home);
             }
-            return __('Latest Posts', 'sage');
+            return __('Seneste nyheder', 'sage');
         }
         if (is_tax()) {
           $tax = get_queried_object();
@@ -27,13 +27,13 @@ class App extends Controller
             return post_type_archive_title();
         }
         if (is_search()) {
-            return sprintf(__('Search Results for %s', 'sage'), get_search_query());
+            return sprintf(__('Søgeresultater for %s', 'sage'), get_search_query());
         }
         if (is_404()) {
-            return __('Not Found', 'sage');
+            return __('Ikke fundet', 'sage');
         }
         if (is_tag()) {
-            return __('TAX', 'sage');
+            return __('Emne', 'sage');
         }
         return get_the_title();
     }

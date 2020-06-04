@@ -107,16 +107,22 @@ header.top-menu {
       li {
         padding: 0 1.5rem;
         margin-bottom: 1.5rem;
-        font-size: 1.5rem;
-        font-weight: $font-weight-bold;
+
+        > a {
+          font-size: 1.5rem;
+          font-weight: $font-weight-bold;
+
+          @include media-breakpoint-up(lg) {
+            font-size: 1rem;
+            font-weight: 500;
+          }
+        }
 
         @include media-breakpoint-up(md) {
           padding: 0 3rem;
         }
 
         @include media-breakpoint-up(lg) {
-          font-size: 1rem;
-          font-weight: 500;
           margin-bottom: 0.5rem;
           padding: 0;
         }
@@ -151,9 +157,12 @@ header.top-menu {
               height: calc(100vh - 5rem);
 
               > li {
-                font-weight: 600;
                 margin-bottom: 2rem;
                 width: 25%;
+
+                > a {
+                  font-weight: 600;
+                }
               }
 
               > .parent > a {
@@ -199,6 +208,22 @@ header.top-menu {
     .icon {
       width: 20px;
       height: 20px;
+    }
+
+    .search {
+      .sub-menu li {
+        @include media-breakpoint-up(lg) {
+          min-height: 100%;
+
+          &:not(:nth-child(2)) {
+            padding-left: 1.5rem;
+          }
+
+          &:not(:last-child) {
+            padding-right: 1.5rem;
+          }
+        }
+      }
     }
   }
 

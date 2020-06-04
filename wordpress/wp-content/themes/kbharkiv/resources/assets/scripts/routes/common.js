@@ -28,9 +28,9 @@ export default {
         if(currentSubMenuLevel == 0) {
           $tabbable = $('.top-menu-focusable, .top-menu ul.menu > li > a');
         } else if (mobileMenu) {
-          $tabbable = $('.top-menu-focusable, .top-menu ul.menu .active[data-level="' + currentSubMenuLevel + '"] > .sub-menu > li > a');
+          $tabbable = $('.top-menu-focusable, .top-menu ul.menu .active[data-level="' + currentSubMenuLevel + '"] > .sub-menu > li > a, .top-menu ul.menu .active[data-level="' + currentSubMenuLevel + '"] .search-focusable');
         } else {
-          $tabbable = $('.top-menu-focusable, .top-menu ul.menu > li > a, .top-menu ul.menu .active a');
+          $tabbable = $('.top-menu-focusable, .top-menu ul.menu > li > a, .top-menu ul.menu .active a, .top-menu ul.menu .active .search-focusable');
         }
 
         $firstTabbable = $tabbable.first();
@@ -63,12 +63,12 @@ export default {
 
         if(mobileMenu) {
           $('.top-menu ul.menu a').attr( 'tabindex', '-1' );
-          $menuItem.find('> .sub-menu > li > a').attr( 'tabindex', '0' );
+          $menuItem.find('> .sub-menu > li > a, .search-focusable').attr( 'tabindex', '0' );
         } else {
           $('body').addClass('modal-open');
           $('.top-menu').addClass('active');
           $('.top-menu ul.menu .sub-menu a').attr( 'tabindex', '-1' );
-          $menuItem.find('> .sub-menu a').attr( 'tabindex', '0' );
+          $menuItem.find('> .sub-menu a, .search-focusable').attr( 'tabindex', '0' );
         }
 
         updateSubMenu();
@@ -92,7 +92,7 @@ export default {
         $menuItem.find('> a').attr( 'aria-expanded', false )
 
         // Disable tabbing on closed submenu
-        mobileMenu ? $menuItem.find('> .sub-menu > li > a').attr( 'tabindex', '-1' ) : $menuItem.find('> .sub-menu a').attr( 'tabindex', '-1' );
+        mobileMenu ? $menuItem.find('> .sub-menu > li > a, .search-focusable').attr( 'tabindex', '-1' ) : $menuItem.find('> .sub-menu a, .search-focusable').attr( 'tabindex', '-1' );
 
         currentSubMenuLevel --;
 
@@ -313,6 +313,77 @@ export default {
       $('.chat-holder #chat-name').trigger('focus');
     })
 
+    // From http://www.kbharkiv.dk/kbharkiv/js/frontpage_searches.js
+    $('#searchform_persons').submit(function(event){
+      event.preventDefault();
+      if($('#person_query').val().trim().length > 0){
+        //ga('send', 'event', 'forside_sÃ¸gning', 'person', $('#person_query').val().trim());
+        $('#value1').val($('#person_query').val());
+        $('#person_query_submit').attr('disabled', true);
+        $('#searchform_persons_status').html('SÃ¸ger...');
+        $.ajax({
+          url: 'http://www.politietsregisterblade.dk/index.php',
+          data: $('#searchform_persons').serialize(),
+          dataType: 'jsonp',
+          timeout: 10000,
+          sync: false,
+          //success: function(data){respondOnSearchAnswer(data)},
+          error: function(){$('#searchform_persons_status').html('Kunne ikke starte sÃ¸gningen')},
+        }).success(function(jsonResponse){
+          $('#person_query_submit').attr('disabled', false);
+          if(jsonResponse.responseCode == 1) {
+            //Redirect
+            //var url = 'http://www.politietsregisterblade.dk/index.php?option=com_sfup&controller=politsearch&task=displayresults&searchname=polit_adv&searchidentifier=' + jsonResponse.searchIdentifier;
+            //$('#windowUrl').val(url);
+            //window.open(url, '_blank');
+            //Redirect
+            var url = 'http://www.politietsregisterblade.dk/index.php?option=com_sfup&controller=politsearch&task=displayresults&searchname=polit_adv&searchidentifier=' + jsonResponse.searchIdentifier;
+
+            window.location = url;
+            //$('#testButton').trigger('click');
+            //$('#searchform_persons_status').html('');
+          }
+          if(jsonResponse.responseCode == 3 || jsonResponse.responseCode == 5){
+            $('#searchform_persons_status').html(jsonResponse.errorMessage);
+          }
+          if(jsonResponse.responseCode == 4){
+            //Fejlmeddelelse pÃ¥ parameter
+            $('#searchform_persons_status').html(jsonResponse.errors[0]);
+          }
+          if(jsonResponse.responseCode === null){
+            $('#searchform_persons_status').html(jsonResponse.errors[0]);
+          }
+        });
+      }
+    });
+
+    // $('#testButton').on('click',function(event){
+    //     window.open($('#windowUrl'), '_blank');
+    // });
+
+    $('#searchform_catalog').submit(function(event){
+      if($('#catalog_query').val().trim().length > 0){
+        event.preventDefault();
+
+        //ga('send', 'event', 'frontpage_search', 'starbas', $('#catalog_query').val().trim());
+        //Maybe necessary for UTF-8 encoded webpages...?
+        /*  var strings = $('#catalog_query').val().split(' ');
+        var searchString = '';
+
+        $.each(strings, function(index, val){
+            searchString = searchString + val + '+';
+        });
+        searchString = searchString.substring(0, searchString.length-1);
+        */
+        var searchVal = encodeURI($('#catalog_query').val());
+        var url = 'http://www.kbharkiv.dk/kbharkiv/php/starbas_search.php?catalog_query=' + searchVal;
+
+        window.open(url, '_blank');
+      }
+      else{
+        event.preventDefault();
+      }
+    });
   },
   finalize() {
     // JavaScript to be fired on all pages, after page specific JS is fired

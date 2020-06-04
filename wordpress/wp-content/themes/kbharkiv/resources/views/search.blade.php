@@ -4,15 +4,19 @@
   @include('partials.page-header')
 
   @if (!have_posts())
-    <div class="alert alert-warning">
-      {{ __('Sorry, no results were found.', 'sage') }}
+    <div class="container-fluid">
+      <div class="alert alert-warning">
+        {{ __('Vi kunne ikke finde nogen resultater', 'sage') }}
+      </div>
+      {!! get_search_form(false) !!}
     </div>
-    {!! get_search_form(false) !!}
   @endif
 
-  @while(have_posts()) @php the_post() @endphp
-    @include('partials.content-search')
-  @endwhile
+  <div class="container-fluid">
+    @while(have_posts()) @php the_post() @endphp
+      @include('partials.content-search')
+    @endwhile
+  </div>
 
-  {!! get_the_posts_navigation() !!}
+  {!! pagination() !!}
 @endsection

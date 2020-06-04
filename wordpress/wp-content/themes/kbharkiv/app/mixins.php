@@ -145,7 +145,7 @@ add_filter( 'pre_get_posts', function( $query ) {
 function get_the_lead($id = 0) {
 	if ($id && get_field('lead', $id)) {
 		return get_field('lead', $id);
-	} elseif (get_field('lead', get_post_type() . '_options')) {
+	} elseif (is_post_type_archive() && get_field('lead', get_post_type() . '_options')) {
 		return get_field('lead', get_post_type() . '_options');
 	} elseif ( get_field('lead')) {
 		return get_field('lead');
@@ -167,3 +167,7 @@ if( function_exists('acf_add_options_page') ) {
 		'capability'	=> 'edit_posts',
 	));
 }
+
+add_filter('get_search_form', function () {
+	return \App\template( 'partials.searchform' );
+});

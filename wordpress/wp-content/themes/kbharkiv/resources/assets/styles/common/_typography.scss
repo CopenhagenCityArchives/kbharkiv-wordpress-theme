@@ -1,0 +1,29 @@
+h1,
+.h1 {
+  font-weight: 800;
+  hyphens: auto;
+}
+
+h6,
+.h6 {
+  text-transform: uppercase;
+  opacity: 0.48;
+  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+}
+
+dt,
+nav {
+  font-weight: 500;
+}
+
+.lead {
+  font-size: 1rem;
+}
+
+figcaption {
+  @extend .figure-caption;
+
+  margin-top: 0.75rem;
+}
