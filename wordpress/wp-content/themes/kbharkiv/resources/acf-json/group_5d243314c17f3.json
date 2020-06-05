@@ -82,8 +82,10 @@
                                 "class": "",
                                 "id": ""
                             },
+                            "acfe_permissions": "",
                             "post_type": [
-                                "post"
+                                "post",
+                                "page"
                             ],
                             "taxonomy": "",
                             "filters": [
@@ -96,7 +98,10 @@
                             ],
                             "min": 3,
                             "max": 6,
-                            "return_format": ""
+                            "return_format": "object",
+                            "acfe_bidirectional": {
+                                "acfe_bidirectional_enabled": "0"
+                            }
                         }
                     ],
                     "min": "",
@@ -745,5 +750,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1589873244
+    "modified": 1591352804
 }

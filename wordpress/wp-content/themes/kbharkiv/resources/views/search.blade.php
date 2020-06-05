@@ -13,9 +13,12 @@
   @endif
 
   <div class="container-fluid">
-    @while(have_posts()) @php the_post() @endphp
-      @include('partials.content-search')
-    @endwhile
+    <div class="row">
+      @while(have_posts()) @php the_post() @endphp
+        @include('partials.content-search')
+      @endwhile
+    </div>
+
   </div>
 
   {!! pagination() !!}

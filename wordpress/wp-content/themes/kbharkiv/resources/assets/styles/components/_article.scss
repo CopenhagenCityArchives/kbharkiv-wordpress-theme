@@ -1,0 +1,13 @@
+a.article-link {
+  &:hover {
+    text-decoration: none;
+
+    h3 {
+      text-decoration: underline;
+    }
+  }
+
+  img {
+    margin-bottom: 1rem;
+  }
+}

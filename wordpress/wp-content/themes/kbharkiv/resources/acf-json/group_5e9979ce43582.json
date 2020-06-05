@@ -51,6 +51,13 @@
                 "operator": "!=",
                 "value": "page"
             }
+        ],
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "menu"
+            }
         ]
     ],
     "menu_order": 0,
@@ -69,5 +76,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1589800558
+    "modified": 1591352552
 }

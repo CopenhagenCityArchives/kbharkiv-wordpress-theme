@@ -26,6 +26,9 @@ function theme_color($darkness = 0) {
 	elseif (is_search() || is_404()) {
 		return color('default', $darkness);
 	}
+	elseif (is_tag()) {
+		return color('default', $darkness);
+	}
 	// if cpt archive or post archive or single post
 	elseif (is_post_type_archive() || is_home() || is_single()) {
 		if (get_field('color_theme', get_post_type() . '_options')) {

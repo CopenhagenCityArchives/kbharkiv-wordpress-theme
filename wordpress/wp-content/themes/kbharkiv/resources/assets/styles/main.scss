@@ -13,6 +13,7 @@
 /** Import theme styles */
 @import "common/global";
 @import "common/typography";
+@import "components/article";
 @import "components/author";
 @import "components/block-infobox";
 @import "components/block-links";
@@ -23,6 +24,7 @@
 @import "components/icons";
 @import "components/page-header";
 @import "components/pagination";
+@import "components/tables";
 @import "components/wp-classes";
 @import "modules/module-gallery";
 @import "modules/module-links";
