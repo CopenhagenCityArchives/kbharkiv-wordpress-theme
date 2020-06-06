@@ -5,6 +5,10 @@
   .page-item {
     .page-link {
       border-radius: $border-radius-sm;
+
+      &.dots {
+        content: "–";
+      }
     }
 
     .next {
@@ -19,6 +23,10 @@
 
     &.active .page-link {
       border: 2px solid $blue;
+    }
+
+    &.disabled .page-link {
+      border-color: $white;
     }
   }
 }

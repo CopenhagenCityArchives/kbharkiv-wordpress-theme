@@ -2,7 +2,7 @@
 
   <div class="container-fluid">
     <div class="row">
-      <div class="col-lg-8 col-xl-6 offset-lg-1 offset-xl-3">
+      <div class="col-lg-8 offset-lg-1 offset-xl-2">
         <header>
           @includeWhen(is_single() && get_post_type() == 'post', 'partials/entry-meta')
           <h1 class="entry-title mb-4">{!! get_the_title() !!}</h1>
@@ -11,9 +11,7 @@
     </div>
 
     <div class="row mb-4">
-      <div class="col-lg-1 col-xl-3">
-      </div>
-      <div class="col-lg-8 col-xl-6">
+      <div class="col-lg-8 col-xl-6 offset-lg-1 offset-xl-2">
         <p class="lead">{{ get_the_lead() }}<p>
       </div>
       <div class="col-lg-3">
@@ -22,8 +20,8 @@
     </div>
 
     @if ( has_post_thumbnail())
-      <figure class="row">
-        <div class="col-lg-10 offset-lg-1">
+      <figure class="row mb-5">
+        <div class="col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
           @php the_post_thumbnail( 'herox2' ); @endphp
           <figcaption class="figure-caption">
             {{get_post(get_post_thumbnail_id())->post_excerpt}}

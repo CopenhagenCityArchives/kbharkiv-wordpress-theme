@@ -27,13 +27,16 @@
 @import "components/tables";
 @import "components/wp-classes";
 @import "modules/module-gallery";
+@import "modules/module-kildetaster";
 @import "modules/module-links";
 @import "modules/module-news";
+@import "modules/module-newsletter";
 @import "modules/module-shortcuts";
 @import "modules/modules";
 @import "layouts/archive-arrangementer";
 @import "layouts/archive-medarbejdere";
-@import "layouts/archive-post";
+//@import "layouts/archive-post";
+@import "layouts/content";
 @import "layouts/header";
 @import "layouts/sidebar";
 @import "layouts/footer";
@@ -41,4 +44,5 @@
 @import "layouts/posts";
 @import "layouts/single-arrangementer";
 @import "layouts/single-post";
+@import "layouts/template-searchsdk";
 @import "layouts/tinymce";

@@ -4,10 +4,16 @@
       <div class="row">
         <div class="col-lg-6 col-xl-4">
           <h1>{!! App::title() !!}</h1>
-          {{ !is_tag() || !is_archive() ? the_tags() : '' }}
+          {{ is_tag() || is_home() ? '' : the_tags() }}
         </div>
         <div class="col-lg-6">
-          <p class="lead">{{ get_the_lead() }}<p>
+          @php global $wp_query; @endphp
+          @if(is_search())
+            @php global $wp_query @endphp
+            <p class="lead">{{ $wp_query->found_posts > 0 ? ('Viser ' . $wp_query->found_posts . ' søgeresultater') : '' }}<p>
+          @else
+            <p class="lead">{{ get_the_lead() }}<p>
+          @endif
         </div>
         <div class="col-xl-2">
           @include('partials.author')

@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-lg-8 col-xl-6 offset-lg-1 offset-xl-3">
         @if( have_rows('modules_links_links') )
-          <ul>
+          <ul class="block-links">
           @while ( have_rows('modules_links_links') )
             @php the_row() @endphp
             <li>

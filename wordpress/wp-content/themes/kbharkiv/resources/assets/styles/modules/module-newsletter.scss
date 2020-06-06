@@ -1,0 +1,10 @@
+.module-newsletter {
+  .module-inner {
+    background-color: $blue;
+    padding: 1.5rem;
+
+    @include media-breakpoint-up(lg) {
+      padding: 3rem;
+    }
+  }
+}

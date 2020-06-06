@@ -2,5 +2,11 @@
   thead th {
     border-top: none;
     border-bottom: none;
+    padding: 0.75rem 1rem;
   }
+}
+
+.wp-block-table table {
+  @extend .table;
+  @extend .table-striped;
 }

@@ -11,7 +11,7 @@
 </article> --}}
 
 <a href="{{ get_permalink() }}" class="article-link col-md-3 d-flex align-self-stretch">
-  <article @php post_class() @endphp>
+  <article @php post_class('content-search') @endphp>
 
     @if ( has_post_thumbnail())
       @php the_post_thumbnail( 'herox2' ) @endphp

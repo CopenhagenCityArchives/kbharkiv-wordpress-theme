@@ -13,6 +13,10 @@ h6,
   letter-spacing: 0.5px;
 }
 
+p {
+  margin-bottom: 1.5rem;
+}
+
 dt,
 nav {
   font-weight: 500;
@@ -22,7 +26,8 @@ nav {
   font-size: 1rem;
 }
 
-figcaption {
+figcaption,
+.wp-block-image figcaption {
   @extend .figure-caption;
 
   margin-top: 0.75rem;

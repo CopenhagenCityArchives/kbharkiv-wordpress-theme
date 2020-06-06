@@ -146,8 +146,10 @@ add_filter( 'pre_get_posts', function( $query ) {
 function get_the_lead($id = 0) {
 	if ($id && get_field('lead', $id)) {
 		return get_field('lead', $id);
-	} elseif (is_post_type_archive() && get_field('lead', get_post_type() . '_options')) {
+	} elseif ((is_post_type_archive() || is_home())  && get_field('lead', get_post_type() . '_options')) {
 		return get_field('lead', get_post_type() . '_options');
+	} elseif(is_tag()) {
+		return '';
 	} elseif ( get_field('lead')) {
 		return get_field('lead');
 	}

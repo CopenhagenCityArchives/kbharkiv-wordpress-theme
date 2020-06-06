@@ -1,12 +1,21 @@
 .module-gallery {
   .module-inner {
-    padding: 3rem 0;
-    margin: 4rem 0;
+    padding: 0 0 3rem;
     background-color: $blue;
+
+    @include media-breakpoint-up(lg) {
+      padding: 4rem 0;
+    }
   }
 
   .carousel-item {
     cursor: zoom-in;
+  }
+
+  .gallery-description-col {
+    @include media-breakpoint-down(lg) {
+      padding: 1.5rem;
+    }
   }
 
   .gallery-description-item {
@@ -32,8 +41,3 @@
     background-color: transparent;
   }
 }
-
-// .modal-dialog {
-//     /* max-width: 630px; */
-//     margin: 3rem;
-//     max-height: calc(100vh - 6rem);

@@ -6,7 +6,7 @@
     <div class="container-fluid">
       <div class="module-inner">
         <div class="row">
-          <div class="col-lg-7 offset-lg-1">
+          <div class="col-lg-7 offset-lg-2">
             <div id="gallery-{{get_row_index()}}" class="carousel slide">
               <ol class="carousel-indicators">
                 @for($i = 0; $i < sizeof($images); $i++)
@@ -24,29 +24,38 @@
           </div>
 
           <div class="col-lg-2">
-            <div class="gallery-description" aria-hidden="true">
-              @for($i = 0; $i < sizeof($images); $i++)
-                <div id="gallery-{{get_row_index()}}-image-{{$i}}" class="gallery-description-item{{$i == 0 ? ' active' : ''}}">
-                  @if(!empty($images[$i]['alt']))
-                    <h6>Billedetekst</h6>
-                    <p class="small">{{ $images[$i]['alt'] }}</p>
-                  @endif
-                  @if(!empty($images[$i]['description']))
-                    <h6>Foto</h6>
-                    <p class="small">{{ $images[$i]['description'] }}</p>
-                  @endif
-                </div>
-              @endfor
+            <div class="p-4 p-lg-0">
+              <div class="my-5">
+                <a class="btn-icon btn btn-outline-white mr-2" href="#gallery-{{get_row_index()}}" role="button" data-slide="prev">
+                  @include('partials.icon', ['icon' => 'arrow-left'])
+                  <span class="sr-only">Forrige</span>
+                </a>
+                <a class="btn-icon btn btn-outline-white mr-2" href="#gallery-{{get_row_index()}}" role="button" data-slide="next">
+                  @include('partials.icon', ['icon' => 'arrow-right'])
+                  <span class="sr-only">Næste</span>
+                </a>
+                <button class="btn-icon btn btn-outline-white float-right" type="button" data-toggle="modal" data-target="#gallery-modal-{{get_row_index()}}">
+                  @include('partials.icon', ['icon' => 'maximize-2'])
+                  <span class="sr-only">Åbn forstørret galleri</span>
+                </button>
+              </div>
+              <div class="gallery-description" aria-hidden="true">
+                @for($i = 0; $i < sizeof($images); $i++)
+                  <div id="gallery-{{get_row_index()}}-image-{{$i}}" class="gallery-description-item{{$i == 0 ? ' active' : ''}}">
+                    @if(!empty($images[$i]['alt']))
+                      <h6>Billedetekst</h6>
+                      <p class="small">{{ $images[$i]['alt'] }}</p>
+                    @endif
+                    @if(!empty($images[$i]['description']))
+                      <h6>Foto</h6>
+                      <p class="small">{{ $images[$i]['description'] }}</p>
+                    @endif
+                  </div>
+                @endfor
+              </div>
             </div>
-            <a href="#gallery-{{get_row_index()}}" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Forrige</span>
-            </a>
-            <a href="#gallery-{{get_row_index()}}" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Næste</span>
-            </a>
           </div>
+
         </div>
       </div>
     </div>
@@ -72,9 +81,20 @@
               </div>
             </div>
             <div class="col-lg-3">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Luk">
-                <span aria-hidden="true">&times;</span>
-              </button>
+              <div class="my-5">
+                <a class="btn-icon btn btn-outline-white mr-2" href="#gallery-modal-gallery-{{get_row_index()}}" role="button" data-slide="prev">
+                  @include('partials.icon', ['icon' => 'arrow-left'])
+                  <span class="sr-only">Forrige</span>
+                </a>
+                <a class="btn-icon btn btn-outline-white mr-2" href="#gallery-modal-gallery-{{get_row_index()}}" role="button" data-slide="next">
+                  @include('partials.icon', ['icon' => 'arrow-right'])
+                  <span class="sr-only">Næste</span>
+                </a>
+                <button class="btn-icon btn btn-outline-white float-right" type="button" data-dismiss="modal" aria-label="Luk">
+                  @include('partials.icon', ['icon' => 'x'])
+                  <span class="sr-only">Luk forstørret galleri</span>
+                </button>
+              </div>
               <div class="gallery-description" aria-hidden="true">
                 @for($i = 0; $i < sizeof($images); $i++)
                   <div id="gallery-modal-{{get_row_index()}}-image-{{$i}}" class="gallery-description-item{{$i == 0 ? ' active' : ''}}">
@@ -89,14 +109,6 @@
                   </div>
                 @endfor
               </div>
-              <a href="#gallery-modal-gallery-{{get_row_index()}}" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Forrige</span>
-              </a>
-              <a href="#gallery-modal-gallery-{{get_row_index()}}" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Næste</span>
-              </a>
             </div>
           </div>
         </div>

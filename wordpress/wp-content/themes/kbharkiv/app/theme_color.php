@@ -10,7 +10,6 @@ function color($color, $darkness) {
 		'white' => ['#ffffff', '#000000'],
 		'default' => ['#C9E4F2', '#04436E'],
 	];
-
 	return array_key_exists($color, $colors) ? $colors[$color][$darkness] : $colors['default'][$darkness];
 }
 

@@ -2,8 +2,8 @@
   <section class="content">
     <div class="container-fluid">
       @if ( has_post_thumbnail())
-        <figure class="row">
-          <div class="col-lg-10 offset-lg-1">
+        <figure class="row mb-5">
+          <div class="col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
             @php the_post_thumbnail( 'herox2' ); @endphp
             <figcaption class="figure-caption">
               {{get_post(get_post_thumbnail_id())->post_excerpt}}

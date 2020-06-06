@@ -3,16 +3,29 @@
 
 // Color system
 
+$blue:    #000c2e !default;
+$indigo:  #6610f2 !default;
+$purple:  #685966 !default;
+$pink:    #e83e8c !default;
+$red:     #8a3314 !default;
+$orange:  #fd7e14 !default;
+$yellow:  #ffc107 !default;
+$green:   #3f5b58 !default;
+$teal:    #20c997 !default;
+$cyan:    #04436e !default;
+
+$cyan-light:    #c9e4f2 !default;
+
 $white:    #fff !default;
-$gray-100: #f8f9fa !default;
-$gray-200: #e9ecef !default;
-$gray-300: #dee2e6 !default;
-$gray-400: #ced4da !default;
-$gray-500: #adb5bd !default;
-$gray-600: #6c757d !default;
-$gray-700: #495057 !default;
-$gray-800: #343a40 !default;
-$gray-900: #212529 !default;
+$gray-100: rgba($blue, 0.08) !default;
+$gray-200: rgba($blue, 0.16) !default;
+$gray-300: rgba($blue, 0.24) !default;
+$gray-400: rgba($blue, 0.4) !default;
+$gray-500: rgba($blue, 0.5) !default;
+$gray-600: rgba($blue, 0.6) !default;
+$gray-700: rgba($blue, 0.7) !default;
+$gray-800: rgba($blue, 0.8) !default;
+$gray-900: rgba($blue, 0.9) !default;
 $black:    #000 !default;
 
 $grays: () !default;
@@ -31,19 +44,6 @@ $grays: map-merge(
   ),
   $grays
 );
-
-$blue:    #000c2e !default;
-$indigo:  #6610f2 !default;
-$purple:  #685966 !default;
-$pink:    #e83e8c !default;
-$red:     #8a3314 !default;
-$orange:  #fd7e14 !default;
-$yellow:  #ffc107 !default;
-$green:   #3f5b58 !default;
-$teal:    #20c997 !default;
-$cyan:    #04436e !default;
-
-$cyan-light:    #c9e4f2 !default;
 
 $colors: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
@@ -86,10 +86,13 @@ $theme-colors: map-merge(
     "warning":    $warning,
     "danger":     $danger,
     "light":      $light,
-    "dark":       $dark
+    "dark":       $dark,
+    "white":       $white
   ),
   $theme-colors
 );
+
+$body-color:                $blue !default;
 
 // Links
 //
@@ -168,6 +171,7 @@ $figure-caption-color:              $gray-600 !default;
 //
 // Define common padding and border radius sizes and more.
 
+$border-color:                $gray-200 !default;
 $border-width:                2px !default;
 
 $border-radius:               0.25rem !default;
@@ -220,7 +224,7 @@ $pagination-active-border-color:    $link-color !default;
 //
 // Customizes the `.table` component with basic values, each used across all table variations.
 
-// $table-cell-padding:          .75rem !default;
+$table-cell-padding:            1rem !default;
 // $table-cell-padding-sm:       .3rem !default;
 //
 // $table-color:                 $body-color !default;
@@ -290,3 +294,28 @@ $btn-font-weight:             500 !default;
 // $btn-border-radius-sm:        $border-radius-sm !default;
 //
 // $btn-transition:              color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
+
+// List group
+
+// $list-group-color:                  null !default;
+// $list-group-bg:                     $white !default;
+// $list-group-border-color:           rgba($black, .125) !default;
+$list-group-border-width:           1px !default;
+// $list-group-border-radius:          $border-radius !default;
+//
+// $list-group-item-padding-y:         .75rem !default;
+// $list-group-item-padding-x:         1.25rem !default;
+//
+// $list-group-hover-bg:               rgba($cyan-light, 0.24) !default;
+// $list-group-active-color:           $component-active-color !default;
+// $list-group-active-bg:              $component-active-bg !default;
+// $list-group-active-border-color:    $list-group-active-bg !default;
+//
+// $list-group-disabled-color:         $gray-600 !default;
+// $list-group-disabled-bg:            $list-group-bg !default;
+//
+$list-group-action-color:           $blue !default;
+$list-group-action-hover-color:     $blue !default;
+//
+// $list-group-action-active-color:    $body-color !default;
+// $list-group-action-active-bg:       $gray-200 !default;

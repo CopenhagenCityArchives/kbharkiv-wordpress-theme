@@ -23,9 +23,9 @@ class Kbharkiv_Walker_Nav_Children extends Walker_Page {
     $icon = $depth == 0 ? '<svg class="icon d-inline-block"><use xlink:href="' . App\asset_path('images/feather-sprite.svg') . '#arrow-right-circle"/></svg>' : '';
 
     //Modification
-    $content = $link_before . $thumbnail . '<div class="d-flex align-items-center mb-2"><' . $headline .'>' . get_the_title($item->ID) . '</' . $headline .'>' . $icon . '</div>' . $link_after;
+    $content = $link_before . $thumbnail . '<' . $headline .' class="mb-2"><span class="mr-2">' . get_the_title($item->ID) . '</span>' . $icon . '</' . $headline .'>' . $link_after;
     $lead = $depth == 0 && null !== get_field('lead', $item->ID) ? '<div>' . get_field('lead', $item->ID) . '</div>' : '';
-    $output .= $indent . '<' . $tag . ' class="' . $css_class . '"><a href="' . get_permalink($item->ID) . '">' . $content . $lead . '</a>';
+    $output .= $indent . '<' . $tag . ' class="' . $css_class . '"><a class="article-link" href="' . get_permalink($item->ID) . '">' . $content . $lead . '</a>';
     //End Modification
   }
 

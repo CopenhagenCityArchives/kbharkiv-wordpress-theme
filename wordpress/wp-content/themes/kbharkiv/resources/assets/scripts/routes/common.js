@@ -36,7 +36,7 @@ export default {
         $firstTabbable = $tabbable.first();
         $lastTabbable = $tabbable.last();
 
-        // Trap tab focus inside the filter menu. When last tabbable element is focussed the next will be the first tabbable elemenet
+        // Trap tab focus inside the filter menu. When last tabbable element is focussed the next will be the first tabbable element
         $lastTabbable.keydown(function(e) {
           if (e.which === 9 && !e.shiftKey) {
             e.preventDefault ? e.preventDefault() : (e.returnValue = false);
@@ -246,14 +246,51 @@ export default {
     function changeBackground(scroll_pos) {
       if(scroll_pos > 0) {
          $('body').addClass('scrolled');
-         $('.page-header').css('background-color', bgScrolled);
+         $('.page-header, .module-newsletter .module-inner, .infobox').css('background-color', bgScrolled);
 
       } else {
         $('body').removeClass('scrolled');
-        $('.page-header').css('background-color', bgDefault);
+        $('.page-header, .module-newsletter .module-inner, .infobox').css('background-color', bgDefault);
 
       }
     }
+
+    $.fn.isInViewport = function() {
+      var elementTop = $(this).offset().top;
+      var elementBottom = elementTop + $(this).outerHeight();
+      var viewportTop = $(window).scrollTop();
+      var viewportBottom = viewportTop + $(window).height();
+      return elementBottom > viewportTop && elementTop < viewportBottom;
+    };
+
+    //var offsetDistance;
+
+    function updateParallax() {
+      $('.parallax').each(function() {
+        var $this = $(this);
+
+        if ($this.isInViewport()) {
+          var navHeight = $('.top-menu').outerHeight();
+          var elHeight = $(this).height();
+          var viewportHeight = $(window).height();
+
+          //offsetDistance = $(window).scrollTop() == 0 ? viewportHeight - $(this)[0].getBoundingClientRect().top : offsetDistance;
+
+          var elDistance = viewportHeight + elHeight - navHeight;
+          var elToTop = $(this)[0].getBoundingClientRect().top - navHeight + elHeight;
+          var elTranslateY = elToTop/elDistance*100-100;
+
+          $this.css({
+            '-webkit-transform' : 'translateY(' + elTranslateY + '%)',
+            '-ms-transform' : 'translateY(' + elTranslateY + '%)',
+            'transform' : 'translateY(' + elTranslateY + '%)',
+          });
+        }
+      })
+    }
+    setTimeout(function () {
+      updateParallax();
+    }, 200);
 
     // ADD TO MANUALLY TO PHP COLOR ARRAY
     function colorLuminance(hex, lum) {
@@ -280,6 +317,7 @@ export default {
         window.requestAnimationFrame(function() {
           changeBackground(last_known_scroll_position);
           checkChatScroll(last_known_scroll_position);
+          updateParallax();
           ticking = false;
         });
 
@@ -357,24 +395,10 @@ export default {
       }
     });
 
-    // $('#testButton').on('click',function(event){
-    //     window.open($('#windowUrl'), '_blank');
-    // });
-
     $('#searchform_catalog').submit(function(event){
       if($('#catalog_query').val().trim().length > 0){
         event.preventDefault();
 
-        //ga('send', 'event', 'frontpage_search', 'starbas', $('#catalog_query').val().trim());
-        //Maybe necessary for UTF-8 encoded webpages...?
-        /*  var strings = $('#catalog_query').val().split(' ');
-        var searchString = '';
-
-        $.each(strings, function(index, val){
-            searchString = searchString + val + '+';
-        });
-        searchString = searchString.substring(0, searchString.length-1);
-        */
         var searchVal = encodeURI($('#catalog_query').val());
         var url = 'http://www.kbharkiv.dk/kbharkiv/php/starbas_search.php?catalog_query=' + searchVal;
 

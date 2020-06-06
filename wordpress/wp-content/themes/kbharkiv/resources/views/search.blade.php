@@ -3,22 +3,20 @@
 @section('content')
   @include('partials.page-header')
 
-  @if (!have_posts())
-    <div class="container-fluid">
+  <div class="container-fluid">
+
+    @if (!have_posts())
       <div class="alert alert-warning">
         {{ __('Vi kunne ikke finde nogen resultater', 'sage') }}
       </div>
       {!! get_search_form(false) !!}
-    </div>
-  @endif
-
-  <div class="container-fluid">
-    <div class="row">
-      @while(have_posts()) @php the_post() @endphp
-        @include('partials.content-search')
-      @endwhile
-    </div>
-
+    @else
+      <div class="row">
+        @while(have_posts()) @php the_post() @endphp
+          @include('partials.content-search')
+        @endwhile
+      </div>
+    @endif
   </div>
 
   {!! pagination() !!}

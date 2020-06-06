@@ -1,11 +1,17 @@
 .module-shortcuts {
-  .module-inner {
-    background-color: #fec6c6;
-    padding: 3rem 1.5rem 1rem;
+  .shortcut-row {
+    margin-top: 1.5rem;
 
     @include media-breakpoint-up(md) {
-      padding: 5rem 3rem 1rem;
+      margin-top: 3rem;
     }
+  }
+
+  padding-top: 3rem;
+  padding-bottom: 1rem;
+
+  @include media-breakpoint-up(md) {
+    padding-top: 5rem;
   }
 
   a {
@@ -20,10 +26,34 @@
     max-width: 360px;
   }
 
-  img {
+  .shortcut-icon {
     flex: 0 0 auto;
     width: 40px;
     height: 40px;
     margin-right: 1.5rem;
+  }
+
+  figure {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+  }
+
+  .owl {
+    width: 15rem;
+    height: 16.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: -1.5rem;
+    left: -1.5rem;
+    transform: translateY(0);
+
+    svg {
+      height: 5rem;
+    }
   }
 }

@@ -14,4 +14,13 @@
     position: absolute;
     right: calc(-280px - 1.5rem);
   }
+
+  a {
+    font-weight: 500;
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
