@@ -1,8 +1,10 @@
-<section class="module module-content">
+<section class="module module-content {{ get_sub_field('modules_sdkkildeviser_spacing') ? '' : 'my-0' }}">
   <div class="container-fluid">
     <div class="row">
       <div class="{{ get_sub_field('modules_content_fullwidth') ? 'col' : 'col-lg-8 col-xl-6 offset-lg-1 offset-xl-3' }}">
-        @php the_sub_field('modules_content_wysiwyg') @endphp
+        <div class="entry-content">
+          @php the_sub_field('modules_content_wysiwyg') @endphp
+        </div>
       </div>
     </div>
   </div>

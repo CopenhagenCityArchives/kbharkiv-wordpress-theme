@@ -2,6 +2,26 @@ h1,
 .h1 {
   font-weight: 800;
   hyphens: auto;
+
+  @include media-breakpoint-down(sm) {
+    font-size: 2rem;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-feature-settings: "kern" 1;
+  font-kerning: normal;
 }
 
 h6,

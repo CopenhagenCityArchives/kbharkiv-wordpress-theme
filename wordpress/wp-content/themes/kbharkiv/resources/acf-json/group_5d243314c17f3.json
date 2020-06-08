@@ -273,7 +273,7 @@
                             "label": "Galleri",
                             "name": "modules_shortcuts_gallery",
                             "type": "gallery",
-                            "instructions": "Billeder i galleriet vises enkeltvis vilkårligt ved siden af genvejene.",
+                            "instructions": "Billeder i galleriet vises enkeltvis vilkårligt ved siden af genvejene. Billederne skal helst være over 1200x1200.",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -341,7 +341,27 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "acfe_permissions": "",
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_5ede8fb14533c",
+                            "label": "Stor spacing",
+                            "name": "modules_content_spacing",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -543,6 +563,26 @@
                                     "return_format": "array"
                                 }
                             ]
+                        },
+                        {
+                            "key": "field_5ede90164533d",
+                            "label": "Stor spacing",
+                            "name": "modules_links_spacing",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "acfe_permissions": "",
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
                         }
                     ],
                     "min": "",
@@ -667,6 +707,26 @@
                             "prepend": "",
                             "append": "",
                             "maxlength": ""
+                        },
+                        {
+                            "key": "field_5ede90404533e",
+                            "label": "Stor spacing",
+                            "name": "modules_sdkkildeviser_spacing",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "acfe_permissions": "",
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
                         }
                     ],
                     "min": "",
@@ -798,5 +858,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1591476492
+    "modified": 1591653283
 }

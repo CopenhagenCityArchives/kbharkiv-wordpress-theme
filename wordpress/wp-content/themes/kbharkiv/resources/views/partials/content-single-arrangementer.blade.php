@@ -16,6 +16,12 @@
       </div>
 
       @include('partials.modules')
+
+      <div class="mt-5">
+        @include('partials.tags')
+        @include('partials.nav-post')
+      </div>
+
     </div>
     <div class="offset-lg-1 col-lg-4">
       <div class="event-info" style="background-color: {{ theme_color(1) }}">

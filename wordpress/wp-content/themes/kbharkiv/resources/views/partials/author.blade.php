@@ -1,4 +1,4 @@
-@php $authors = get_field('author'); @endphp
+@php $authors = get_field('author', get_the_ID()); @endphp
 
 @if( $authors )
   @foreach( $authors as $author )

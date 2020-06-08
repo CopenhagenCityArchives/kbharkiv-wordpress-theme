@@ -7,3 +7,33 @@ a article.content-search {
     margin-bottom: 1rem;
   }
 }
+
+.entry-content {
+  line-height: 1.5;
+
+  @include media-breakpoint-up(xl) {
+    line-height: 1.75;
+  }
+
+  a {
+    font-weight: 500;
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .wp-block-image {
+    margin: 3rem 0;
+  }
+
+  p + h1,
+  p + h2,
+  p + h3,
+  ul + h1,
+  ul + h2,
+  ul + h3 {
+    margin-top: 2.5rem;
+  }
+}

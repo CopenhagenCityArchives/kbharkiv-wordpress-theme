@@ -7,6 +7,14 @@
 }
 
 .wp-block-table table {
+  width: 100%;
+
+  thead {
+    position: sticky;
+    top: 88px;
+  }
+
   @extend .table;
   @extend .table-striped;
+  @extend .table-responsive;
 }

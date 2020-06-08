@@ -4,7 +4,6 @@
       <div class="row">
         <div class="col-lg-6 col-xl-4">
           <h1>{!! App::title() !!}</h1>
-          {{ is_tag() || is_home() ? '' : the_tags() }}
         </div>
         <div class="col-lg-6">
           @php global $wp_query; @endphp
@@ -16,7 +15,9 @@
           @endif
         </div>
         <div class="col-xl-2">
-          @include('partials.author')
+          @if(!is_home())
+            @include('partials.author')
+          @endif
         </div>
       </div>
     </div>

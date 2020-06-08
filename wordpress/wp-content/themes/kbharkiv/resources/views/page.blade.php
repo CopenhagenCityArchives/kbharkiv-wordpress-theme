@@ -8,6 +8,8 @@
 
     @include('partials.modules')
 
+    @include('partials.tags')
+
     @include('partials.child-pages')
 
   @endwhile
