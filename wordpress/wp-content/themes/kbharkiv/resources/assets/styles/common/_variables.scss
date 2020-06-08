@@ -3,29 +3,16 @@
 
 // Color system
 
-$blue:    #000c2e !default;
-$indigo:  #6610f2 !default;
-$purple:  #685966 !default;
-$pink:    #e83e8c !default;
-$red:     #8a3314 !default;
-$orange:  #fd7e14 !default;
-$yellow:  #ffc107 !default;
-$green:   #3f5b58 !default;
-$teal:    #20c997 !default;
-$cyan:    #04436e !default;
-
-$cyan-light:    #c9e4f2 !default;
-
 $white:    #fff !default;
-$gray-100: rgba($blue, 0.08) !default;
-$gray-200: rgba($blue, 0.16) !default;
-$gray-300: rgba($blue, 0.24) !default;
-$gray-400: rgba($blue, 0.4) !default;
-$gray-500: rgba($blue, 0.5) !default;
-$gray-600: rgba($blue, 0.6) !default;
-$gray-700: rgba($blue, 0.7) !default;
-$gray-800: rgba($blue, 0.8) !default;
-$gray-900: rgba($blue, 0.9) !default;
+$gray-100: #ebecef !default;
+$gray-200: #d6d8dd !default;
+$gray-300: #c2c5cd !default;
+$gray-400: #999eab !default;
+$gray-500: #7f8596 !default;
+$gray-600: #666d82 !default;
+$gray-700: #4c546c !default;
+$gray-800: #333d58 !default;
+$gray-900: #192442 !default;
 $black:    #000 !default;
 
 $grays: () !default;
@@ -44,6 +31,19 @@ $grays: map-merge(
   ),
   $grays
 );
+
+$blue:    #000c2e !default;
+$indigo:  #6610f2 !default;
+$purple:  #685966 !default;
+$pink:    #e83e8c !default;
+$red:     #8a3314 !default;
+$orange:  #fd7e14 !default;
+$yellow:  #ffc107 !default;
+$green:   #3f5b58 !default;
+$teal:    #20c997 !default;
+$cyan:    #04436e !default;
+
+$cyan-light:    #c9e4f2 !default;
 
 $colors: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
