@@ -17,6 +17,7 @@ class Kbharkiv_Walker_Nav_Children extends Walker_Page {
 
     $css_class = implode(' ', apply_filters( 'page_css_class', $css_class, $item, $depth, $args, $current_page ));
 
+    $article_class = $depth == 0 ? 'article-link' : '';
     $tag = $depth == 0 ? 'div' : 'li';
     $thumbnail = $depth == 0 ? has_post_thumbnail($item->ID) ? get_the_post_thumbnail($item->ID, 'herox1', ['class' => 'mb-4']) : '' : '';
     $headline = $depth == 0 ? 'h3' : 'div';
@@ -25,7 +26,7 @@ class Kbharkiv_Walker_Nav_Children extends Walker_Page {
     //Modification
     $content = $link_before . $thumbnail . '<' . $headline .' class="mb-2"><span class="mr-2">' . get_the_title($item->ID) . '</span>' . $icon . '</' . $headline .'>' . $link_after;
     $lead = $depth == 0 && null !== get_field('lead', $item->ID) ? '<div>' . get_field('lead', $item->ID) . '</div>' : '';
-    $output .= $indent . '<' . $tag . ' class="' . $css_class . '"><a class="article-link" href="' . get_permalink($item->ID) . '">' . $content . $lead . '</a>';
+    $output .= $indent . '<' . $tag . ' class="' . $css_class . '"><a class="' . $article_class . '" href="' . get_permalink($item->ID) . '">' . $content . $lead . '</a>';
     //End Modification
   }
 
