@@ -56,3 +56,7 @@ hr {
     opacity: 1;
   }
 }
+
+.darken-on-scroll {
+  transition: background-color 400ms ease;
+}

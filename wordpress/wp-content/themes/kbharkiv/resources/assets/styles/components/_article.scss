@@ -2,7 +2,8 @@ a.article-link {
   &:hover {
     text-decoration: none;
 
-    h3 {
+    h3,
+    h4 {
       text-decoration: underline;
     }
   }

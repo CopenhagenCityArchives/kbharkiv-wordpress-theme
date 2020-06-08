@@ -1,5 +1,5 @@
 @if (!is_front_page())
-  <header class="page-header" style="background-color: {{ theme_color() }}">
+  <header class="page-header darken-on-scroll" style="background-color: {{ theme_color() }}">
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-6 col-xl-4">

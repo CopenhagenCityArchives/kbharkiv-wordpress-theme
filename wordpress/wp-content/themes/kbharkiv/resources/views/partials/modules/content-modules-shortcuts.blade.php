@@ -17,7 +17,7 @@
               $link_target = $link['target'] ? $link['target'] : '_self';
             @endphp
 
-            <a href="{{ esc_url( $link_url ) }}" target="{{ esc_attr( $link_target ) }}" class="{{ $images ? 'col-sm-6 d-flex' : 'col-sm-6 col-lg-4 d-flex' }}">
+            <a href="{{ esc_url( $link_url ) }}" target="{{ esc_attr( $link_target ) }}" class="article-link {{ $images ? 'col-sm-6 d-flex' : 'col-sm-6 col-lg-4 d-flex' }}">
               @if( get_sub_field('modules_shortcuts_repeater_icon') )
                 {!! wp_get_attachment_image( get_sub_field('modules_shortcuts_repeater_icon'), 'shortcutx4', true, ['role' => 'presentation', 'class' => 'shortcut-icon'] ) !!}
               @endif

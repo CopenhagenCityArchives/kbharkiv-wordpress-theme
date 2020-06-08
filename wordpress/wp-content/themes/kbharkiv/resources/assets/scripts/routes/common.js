@@ -246,11 +246,11 @@ export default {
     function changeBackground(scroll_pos) {
       if(scroll_pos > 0) {
          $('body').addClass('scrolled');
-         $('.page-header, .module-newsletter .module-inner, .infobox').css('background-color', bgScrolled);
+         $('.darken-on-scroll').css('background-color', bgScrolled);
 
       } else {
         $('body').removeClass('scrolled');
-        $('.page-header, .module-newsletter .module-inner, .infobox').css('background-color', bgDefault);
+        $('.darken-on-scroll').css('background-color', bgDefault);
 
       }
     }

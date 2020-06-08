@@ -1,4 +1,4 @@
-<header class="page-header" style="background-color: {{ theme_color() }}">
+<header class="page-header darken-on-scroll" style="background-color: {{ theme_color() }}">
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-7">

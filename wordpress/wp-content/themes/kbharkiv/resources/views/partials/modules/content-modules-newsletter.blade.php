@@ -1,6 +1,6 @@
 <section class="module module-newsletter">
   <div class="container-fluid">
-    <div class="module-inner" style="background-color: {{ theme_color() }}">
+    <div class="module-inner darken-on-scroll" style="background-color: {{ theme_color() }}">
 
       <div class="row">
         <div class="col-lg-6 col-xl-5">
