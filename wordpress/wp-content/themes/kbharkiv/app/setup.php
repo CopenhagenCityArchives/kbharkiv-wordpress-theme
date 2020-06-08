@@ -67,6 +67,8 @@ add_action('after_setup_theme', function () {
     add_image_size('shortcutx1', 40, 40, true );
     add_image_size('profilex2', 480, 560, true );
     add_image_size('profilex1', 240, 280, true );
+    add_image_size('cardx2', 1200, 440, true );
+    add_image_size('cardx1', 600, 220, true );
 
 
     /**
