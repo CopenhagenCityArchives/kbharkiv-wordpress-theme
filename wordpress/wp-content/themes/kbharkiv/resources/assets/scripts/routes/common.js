@@ -1,3 +1,5 @@
+import moduleGallery from '../components/moduleGallery';
+
 export default {
   init() {
     function initMenu() {
@@ -224,20 +226,6 @@ export default {
 
     initMenu();
 
-    $('.module-gallery .carousel').each(function() {
-      $(this).on('slid.bs.carousel', function () {
-        let activeImageDescriptionId = $(this).find('.carousel-item.active').attr('data-description');
-        let $description = $(activeImageDescriptionId);
-
-        //console.log(activeImageDescriptionId);
-        //console.log($description);
-        console.log($(this).closest('.row').find('.gallery-description-item.active'));
-
-        $(this).closest('.row').find('.gallery-description-item.active').removeClass('active');
-        $description.addClass('active');
-      })
-    })
-
     let last_known_scroll_position = 0;
     let ticking = false;
     let bgDefault = $('.top-menu').data('color');
@@ -410,6 +398,6 @@ export default {
     });
   },
   finalize() {
-    // JavaScript to be fired on all pages, after page specific JS is fired
+    moduleGallery();
   },
 };
