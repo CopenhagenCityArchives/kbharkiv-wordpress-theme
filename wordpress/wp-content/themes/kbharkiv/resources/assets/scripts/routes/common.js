@@ -401,3 +401,25 @@ export default {
     moduleGallery();
   },
 };
+
+// Search function used for person searches
+// Note that it requires an input element named person_search_term
+// Example of html:
+/*
+<form class="apacs_freetext_search__form" onsubmit="return submitFormApacs()">
+  <input id="apacs_search_term" title="Navn, adresse eller fritekst" type="text" placeholder="Navn, adresse eller fritekst">
+  <button class="button" value="søg">Søg</button>
+</form>
+*/
+var submitFormApacs = function() {
+  console.log('searching');
+  var term = document.getElementById("person_search_term").value;
+  if (term && term != '') {
+    var newUrl = window.location.protocol + "//" + window.location.hostname + '/search_url' + '/results?q1.f=freetext_store&q1.op=in_multivalued&q1.t=' + term + '&sortField=lastname&sortDirection=asc&postsPrPage=10&collections=1,17,18,19';
+    console.log(newUrl);
+    window.location.href = newUrl;
+  } else {
+    console.log('could not search, no term', term);
+  }
+  return false;
+};
