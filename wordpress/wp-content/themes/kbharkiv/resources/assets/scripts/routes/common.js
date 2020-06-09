@@ -1,3 +1,4 @@
+import chat from '../components/chat';
 import moduleGallery from '../components/moduleGallery';
 
 export default {
@@ -327,18 +328,6 @@ export default {
       }
     }
 
-    $('.chat-btn').popover({
-      container: $('.chat-holder'),
-      placement: 'top',
-      html: true,
-      content: function () {
-        // Get the content from the hidden sibling.
-        return $('#chat').clone()
-      },
-    }).on('shown.bs.popover	', function () {
-      $('.chat-holder #chat-name').trigger('focus');
-    })
-
     // From http://www.kbharkiv.dk/kbharkiv/js/frontpage_searches.js
     $('#searchform_persons').submit(function(event){
       event.preventDefault();
@@ -398,6 +387,7 @@ export default {
     });
   },
   finalize() {
+    chat();
     moduleGallery();
   },
 };
