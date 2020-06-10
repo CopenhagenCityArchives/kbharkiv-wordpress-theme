@@ -32,16 +32,7 @@
         @if ($images)
           @php
             $image = $images[rand(0, count($images)-1)];
-
-          	$colors = [
-          		'yellow' => ['#F2E9CE', '#7B766A'],
-          		'green' => ['#DBEDD7', '#3F5B58'],
-          		'purple' => ['#DACBD8', '#685966'],
-          		'blue' => ['#C9E4F2', '#04436E'],
-          		'red' => ['#E7C0B0', '#8A3314'],
-          	];
-
-            $random_color = $colors[array_rand($colors)];
+            $random_color = theme_color(0, 1);
           @endphp
           <div class="col-md-4">
             <figure role="presentation" style="background-image: url({{$image['sizes']['large']}})">
