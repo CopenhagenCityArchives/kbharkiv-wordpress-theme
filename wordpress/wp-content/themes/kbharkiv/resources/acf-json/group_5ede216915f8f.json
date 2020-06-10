@@ -45,8 +45,8 @@
                 },
                 {
                     "key": "field_5ede21d39b5f6",
-                    "label": "Id",
-                    "name": "mypage_card_id",
+                    "label": "Angular directive",
+                    "name": "mypage_card_angular_directive",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -158,5 +158,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1591617683
+    "modified": 1591778230
 }
