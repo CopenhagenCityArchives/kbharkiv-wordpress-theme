@@ -35,15 +35,24 @@
 
   figure {
     position: relative;
-    height: 100%;
     width: 100%;
     background-size: cover;
     background-position: center center;
+    padding-top: 100%;
+
+    @include media-breakpoint-up(sm) {
+      padding-top: 72%;
+    }
+
+    @include media-breakpoint-up(lg) {
+      padding-top: 0;
+      height: 100%;
+    }
   }
 
   .owl {
-    width: 15rem;
-    height: 16.5rem;
+    width: 10rem;
+    height: 10rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -52,8 +61,22 @@
     left: -1.5rem;
     transform: translateY(0);
 
+    @include media-breakpoint-up(md) {
+      width: 12rem;
+      height: 12rem;
+    }
+
+    @include media-breakpoint-up(lg) {
+      width: 14rem;
+      height: 14rem;
+    }
+
     svg {
-      height: 5rem;
+      height: 4rem;
+
+      @include media-breakpoint-up(lg) {
+        height: 5rem;
+      }
     }
   }
 }
