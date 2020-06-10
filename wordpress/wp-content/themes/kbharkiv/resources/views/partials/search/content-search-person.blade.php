@@ -3,19 +3,19 @@
 @endphp
 
 <li>
-  @if ($field['search_person_group_copy'])
-    <label class="h4" for="search-person">{{ $field['search_person_group_headline'] }}</label>
-  @endif
-  {{-- <label>Søg person</label> --}}
-  @if ($field['search_person_group_copy'])
-    <p class="small">{{ $field['search_person_group_copy'] }}</p>
-  @endif
-
   <form id="apacs_freetext_search__form">
-    <input id="person_search_term" title="Navn, adresse eller fritekst" type="text" placeholder="Navn, adresse eller fritekst">
-    <button class="button" value="søg">Søg</button>
+    <div class="form-group">
+      @if ($field['search_person_group_copy'])
+        <label class="h4" for="person_search_term">{{ $field['search_person_group_headline'] }}</label>
+      @endif
+      {{-- <label>Søg person</label> --}}
+      @if ($field['search_person_group_copy'])
+        <p class="small">{{ $field['search_person_group_copy'] }}</p>
+      @endif
+      <input class="form-control" id="person_search_term" title="Navn, adresse eller fritekst" type="text" placeholder="Navn, adresse eller fritekst">
+    </div>
+    <button class="btn btn-primary search-focusable">Søg</button>
   </form>
-
   @if ($field['search_person_group_link'])
     <div class="d-block mt-4">
       <a href="{{ $field['search_person_group_link']['url'] }}" target="{{ $field['search_person_group_link']['target'] ? $field['search_person_group_link']['target'] : '_self' }}">@include('partials.icon', ['icon' => 'arrow-right-circle']) {{ $field['search_person_group_link']['title'] }}</a>
