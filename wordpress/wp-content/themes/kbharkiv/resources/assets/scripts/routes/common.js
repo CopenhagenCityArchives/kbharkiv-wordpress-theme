@@ -40,7 +40,7 @@ export default {
 // Example of html:
 /*
 <form class="apacs_freetext_search__form" onsubmit="return submitFormApacs()">
-  <input id="apacs_search_term" title="Navn, adresse eller fritekst" type="text" placeholder="Navn, adresse eller fritekst">
+  <input id="person_search_term" title="Navn, adresse eller fritekst" type="text" placeholder="Navn, adresse eller fritekst">
   <button class="button" value="søg">Søg</button>
 </form>
 */
