@@ -11,7 +11,7 @@
     <p class="small">{{ $field['search_person_group_copy'] }}</p>
   @endif
 
-  <div class="search-border-fix" data-sdk-app ng-controller="fritekstSearchController" ng-include="'sdk/templates/fritekst-search.tpl.html'" ng-init="init({searchUrl: \'https://www.kbharkiv.dk/sog-i-arkivet/sog-i-indtastede-kilder\' });">&nbsp;</div>
+  <div class="search-border-fix" data-sdk-app ng-controller="fritekstSearchController" ng-include="'sdk/templates/fritekst-search.tpl.html'" ng-init="init({searchUrl: 'https://www.kbharkiv.dk/sog-i-arkivet/sog-i-indtastede-kilder' });">&nbsp;</div>
 
   @if ($field['search_person_group_link'])
     <div class="d-block mt-4">
