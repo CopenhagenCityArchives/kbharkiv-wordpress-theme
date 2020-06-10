@@ -30,8 +30,12 @@
                 @if( get_sub_field('mypage_card_image') )
                   {!!wp_get_attachment_image( get_sub_field('mypage_card_image'), 'cardx2' )!!}
                 @endif
-                <div class="card-body" id="{{get_sub_field('mypage_card_id')}}">
+                <div class="card-body" {!! get_sub_field('mypage_card_angular_directive') ? ' data-sdk-app' : '' !!}>
                   {!! get_sub_field('mypage_card_content') !!}
+                  @if( get_sub_field('mypage_card_angular_directive') )
+                    <{!! get_sub_field('mypage_card_angular_directive') !!}>
+                    </{!! get_sub_field('mypage_card_angular_directive') !!}>
+                  @endif
                 </div>
               </section>
             </div>
