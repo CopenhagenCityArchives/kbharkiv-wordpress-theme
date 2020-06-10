@@ -273,7 +273,7 @@
                             "label": "Galleri",
                             "name": "modules_shortcuts_gallery",
                             "type": "gallery",
-                            "instructions": "Billeder i galleriet vises enkeltvis vilkårligt ved siden af genvejene. Billederne skal helst være over 1200x1200.",
+                            "instructions": "Billeder i galleriet vises enkeltvis vilkårligt ved siden af genvejene. Billederne skal helst være over 1200x1200 og beskærer automatisk i mod center afhængigt af skærmbredden.",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -858,5 +858,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1591653283
+    "modified": 1591781299
 }

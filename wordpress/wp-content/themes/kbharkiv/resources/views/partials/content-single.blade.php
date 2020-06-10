@@ -31,7 +31,12 @@
     @endif
 
     <div class="row">
-      <div class="col-lg-8 col-xl-6 offset-lg-1 offset-xl-3">
+      <div class="col-xl-2">
+        <div class="d-none d-xl-block">
+          @include('partials.tags')
+        </div>
+      </div>
+      <div class="col-lg-8 col-xl-6 offset-lg-1">
         <div class="entry-content">
           @php the_content() @endphp
         </div>
