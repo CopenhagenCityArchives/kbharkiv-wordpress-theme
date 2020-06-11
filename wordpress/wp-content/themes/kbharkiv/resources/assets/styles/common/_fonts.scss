@@ -1,8 +1,8 @@
 @font-face {
   font-family: "kbh"; // actually kbh tekst. Called kbh for easier usage.
   src:
-    url(kbhtekst-webfont.woff2) format(woff2),
-    url(kbhtekst-webfont.woff) format(woff);
+    url(../fonts/kbhtekst-webfont.woff2) format(woff2),
+    url(../fonts/kbhtekst-webfont.woff) format(woff);
   font-weight: 400;
   font-style: normal;
 }
