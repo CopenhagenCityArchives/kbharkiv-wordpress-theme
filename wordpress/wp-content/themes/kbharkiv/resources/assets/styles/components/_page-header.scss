@@ -1,4 +1,8 @@
 .page-header {
   background-color: $cyan-light;
   padding: 8rem 0 2.5rem 0;
+
+  + .breadcrumb-wrapper {
+    padding-top: 0;
+  }
 }
