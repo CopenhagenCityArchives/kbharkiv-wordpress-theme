@@ -1,9 +1,11 @@
 .breadcrumb-wrapper {
   overflow-x: auto;
   margin-bottom: 2rem;
+  padding-top: 5.5rem;
 
   @include media-breakpoint-down(sm) {
-    padding: 0;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   @include media-breakpoint-up(md) {
