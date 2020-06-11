@@ -24,7 +24,7 @@ deploy:
       branch: master
   - provider: s3
     access_key_id: ${S3_AWS_ACCESS_KEY}
-    secret_access_key: ${S3_AWS_SERECT_ACCESS_KEY}
+    secret_access_key: ${S3_AWS_SECRET_ACCESS_KEY}
     bucket: kbharkiv-wordpress-theme
     local-dir: ${TRAVIS_BUILD_DIR}/wordpress/wp-content/themes/kbharkiv
     region: eu-west-1
