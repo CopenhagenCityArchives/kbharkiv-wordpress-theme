@@ -17,9 +17,19 @@ script:
   - yarn build:production
 
 deploy:
-  provider: script
-  script: bash ${TRAVIS_BUILD_DIR}/trigger-deploy.sh master $TRAVIS_TOKEN
-  skip_cleanup: true
-  on:
-    branch: master
+  - provider: script
+    script: bash ${TRAVIS_BUILD_DIR}/trigger-deploy.sh master $TRAVIS_TOKEN
+    skip_cleanup: true
+    on:
+      branch: master
+  - provider: s3
+    access_key_id: ${S3_AWS_ACCESS_KEY}
+    secret_access_key: ${S3_AWS_SERECT_ACCESS_KEY}
+    bucket: kbharkiv-wordpress-theme
+    local-dir: ${TRAVIS_BUILD_DIR}/wordpress/wp-content/themes/kbharkiv
+    region: eu-west-1
+    on:
+      repo: CopenhagenCityArchives/kbharkiv-wordpress-theme
+      branch: master
+    skip_cleanup: true
 
