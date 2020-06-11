@@ -1,8 +1,8 @@
 @font-face {
   font-family: "kbh"; // actually kbh tekst. Called kbh for easier usage.
   src:
-    url("kbhtekst-webfont.woff2") format("woff2"),
-    url("kbhtekst-webfont.woff") format("woff");
+    url(kbhtekst-webfont.woff2) format(woff2),
+    url(kbhtekst-webfont.woff) format(woff);
   font-weight: 400;
   font-style: normal;
 }
@@ -10,8 +10,8 @@
 @font-face {
   font-family: "kbh"; // actually kbh tekst. Called kbh for easier usage.
   src:
-    url("../fonts/kbhtekst-italic-webfont.woff2") format("woff2"),
-    url("../fonts/kbhtekst-italic-webfont.woff") format("woff");
+    url(../fonts/kbhtekst-italic-webfont.woff2) format(woff2),
+    url(../fonts/kbhtekst-italic-webfont.woff) format(woff);
   font-weight: 400;
   font-style: italic;
 }
@@ -19,8 +19,8 @@
 @font-face {
   font-family: "kbh";
   src:
-    url("../fonts/kbh-mediumitalic-webfont.woff2") format("woff2"),
-    url("../fonts/kbh-mediumitalic-webfont.woff") format("woff");
+    url(../fonts/kbh-mediumitalic-webfont.woff2) format(woff2),
+    url(../fonts/kbh-mediumitalic-webfont.woff) format(woff);
   font-weight: 500;
   font-style: italic;
 }
@@ -28,8 +28,8 @@
 @font-face {
   font-family: "kbh";
   src:
-    url("../fonts/kbh-medium-webfont.woff2") format("woff2"),
-    url("../fonts/kbh-medium-webfont.woff") format("woff");
+    url(../fonts/kbh-medium-webfont.woff2) format(woff2),
+    url(../fonts/kbh-medium-webfont.woff) format(woff);
   font-weight: 500;
   font-style: normal;
 }
@@ -37,8 +37,8 @@
 @font-face {
   font-family: "kbh";
   src:
-    url("../fonts/kbh-demibolditalic-webfont.woff2") format("woff2"),
-    url("../fonts/kbh-demibolditalic-webfont.woff") format("woff");
+    url(../fonts/kbh-demibolditalic-webfont.woff2) format(woff2),
+    url(../fonts/kbh-demibolditalic-webfont.woff) format(woff);
   font-weight: 600;
   font-style: italic;
 }
@@ -46,8 +46,8 @@
 @font-face {
   font-family: "kbh";
   src:
-    url("../fonts/kbh-demibold-webfont.woff2") format("woff2"),
-    url("../fonts/kbh-demibold-webfont.woff") format("woff");
+    url(../fonts/kbh-demibold-webfont.woff2) format(woff2),
+    url(../fonts/kbh-demibold-webfont.woff) format(woff);
   font-weight: 600;
   font-style: normal;
 }
@@ -55,8 +55,8 @@
 @font-face {
   font-family: "kbh";
   src:
-    url("../fonts/kbh-bolditalic-webfont.woff2") format("woff2"),
-    url("../fonts/kbh-bolditalic-webfont.woff") format("woff");
+    url(../fonts/kbh-bolditalic-webfont.woff2) format(woff2),
+    url(../fonts/kbh-bolditalic-webfont.woff) format(woff);
   font-weight: 700;
   font-style: italic;
 }
@@ -64,8 +64,8 @@
 @font-face {
   font-family: "kbh";
   src:
-    url("../fonts/kbh-bold-webfont.woff2") format("woff2"),
-    url("../fonts/kbh-bold-webfont.woff") format("woff");
+    url(../fonts/kbh-bold-webfont.woff2) format(woff2),
+    url(../fonts/kbh-bold-webfont.woff) format(woff);
   font-weight: 700;
   font-style: normal;
 }
@@ -73,8 +73,8 @@
 @font-face {
   font-family: "kbh";
   src:
-    url("../fonts/kbh-blackitalic-webfonst.woff2") format("woff2"),
-    url("../fonts/kbh-blackitalic-webfont.woff") format("woff");
+    url(../fonts/kbh-blackitalic-webfont.woff2) format(woff2),
+    url(../fonts/kbh-blackitalic-webfont.woff) format(woff);
   font-weight: 800;
   font-style: italic;
 }
@@ -82,8 +82,8 @@
 @font-face {
   font-family: "kbh";
   src:
-    url("../fonts/kbh-black-webfont.woff2") format("woff2"),
-    url("../fonts/kbh-black-webfont.woff") format("woff");
+    url(../fonts/kbh-black-webfont.woff2) format(woff2),
+    url(../fonts/kbh-black-webfont.woff) format(woff);
   font-weight: 800;
   font-style: normal;
 }
