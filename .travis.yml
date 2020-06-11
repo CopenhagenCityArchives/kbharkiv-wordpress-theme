@@ -19,6 +19,7 @@ script:
 deploy:
   provider: script
   script: bash ${TRAVIS_BUILD_DIR}/trigger-deploy.sh master $TRAVIS_TOKEN
+  skip_cleanup: true
   on:
     branch: master
 
