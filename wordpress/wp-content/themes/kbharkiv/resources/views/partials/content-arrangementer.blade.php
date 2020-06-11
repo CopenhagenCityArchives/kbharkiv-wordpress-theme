@@ -1,8 +1,6 @@
 @php $event_start = strtotime(get_field('event_start')) @endphp
 @php $event_end = strtotime(get_field('event_end')) @endphp
 
-{{-- {{ date("ym", $event_start) }} --}}
-
 @if (!is_tag() && date("ym", $event_start) != date("ym", $prev_date))
   <div class="month h1" role="presentation">{{ date_i18n("F Y", $event_start) }}</div>
 @endif
