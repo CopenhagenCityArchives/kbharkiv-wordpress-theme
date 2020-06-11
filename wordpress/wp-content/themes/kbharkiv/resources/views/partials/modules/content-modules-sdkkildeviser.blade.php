@@ -8,7 +8,7 @@
   </div>
 </section>
 
-<script src="http://www.kbhkilder.dk/software/KildeviserSearchSDK/KildeviserSearchSDK.latest.min.js" type="text/javascript"></script>
+<script src="https://www.kbhkilder.dk/software/KildeviserSearchSDK/KildeviserSearchSDK.latest.min.js" type="text/javascript"></script>
 
 <script type="text/javascript">
   jQuery(function() {
