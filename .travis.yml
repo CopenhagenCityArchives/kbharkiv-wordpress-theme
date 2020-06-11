@@ -18,7 +18,7 @@ script:
 
 deploy:
   provider: script
-  script: bash trigger-deploy.sh master $TRAVIS_TOKEN
+  script: bash ${TRAVIS_BUILD_DIR}/trigger-deploy.sh master $TRAVIS_TOKEN
   on:
     branch: master
 
