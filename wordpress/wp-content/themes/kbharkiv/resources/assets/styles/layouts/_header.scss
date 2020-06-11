@@ -229,7 +229,8 @@ header.top-menu {
 
   &.active {
     height: 100vh;
-    overflow-y: scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
 
     .parent.active .desktop-menu-toggle {
       @include media-breakpoint-up(lg) {
