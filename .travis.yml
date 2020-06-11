@@ -27,7 +27,7 @@ deploy:
     secret_access_key: ${S3_AWS_SECRET_ACCESS_KEY}
     bucket: kbharkiv-wordpress-theme
     local-dir: ${TRAVIS_BUILD_DIR}/wordpress/wp-content/themes/kbharkiv
-    glob: "{,!(node_modules)/**/}*.*"
+    glob: "{/,/resources/,/resources/**/,/dist/,/dist/**/,/config/,/config/**/,/app/,/app/**/,!(/node_modules)/**/}*.*"
     region: eu-west-1
     on:
       repo: CopenhagenCityArchives/kbharkiv-wordpress-theme
