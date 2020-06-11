@@ -2,9 +2,9 @@
 
 @section('content')
   @while(have_posts()) @php the_post() @endphp
-    @if(get_field('page_headline_in_header'))
+    @if(get_field('page_headline_in_header') && !is_front_page())
       @include('partials.page-header')
-    @else
+    @elseif(!is_front_page())
       {{ the_breadcrumb() }}
     @endif
 

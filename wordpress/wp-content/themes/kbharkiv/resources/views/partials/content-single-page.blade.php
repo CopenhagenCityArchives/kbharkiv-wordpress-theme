@@ -1,7 +1,6 @@
 <section class="content">
   <div class="container-fluid">
-    @if(!get_field('page_headline_in_header'))
-
+    @if(!get_field('page_headline_in_header') && !is_front_page())
       <div class="row">
         <div class="col-lg-8 offset-lg-1 offset-xl-2">
           <header>
