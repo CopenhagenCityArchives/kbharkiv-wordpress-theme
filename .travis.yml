@@ -12,7 +12,9 @@ before_install:
   - sudo service mysql stop
 
 script:
-  - php --version
+  - cd ./wordpress/wp-content/themes/kbharkiv
+  - yarn install
+  - yarn build:production
 
 deploy:
   provider: script
