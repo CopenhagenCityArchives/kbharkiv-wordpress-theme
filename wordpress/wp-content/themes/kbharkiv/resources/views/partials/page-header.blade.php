@@ -15,7 +15,7 @@
           @endif
         </div>
         <div class="col-xl-2">
-          @if(!is_home())
+          @if(is_singular())
             @include('partials.author')
           @endif
         </div>
