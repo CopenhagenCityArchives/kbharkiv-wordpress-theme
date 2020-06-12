@@ -50,17 +50,6 @@ section[class^="module"].small-margin {
   margin-bottom: 2rem;
 }
 
-.tags,
-.post-navigation {
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-
-  @include media-breakpoint-up(md) {
-    margin-top: 4rem;
-    margin-bottom: 4rem;
-  }
-}
-
 .modal-backdrop {
   background-color: $blue;
 
@@ -71,4 +60,11 @@ section[class^="module"].small-margin {
 
 .darken-on-scroll {
   transition: background-color 400ms ease;
+}
+
+:target::before {
+  content: "";
+  display: block;
+  height: 7rem;
+  margin-top: -7rem;
 }
