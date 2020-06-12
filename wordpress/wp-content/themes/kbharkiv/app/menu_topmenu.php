@@ -175,17 +175,17 @@ add_filter('wp_nav_menu_items', function( $items, $args ) {
 	// modify primary only
 	if( $args->theme_location == 'primary_navigation' ) {
 
-		$login_url = get_field('login_page', 'option')['url'];
+		$profile = App\template('partials.menu.content-profile');
 		$search = '';
 
 		if( have_rows('search_menu', 'option') ) {
 	    while ( have_rows('search_menu', 'option') ) {
 				the_row();
-				$search .= App\template('partials.search.content-' . str_replace('_', '-', get_row_layout()));
+				$search .= App\template('partials.menu.content-' . str_replace('_', '-', get_row_layout()));
 			}
 		}
 
-		$right_menu = '<li class="login ml-auto"><a class="d-flex align-items-center" href="'. $login_url .'">Log ind <svg class="icon ml-2"><use xlink:href="' . App\asset_path('images/feather-sprite.svg') . '#lock"/></svg></a></li>' .
+		$right_menu = $profile .
 									'<li class="search parent" data-level="1" data-color="' . color(get_field('color_theme', 'option'), 0) . '">' .
 										'<a class="d-flex align-items-center" href="#">Søg<svg class="icon ml-2"><use xlink:href="' . App\asset_path('images/feather-sprite.svg') . '#search"/></svg></a>' .
 										'<ul class="sub-menu" data-level="1">' .
@@ -194,34 +194,6 @@ add_filter('wp_nav_menu_items', function( $items, $args ) {
 											'<button class="nav-toggle desktop-menu-toggle top-menu-focusable"><span class="sr-only">Luk menu</span><div class="hamburger"></div></button>' .
 										'</ul>' .
 									'</li>';
-
-									// '<li class="search parent" data-level="1">' .
-									// 	'<a class="d-flex align-items-center" href="#">Søg<svg class="icon ml-2"><use xlink:href="' . App\asset_path('images/feather-sprite.svg') . '#search"/></svg></a>' .
-									// 	'<ul class="sub-menu" data-level="1">' .
-									// 		'<li class="nav-back d-lg-none"><a tabindex="0" href="#">Tilbage</a></li>' .
-									// 		'<li>' .
-									// 			'<label>Søg person</label>' .
-									// 			'<p class="small">Fritekstssøgning efter personer i indtastede kilder.</p>' .
-									// 			'<div class="search-border-fix" data-sdk-app ng-controller="fritekstSearchController" ng-include="\'sdk/templates/fritekst-search.tpl.html\'" ng-init="init({searchUrl: \'https://www.kbharkiv.dk/sog-i-arkivet/sog-i-indtastede-kilder\' });">&nbsp;</div>' .
-									// 			'<div class="d-block mt-4"><a href="/sog-i-arkivet/sog-i-indtastede-kilder">Avanceret søgning</a></div>' .
-									// 		'</li>' .
-									// 		'<li>' .
-									// 			'<form id="searchform_catalog" action="http://www.kbharkiv.dk/kbharkiv/php/starbas_search.php" method="get">' .
-									// 	      '<div class="search-form form-group">' .
-									// 					'<label for="catalog_query">Søg arkivmateriale</label>' .
-									// 					'<p class="small">Fritekstsøgning i samlingerne med Starbas.</p>' .
-									// 	        '<input class="form-control" id="catalog_query" placeholder="Søg arkivmateriale i Starbas" name="catalog_query" type="search" placeholder="Søg arkivmateriale i Starbas" />' .
-									// 	      '</div>' .
-									// 				'<button id="searchform_catalog_button" class="btn btn-primary search-focusable">Søg</button>' .
-									// 				'<a class="d-block mt-4" href="http://www.starbas.net/av_soeg_res.php?a_id=1" target="_blank" rel="noopener">Avanceret søgning</a>' .
-									// 	    '</form>' .
-									// 		'</li>' .
-									// 		'<li>' .
-									// 			get_search_form(false) .
-									// 		'</li>' .
-									// 	'</ul>' .
-									// '</li>';
-
 		$items = $items . $right_menu;
 	}
 
