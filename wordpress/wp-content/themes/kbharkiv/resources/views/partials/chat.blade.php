@@ -1,12 +1,11 @@
-<button class="btn btn-primary chat-btn fixed" type="button" name="button">
-  <span class="sr-only">Chat</span>
+<button class="btn btn-primary chat-btn fixed" type="button" name="button" aria-label="Åbn chat">
   @include("partials.icon", ["icon" => "message-square"])
 </button>
 
 <div class="chat-holder"></div>
 
 <div class="chat-wrapper">
-  <form target="_blank" action="{{get_the_permalink()}}" method="post" id="chat">
+  <form target="_blank" action="{{get_the_permalink()}}" method="post" id="chat" aria-label="Chat">
     @if (get_field('chat_text', 'option'))
       <p>{{ get_field('chat_text', 'option') }}</p>
     @endif
@@ -21,3 +20,12 @@
     <button id="chatsubmit" type="submit" class="btn btn-primary" name="submit">Chat</button>
   </form>
 </div>
+
+@if (isset($_POST['submit']))
+  @php
+  $navn = $_POST['navn'];
+  $spm = $_POST['spm'];
+  $spm = preg_replace("/\r|\n/", "", $spm);
+  header("Location:https://kbharkiv.kk.dk/api/start_session?issue_menu=1&codeName=stadsarkiv&c2cjs=1&customer.name='.$navn.'&customer.details='$spm'");
+  @endphp
+@endif

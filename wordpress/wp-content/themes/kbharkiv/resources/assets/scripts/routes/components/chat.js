@@ -8,7 +8,10 @@ export function chat() {
       return $('#chat').clone()
     },
   }).on('shown.bs.popover	', function () {
+    $('.chat-btn').attr('aria-label', 'Luk chat');
     $('.chat-holder #chat-name').trigger('focus');
+  }).on('hidden.bs.popover	', function () {
+    $('.chat-btn').attr('aria-label', 'Åbn chat');
   });
 }
 

@@ -6,6 +6,11 @@
       @include('partials.page-header')
     @elseif(!is_front_page())
       {{ the_breadcrumb() }}
+    @else
+      {{-- Front page --}}
+      <div class="sr-only" role="heading" aria-level="1">
+        Forside
+      </div>
     @endif
 
     @include('partials.content-single-'.get_post_type())

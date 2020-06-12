@@ -16,6 +16,7 @@
               <div class="carousel-inner">
                 @for($i = 0; $i < sizeof($images); $i++)
                   <a class="carousel-item{{$i == 0 ? ' active' : ''}}" role="button" data-description="#gallery-{{get_row_index()}}-image-{{$i}}" data-toggle="modal" data-target="#gallery-modal-{{get_row_index()}}">
+                    <span class="sr-only">Åbn forstørret galleri</span>
                     {!! wp_get_attachment_image( $images[$i]['ID'], 'medium' ) !!}
                   </a>
                 @endfor
