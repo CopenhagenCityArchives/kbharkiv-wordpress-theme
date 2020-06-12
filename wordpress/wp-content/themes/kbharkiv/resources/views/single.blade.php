@@ -10,7 +10,7 @@
 
     @include('partials.tags', ['container' => true, 'class' => 'd-xl-none'])
 
-    @include('partials.nav-post')
+    @include('partials.nav-post', ['container' => true])
 
   @endwhile
 
