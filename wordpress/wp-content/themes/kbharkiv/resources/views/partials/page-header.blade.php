@@ -11,7 +11,7 @@
             @php global $wp_query @endphp
             <p class="lead">{{ $wp_query->found_posts > 0 ? ('Viser ' . $wp_query->found_posts . ' søgeresultater') : '' }}<p>
           @else
-            <p class="lead">{{ get_the_lead() }}<p>
+            @include('partials.lead')
           @endif
         </div>
         <div class="col-xl-2">

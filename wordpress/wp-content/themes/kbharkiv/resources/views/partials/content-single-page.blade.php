@@ -11,7 +11,7 @@
 
       <div class="row mb-5">
         <div class="col-lg-8 col-xl-6 offset-lg-1 offset-xl-2">
-          <p class="lead">{{ get_the_lead() }}<p>
+          @include('partials.lead')
         </div>
         <div class="col-lg-3">
           @include('partials.author')

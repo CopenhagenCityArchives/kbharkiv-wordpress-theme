@@ -14,7 +14,7 @@
         </figure>
       @endif
 
-      <p class="lead">{{ get_the_lead() }}<p>
+      @include('partials.lead')
 
       <div class="entry-content">
         @php the_content() @endphp
