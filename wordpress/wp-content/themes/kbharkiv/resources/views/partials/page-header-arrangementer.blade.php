@@ -2,7 +2,11 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-7">
-        <h6>{!! get_the_term_list( get_the_ID(), 'event_category', '', ', ', '' ) !!}</h6>
+        @php $category = get_the_term_list( get_the_ID(), 'event_category', '', ', ', '' ) @endphp
+        @if ($category)
+          <h6>{!! $category !!}</h6>
+        @endif
+
         <h1 id="headline">{!! App::title() !!}</h1>
       </div>
     </div>

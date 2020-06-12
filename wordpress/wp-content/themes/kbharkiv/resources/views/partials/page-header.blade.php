@@ -14,11 +14,11 @@
             @include('partials.lead')
           @endif
         </div>
-        <div class="col-xl-2">
-          @if(is_singular())
+        @if(is_singular())
+          <div class="col-xl-2">
             @include('partials.author')
-          @endif
-        </div>
+          </div>
+        @endif
       </div>
     </div>
   </header>
