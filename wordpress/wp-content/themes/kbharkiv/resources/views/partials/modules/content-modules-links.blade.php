@@ -1,4 +1,4 @@
-<section class="module module-links {{ get_sub_field('modules_sdkkildeviser_spacing') ? '' : 'my-0' }}">
+<section class="module module-links {{ get_sub_field('modules_sdkkildeviser_spacing') ? '' : 'small-margin' }}">
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-8 col-xl-6 offset-lg-1 offset-xl-3">

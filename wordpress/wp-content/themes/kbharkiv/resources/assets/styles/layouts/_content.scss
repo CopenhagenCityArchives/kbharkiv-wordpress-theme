@@ -27,4 +27,12 @@ a article.content-search {
   ul + h3 {
     margin-top: 2.5rem;
   }
+
+  *:first-child {
+    margin-top: 0;
+  }
+
+  *:last-child {
+    margin-bottom: 0;
+  }
 }

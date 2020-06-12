@@ -10,8 +10,9 @@
   @endphp
 
   @if(!empty($child_pages))
-    <section class="child-pages">
+    <section class="module module-child-pages">
       <div class="container-fluid">
+        <span class="sr-only">Undersider</span>
         <div class="row">
           {{ wp_list_pages($args) }}
         </div>

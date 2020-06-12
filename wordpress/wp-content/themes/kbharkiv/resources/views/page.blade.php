@@ -12,7 +12,7 @@
 
     @include('partials.modules')
 
-    @include('partials.tags')
+    @include('partials.tags', ['container' => true])
 
     @include('partials.child-pages')
 
