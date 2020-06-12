@@ -2,7 +2,7 @@
   $field = get_sub_field('search_archive_group');
 @endphp
 
-<li>
+<li role="search">
   <form id="searchform_catalog" action="http://www.kbharkiv.dk/kbharkiv/php/starbas_search.php" method="get">
     <div class="search-form form-group">
       @if ($field['search_archive_group_headline'])
