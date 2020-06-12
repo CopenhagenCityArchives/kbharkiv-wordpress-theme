@@ -5,8 +5,8 @@
 @extends('layouts.app')
 
 @section('content')
-  <script src="https://kildetaster.kbharkiv.dk/resources/css/sdk.css" type="text/javascript"></script>
-  <link rel='stylesheet' src="https://kildetaster.kbharkiv.dk/sdk.js" type='text/css' media='all'></link>
+  <script src="https://kildetaster.kbharkiv.dk/sdk.js" type="text/javascript"></script>
+  <link rel='stylesheet' src="https://kildetaster.kbharkiv.dk/resources/css/sdk.css" type='text/css' media='all'></link>
 
   <!-- SDK START -->
   <div id="search-app-simple-search-text" ng-cloak>
