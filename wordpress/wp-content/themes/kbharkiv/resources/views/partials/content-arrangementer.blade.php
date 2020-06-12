@@ -25,7 +25,10 @@
       </a>
     </div>
     <div class="col-lg-5">
-      <h6>{!! get_the_term_list( get_the_ID(), 'event_category', '', ', ', '' ) !!}</h6>
+      @php $category = get_the_term_list( get_the_ID(), 'event_category', '', ', ', '' ) @endphp
+      @if ($category)
+        <h6>{!! $category !!}</h6>
+      @endif
       <a href="{{ get_permalink() }}">
         <header>
           <h2 class="entry-title">{{ the_title() }}</h2>
