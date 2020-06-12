@@ -4,11 +4,10 @@
 
 @extends('layouts.app')
 
-
+@section('content')
   <script src="https://www.kbhkilder.dk/software/kildetaster-new-site/resources/css/sdk.css" type="text/javascript"></script>
   <link rel='stylesheet' src="https://www.kbhkilder.dk/software/kildetaster-new-site/resources/js/sdk.js" type='text/css' media='all'></link>
 
-@section('content')
   <!-- SDK START -->
   <div id="search-app-simple-search-text" ng-cloak>
     @if (get_field('sdksearch_simple-search-text'))
