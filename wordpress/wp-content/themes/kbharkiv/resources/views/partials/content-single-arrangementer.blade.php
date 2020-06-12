@@ -6,7 +6,12 @@
     <div class="col-lg-7">
 
       @if (has_post_thumbnail())
-        @php the_post_thumbnail(); @endphp
+        <figure>
+          @php the_post_thumbnail( 'herox2' ); @endphp
+          <figcaption class="figure-caption">
+            {{get_post(get_post_thumbnail_id())->post_excerpt}}
+          </figcaption>
+        </figure>
       @endif
 
       <p class="lead">{{ get_the_lead() }}<p>
