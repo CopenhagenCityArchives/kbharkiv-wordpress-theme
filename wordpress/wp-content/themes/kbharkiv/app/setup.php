@@ -15,8 +15,8 @@ add_action('wp_enqueue_scripts', function () {
     wp_enqueue_script('sage/main.js', asset_path('scripts/main.js'), ['jquery'], null, true);
 
     // SDK kbharkiv
-    wp_enqueue_style('sdk.css', 'https://www.kbhkilder.dk/software/kildetaster-new-site/resources/css/sdk.css');
-    wp_enqueue_script('sdk.js', 'https://www.kbhkilder.dk/software/kildetaster-new-site/resources/js/sdk.js', [], null);
+    //wp_enqueue_style('sdk.css', 'https://www.kbhkilder.dk/software/kildetaster-new-site/resources/css/sdk.css');
+    //wp_enqueue_script('sdk.js', 'https://www.kbhkilder.dk/software/kildetaster-new-site/resources/js/sdk.js', [], null);
 
     // Starbas
     // Added to common.js
