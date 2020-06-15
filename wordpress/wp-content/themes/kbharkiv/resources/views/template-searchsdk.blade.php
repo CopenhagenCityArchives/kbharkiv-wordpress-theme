@@ -6,7 +6,7 @@
 
 @section('content')
   <script src="https://kildetaster.kbharkiv.dk/sdk.js" type="text/javascript"></script>
-  <link rel='stylesheet' src="https://kildetaster.kbharkiv.dk/resources/css/sdk.css" type='text/css' media='all'></link>
+  <link rel='stylesheet' src="https://kildetaster.kbharkiv.dk/sdk.css" type='text/css' media='all'></link>
 
   <!-- SDK START -->
   <div id="search-app-simple-search-text" ng-cloak>
