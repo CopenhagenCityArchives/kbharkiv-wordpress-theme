@@ -4,10 +4,12 @@
 
 @extends('layouts.app')
 
-@section('content')
-  <script src="https://kildetaster.kbharkiv.dk/sdk.js" type="text/javascript"></script>
-  <link rel='stylesheet' src="https://kildetaster.kbharkiv.dk/sdk.css" type='text/css' media='all'></link>
+@php
+  wp_enqueue_style('sdk.css', 'https://kildetaster.kbharkiv.dk/sdk.css');
+  wp_enqueue_script('sdk.js', 'https://kildetaster.kbharkiv.dk/sdk.js', [], null);
+@endphp
 
+@section('content')
   <!-- SDK START -->
   <div id="search-app-simple-search-text" ng-cloak>
     @if (get_field('sdksearch_simple-search-text'))
