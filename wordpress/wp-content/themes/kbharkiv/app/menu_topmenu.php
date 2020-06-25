@@ -29,11 +29,16 @@ class Kbharkiv_Walker_Nav_Menu extends Walker_Nav_Menu {
 		// Cleaner class array to replace default
 		$new_classes = array();
 		$level = '';
+		$icon_mobile = '';
+		$icon_desktop = '';
 		$color = '';
+		$tabindex = $item->menu_item_parent ? ' tabindex="-1"' : '';
 
 		if ( in_array( 'menu-item-has-children', $classes ) ) {
 			$new_classes[] = 'parent';
 			$level = ' data-level="' . ($depth + 1) . '"';
+			$icon_mobile = '<a class="sub-menu-btn d-lg-none" href="#" role="button" aria-haspopup="true" aria-expanded="false" ' . $tabindex . '><span class="sr-only">Se undersider</span><svg class="icon arrow"><use xlink:href="' . App\asset_path('images/feather-sprite.svg') . '#chevron-right"/></svg></a>';
+			$icon_desktop = $depth == 0 ? '<svg class="icon arrow d-none d-lg-inline-block"><use xlink:href="' . App\asset_path('images/feather-sprite.svg') . '#chevron-right"/></svg>' : '';
 
 			$post_id = get_post_meta( $item->ID, '_menu_item_object_id', true );
 
@@ -72,6 +77,7 @@ class Kbharkiv_Walker_Nav_Menu extends Walker_Nav_Menu {
 		$atts['target'] = ! empty( $item->target )     ? $item->target     : '';
 		$atts['rel']    = ! empty( $item->xfn )        ? $item->xfn        : '';
 		$atts['href']   = ! empty( $item->url )        ? $item->url        : '';
+		$atts['class']  = 'direct-btn';
 
 		/**
 		 * Filter the HTML attributes applied to a menu item's anchor element.
@@ -100,14 +106,15 @@ class Kbharkiv_Walker_Nav_Menu extends Walker_Nav_Menu {
 			}
 		}
 
-		$attributes .= $item->menu_item_parent ? ' tabindex="-1"' : '';
-		$attributes .= in_array( 'menu-item-has-children', $classes ) ? ' aria-haspopup="true" aria-expanded="false"' : '';
+		$attributes .= $tabindex;
 
 		$item_output = $args->before;
 		$item_output .= '<a'. $attributes . '>';
 		/** This filter is documented in wp-includes/post-template.php */
 		$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
+		$item_output .= $icon_desktop;
 		$item_output .= '</a>';
+		$item_output .= $icon_mobile;
 		$item_output .= $args->after;
 
 		/**
@@ -164,7 +171,7 @@ class Kbharkiv_Walker_Nav_Menu extends Walker_Nav_Menu {
 	        $t = "\t";
 	        $n = "\n";
 	    }
-			$close_menu = $depth == 0 ? '<button class="nav-toggle desktop-menu-toggle top-menu-focusable"><span class="sr-only">Luk menu</span><div class="hamburger"></div></button>' : '';
+			$close_menu = $depth == 0 ? '<button class="nav-toggle desktop-menu-toggle"><span class="sr-only">Luk menu</span><div class="hamburger"></div></button>' : '';
 			$indent  = str_repeat( $t, $depth );
 	    $output .= "$indent $close_menu</ul>{$n}";
 	}
@@ -187,11 +194,11 @@ add_filter('wp_nav_menu_items', function( $items, $args ) {
 
 		$right_menu = $profile .
 									'<li class="search parent" data-level="1" data-color="' . color(get_field('color_theme', 'option'), 0) . '">' .
-										'<a class="d-flex align-items-center" href="#">Søg<svg class="icon ml-2"><use xlink:href="' . App\asset_path('images/feather-sprite.svg') . '#search"/></svg></a>' .
+										'<a class="d-flex align-items-center sub-menu-btn" href="#">Søg<svg class="icon ml-auto ml-lg-2"><use xlink:href="' . App\asset_path('images/feather-sprite.svg') . '#search"/></svg></a>' .
 										'<ul class="sub-menu" data-level="1">' .
 											'<li class="nav-back d-lg-none"><a tabindex="0" href="#">Tilbage</a></li>' .
 											$search .
-											'<button class="nav-toggle desktop-menu-toggle top-menu-focusable"><span class="sr-only">Luk menu</span><div class="hamburger"></div></button>' .
+											'<button class="nav-toggle desktop-menu-toggle"><span class="sr-only">Luk menu</span><div class="hamburger"></div></button>' .
 										'</ul>' .
 									'</li>';
 		$items = $items . $right_menu;

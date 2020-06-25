@@ -18,6 +18,7 @@ export function topMenu() {
       $firstTabbable.off('keydown');
     }
   }
+
   function setTabbable() {
     // Unbind tab events
     removeTabbable();
@@ -28,7 +29,7 @@ export function topMenu() {
     } else if (mobileMenu) {
       $tabbable = $('.top-menu-focusable, .top-menu ul.menu .active[data-level="' + currentSubMenuLevel + '"] > .sub-menu > li > a, .top-menu ul.menu .active[data-level="' + currentSubMenuLevel + '"] .search-focusable');
     } else {
-      $tabbable = $('.top-menu-focusable, .top-menu ul.menu > li > a, .top-menu ul.menu .active a, .top-menu ul.menu .active .search-focusable');
+      $tabbable = $('.top-menu-focusable, .top-menu ul.menu > li > a, .top-menu ul.menu .active a, .top-menu ul.menu .active .search-focusable, .top-menu ul.menu .active .desktop-menu-toggle');
     }
 
     $firstTabbable = $tabbable.first();
@@ -60,13 +61,13 @@ export function topMenu() {
     $menuItem.find('> a').attr( 'aria-expanded', true );
 
     if(mobileMenu) {
-      $('.top-menu ul.menu a').attr( 'tabindex', '-1' );
-      $menuItem.find('> .sub-menu > li > a, .search-focusable').attr( 'tabindex', '0' );
+      $('.top-menu ul.menu a').attr( 'tabindex', '-1' ); // deactive all
+      $menuItem.find('> .sub-menu > li > a, .search-focusable').attr( 'tabindex', '' );
     } else {
       $('body').addClass('modal-open');
       $('.top-menu').addClass('active');
       $('.top-menu ul.menu .sub-menu a').attr( 'tabindex', '-1' );
-      $menuItem.find('> .sub-menu a, .search-focusable').attr( 'tabindex', '0' );
+      $menuItem.find('> .sub-menu a, .search-focusable').attr( 'tabindex', '' );
     }
 
     updateSubMenu();
@@ -87,7 +88,8 @@ export function topMenu() {
     let $menuItem = $('.parent.active[data-level="' + currentSubMenuLevel + '"');
 
     $menuItem.removeClass('active')
-    $menuItem.find('> a').attr( 'aria-expanded', false )
+      .find('> a').attr( 'aria-expanded', false )
+      .focus();
 
     // Disable tabbing on closed submenu
     mobileMenu ? $menuItem.find('> .sub-menu > li > a, .search-focusable').attr( 'tabindex', '-1' ) : $menuItem.find('> .sub-menu a, .search-focusable').attr( 'tabindex', '-1' );
@@ -98,19 +100,19 @@ export function topMenu() {
 
     if (currentSubMenuLevel > 0) {
       // Enable tabbing on parent menu (only mobile)
-      $('.parent.active[data-level="' + currentSubMenuLevel + '"] > .sub-menu > li > a').attr( 'tabindex', '0' );
+      $('.parent.active[data-level="' + currentSubMenuLevel + '"] > .sub-menu > li > a').attr( 'tabindex', '' );
       setTabbable();
     } else if (mobileMenu) {
       // Mobile
       // Enable tabbing on top level menu
-      $('.top-menu-focusable, .top-menu ul.menu > li > a').attr( 'tabindex', '0' );
+      $('.top-menu-focusable, .top-menu ul.menu > li > a').attr( 'tabindex', '' );
       setTabbable();
       currentSubMenuColor = $('.top-menu').data('color');
       $('.top-menu').css('background-color', currentSubMenuColor);
     } else {
       // Desktop
       // Enable tabbing on top level menu
-      $('.top-menu-focusable, .top-menu ul.menu > li > a').attr( 'tabindex', '0' );
+      $('.top-menu-focusable, .top-menu ul.menu > li > a').attr( 'tabindex', '' );
       $('body').removeClass('modal-open');
       $('.top-menu').removeClass('active');
       removeTabbable();
@@ -122,7 +124,7 @@ export function topMenu() {
   function openMobileMenu() {
     mobileMenuOpen = true;
     $('.mobile-menu-toggle').attr( 'aria-expanded', 'true').find('.sr-only').text('Luk menu')
-    $('body').addClass('modal-open');
+    $('body').addClass('modal-open'); // adds overflow hidden on body
     $('.top-menu').addClass('active');
     setTabbable();
   }
@@ -149,41 +151,23 @@ export function topMenu() {
 
     let $menuItem = $(this).parent()
 
-    // Prevent default click if mobile menu or top level of desktop
-    if(mobileMenu || $menuItem.attr('data-level') == '1' ) {
+    // Open submenu if click on arrow on mobile or top level link on desktop
+    if((mobileMenu && $(this).hasClass('sub-menu-btn')) || (!mobileMenu && $menuItem.attr('data-level') == '1')) {
       e.preventDefault ? e.preventDefault() : (e.returnValue = false);
-    }
 
-    if($menuItem.hasClass('active')) {
-      // If menu item is already open. Close it.
-      closeSubMenuLevel();
-    } else if(!mobileMenu && $('.top-menu ul.menu > li.active').length) {
-      // If another menu item is already open. Close it before opening a new one
-      closeSubMenuLevel();
-      openSubMenu($menuItem);
-    } else {
-      // Else just open
-      openSubMenu($menuItem);
+      if($menuItem.hasClass('active')) {
+        // If menu item is already open. Close it.
+        closeSubMenuLevel();
+      } else if(!mobileMenu && $('.top-menu ul.menu > li.active').length) {
+        // If another menu item is already open. Close it before opening a new one
+        closeSubMenuLevel();
+        openSubMenu($menuItem);
+      } else {
+        // Else just open
+        openSubMenu($menuItem);
+      }
     }
-    //}
   });
-
-  // Add mouseenter-event to menu-items with sub-menu
-  // $('.top-menu nav .parent > a').mouseenter(function() {
-  //   var $this = $(this);
-  //   if (!mobileMenu) {
-  //     setTimeout(function () {
-  //       if ($this.parent().find($this.selector + ':hover').length > 0) {
-  //         openSubMenu($this.parent());
-  //       }
-  //     }, 400);
-  //
-  //     // $('.top-menu nav .parent > a').mouseenter(function() {
-  //     //
-  //     // })
-  //
-  //   }
-  // })
 
   $('.top-menu nav .nav-back').click(function(e) {
     e.preventDefault ? e.preventDefault() : (e.returnValue = false);
