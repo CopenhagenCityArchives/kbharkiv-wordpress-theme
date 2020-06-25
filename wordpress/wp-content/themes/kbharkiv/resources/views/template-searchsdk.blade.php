@@ -4,9 +4,10 @@
 
 @extends('layouts.app')
 
-
-  <script src="https://www.kbhkilder.dk/software/kildetaster-new-site/resources/css/sdk.css" type="text/javascript"></script>
-  <link rel='stylesheet' src="https://www.kbhkilder.dk/software/kildetaster-new-site/resources/js/sdk.js" type='text/css' media='all'></link>
+@php
+  wp_enqueue_style('sdk.css', 'https://kildetaster.kbharkiv.dk/sdk.css');
+  wp_enqueue_script('sdk.js', 'https://kildetaster.kbharkiv.dk/sdk.js', [], null);
+@endphp
 
 @section('content')
   <!-- SDK START -->
