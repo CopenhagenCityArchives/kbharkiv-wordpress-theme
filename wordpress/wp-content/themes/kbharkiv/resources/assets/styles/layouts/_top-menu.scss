@@ -131,14 +131,13 @@ header.top-menu {
         svg.arrow {
           height: 24px;
           width: 24px;
-          float: right;
           transition: transform 400ms ease;
+          margin: 0.375rem 0.75rem;
 
           @include media-breakpoint-up(lg) {
             height: 20px;
             width: 20px;
-            float: none;
-            margin-left: 0.25rem;
+            margin: 0 0 0 0.25rem;
             transform: rotate(90deg);
           }
         }
@@ -233,6 +232,20 @@ header.top-menu {
             }
           }
         }
+
+        li:not(.profile):not(.search) .sub-menu-btn {
+          display: inline-block;
+          float: right;
+        }
+
+        li.profile svg,
+        li.search svg {
+          margin: 0.625rem 0.875rem 0.625rem auto;
+
+          @include media-breakpoint-up(lg) {
+            margin: 0 0 0 0.5rem;
+          }
+        }
       }
     }
 
@@ -256,6 +269,33 @@ header.top-menu {
         }
       }
     }
+
+    .kk-logo {
+      width: 6rem;
+      margin-top: 1.5rem;
+      margin-left: 1.5rem;
+      opacity: 0;
+      transition: opacity 400ms ease 300ms;
+
+      @include media-breakpoint-up(lg) {
+        position: fixed;
+        right: 4rem;
+        bottom: 8rem;
+      }
+
+      @include media-breakpoint-up(xl) {
+        right: 6rem;
+        transform: translateX(50%);
+      }
+
+      @include media-breakpoint-up(xxl) {
+        right: calc(50% - 840px);
+      }
+
+      #kk-logo-shape {
+        transition: fill 400ms ease;
+      }
+    }
   }
 
   &.active {
@@ -263,9 +303,27 @@ header.top-menu {
     overflow-y: auto;
     overflow-x: hidden;
 
-    .parent.active .desktop-menu-toggle {
-      @include media-breakpoint-up(lg) {
-        display: block;
+    .parent.active {
+      > .sub-menu {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .sub-menu {
+        @include media-breakpoint-up(lg) {
+          opacity: 1;
+          pointer-events: auto;
+        }
+      }
+
+      .desktop-menu-toggle {
+        @include media-breakpoint-up(lg) {
+          display: block;
+          opacity: 1;
+        }
+      }
+
+      .kk-logo {
         opacity: 1;
       }
     }
@@ -284,18 +342,6 @@ header.top-menu {
 
     nav {
       display: block;
-    }
-
-    .parent.active > .sub-menu {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .parent.active .sub-menu {
-      @include media-breakpoint-up(lg) {
-        opacity: 1;
-        pointer-events: auto;
-      }
     }
   }
 }

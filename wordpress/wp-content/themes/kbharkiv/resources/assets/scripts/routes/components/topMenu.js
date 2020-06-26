@@ -1,5 +1,6 @@
 export function topMenu() {
   let currentSubMenuColor;
+  let currentLogoColor;
   let viewportWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
   let mobileMenu = viewportWidth < 922;
   let mobileMenuOpen;
@@ -52,10 +53,15 @@ export function topMenu() {
     });
   }
 
-  function openSubMenu($menuItem) {
-    currentSubMenuColor = $menuItem.data('color');
+  function updateColor($el) {
+    currentSubMenuColor = $el.data('color');
+    currentLogoColor = $el.data('logo-color');
     $('.top-menu').css('background-color', currentSubMenuColor);
+    $('.top-menu #kk-logo-shape').css('fill', currentLogoColor);
+  }
 
+  function openSubMenu($menuItem) {
+    updateColor($menuItem);
     currentSubMenuLevel = $menuItem.data('level');
     $menuItem.addClass('active');
     $menuItem.find('> a').attr( 'aria-expanded', true );
@@ -82,6 +88,7 @@ export function topMenu() {
 
     updateSubMenu();
     removeTabbable();
+    updateColor($('.top-menu'));
   }
 
   function closeSubMenuLevel() {
@@ -107,8 +114,7 @@ export function topMenu() {
       // Enable tabbing on top level menu
       $('.top-menu-focusable, .top-menu ul.menu > li > a').attr( 'tabindex', '' );
       setTabbable();
-      currentSubMenuColor = $('.top-menu').data('color');
-      $('.top-menu').css('background-color', currentSubMenuColor);
+      updateColor($('.top-menu'));
     } else {
       // Desktop
       // Enable tabbing on top level menu
@@ -116,8 +122,7 @@ export function topMenu() {
       $('body').removeClass('modal-open');
       $('.top-menu').removeClass('active');
       removeTabbable();
-      currentSubMenuColor = $('.top-menu').data('color');
-      $('.top-menu').css('background-color', currentSubMenuColor);
+      updateColor($('.top-menu'));
     }
   }
 
