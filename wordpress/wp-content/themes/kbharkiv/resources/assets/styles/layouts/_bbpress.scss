@@ -1,0 +1,17 @@
+.bbpress {
+  .bbp-template-notice {
+    @extend .alert;
+    @extend .alert-warning;
+
+    ul,
+    ol {
+      padding: 0;
+      margin-bottom: 0;
+      list-style: none;
+    }
+
+    &.info {
+      @extend .alert-info;
+    }
+  }
+}
