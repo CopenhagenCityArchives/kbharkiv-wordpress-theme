@@ -234,7 +234,7 @@ function acfe_recaptcha(){
                 
             }
             
-        }
+        },
         
     });
 
@@ -246,6 +246,20 @@ function acfe_recaptcha(){
     acf.registerConditionForFieldType('contains',       'acfe_code_editor');
     acf.registerConditionForFieldType('hasValue',       'acfe_code_editor');
 	acf.registerConditionForFieldType('hasNoValue',     'acfe_code_editor');
+
+    /**
+     * Field Group Admin: Code Editor
+     * Fix duplicate action
+     */
+    acf.addAction('append_field_object', function(field){
+
+        if(field.get('type') !== 'acfe_code_editor')
+            return;
+
+        field.$setting('default_value').find('> .acf-input > .acf-input-wrap > .CodeMirror:last').remove();
+        field.$setting('placeholder').find('> .acf-input > .acf-input-wrap > .CodeMirror:last').remove();
+
+    });
     
     /*
     var preCodeMirror = new acf.Model({

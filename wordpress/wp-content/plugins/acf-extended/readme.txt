@@ -5,7 +5,7 @@ Tags: acf, custom fields, meta, admin, fields, form, repeater, content
 Requires at least: 4.9
 Tested up to: 5.4
 Requires PHP: 5.6
-Stable tag: 0.8.5.5
+Stable tag: 0.8.6.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,7 +20,7 @@ All-in-one enhancement suite that improves WordPress & Advanced Custom Fields.
 * New Field Groups Locations
 * 14+ New ACF Fields
 * 10+ ACF Fields Enhanced
-* Bidirectional Fields
+* Self/Multi/Bidirectional Fields
 * Advanced Fields Validation
 * Flexible Content as Page Builder
 * Compress ACF values into a single metadata
@@ -60,7 +60,7 @@ All-in-one enhancement suite that improves WordPress & Advanced Custom Fields.
 
 **This plugin requires at least ACF Pro 5.7.10**
 
-If you don't already own [ACF Pro](https://www.advancedcustomfields.com/pro/), you should consider it. It's one of the most powerful WordPress plugin, with a life-time licence for unlimited websites.
+If you don't already own [ACF Pro](https://www.advancedcustomfields.com/pro/), you should consider it. It's one of the most powerful WordPress plugin available.
 
 == 🏷️ Features ==
 
@@ -151,6 +151,8 @@ Sync local field groups back to the database and edit their fields just like any
 * **Bidirectional fields**
 An advanced bidirectional setting (also called post-to-post) is available for the following fields: Relationship, Post object, User & Taxonomy terms.
 Fields will work bidirectionally and automatically update each others. Works in groups & clones (prefixed field names must be turned off).
+
+It is possible to link a field on itself, allowing self-bidirectional save.
 [Usage example is available in the FAQ](#faq)
 
 * **Advanced settings**
@@ -277,9 +279,9 @@ Create and manage taxonomies from your WordPress administration (Tools > Taxonom
 
 The native WP Author Metabox has been replaced with a dynamic version allowing to manage thousands of users without slowing down the post administration.
 
-= WordPress: Taxonomy List & Edit =
+= WordPress: Enhanced UI =
 
-Taxonomies list & edit views have been enhanced for a more consistent administration experience, using CSS/JS only. Views are now similar to post type edition screens.
+Taxonomies list/edit, User edit/add and General Settings views have been enhanced for a more consistent administration experience, using CSS/JS only.
 
 = WordPress: Options =
 
@@ -301,6 +303,7 @@ Display all ACF Extended settings in one page.
 View all custom Posts, Terms, Users & Options meta in a readable format
 
 * Print Arrays & Json values
+* Delete/Bulk delete any meta
 * ACF fields meta are grouped together
 * ACF field groups related to fields are displayed when available
 * Dev mode also enable `SCRIPT_DEBUG`
@@ -375,9 +378,9 @@ Manage ACF Forms from your WordPress administration. All ACF Form settings are a
 
 = ACF: Single Meta Save (Beta) =
 
-Compress all fields values from the current post, term or user into one single meta data. This process lighten the database load as values are saved and read from one single row. Once activated and after saving a post/term/user in the administration, all old meta data will be removed and packed together in a meta called `acf`.
+Compress all fields values from the current post, term, user or options into one single meta data. This process lighten the database load as values are saved and read from one single row. Once activated and after saving a post/term/user in the administration, all old meta data will be removed and packed together in a meta called `acf`.
 
-To monitor the process, it is possible to enable the "ACF Extended: Dev Mode" which will display all WP & ACF meta data on every Posts, Terms & Users.
+To monitor the process, it is possible to enable the "ACF Extended: Dev Mode" which will display all WP & ACF meta data on every Posts, Terms, Users & Options.
 
 This feature also enables a new setting available in every fields: "Save as individual meta". If this setting is turned ON on a specific field, then the value will be saved individually. `WP Queries` and `Meta Queries` can be used just like before.
 
@@ -390,6 +393,45 @@ function my_acfe_modules(){
     // Enable Single Meta Save
     acf_update_setting('acfe/modules/single_meta', true);
     
+}
+
+// Enable Single Meta Save on specific Post Types only (default: all)
+add_filter('acfe/modules/single_meta/post_types', 'my_acfe_single_meta_post_types');
+function my_acfe_single_meta_post_types($post_types){
+
+    $post_types = array('page', 'my-post-type');
+
+    // Disable all post types:
+    // return false;
+
+    return $post_types;
+
+}
+
+// Enable Single Meta Save on specific Taxonomies only (default: all)
+add_filter('acfe/modules/single_meta/taxonomies', 'my_acfe_single_meta_taxonomies');
+function my_acfe_single_meta_taxonomies($taxonomies){
+
+    $taxonomies = array('category', 'my-taxonomy');
+
+    // Disable all taxonomies:
+    // return false;
+
+    return $taxonomies;
+
+}
+
+// Enable Single Meta Save on specific Options ID (default: disabled)
+add_filter('acfe/modules/single_meta/options', 'my_acfe_single_meta_options');
+function my_acfe_single_meta_options($options_ids){
+
+    $options_ids = array('options', 'my-option-id');
+
+    // Disable all options id (default):
+    // return false;
+
+    return $options_ids;
+
 }
 `
 
@@ -639,6 +681,39 @@ function acf_flexible_layout_render_script($script, $field, $layout, $is_preview
 }
 `
 
+= How to change PHP AutoSync Load/Save paths? =
+
+PHP AutoSync settings are very similar to the native ACF Json settings. To alter load/save paths, you can use the following method:
+
+`
+// PHP Autosync: Save path
+add_filter('acf/settings/acfe/php_save', 'my_acfe_php_save_point');
+function my_acfe_php_save_point($path){
+
+    // update path
+    $path = get_stylesheet_directory() . '/my-custom-folder';
+
+    // return
+    return $path;
+
+}
+
+// PHP Autosync: Load paths
+add_filter('acf/settings/acfe/php_load', 'my_acfe_php_load_point');
+function my_acfe_php_load_point($paths){
+
+    // remove original path (optional)
+    unset($paths[0]);
+
+    // append path
+    $paths[] = get_stylesheet_directory() . '/my-custom-folder';
+
+    // return
+    return $paths;
+
+}
+`
+
 = How to disable specific ACF Extended modules? (Dynamic Post Types, Taxonomies, Options Pages etc...) =
 
 You can use the following action:
@@ -668,8 +743,8 @@ function my_acfe_modules(){
     // Disable Settings > Options
     acf_update_setting('acfe/modules/options', false);
     
-    // Disable Taxonomies enhancements
-    acf_update_setting('acfe/modules/taxonomies', false);
+    // Disable Enhanced UI (Taxonomies, Users, Settings)
+    acf_update_setting('acfe/modules/ui', false);
     
 }
 `
@@ -688,6 +763,48 @@ function my_acfe_modules(){
 10. ACF Settings
 
 == Changelog ==
+
+= 0.8.6.3 =
+* Module - Enhanced UI - Added WP User & WP Settings UI enhancements
+* Module - Enhanced UI - Taxonomies UI enhancements were moved in the to general Enhancement module. The setting `acf_update_setting('acfe/modules/taxonomies')` has been replaced by `acf_update_setting('acfe/modules/ui')`
+* Module: Dev Mode - Added "Field Type" column on ACF meta overview
+* Module: Dev Mode - Added "Autoload" column on Options meta overview
+* Module: Dev Mode - Added "Delete" action for each meta & options fields
+* Module: Dev Mode - Added "Bulk Delete" action
+* Module: Single Meta Save - Reworked codebase
+* Module: Single Meta Save - Added Options pages compatibility (disabled by default. See `filter('acfe/modules/single_meta/options')` usage in the readme to enable specific Options ID)
+* Module: Single Meta Save - Added `filter('acfe/modules/single_meta/post_types')` to allow specific post types only (default to: all)
+* Module: Single Meta Save - Added `filter('acfe/modules/single_meta/taxonomies')` to allow specific taxonomies only (default to: all)
+* Module: Single Meta Save - Fixed bidirectional setting which wasn't working when Single Meta Save was enabled
+* Fields settings: Bidirectional - Added Self-bidirectional setting, allowing to link a field on itself
+* Fields settings: Bidirectional - Added Multi-bidirectional setting, allowing to link multiple fields
+* Field: Taxonomy Terms - Fixed a bug with last childs choices not being correctly rendered
+* Field: Code Editor - Fixed duplicated field from the Field Group UI when user cloned the field
+
+= 0.8.6.1 =
+* Module: Dynamic Post Types/Taxonomies/Block Types/Options Pages - Slugs can now to edited & updated from the UI
+* Module: Dynamic Options Pages - Added a configuration icon on top of options page to easily switch to options page settings
+* Module: Dynamic Forms - User Action query var now returns the password if it has been created/generated during the action. This will allow developers to send the password confirmation via an e-mail action using query vars
+* Module: Dynamic Forms - Added `{request:name}` & `{request:name:key}` template tags to retrieve `$_REQUEST` `$_GET` & `$_POST` data
+* Module: Dynamic Forms - Added `{get_option:name}` & `{get_option:name:key}` template tags to retrieve an option from database
+* Module: Dynamic Forms - Enhanced "Post Action" query var which now returns post author data in the `{query_var:my-action:post_author_data:field}` template tag
+* Module: Dynamic Forms - Enhanced JS detection of the `acf` object to avoid potential errors when using aggressive minification
+* Module: Dynamic Forms - Fixed `{current:user:show_welcome_panel}` which was printed twice in the "Cheatsheet" tab
+* Module: Dynamic Forms - Fixed `wp_unslash()` on the success message
+* Module: Dynamic Forms - Fixed undefined `post` key notice which could occurs in some cases
+* Module: Dynamic Forms - Fixed template tags which were using `id` instead of `ID`
+* Module: Dynamic Forms - Fixed the conditional logic on custom form render when using complex fields like repeaters or flexible content
+* Module: Single Meta Save - `acf` meta is now updated on submission instead of being reset each time it is saved. This fix a potential problem when fields wouldn't be displayed to specific user roles
+* Module: PHP AutoSync - PHP files are now included only if the filename starts with `group_*.php`
+* Field: Columns - Added responsive breakpoints
+* Field: Button - Added Advanced Settings compatibility
+* Field: Advanced Link - Fixed a bug which could render an empty "Archive" default value artifact in post objects fields
+* Field: Advanced Link - Fixed required field validation
+* Field: Code Editor - Fixed line wrap in terms views
+* Field: WYSIWYG - Fixed the automatic smart delayed initialization in flexible content layouts
+* Field: WYSIWYG - Fixed init in Flexible Content layouts which could break when trying to open a layout before the complete page load
+* General: Settings API - Enhanced upgrade process
+* General: Settings API - `acfe` option now regenerate Post Types/Taxonomies/Block Types/Options Pages on reset
 
 = 0.8.5.5 =
 * Field: Button - Added nominative JS hooks `action('acfe/fields/button/before/name=my_field', response, $el, data);`
