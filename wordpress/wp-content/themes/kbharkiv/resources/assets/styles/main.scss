@@ -11,6 +11,8 @@
  * @see https://github.com/webpack-contrib/sass-loader#imports
  */
 
+@import "~beerslider/dist/BeerSlider";
+
 /** Import theme styles */
 @import "common/global";
 @import "common/typography";
@@ -27,6 +29,7 @@
 @import "components/pagination";
 @import "components/tables";
 @import "components/wp-classes";
+@import "modules/module-before-and-after";
 @import "modules/module-gallery";
 @import "modules/module-kildetaster";
 @import "modules/module-links";

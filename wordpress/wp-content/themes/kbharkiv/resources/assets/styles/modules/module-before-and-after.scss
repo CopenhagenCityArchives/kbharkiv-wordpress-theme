@@ -1,0 +1,13 @@
+.module-before-and-after {
+  .beer-handle {
+    background: $blue;
+    color: $white;
+  }
+
+  .beer-range:focus ~ .beer-handle {
+    background: $blue;
+    color: $white;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba($blue, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba($blue, 0.5);
+  }
+}

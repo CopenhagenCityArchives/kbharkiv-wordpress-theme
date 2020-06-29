@@ -1,6 +1,7 @@
 import { chat } from './components/chat.js';
 import { checkChatScroll } from './components/chat.js';
 import { changeBackground } from './components/changeBackground.js';
+import { moduleBeforeAndAfter } from './components/moduleBeforeAndAfter.js';
 import { moduleGallery } from './components/moduleGallery.js';
 import { moduleShortcuts } from './components/moduleShortcuts.js';
 import { topMenu } from './components/topMenu.js';
@@ -29,10 +30,11 @@ export default {
   },
   finalize() {
     chat();
+    moduleBeforeAndAfter();
     moduleGallery();
+    moduleShortcuts();
     topMenu();
     searchArchive();
     searchPerson();
-    moduleShortcuts();
   },
 };
