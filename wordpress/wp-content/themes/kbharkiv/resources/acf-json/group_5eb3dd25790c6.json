@@ -121,6 +121,26 @@
             "toolbar": "full",
             "media_upload": 1,
             "delay": 0
+        },
+        {
+            "key": "field_5eb3de448d49a",
+            "label": "Help text",
+            "name": "sdksearch_help-text",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "acfe_permissions": "",
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
         }
     ],
     "location": [

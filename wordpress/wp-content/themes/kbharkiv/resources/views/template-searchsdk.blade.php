@@ -62,6 +62,11 @@
     <p>Din søgning gav desværre ikke nogen resultater</p>
     <p><a href="index.php?option=com_content&amp;view=article&amp;id=632:vejledning-sogning-i-indtastede-kilder&amp;catid=97">Få tips til din søgning i denne vejledning</a></p> --}}
   </div>
+  <div id="search-app-help-text" ng-cloak>
+    @if (get_field('sdksearch_help-text'))
+      @php echo get_field('sdksearch_help-text') @endphp
+    @endif
+  </div>
 
   <div class="sdk-search" data-sdk-app>
     <div ui-view="">&nbsp;</div>
