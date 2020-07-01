@@ -3,6 +3,26 @@
     "title": "Søg person",
     "fields": [
         {
+            "key": "field_5efc856f091c5",
+            "label": "Help text",
+            "name": "sdksearch_help-text",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "acfe_permissions": "",
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
             "key": "field_5eb3dd7c8d494",
             "label": "Simple search text",
             "name": "sdksearch_simple-search-text",
@@ -148,5 +168,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1588849502
+    "modified": 1593607593
 }

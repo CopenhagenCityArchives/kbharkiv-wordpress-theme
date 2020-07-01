@@ -13,19 +13,19 @@
   <!-- SDK START -->
   <div id="search-app-simple-search-text" ng-cloak>
     @if (get_field('sdksearch_simple-search-text'))
-      @php echo get_field('sdksearch_simple-search-text') @endphp
+      {!! get_field('sdksearch_simple-search-text') !!}
     @endif
     {{-- Søg på tværs af flere kilder fx begravelser, politiets registerblade og politiets efterretninger. --}}
   </div>
   <div id="search-app-upper-text" ng-cloak>
     @if (get_field('sdksearch_upper-text'))
-      @php echo get_field('sdksearch_upper-text') @endphp
+      {!! get_field('sdksearch_upper-text') !!}
     @endif
     {{-- <p><strong>1) Vælg først den eller de kilder du vil søge i:</strong></p> --}}
   </div>
   <div id="search-app-lower-text" ng-cloak>
     @if (get_field('sdksearch_lower-text'))
-      @php echo get_field('sdksearch_lower-text') @endphp
+      {!! get_field('sdksearch_lower-text') !!}
     @endif
     {{-- <p><span style="color: #808080;">Tip: Vælger du alle kilder kan du kun søge i de felter, der er fælles for alle kilder</span></p>
     <p><span style="color: #808080;">Tip: Vælger du kun 1 kilde kan du søge i alle felter for den pågældende kilde</span></p>
@@ -36,13 +36,13 @@
   </div>
   <div id="search-app-advanced-search-lower" ng-cloak>
     @if (get_field('sdksearch_advanced-search-lower'))
-      @php echo get_field('sdksearch_advanced-search-lower') @endphp
+      {!! get_field('sdksearch_advanced-search-lower') !!}
     @endif
     {{-- <p>Søg specifikt i en enkelt eller flere kilder - på en eller flere definerede søgefelter.</p> --}}
   </div>
   <div id="search-app-error" ng-cloak>
     @if (get_field('sdksearch_error'))
-      @php echo get_field('sdksearch_error') @endphp
+      {!! get_field('sdksearch_error') !!}
     @endif
     {{-- <h2>Der opstod en fejl</h2>
     Vi beklager!
@@ -55,12 +55,18 @@
   </div>
   <div id="search-app-no-results" ng-cloak>
     @if (get_field('sdksearch_no-results'))
-      @php echo get_field('sdksearch_no-results') @endphp
+      {!! get_field('sdksearch_no-results') !!}
     @endif
 
     {{-- <h2>Ingen resultater</h2>
     <p>Din søgning gav desværre ikke nogen resultater</p>
     <p><a href="index.php?option=com_content&amp;view=article&amp;id=632:vejledning-sogning-i-indtastede-kilder&amp;catid=97">Få tips til din søgning i denne vejledning</a></p> --}}
+  </div>
+
+  <div id="search-app-help-text" ng-cloak>
+    @if (get_field('sdksearch_help-text'))
+      {!! get_field('sdksearch_help-text') !!}
+    @endif
   </div>
 
   <div class="sdk-search" data-sdk-app>
