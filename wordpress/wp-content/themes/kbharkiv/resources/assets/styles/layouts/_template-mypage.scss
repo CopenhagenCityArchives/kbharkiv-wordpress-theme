@@ -6,10 +6,6 @@
       column-count: 2;
     }
 
-    @include media-breakpoint-up(xl) {
-      column-count: 3;
-    }
-
     .card {
       @include media-breakpoint-up(lg) {
         margin-bottom: 3rem;

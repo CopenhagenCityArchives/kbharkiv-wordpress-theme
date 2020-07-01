@@ -43,13 +43,9 @@
               <div class="gallery-description" aria-hidden="true">
                 @for($i = 0; $i < sizeof($images); $i++)
                   <div id="gallery-{{get_row_index()}}-image-{{$i}}" class="gallery-description-item{{$i == 0 ? ' active' : ''}}">
-                    @if(!empty($images[$i]['alt']))
+                    @if(!empty($images[$i]['caption']))
                       <h6>Billedetekst</h6>
                       <p class="small">{{ $images[$i]['caption'] }}</p>
-                    @endif
-                    @if(!empty($images[$i]['description']))
-                      <h6>Foto</h6>
-                      <p class="small">{{ $images[$i]['description'] }}</p>
                     @endif
                   </div>
                 @endfor
@@ -99,13 +95,9 @@
               <div class="gallery-description" aria-hidden="true">
                 @for($i = 0; $i < sizeof($images); $i++)
                   <div id="gallery-modal-{{get_row_index()}}-image-{{$i}}" class="gallery-description-item{{$i == 0 ? ' active' : ''}}">
-                    @if(!empty($images[$i]['alt']))
+                    @if(!empty($images[$i]['caption']))
                       <h6>Billedetekst</h6>
-                      <p class="small">{{ $images[$i]['alt'] }}</p>
-                    @endif
-                    @if(!empty($images[$i]['description']))
-                      <h6>Foto</h6>
-                      <p class="small">{{ $images[$i]['description'] }}</p>
+                      <p class="small">{{ $images[$i]['caption'] }}</p>
                     @endif
                   </div>
                 @endfor

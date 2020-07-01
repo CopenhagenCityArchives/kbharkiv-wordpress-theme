@@ -1,4 +1,4 @@
-.bbpress {
+.bbpress-wrapper {
   .bbp-template-notice {
     @extend .alert;
     @extend .alert-warning;
@@ -13,5 +13,16 @@
     &.info {
       @extend .alert-info;
     }
+  }
+
+  button {
+    @extend .btn;
+    @extend .btn-primary;
+  }
+
+  input:not([type="button"]):not([type="checkbox"]):not([type="radio"]),
+  textarea,
+  select {
+    @extend .form-control;
   }
 }

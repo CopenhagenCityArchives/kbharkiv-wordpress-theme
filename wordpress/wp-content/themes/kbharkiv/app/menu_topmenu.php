@@ -21,7 +21,11 @@ class Kbharkiv_Walker_Nav_Menu extends Walker_Nav_Menu {
 	 * @param int    $id     Current item ID.
 	 */
 
+	 private $currentItem;
+
 	 public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+		$this->currentItem = $item;
+
  		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
 
  		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
@@ -32,6 +36,7 @@ class Kbharkiv_Walker_Nav_Menu extends Walker_Nav_Menu {
  		$level = '';
  		$icon_mobile = '';
  		$icon_desktop = '';
+		$icon_desktop_sub = $depth == 1 ? '<svg class="icon d-none d-lg-inline-block"><use xlink:href="' . App\asset_path('images/feather-sprite.svg') . '#arrow-right-circle"/></svg>' : '';
  		$color = '';
  		$color_logo = '';
  		$tabindex = $item->menu_item_parent ? ' tabindex="-1"' : '';
@@ -41,7 +46,6 @@ class Kbharkiv_Walker_Nav_Menu extends Walker_Nav_Menu {
  			$level = ' data-level="' . ($depth + 1) . '"';
  			$icon_mobile = '<a class="sub-menu-btn d-lg-none" href="#" role="button" aria-haspopup="true" aria-expanded="false" ' . $tabindex . '><span class="sr-only">Se undersider</span><svg class="icon arrow"><use xlink:href="' . App\asset_path('images/feather-sprite.svg') . '#chevron-right"/></svg></a>';
  			$icon_desktop = $depth == 0 ? '<svg class="icon arrow d-none d-lg-inline-block"><use xlink:href="' . App\asset_path('images/feather-sprite.svg') . '#chevron-right"/></svg>' : '';
-
  			$post_id = get_post_meta( $item->ID, '_menu_item_object_id', true );
 
  			if ($depth == 0 && get_field('color_theme', $post_id)) {
@@ -117,6 +121,7 @@ class Kbharkiv_Walker_Nav_Menu extends Walker_Nav_Menu {
  		/** This filter is documented in wp-includes/post-template.php */
  		$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
  		$item_output .= $icon_desktop;
+		$item_output .= $icon_desktop_sub;
  		$item_output .= '</a>';
  		$item_output .= $icon_mobile;
  		$item_output .= $args->after;
@@ -146,6 +151,7 @@ class Kbharkiv_Walker_Nav_Menu extends Walker_Nav_Menu {
         $t = "\t";
         $n = "\n";
     }
+
     $indent = str_repeat( $t, $depth );
 
     // Default class.
@@ -163,8 +169,10 @@ class Kbharkiv_Walker_Nav_Menu extends Walker_Nav_Menu {
     $class_names = join( ' ', apply_filters( 'nav_menu_submenu_css_class', $classes, $args, $depth ) );
     $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
 		$level = ' data-level="' . ($depth + 1) . '"';
+		$headline_desktop = $depth == 0 ? '<a class="nav-current d-none d-lg-block" href="' . $this->currentItem->url . '">' . $this->currentItem->title . '</a>' : '';
+		$back_btn_mobile = '<li class="nav-back d-lg-none"><a tabindex="-1" role="button" href="#">Tilbage</a></li>';
 
-    $output .= "{$n}{$indent}<ul$class_names $level><li class='nav-back d-lg-none'><a tabindex='-1' href='#'>Tilbage</a></li>{$n}";
+    $output .= "{$n}{$indent} <ul$class_names $level> $headline_desktop $back_btn_mobile{$n}";
 	}
 
 	public function end_lvl( &$output, $depth = 0, $args = null ) {
@@ -177,6 +185,7 @@ class Kbharkiv_Walker_Nav_Menu extends Walker_Nav_Menu {
 	    }
 			$close_menu_and_kk_logo = $depth == 0 ? '<button class="nav-toggle desktop-menu-toggle"><span class="sr-only">Luk menu</span><div class="hamburger"></div></button>' . file_get_contents(App\asset_path('images/kk-logo.svg')) : '';
 			$indent  = str_repeat( $t, $depth );
+
 	    $output .= "$indent $close_menu_and_kk_logo</ul>{$n}";
 	}
 } // Kbharkiv_Walker_Nav_Menu

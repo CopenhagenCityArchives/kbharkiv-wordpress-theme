@@ -62,7 +62,7 @@ section[class^="module"].small-margin {
   transition: background-color 400ms ease;
 }
 
-:target::before {
+main :target::before {
   content: "";
   display: block;
   height: 7rem;
