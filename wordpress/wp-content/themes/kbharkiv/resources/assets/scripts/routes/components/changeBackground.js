@@ -1,6 +1,7 @@
 import { darkenColor } from './darkenColor.js';
 
 let bgDefault = $('.top-menu').data('color');
+$('.darken-on-scroll').css('background-color', bgDefault);
 let bgScrolled = darkenColor(bgDefault, -0.08);
 
 export function changeBackground(scroll_pos) {

@@ -15,6 +15,28 @@ add_action('acf/init', function() {
 		));
 
 		acf_register_block(array(
+			'name'						=> 'infoimage',
+			'title'						=> 'Info-billede',
+			'description'			=> 'Et billede i højreside af indholdssider.',
+			'render_callback'	=> 'block_infoimage',
+			'category'				=> 'common',
+			'icon'						=> 'info',
+			'mode' 						=> 'edit',
+			'keywords'				=> array( 'infobox', 'info', 'infoboks', 'image' ),
+		));
+
+		acf_register_block(array(
+			'name'						=> 'infoemployee',
+			'title'						=> 'Info-medarbejder',
+			'description'			=> 'En medarbejder i højreside af indholdssider.',
+			'render_callback'	=> 'block_infoemployee',
+			'category'				=> 'common',
+			'icon'						=> 'info',
+			'mode' 						=> 'edit',
+			'keywords'				=> array( 'infobox', 'info', 'infoboks', 'employee' ),
+		));
+
+		acf_register_block(array(
 			'name'						=> 'links',
 			'title'						=> 'Links',
 			'description'			=> 'Et afsnit med et eller flere links',
@@ -24,22 +46,37 @@ add_action('acf/init', function() {
 			'mode' 						=> 'edit',
 			'keywords'				=> array( 'links', 'link', 'linking', 'henvisning', 'fil', 'download' ),
 		));
-
-		// acf_register_block(array(
-		// 	'name'						=> 'image',
-		// 	'title'						=> 'Billede',
-		// 	'render_callback'	=> 'block_image',
-		// 	'category'				=> 'common',
-		// 	'icon'						=> 'format-image',
-		// 	'mode' 						=> 'edit',
-		// 	'keywords'				=> array( 'billede', 'image', 'gallery', 'galleri', 'billeder' ),
-		// ));
 	}
 });
 
 function block_infobox( $block ) {
   if(function_exists('get_field')):
     echo '<aside class="infobox small" style="background-color: ' . theme_color() . '">' . get_field('block_infobox') . '</aside>';
+  endif;
+}
+
+function block_infoimage( $block ) {
+  if(function_exists('get_field')):
+		$img = get_field('block_image');
+		//print_r($img);
+    echo '<aside class="infobox infoimage small"><figure>' . wp_get_attachment_image( $img['ID'], 'full' ) . '<figcaption class="figure-caption">' . $img['caption'] . '</figcaption><figure></aside>';
+  endif;
+}
+
+function block_infoemployee( $block ) {
+  if(function_exists('get_field')):
+		$id = get_field('block_employee')[0]->ID;
+
+    echo '<aside class="infobox infoemployee small" style="background-color: ' . theme_color() . '">' .
+			(has_post_thumbnail($id) ? get_the_post_thumbnail($id, 'profilex2', ['class' => 'profile-image'] ) : '') .
+			(get_field('employee_title', $id) ? '<h6>' . get_field('employee_title', $id) . '</h6>' : '') .
+			'<header><h3 class="entry-title">' . get_the_title($id) . '</h3></header>' .
+			'<div class="entry-summary small">' . get_the_excerpt($id) . '</div>' .
+			'<dl class="row small">' .
+			(get_field('employee_email', $id) ? '<dt class="col-3 col-lg-2">Email</dt><dd class="col-9"><a class="text-break" aria-label="Email ' . get_the_title($id) . '" href="mailto:' . get_field('employee_email', $id) . '" target="_blank">' . get_field('employee_email', $id) . '</a></dd>' : '' ) .
+			(get_field('employee_phone', $id) ? '<dt class="col-3 col-lg-2">Mobil</dt><dd class="col-9"><a class="text-break" aria-label="Ring til' . get_the_title($id) . '" href="tel:' . get_field('employee_phone', $id) . '" target="_blank">' . get_field('employee_phone', $id) . '</a></dd>' : '' ) .
+			'</dl>' .
+		'</aside>';
   endif;
 }
 
@@ -66,21 +103,6 @@ function block_links( $block ) {
   endif;
 }
 
-// function block_image( $block ) {
-//   if(function_exists('get_field')):
-// 		$img = get_field('block_image');
-// 		// echo '<pre>';
-// 		// print_r($img);
-// 		// echo '</pre>';
-// 		echo '<a class="lightbox" href="' . $img['sizes']['medium'] . '" title="' . $img['title'] . '">';
-// 		echo wp_get_attachment_image($img['ID']);
-// 		echo '</a>';
-// 		// <a class="chocolat-image" href="https://images.unsplash.com/photo-1589180883060-7e17fc2efaf6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1372&q=80" title="caption image 3">
-// 		// 		<img width="100" src="https://images.unsplash.com/photo-1589180883060-7e17fc2efaf6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1372&q=80"/>
-// 		// </a>
-//   endif;
-// }
-
 add_filter( 'allowed_block_types', function( $allowed_blocks ) {
 	return array(
 		'core/image',
@@ -92,8 +114,9 @@ add_filter( 'allowed_block_types', function( $allowed_blocks ) {
     'core/table',
     'core/separator',
     'acf/infobox',
+		'acf/infoimage',
+		'acf/infoemployee',
 		'acf/links',
-		'acf/image',
     'core/embed',
     'core-embed/twitter',
     'core-embed/youtube',

@@ -23,11 +23,9 @@ class Kbharkiv_Walker_Nav_Children extends Walker_Page {
     $headline = $depth == 0 ? 'h3' : 'div';
     $icon = $depth == 0 ? '<svg class="icon d-inline-block"><use xlink:href="' . App\asset_path('images/feather-sprite.svg') . '#arrow-right-circle"/></svg>' : '';
 
-    //Modification
     $content = $link_before . $thumbnail . '<' . $headline .' class="mb-2"><span class="mr-2">' . get_the_title($item->ID) . '</span>' . $icon . '</' . $headline .'>' . $link_after;
     $lead = $depth == 0 && null !== get_field('lead', $item->ID) ? '<div>' . get_field('lead', $item->ID) . '</div>' : '';
     $output .= $indent . '<' . $tag . ' class="' . $css_class . '"><a class="' . $article_class . '" href="' . get_permalink($item->ID) . '">' . $content . $lead . '</a>';
-    //End Modification
   }
 
   public function end_el( &$output, $item, $depth = 0, $args = null ) {

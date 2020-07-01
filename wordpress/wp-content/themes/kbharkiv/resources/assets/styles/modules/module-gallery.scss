@@ -8,8 +8,38 @@
     }
   }
 
+  .carousel-indicators li {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 100%;
+    opacity: 1;
+    border: none;
+    margin-right: 0.25rem;
+    margin-left: 0.25rem;
+
+    &.active {
+      background-color: transparent;
+      box-shadow: 0 0 0 2px $white;
+    }
+  }
+
   .carousel-item {
     cursor: zoom-in;
+
+    img {
+      max-height: 45rem;
+      object-fit: contain;
+    }
+
+    &.object-fit {
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center center;
+
+      img {
+        opacity: 0;
+      }
+    }
   }
 
   .gallery-description-col {
