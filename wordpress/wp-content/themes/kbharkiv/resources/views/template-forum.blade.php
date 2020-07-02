@@ -5,10 +5,11 @@
 @extends('layouts.app')
 
 @section('content')
-  @include('partials.page-header')
+  @while(have_posts()) @php the_post() @endphp
+    @include('partials.page-header')
 
-  <div class="container-fluid">
-    {!! do_shortcode("[bbp-forum-index]") !!}
-  </div>
-
+    <div class="container-fluid">
+      {!! do_shortcode("[bbp-forum-index]") !!}
+    </div>
+  @endwhile
 @endsection

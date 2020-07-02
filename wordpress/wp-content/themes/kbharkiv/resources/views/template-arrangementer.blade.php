@@ -19,29 +19,35 @@
       ],
     ],
   ));
+
+  $color = theme_color(1);
+
 @endphp
 
 @extends('layouts.app')
 
 @section('content')
-  @include('partials.page-header')
+  @while(have_posts()) @php the_post() @endphp
 
-  <div class="container-fluid">
-    @if (!$posts)
-      <div class="alert alert-warning">
-        {{ __('Ingen indlæg.', 'kbharkiv') }}
-      </div>
-      {!! get_search_form(false) !!}
-    @else
-      @php $prev_date = null @endphp
-      @foreach ( $posts as $post )
-        @php setup_postdata( $post ) @endphp
-        @include('partials.content-'.get_post_type(), ['prev_date' => $prev_date])
-        @php $prev_date = strtotime(get_field('event_start')) @endphp
-      @endforeach
-      @php wp_reset_postdata() @endphp
-    @endif
-  </div>
+    @include('partials.page-header')
 
-  {!! pagination() !!}
+    <div class="container-fluid">
+      @if (!$posts)
+        <div class="alert alert-warning">
+          {{ __('Ingen indlæg.', 'kbharkiv') }}
+        </div>
+        {!! get_search_form(false) !!}
+      @else
+        @php $prev_date = null @endphp
+        @foreach ( $posts as $post )
+          @php setup_postdata( $post ) @endphp
+          @include('partials.content-'.get_post_type(), ['prev_date' => $prev_date, 'color' => $color])
+          @php $prev_date = strtotime(get_field('event_start')) @endphp
+        @endforeach
+        @php wp_reset_postdata() @endphp
+      @endif
+    </div>
+
+    {!! pagination() !!}
+  @endwhile
 @endsection

@@ -10,7 +10,7 @@
 
     <div class="col-lg-2" role="presentation">
       <time datetime="{{ date("Y-m-d H:i", $event_start) }}">
-        <div class="h1" style="color: {{theme_color(1)}}">{{ date("d", $event_start) }}.</div>
+        <div class="h1" style="color: {{ isset($color) ? $color : theme_color(1)}}">{{ date("d", $event_start) }}.</div>
         {{ date("H:i", $event_start) }}
       </time>
       @if( $event_end )
