@@ -94,12 +94,16 @@ export function topMenu() {
   function closeSubMenuLevel() {
     let $menuItem = $('.parent.active[data-level="' + currentSubMenuLevel + '"');
 
-    $menuItem.removeClass('active')
-      .find('> a').attr( 'aria-expanded', false )
-      .focus();
+
+    $menuItem.removeClass('active').find('> a').attr( 'aria-expanded', false )
 
     // Disable tabbing on closed submenu
-    mobileMenu ? $menuItem.find('> .sub-menu > li > a, .search-focusable').attr( 'tabindex', '-1' ) : $menuItem.find('> .sub-menu a, .search-focusable').attr( 'tabindex', '-1' );
+    if(mobileMenu) {
+      $menuItem.find('> a').focus();
+      $menuItem.find('> .sub-menu > li > a, .search-focusable').attr( 'tabindex', '-1' );
+    } else {
+      $menuItem.find('> .sub-menu a, .search-focusable').attr( 'tabindex', '-1' );
+    }
 
     currentSubMenuLevel --;
 

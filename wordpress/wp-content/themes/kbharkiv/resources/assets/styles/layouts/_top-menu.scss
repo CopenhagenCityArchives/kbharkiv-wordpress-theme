@@ -79,6 +79,10 @@ header.top-menu {
     .sub-menu {
       opacity: 0;
       pointer-events: none;
+
+      @include media-breakpoint-up(lg) {
+        transition: opacity 400ms ease;
+      }
     }
 
     ul {
@@ -90,7 +94,7 @@ header.top-menu {
       top: 0;
 
       @include media-breakpoint-down(md) {
-        transition: all 600ms ease;
+        transition: all 400ms ease;
 
         @for $i from 1 through 4 {
           &.menu[data-current-level="#{$i}"] {
@@ -292,8 +296,6 @@ header.top-menu {
       width: 6rem;
       margin-top: 1.5rem;
       margin-left: 1.5rem;
-      opacity: 0;
-      transition: opacity 400ms ease 300ms;
 
       @include media-breakpoint-up(lg) {
         position: fixed;
@@ -331,6 +333,7 @@ header.top-menu {
         @include media-breakpoint-up(lg) {
           opacity: 1;
           pointer-events: auto;
+          transition: opacity 400ms ease 200ms;
         }
       }
 
@@ -339,10 +342,6 @@ header.top-menu {
           display: block;
           opacity: 1;
         }
-      }
-
-      .kk-logo {
-        opacity: 1;
       }
     }
 
