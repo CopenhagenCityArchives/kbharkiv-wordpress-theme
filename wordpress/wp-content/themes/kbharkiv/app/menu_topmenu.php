@@ -169,7 +169,7 @@ class Kbharkiv_Walker_Nav_Menu extends Walker_Nav_Menu {
     $class_names = join( ' ', apply_filters( 'nav_menu_submenu_css_class', $classes, $args, $depth ) );
     $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
 		$level = ' data-level="' . ($depth + 1) . '"';
-		$headline_desktop = $depth == 0 ? '<a class="nav-current d-none d-lg-block" href="' . $this->currentItem->url . '">' . $this->currentItem->title . '</a>' : '';
+		$headline_desktop = $depth == 0 ? '<a class="nav-current d-none d-lg-block" tabindex="-1" href="' . $this->currentItem->url . '">' . $this->currentItem->title . '</a>' : '';
 		$back_btn_mobile = '<li class="nav-back d-lg-none"><a tabindex="-1" role="button" href="#">Tilbage</a></li>';
 
     $output .= "{$n}{$indent} <ul$class_names $level> $headline_desktop $back_btn_mobile{$n}";
