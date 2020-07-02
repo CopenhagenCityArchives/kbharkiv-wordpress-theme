@@ -10,5 +10,5 @@ export function moduleBeforeAndAfter() {
 
   setTimeout(function () {
     $('.module-before-and-after .beer-slider').BeerSlider({start: 50});
-  }, 200);
+  }, 150);
 }
