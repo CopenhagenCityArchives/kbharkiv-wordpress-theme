@@ -3,6 +3,12 @@
     margin-top: 2.5rem;
   }
 
+  .module-postnav {
+    @include media-breakpoint-down(md) {
+      margin-bottom: 0;
+    }
+  }
+
   .event-info {
     position: sticky;
     top: 9.5rem;
