@@ -9,6 +9,8 @@ import Router from './util/Router';
 import common from './routes/common';
 import singleArrangementer from './routes/singleArrangementer';
 import templateArrangementer from './routes/templateArrangementer';
+import templateSearchsdk from './routes/templateSearchsdk';
+
 /** Populate Router instance with DOM routes */
 const routes = new Router({
   // All pages
@@ -16,6 +18,7 @@ const routes = new Router({
   // About Us page, note the change from about-us to aboutUs.
   singleArrangementer,
   templateArrangementer,
+  templateSearchsdk,
 });
 
 // Load Events
