@@ -26,7 +26,6 @@ function custom_get_category_parents( $id, $visited = array() ) {
   return $chain;
 }
 
-
 function the_breadcrumb() {
   global $post;
 
@@ -50,6 +49,19 @@ function the_breadcrumb() {
     $html .= '<li class="breadcrumb-item active">' . App::title() . '</li>';
   }
 
+  elseif (is_bbpress()) {
+    $html .= get_page_by_path( 'deltag' ) ? '<li class="breadcrumb-item"><a href="' . get_permalink( get_page_by_path( 'deltag' ) ). '">' . get_the_title( get_page_by_path( 'deltag') ) . '</a></li>' : '';
+
+    if (bbp_is_forum_archive()) {
+      $html .= '<li class="breadcrumb-item active">' . post_type_archive_title('', false) . '</li>';
+    } else {
+      $post_type = get_post_type_object(get_post_type());
+      $post_type_link = get_post_type_archive_link(get_post_type());
+      $html .= '<li class="breadcrumb-item"><a href="' . $post_type_link . '">' . $post_type->labels->name . '</a></li>';
+      $html .= '<li class="breadcrumb-item active">' . get_the_title() . '</li>';
+    }
+  }
+
   elseif ( is_category() ) {
     $category = get_category( get_query_var( 'cat' ) );
 
@@ -62,8 +74,14 @@ function the_breadcrumb() {
 
   elseif (is_tax()) {
     $post_type = get_post_type();
+    $html .= $post_type == 'medarbejdere' || $post_type == 'arrangementer' ? '<li class="breadcrumb-item"><a href="' . get_permalink( get_page_by_path( 'om-os' ) ). '">' . get_the_title( get_page_by_path( 'om-os') ) . '</a></li>' : '';
     $html .= '<li class="breadcrumb-item"><a href="' . get_post_type_archive_link($post_type) . '">' . get_post_type_object($post_type)->label . '</a></li>';
     $html .= '<li class="breadcrumb-item active">' . App::title() . '</li>';
+  }
+
+  elseif (is_post_type_archive(['arrangementer', 'medarbejdere'])) {
+    $html .= get_page_by_path( 'om-os' ) ? '<li class="breadcrumb-item"><a href="' . get_permalink( get_page_by_path( 'om-os' ) ). '">' . get_the_title( get_page_by_path( 'om-os') ) . '</a></li>' : '';
+    $html .= '<li class="breadcrumb-item active">' . post_type_archive_title('', false) . '</li>';
   }
 
   elseif (is_archive() ) {
@@ -92,13 +110,7 @@ function the_breadcrumb() {
   }
 
   elseif ( is_singular( 'post' ) ) {
-    // $categories = get_the_category();
-    //
-    // if ( $categories[0] ) {
-    //   $html .= custom_get_category_parents($categories[0]);
-    // }
     $html .= '<li class="breadcrumb-item"><a href="' . get_post_type_archive_link( 'post' ) . '">' . get_the_title( get_option('page_for_posts', true) ) . '</a></li>';
-
     $html .= '<li class="breadcrumb-item active">' . App::title() . '</li>';
   }
 
