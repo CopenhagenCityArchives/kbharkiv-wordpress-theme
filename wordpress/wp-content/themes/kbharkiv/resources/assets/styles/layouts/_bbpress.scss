@@ -1,4 +1,58 @@
-.bbpress-wrapper {
+#bbpress-forums {
+  overflow: visible;
+  font-size: 0.875rem;
+
+  strong {
+    font-weight: 500;
+  }
+
+  li.bbp-header,
+  li.bbp-footer {
+    background: transparent !important;
+    //border-top: 1px solid #eee;
+    //font-weight: bold;
+    //padding: 8px;
+    text-align: left;
+  }
+
+  li.bbp-header {
+    background: #eaeaea;
+  }
+
+  div.even,
+  ul.even {
+    background-color: #fff;
+  }
+
+  div.odd,
+  ul.odd {
+    background-color: rgba($cyan-light, 0.16);
+  }
+
+  .bbp-topic-content,
+  .bbp-reply-content,
+  .bbp-forum-title {
+    font-size: 0.875rem;
+  }
+
+  span.bbp-admin-links a,
+  .bbp-reply-permalink,
+  div.bbp-the-content-wrapper input[type=button] {
+    color: $blue;
+    opacity: 0.48;
+    font-weight: 500;
+    font-size: 0.75rem;
+
+    &:focus {
+      outline: 2px solid rgba($blue, 0.5);
+    }
+
+    &:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+  }
+
   .bbp-template-notice {
     @extend .alert;
     @extend .alert-warning;
@@ -10,19 +64,41 @@
       list-style: none;
     }
 
+    li,
+    p {
+      font-size: 0.875rem;
+    }
+
     &.info {
       @extend .alert-info;
     }
   }
 
-  button {
+  button,
+  input[type="submit"] {
     @extend .btn;
     @extend .btn-primary;
   }
 
-  input:not([type="button"]):not([type="checkbox"]):not([type="radio"]),
+  #bbp-search-form {
+    margin-bottom: 1rem;
+
+    #bbp_search {
+      @extend .form-control-sm;
+    }
+
+    #bbp_search_submit {
+      @extend .btn-sm;
+    }
+  }
+
+  input:not([type="button"]):not([type="submit"]):not([type="checkbox"]):not([type="radio"]),
   textarea,
   select {
     @extend .form-control;
   }
+
+  // input[type="checkbox"] {
+  //   @extend .form-check-input;
+  // }
 }

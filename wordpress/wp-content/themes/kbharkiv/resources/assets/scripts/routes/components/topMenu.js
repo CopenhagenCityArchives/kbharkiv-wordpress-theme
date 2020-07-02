@@ -57,7 +57,7 @@ export function topMenu() {
     currentSubMenuColor = $el.data('color');
     currentLogoColor = $el.data('logo-color');
     $('.top-menu').css('background-color', currentSubMenuColor);
-    $('.top-menu #kk-logo-shape').css('fill', currentLogoColor);
+    $('.top-menu .kk-logo-shape').css('fill', currentLogoColor);
   }
 
   function openSubMenu($menuItem) {

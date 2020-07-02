@@ -9,7 +9,7 @@
                 <mask id="mask-2" fill="white">
                     <use xlink:href="#path-1"></use>
                 </mask>
-                <use id="kk-logo-shape" fill="#04436E" fill-rule="evenodd" xlink:href="#path-1"></use>
+                <use class="kk-logo-shape" fill="#04436E" fill-rule="evenodd" xlink:href="#path-1"></use>
                 <g id="assets-/-color-/-kbh-blå" mask="url(#mask-2)"></g>
             </g>
         </g>
