@@ -2,7 +2,8 @@
   overflow: visible;
   font-size: 0.875rem;
 
-  .bbp-user-page & {
+  .bbp-user-page &,
+  .bbp-user-edit & {
     overflow: hidden;
   }
 
@@ -42,24 +43,27 @@
   ul.bbp-replies {
     border: none;
 
-    li.bbp-header,
-    li.bbp-footer {
-      background: transparent !important;
-      //border-top: 1px solid #eee;
-      //font-weight: bold;
+    li.bbp-header {
       padding: 0.5rem 1rem;
       text-align: left;
-    }
-
-    li.bbp-header {
       border: none;
       background: #eaeaea;
+
+      div.bbp-forum-author,
+      div.bbp-reply-author,
+      div.bbp-topic-author {
+        text-align: left;
+      }
     }
 
     li.bbp-body {
       ul li {
         padding: 0.5rem;
       }
+    }
+
+    li.bbp-footer {
+      display: none;
     }
 
     li.bbp-forum-freshness,
@@ -143,9 +147,35 @@
     @extend .form-control;
   }
 
-  #bbpress-forums div.bbp-the-content-wrapper textarea.bbp-the-content {
+  fieldset.bbp-form {
+    @extend .form-group;
+
+    padding: 0;
+    border: none;
+
+    input[type=text],
+    select {
+      min-height: none;
+      height: auto;
+      padding: 0.375rem 0.75rem;
+    }
+  }
+
+  #bbp-your-profile fieldset input,
+  #bbp-your-profile fieldset textarea,
+  #bbp-your-profile fieldset select {
+    width: 60%;
+
+    @extend .form-control;
+  }
+
+  div.bbp-the-content-wrapper textarea.bbp-the-content {
     font-size: 0.875rem;
     border-radius: 0 0 0.25rem 0.25rem;
+  }
+
+  .bbp-pagination {
+    margin-bottom: 1.5rem;
   }
 
   // input[type="checkbox"] {
