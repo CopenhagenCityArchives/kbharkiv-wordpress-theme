@@ -55,8 +55,8 @@ function the_breadcrumb() {
     if (bbp_is_forum_archive()) {
       $html .= '<li class="breadcrumb-item active">' . post_type_archive_title('', false) . '</li>';
     } else {
-      $post_type = get_post_type_object(get_post_type());
-      $post_type_link = get_post_type_archive_link(get_post_type());
+      $post_type = get_post_type_object('forum');
+      $post_type_link = get_post_type_archive_link('forum');
       $html .= '<li class="breadcrumb-item"><a href="' . $post_type_link . '">' . $post_type->labels->name . '</a></li>';
       $html .= '<li class="breadcrumb-item active">' . get_the_title() . '</li>';
     }

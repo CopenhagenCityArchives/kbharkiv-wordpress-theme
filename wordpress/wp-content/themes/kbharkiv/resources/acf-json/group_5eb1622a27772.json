@@ -119,8 +119,8 @@
             }
         ]
     ],
-    "menu_order": 0,
-    "position": "side",
+    "menu_order": 4,
+    "position": "normal",
     "style": "default",
     "label_placement": "left",
     "instruction_placement": "label",
@@ -135,5 +135,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1593765807
+    "modified": 1593774271
 }

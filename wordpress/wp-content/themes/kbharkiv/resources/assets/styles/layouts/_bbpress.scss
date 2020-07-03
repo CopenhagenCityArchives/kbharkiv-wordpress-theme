@@ -2,6 +2,10 @@
   overflow: visible;
   font-size: 0.875rem;
 
+  .bbp-user-page & {
+    overflow: hidden;
+  }
+
   strong {
     font-weight: 500;
   }
@@ -20,6 +24,12 @@
     li,
     p {
       font-size: 0.875rem;
+      margin: 0 !important;
+      padding: 0 !important;
+
+      + li {
+        margin-top: 0.5rem !important;
+      }
     }
 
     &.info {
@@ -131,6 +141,11 @@
   textarea,
   select {
     @extend .form-control;
+  }
+
+  #bbpress-forums div.bbp-the-content-wrapper textarea.bbp-the-content {
+    font-size: 0.875rem;
+    border-radius: 0 0 0.25rem 0.25rem;
   }
 
   // input[type="checkbox"] {
