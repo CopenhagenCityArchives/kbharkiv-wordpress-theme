@@ -67,11 +67,11 @@ function block_infoemployee( $block ) {
   if(function_exists('get_field')):
 		$id = get_field('block_employee')[0]->ID;
 
-    echo '<aside class="infobox infoemployee small" style="background-color: ' . theme_color() . '">' .
-			(has_post_thumbnail($id) ? get_the_post_thumbnail($id, 'profilex2', ['class' => 'profile-image'] ) : '') .
+    echo '<aside class="infobox infoemployee small">' .
+			(has_post_thumbnail($id) ? get_the_post_thumbnail($id, 'profilex2', ['class' => 'profile-image mb-3'] ) : '') .
 			(get_field('employee_title', $id) ? '<h6>' . get_field('employee_title', $id) . '</h6>' : '') .
-			'<header><h3 class="entry-title">' . get_the_title($id) . '</h3></header>' .
-			'<div class="entry-summary small">' . get_the_excerpt($id) . '</div>' .
+			'<header><h3 class="entry-title mb-2">' . get_the_title($id) . '</h3></header>' .
+			'<div class="entry-summary small mb-3">' . get_the_excerpt($id) . '</div>' .
 			'<dl class="row small">' .
 			(get_field('employee_email', $id) ? '<dt class="col-3 col-lg-2">Email</dt><dd class="col-9"><a class="text-break" aria-label="Email ' . get_the_title($id) . '" href="mailto:' . get_field('employee_email', $id) . '" target="_blank">' . get_field('employee_email', $id) . '</a></dd>' : '' ) .
 			(get_field('employee_phone', $id) ? '<dt class="col-3 col-lg-2">Mobil</dt><dd class="col-9"><a class="text-break" aria-label="Ring til' . get_the_title($id) . '" href="tel:' . get_field('employee_phone', $id) . '" target="_blank">' . get_field('employee_phone', $id) . '</a></dd>' : '' ) .
