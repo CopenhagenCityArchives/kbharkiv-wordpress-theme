@@ -2,7 +2,7 @@
 
 @if( $authors )
   @foreach( $authors as $author )
-    <div class="author">
+    <div class="author {{isset($class) ? $class : ''}}">
 
       @if ( has_post_thumbnail($author->ID))
         {!! wp_get_attachment_image(get_post_thumbnail_id($author->ID), ['48', '48'], false, ['class' => 'rounded-circle ']) !!}

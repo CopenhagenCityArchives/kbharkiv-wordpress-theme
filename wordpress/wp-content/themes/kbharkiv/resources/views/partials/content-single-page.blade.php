@@ -9,12 +9,12 @@
         </div>
       </div>
 
-      <div class="row mb-3">
+      <div class="row">
         <div class="col-lg-8 col-xl-6 offset-lg-1 offset-xl-2">
           @include('partials.lead')
         </div>
         <div class="col-lg-3">
-          @include('partials.author')
+          @include('partials.author', ['class' => 'mb-4'])
         </div>
       </div>
     @endif
@@ -29,9 +29,10 @@
         </div>
       </figure>
     @endif
+
     @if ( !empty( get_the_content() ))
       <div class="row">
-        <div class="col-lg-8 col-xl-6 offset-lg-1 offset-xl-3">
+        <div class="col-lg-8 col-xl-6 offset-lg-1 {{ (has_post_thumbnail() && !get_field('page_hide_image')) ? 'offset-xl-3' :'offset-xl-2' }}">
           <div class="entry-content">
             @php the_content() @endphp
           </div>
