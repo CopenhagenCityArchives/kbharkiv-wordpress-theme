@@ -1,5 +1,5 @@
 <div class="col-sm-6 col-md-4 col-lg-6">
-  <article @php post_class() @endphp>
+  <article @php post_class() @endphp aria-label="{{ get_the_title() }}">
     <div class="row">
       <div class="col-4 col-sm-12 col-lg-4">
         @if ( has_post_thumbnail())

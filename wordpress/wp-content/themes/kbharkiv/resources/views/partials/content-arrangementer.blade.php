@@ -5,7 +5,7 @@
   <div class="month h1" role="presentation">{{ date_i18n("F Y", $event_start) }}</div>
 @endif
 
-<article @php post_class() @endphp>
+<article @php post_class() @endphp aria-label="{{ get_the_title() }}">
   <div class="row">
 
     <div class="col-lg-2" role="presentation">

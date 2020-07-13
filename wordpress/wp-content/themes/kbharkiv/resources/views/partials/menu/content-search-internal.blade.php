@@ -2,7 +2,7 @@
   $field = get_sub_field('search_internal_group');
 @endphp
 
-<li role="search">
+<li role="search" aria-label="Søg på siden">
   <form method="get" class="search-form" action="{{ esc_url( home_url( '/' ) ) }}">
     <div class="form-group">
       @if ($field['search_internal_group_headline'])

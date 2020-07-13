@@ -1,5 +1,5 @@
 <a href="{{ get_permalink() }}" class="{{ $class }}">
-  <article @php post_class() @endphp>
+  <article @php post_class() @endphp aria-label="{{ get_the_title() }}">
 
     @if ( has_post_thumbnail())
       @php the_post_thumbnail( 'herox2' ) @endphp

@@ -2,7 +2,7 @@
   $field = get_sub_field('search_person_group');
 @endphp
 
-<li role="search">
+<li role="search" aria-label="Søg person">
   <form id="apacs_freetext_search__form">
     <div class="form-group">
       @if ($field['search_person_group_copy'])
