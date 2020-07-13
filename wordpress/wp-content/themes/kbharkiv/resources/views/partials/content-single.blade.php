@@ -4,7 +4,6 @@
     @if (is_bbpress())
       @php the_content() @endphp
     @else
-
       <div class="row">
         <div class="col-lg-8 offset-lg-1 offset-xl-2">
           <header>

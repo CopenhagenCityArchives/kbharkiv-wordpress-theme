@@ -51,15 +51,14 @@ add_action('acf/init', function() {
 
 function block_infobox( $block ) {
   if(function_exists('get_field')):
-    echo '<aside class="infobox small" style="background-color: ' . theme_color() . '">' . get_field('block_infobox') . '</aside>';
+    echo '<aside aria-label="Infoboks" class="infobox small" style="background-color: ' . theme_color() . '">' . get_field('block_infobox') . '</aside>';
   endif;
 }
 
 function block_infoimage( $block ) {
   if(function_exists('get_field')):
 		$img = get_field('block_image');
-		//print_r($img);
-    echo '<aside class="infobox infoimage small"><figure>' . wp_get_attachment_image( $img['ID'], 'full' ) . '<figcaption class="figure-caption">' . $img['caption'] . '</figcaption><figure></aside>';
+    echo '<aside aria-label="Billedeboks '. $img['caption'] .'" class="infobox infoimage small"><figure>' . wp_get_attachment_image( $img['ID'], 'full' ) . '<figcaption class="figure-caption">' . $img['caption'] . '</figcaption><figure></aside>';
   endif;
 }
 
@@ -67,7 +66,7 @@ function block_infoemployee( $block ) {
   if(function_exists('get_field')):
 		$id = get_field('block_employee')[0]->ID;
 
-    echo '<aside class="infobox infoemployee small">' .
+    echo '<aside aria-label="Medarbejderboks '. get_field('employee_title', $id) .'" class="infobox infoemployee small">' .
 			(has_post_thumbnail($id) ? get_the_post_thumbnail($id, 'profilex2', ['class' => 'profile-image mb-3'] ) : '') .
 			(get_field('employee_title', $id) ? '<h6>' . get_field('employee_title', $id) . '</h6>' : '') .
 			'<header><h3 class="entry-title mb-2">' . get_the_title($id) . '</h3></header>' .

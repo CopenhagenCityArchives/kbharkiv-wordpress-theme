@@ -4,7 +4,7 @@
 
 <div class="chat-holder"></div>
 
-<aside class="chat-wrapper">
+<aside class="chat-wrapper" aria-labelledby="#chat">
   <form target="_blank" action="{{get_the_permalink()}}" method="post" id="chat" aria-label="Chat">
     @if (get_field('chat_text', 'option'))
       <p>{{ get_field('chat_text', 'option') }}</p>

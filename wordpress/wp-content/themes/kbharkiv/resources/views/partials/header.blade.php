@@ -14,7 +14,7 @@
       </button>
     </div>
 
-    <nav>
+    <nav aria-label="Hovedmenu">
       @if (has_nav_menu('primary_navigation'))
         {!! wp_nav_menu(['walker'	=> new Kbharkiv_Walker_Nav_Menu, 'container' => false, 'theme_location' => 'primary_navigation']) !!}
       @endif

@@ -18,10 +18,10 @@
         ]);
       @endphp
 
-      <nav class="category-filter">
-        <a href="{{ get_post_type_archive_link('medarbejdere') }}" class="{{ is_archive('medarbejdere') && !is_tax() ? 'active' : ''}}">{{ __('Alle medarbejdere', 'kbharkiv') }}</a>
+      <nav class="category-filter" aria-label="Filtrer medarbejdere efter afdeling">
+        <a href="{{ get_post_type_archive_link('medarbejdere') }}" class="{{ is_archive('medarbejdere') && !is_tax() ? 'active' : '' }}">{{ __('Alle medarbejdere', 'kbharkiv') }}{!! is_archive('medarbejdere') && !is_tax() ? ' <span class="sr-only">(valgt)</span>' : '' !!}</a>
         @foreach($terms as $term)
-          <a href="{{ get_term_link($term->term_id) }}" class="{{ is_tax('employee_category', $term->slug) ? 'active' : '' }}">{{ $term->name }}</a>
+          <a href="{{ get_term_link($term->term_id) }}" class="{{ is_tax('employee_category', $term->slug) ? 'active' : '' }}">{{ $term->name }}{!! is_tax('employee_category', $term->slug) ? ' <span class="sr-only">(valgt)</span>' : '' !!}</a>
         @endforeach
       </nav>
 
