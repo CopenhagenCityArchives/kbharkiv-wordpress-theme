@@ -4,7 +4,7 @@
 
 <div class="chat-holder"></div>
 
-<div class="chat-wrapper">
+<aside class="chat-wrapper">
   <form target="_blank" action="{{get_the_permalink()}}" method="post" id="chat" aria-label="Chat">
     @if (get_field('chat_text', 'option'))
       <p>{{ get_field('chat_text', 'option') }}</p>
@@ -19,7 +19,7 @@
     </div>
     <button id="chatsubmit" type="submit" class="btn btn-primary" name="submit">Chat</button>
   </form>
-</div>
+</aside>
 
 @if (isset($_POST['submit']))
   @php
