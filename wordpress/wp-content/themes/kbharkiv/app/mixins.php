@@ -66,7 +66,7 @@ function block_infoemployee( $block ) {
   if(function_exists('get_field')):
 		$id = get_field('block_employee')[0]->ID;
 
-    echo '<aside aria-label="Medarbejderboks '. get_field('employee_title', $id) .'" class="infobox infoemployee small">' .
+    echo '<aside aria-label="Medarbejderboks '. get_the_title($id) .'" class="infobox infoemployee small">' .
 			(has_post_thumbnail($id) ? get_the_post_thumbnail($id, 'profilex2', ['class' => 'profile-image mb-3'] ) : '') .
 			(get_field('employee_title', $id) ? '<h6>' . get_field('employee_title', $id) . '</h6>' : '') .
 			'<header><h3 class="entry-title mb-2">' . get_the_title($id) . '</h3></header>' .
