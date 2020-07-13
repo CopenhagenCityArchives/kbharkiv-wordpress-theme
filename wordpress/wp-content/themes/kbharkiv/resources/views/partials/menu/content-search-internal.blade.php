@@ -3,7 +3,7 @@
 @endphp
 
 <li role="search">
-  <form role="search" method="get" class="search-form" action="{{ esc_url( home_url( '/' ) ) }}">
+  <form method="get" class="search-form" action="{{ esc_url( home_url( '/' ) ) }}">
     <div class="form-group">
       @if ($field['search_internal_group_headline'])
         <label class="h4" for="search-internal">{{ $field['search_internal_group_headline'] }}</label>
