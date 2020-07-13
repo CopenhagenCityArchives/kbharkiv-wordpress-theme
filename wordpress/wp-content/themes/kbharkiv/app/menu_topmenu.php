@@ -183,7 +183,7 @@ class Kbharkiv_Walker_Nav_Menu extends Walker_Nav_Menu {
 	        $t = "\t";
 	        $n = "\n";
 	    }
-			$close_menu_and_kk_logo = $depth == 0 ? '<button class="nav-toggle desktop-menu-toggle"><span class="sr-only">Luk menu</span><div class="hamburger"></div></button>' . file_get_contents(App\asset_path('images/kk-logo.svg')) : '';
+			$close_menu_and_kk_logo = $depth == 0 ? '<button class="nav-toggle desktop-menu-toggle"><span class="sr-only">Luk menu</span><div class="hamburger"></div></button>' . App\template('partials.kk-logo') : '';
 			$indent  = str_repeat( $t, $depth );
 
 	    $output .= "$indent $close_menu_and_kk_logo</ul>{$n}";
