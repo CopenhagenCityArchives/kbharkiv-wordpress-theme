@@ -177,6 +177,11 @@ function get_the_lead($id = 0) {
 	}
 }
 
+add_action('init', function() {
+	remove_action('wp_head', 'rsd_link');
+	remove_action('wp_head', 'wlwmanifest_link');
+});
+
 if( function_exists('acf_add_options_page') ) {
 	acf_add_options_page(array(
 		'page_title' 	=> 'Footer',
