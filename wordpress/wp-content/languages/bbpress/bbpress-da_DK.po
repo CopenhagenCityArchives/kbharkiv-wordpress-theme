@@ -1866,7 +1866,7 @@ msgstr ""
 
 #: includes/forums/template.php:2040
 msgid "This category has %1$s."
-msgstr "Denne kategori har %1$s."
+msgstr "Denne kategori indeholder %1$s."
 
 #: includes/forums/template.php:2022
 msgid "This forum has %1$s, %2$s, and was last updated %3$s by %4$s."
@@ -1874,7 +1874,7 @@ msgstr ""
 
 #: includes/forums/template.php:2021
 msgid "This category has %1$s, %2$s, and was last updated %3$s by %4$s."
-msgstr "Denne kategori har %1$s, %2$s og blev seneste opdateret %3$s af %4$s."
+msgstr "Denne kategori indeholder %1$s, %2$s og blev seneste opdateret %3$s af %4$s."
 
 #: includes/forums/template.php:1185 includes/topics/template.php:2031
 msgid "(+%s hidden)"
@@ -3493,7 +3493,7 @@ msgstr "Dette forum indeholder %1$s og blev sidst opdateret af %2$s %3$s."
 
 #: includes/forums/template.php:2027
 msgid "This category has %1$s, and was last updated %2$s by %3$s."
-msgstr "Denne kategori indeholder %1$s og blev sidst opdateret af %2$s %3$s."
+msgstr "Denne kategori indeholder %1$s og blev sidst opdateret %2$s af %3$s."
 
 #: includes/forums/template.php:2001 includes/topics/template.php:2016
 msgid "%s reply"
