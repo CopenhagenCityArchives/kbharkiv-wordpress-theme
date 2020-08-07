@@ -12,6 +12,15 @@
         Forside
       </div>
     @endif
+    @if (is_bbpress() && get_field('forum_copy'))
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-8">
+            {{ the_field('forum_copy') }}
+          </div>
+        </div>
+      </div>
+    @endif
 
     @include('partials.content-single-'.get_post_type())
 
