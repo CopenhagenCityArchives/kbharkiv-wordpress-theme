@@ -31,8 +31,10 @@
     @endif
 
     @if ( !empty( get_the_content() ))
+      @php $image_col = (has_post_thumbnail() && !get_field('page_hide_image')) ? 'offset-xl-3' : 'offset-xl-2' @endphp
+
       <div class="row">
-        <div class="col-lg-8 col-xl-6 offset-lg-1 {{ (has_post_thumbnail() && !get_field('page_hide_image')) ? 'offset-xl-3' :'offset-xl-2' }}">
+        <div class="col-lg-8 col-xl-6 offset-lg-1 {{ $image_col }}">
           <div class="entry-content">
             @php the_content() @endphp
           </div>

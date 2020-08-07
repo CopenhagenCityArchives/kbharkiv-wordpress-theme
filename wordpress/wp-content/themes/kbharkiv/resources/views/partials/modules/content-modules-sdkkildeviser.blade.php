@@ -1,3 +1,5 @@
+@php $image_col = (has_post_thumbnail() && !get_field('page_hide_image')) ? 'offset-xl-3' : 'offset-xl-2' @endphp
+
 <section class="module module-kildeviser {{ get_sub_field('modules_sdkkildeviser_spacing') ? '' : 'small-margin' }}">
   @php
     wp_enqueue_style('KildeviserSearchSDK.min.css', 'https://www.kbhkilder.dk/software/KildeviserSearchSDK/KildeviserSearchSDK.min.css');
@@ -5,7 +7,7 @@
   @endphp
   <div class="container-fluid">
     <div class="row">
-      <div class="col-lg-8 col-xl-6 offset-lg-1 offset-xl-3">
+      <div class="col-lg-8 col-xl-6 offset-lg-1 {{ $image_col }}">
         <div id="module-kildeviser-{{get_row_index()}}"></div>
       </div>
     </div>
