@@ -12,6 +12,7 @@
         Forside
       </div>
     @endif
+
     @if (is_bbpress() && get_field('forum_copy'))
       <div class="container-fluid">
         <div class="row">
