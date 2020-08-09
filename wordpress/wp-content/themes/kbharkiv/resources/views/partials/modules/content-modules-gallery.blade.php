@@ -2,7 +2,7 @@
 
 @if( $images )
 
-  <section class="module module-gallery">
+  <section class="module module-gallery" aria-label="Galleri">
     <div class="container-fluid">
       <div class="module-inner">
         <div class="row">

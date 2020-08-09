@@ -1,4 +1,4 @@
-<section class="module module-kildetaster">
+<section class="module module-kildetaster" aria-label="Kildetaster">
   @php
     wp_enqueue_style('sdk.css', 'https://kildetaster.kbharkiv.dk/sdk.css');
     wp_enqueue_script('sdk.js', 'https://kildetaster.kbharkiv.dk/sdk.js', [], null);

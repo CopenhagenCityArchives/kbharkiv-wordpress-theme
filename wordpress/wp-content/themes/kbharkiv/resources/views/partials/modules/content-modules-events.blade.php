@@ -20,7 +20,7 @@
 @endphp
 
 @if( $posts )
-  <section class="module module-events">
+  <section class="module module-events" aria-label="Arrangementer">
     <div class="container-fluid">
 
       <a class="h4 d-block mb-4" href="{{ get_post_type_archive_link( 'arrangementer' ) }}">{{ get_sub_field('modules_events_headline') ? get_sub_field('modules_events_headline') : 'Arrangementer' }} @include('partials.icon', ['icon' => 'arrow-right-circle'])</a>

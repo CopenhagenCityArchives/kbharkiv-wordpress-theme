@@ -1,7 +1,7 @@
 @php $images = get_sub_field('modules_before_and_after_images') @endphp
 
 @if( $images )
-  <section class="module module-before-and-after {{ get_sub_field('modules_before_and_after_spacing') ? '' : 'small-margin' }}">
+  <section class="module module-before-and-after {{ get_sub_field('modules_before_and_after_spacing') ? '' : 'small-margin' }}" aria-label="Før og efter billede">
     <div class="container-fluid">
       <div class="row">
         <figure class="col-lg-8 offset-lg-2">

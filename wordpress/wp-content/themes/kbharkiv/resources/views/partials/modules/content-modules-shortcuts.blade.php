@@ -3,7 +3,7 @@
 @endphp
 
 @if( have_rows('modules_shortcuts_repeater'))
-  <section class="module module-shortcuts">
+  <section class="module module-shortcuts" aria-label="Genveje">
     <div class="container-fluid">
       <div class="row">
 
