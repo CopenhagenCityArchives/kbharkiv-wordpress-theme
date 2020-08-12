@@ -147,7 +147,7 @@ export function topMenu() {
   }
 
   // Add click-event to hamburger menu btn
-  $('.nav-toggle').click(function() {
+  $('.nav-toggle').on('click', function() {
     if(mobileMenu) {
       mobileMenuOpen ? closeMobileMenu() : openMobileMenu();
     } else {
@@ -156,7 +156,7 @@ export function topMenu() {
   })
 
   // Add click-event to menu-items with sub-menu
-  $('.top-menu nav .parent > a').click(function(e) {
+  $('.top-menu nav .parent > a').on('click', function(e) {
 
     let $menuItem = $(this).parent()
 
@@ -178,7 +178,7 @@ export function topMenu() {
     }
   });
 
-  $('.top-menu nav .nav-back').click(function(e) {
+  $('.top-menu nav .nav-back').on('click', function(e) {
     e.preventDefault ? e.preventDefault() : (e.returnValue = false);
     closeSubMenuLevel();
   });
