@@ -1,16 +1,10 @@
 
-# Ignore everything but /wordpress/wp-content
-!/wordpress
+# We want to include:
+# * wordpress/wp-content/themes/kbharkiv
+# * wordpress/wp-content/languages
+
 /wordpress/*
-!/wordpress/wp-content
-/wordpress/wp-content/*
-
-!/wordpress/wp-content/languages
-
-!/wordpress/wp-content/plugins
-
-!/wordpress/wp-content/themes
-
-/wordpress/wp-content/uploads
+!wordpress/wp-content/themes/kbharkiv
+!wordpress/wp-content/languages
 
 .DS_Store
