@@ -3,9 +3,15 @@
 # * wordpress/wp-content/themes/kbharkiv
 # * wordpress/wp-content/languages
 
-/wordpress/*
-!wordpress/wp-content/themes/kbharkiv
 !wordpress/wp-content/languages
 
+/wordpress/wp-content/plugins
+
+/wordpress/wp-content/themes/twentynineteen
+/wordpress/wp-content/themes/twentyseventeen
+/wordpress/wp-content/themes/twentysixteen
+/wordpress/wp-content/themes/twentytwenty
+
+/wordpress/wp-content/themes/yarn-error.log
 
 .DS_Store
