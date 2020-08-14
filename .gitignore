@@ -6,6 +6,6 @@
 /wordpress/*
 !wordpress/wp-content/themes/kbharkiv
 !wordpress/wp-content/languages
-trigger-deploy.sh
+
 
 .DS_Store
