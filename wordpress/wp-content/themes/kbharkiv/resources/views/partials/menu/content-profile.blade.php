@@ -4,7 +4,7 @@
     <ul class="sub-menu" data-level="1">
       <li class="nav-back d-lg-none"><a tabindex="-1" href="#">Tilbage</a></li>
       <li><a href="{{ get_field('my_page', 'option')['url'] }}" tabindex="-1">Min side</a></li>
-      <li><a href="{{ wp_logout_url() }}" tabindex="-1">Log ud</a></li>
+      <li><a href="{{ wp_logout_url('/') }}" tabindex="-1">Log ud</a></li>
       <button class="nav-toggle desktop-menu-toggle"><span class="sr-only">Luk menu</span><div class="hamburger"></div></button>
     </ul>
   </li>
