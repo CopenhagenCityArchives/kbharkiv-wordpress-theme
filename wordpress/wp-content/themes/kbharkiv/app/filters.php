@@ -89,3 +89,10 @@ add_filter('comments_template', function ($comments_template) {
 
     return $comments_template;
 }, 100);
+
+/**
+ * bbPress append signature
+ */
+add_filter( 'bbp_get_reply_content', function( $content = '', $reply_id = 0 ) {
+    return $content."<div>Signatur her.</div>";
+}, 100);
