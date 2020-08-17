@@ -10,6 +10,33 @@
 @endphp
 
 @section('content')
+  <!-- Header and breadcrumb that are ng-cloaked so it will be hidden when SDK is loaded -->
+  <header class="page-header darken-on-scroll ng-scope" style="background-color: rgb(255, 238, 204);" ng-cloak>
+    <div class="container-fluid">
+    <div class="row">
+    <div class="col-lg-12">
+      <h1>Søg i indtastede kilder</h1>
+    </div>
+    </div>
+    </div>
+  </header>
+
+  <nav class="breadcrumb-wrapper container-fluid ng-scope" aria-label="Brødkrummesti" ng-cloak>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <a href="/">
+        <svg aria-hidden="true" class="feather" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        <span class="sr-only">Hjem</span>
+      </a>
+    </li>
+    <li class="breadcrumb-item"><a href="#">Søg</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Søg person</li>
+  </ol>
+  </nav>
+
   <!-- SDK START -->
   <div id="search-app-simple-search-text" class="d-none">
     @if (get_field('sdksearch_simple-search-text'))
