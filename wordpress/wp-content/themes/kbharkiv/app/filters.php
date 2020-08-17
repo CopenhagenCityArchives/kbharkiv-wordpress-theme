@@ -94,7 +94,7 @@ add_filter('comments_template', function ($comments_template) {
  * bbPress append signature
  */
 add_filter( 'bbp_get_reply_content', function( $content = '', $reply_id = 0 ) {
-    $author_id = get_get_reply_author_id($reply_id);
+    $author_id = bbp_get_reply_author_id($reply_id);
     $profile = get_auth0userinfo($author_id);
     
     if (array_key_exists('user_metadata', $profile) && array_key_exists('signature', $profile['user_metadata'])) {
