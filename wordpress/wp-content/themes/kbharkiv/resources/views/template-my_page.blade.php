@@ -52,5 +52,7 @@
   @endsection
 
 @else
-  wp_redirect(wp_login_url(get_page_link()));
+  @php
+    wp_redirect(wp_login_url(get_page_link()));
+  @endphp
 @endif
