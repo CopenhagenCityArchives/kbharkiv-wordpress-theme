@@ -96,10 +96,16 @@ add_filter('comments_template', function ($comments_template) {
 add_filter( 'bbp_get_reply_content', function( $content = '', $reply_id = 0 ) {
     $author_id = bbp_get_reply_author_id($reply_id);
     $profile = get_auth0userinfo($author_id);
+
+    $vardumped = "";
+    if (ob_start()) {
+        var_dump($profile);
+        $vardumped = ob_get_clean();
+    }
     
     if (array_key_exists('user_metadata', $profile) && array_key_exists('signature', $profile['user_metadata'])) {
-        return $content."<div>" . $profile['user_metadata']['signature'] . "</div>";
+        return $content."<div>" . $profile['user_metadata']['signature'] . "</div><div>".$vardumped."</div>";
     } else {
-        return $content;
+        return $content."<div>".$vardumped."</div>";
     }
 }, 100);
