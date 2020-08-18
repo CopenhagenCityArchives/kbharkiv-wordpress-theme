@@ -113,7 +113,6 @@ add_filter( 'bbp_get_reply_content', function( $content = '', $reply_id = 0 ) {
 /**
  * Redirect user to email verification after creation
  */
-add_filter( 'WP_Auth0_Email_Verification', function(){
-    wp_redirect('/aktiver-din-brugerprofil');
-    exit();
+add_action( 'wpa0_user_created', function(){
+    wp_redirect('https://new.kbharkiv.dk/aktiver-din-brugerprofil');
 }, 100);
