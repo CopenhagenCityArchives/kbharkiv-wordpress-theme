@@ -94,7 +94,6 @@ export function topMenu() {
   function closeSubMenuLevel() {
     let $menuItem = $('.parent.active[data-level="' + currentSubMenuLevel + '"');
 
-
     $menuItem.removeClass('active').find('> a').attr( 'aria-expanded', false )
 
     // Disable tabbing on closed submenu
@@ -178,8 +177,8 @@ export function topMenu() {
     }
   });
 
-  $('.top-menu nav .nav-back a').on('click', function(e) {
-    e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+  $('.top-menu nav .nav-back a').on('click', function() {
+    //e.preventDefault ? e.preventDefault() : (e.returnValue = false);
     closeSubMenuLevel();
   });
 
