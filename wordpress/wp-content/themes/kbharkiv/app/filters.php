@@ -115,4 +115,5 @@ add_filter( 'bbp_get_reply_content', function( $content = '', $reply_id = 0 ) {
  */
 add_action( 'wpa0_user_created', function(){
     wp_redirect('https://new.kbharkiv.dk/aktiver-din-brugerprofil');
+    exit;
 }, 100);
