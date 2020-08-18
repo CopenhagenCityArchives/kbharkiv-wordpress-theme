@@ -177,9 +177,8 @@ export function topMenu() {
     }
   });
 
-  $('.top-menu nav .nav-back a').on('click', function() {
-    console.log('click');
-    //e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+  $('.top-menu nav .nav-back a').on('click', function(e) {
+    e.preventDefault ? e.preventDefault() : (e.returnValue = false);
     closeSubMenuLevel();
   });
 
