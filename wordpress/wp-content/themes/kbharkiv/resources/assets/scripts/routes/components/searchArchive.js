@@ -4,7 +4,7 @@ export function searchArchive() {
       event.preventDefault();
 
       var searchVal = encodeURI($('#catalog_query').val());
-      var url = 'http://www.kbharkiv.dk/kbharkiv/php/starbas_search.php?catalog_query=' + searchVal;
+      var url = 'https://kbharkiv.dk/starbas_search.php?catalog_query=' + searchVal;
 
       window.open(url, '_blank');
     }

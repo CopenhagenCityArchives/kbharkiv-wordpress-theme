@@ -3,7 +3,7 @@
 @endphp
 
 <li role="search" aria-label="Søg og bestil til læsesalen">
-  <form id="searchform_catalog" action="http://www.kbharkiv.dk/kbharkiv/php/starbas_search.php" method="get">
+  <form id="searchform_catalog" action="https://kbharkiv.dk/starbas_search.php" method="get">
     <div class="search-form form-group">
       @if ($field['search_archive_group_headline'])
         <label class="h4" for="catalog_query">{{ $field['search_archive_group_headline'] }}</label>
