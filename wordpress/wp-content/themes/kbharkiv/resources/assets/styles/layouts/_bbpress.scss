@@ -7,6 +7,11 @@
     overflow: hidden;
   }
 
+  .bbp-user-page & .bbp-topics,
+  .bbp-user-page & .bbp-replies {
+    width: 100%;
+  }
+
   strong {
     font-weight: 500;
   }
