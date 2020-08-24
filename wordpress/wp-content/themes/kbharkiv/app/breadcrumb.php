@@ -52,12 +52,14 @@ function the_breadcrumb() {
   elseif (is_bbpress()) {
     $html .= get_page_by_path( 'deltag' ) ? '<li class="breadcrumb-item"><a href="' . get_permalink( get_page_by_path( 'deltag' ) ). '">' . get_the_title( get_page_by_path( 'deltag') ) . '</a></li>' : '';
 
-    if (bbp_is_forum_archive()) {
+    if (bbp_is_forum_archive() || bbp_is_topic_archive()) {
       $html .= '<li class="breadcrumb-item active">' . post_type_archive_title('', false) . '</li>';
+    } elseif (bbp_is_single_forum() || bbp_is_single_topic() || bbp_is_single_reply()) {
+      $post_type = get_post_type_object('forum');
+      $post_type_link = get_post_type_archive_link('forum');
+      $html .= '<li class="breadcrumb-item"><a href="' . $post_type_link . '">' . $post_type->labels->name . '</a></li>';
+      $html .= '<li class="breadcrumb-item active">' . get_the_title() . '</li>';
     } else {
-      //$post_type = get_post_type_object('forum');
-      //$post_type_link = get_post_type_archive_link('forum');
-      //$html .= '<li class="breadcrumb-item"><a href="' . $post_type_link . '">' . $post_type->labels->name . '</a></li>';
       $html .= '<li class="breadcrumb-item active">' . get_the_title() . '</li>';
     }
   }
