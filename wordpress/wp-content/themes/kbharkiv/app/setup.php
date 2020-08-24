@@ -153,18 +153,3 @@ add_action('after_setup_theme', function () {
 add_action( 'init', function () {
   register_taxonomy_for_object_type( 'post_tag', 'page' );
 });
-
-
-/**
- * Get the directory of the bbPress template overrides
- */
-function kbharkiv_get_bbpress_template_dir() {
-    return __DIR__ . '/../bbpress/';
-}
-
-/**
- * Setup bbPress template overrides
- */
-add_action( 'bbp_register_theme_packages', function() {
-    bbp_register_template_stack( 'kbharkiv_get_bbpress_template_dir', 12 );
-});
