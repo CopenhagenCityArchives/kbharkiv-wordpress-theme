@@ -1,7 +1,7 @@
 <section class="module module-kildeviser <?php echo e(get_sub_field('modules_sdkkildeviser_spacing') ? '' : 'small-margin'); ?>">
   <?php
-    wp_enqueue_style('KildeviserSearchSDK.min.css', 'https://www.kbhkilder.dk/software/KildeviserSearchSDK/KildeviserSearchSDK.min.css');
-    wp_enqueue_script('KildeviserSearchSDK.min.js', 'https://www.kbhkilder.dk/software/KildeviserSearchSDK/KildeviserSearchSDK.min.js', [], null);
+    wp_enqueue_style('KildeviserSearchSDK.min.css', 'https://static.kbharkiv.dk/kildeviser-sdk/KildeviserSearchSDK.min.css');
+    wp_enqueue_script('KildeviserSearchSDK.min.js', 'https://static.kbharkiv.dk/kildeviser-sdk/KildeviserSearchSDK.min.js', [], null);
   ?>
   <div class="container-fluid">
     <div class="row">
