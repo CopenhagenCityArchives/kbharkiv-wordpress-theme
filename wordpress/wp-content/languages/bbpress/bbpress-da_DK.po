@@ -13,7 +13,7 @@ msgstr ""
 
 #: bbpress.php:796
 msgid "bbPress User Activity"
-msgstr ""
+msgstr "bbPress brugeraktivitet"
 
 #: includes/extend/buddypress/groups.php:442
 msgid "<strong>ERROR</strong>: Reply To is invalid."
@@ -21,7 +21,7 @@ msgstr "<strong>FEJL</strong>: Svar til er ugyldigt."
 
 #: includes/extend/buddypress/groups.php:379
 msgid "<strong>ERROR</strong>: Forum ID is invalid."
-msgstr ""
+msgstr "<strong>FEJL</strong>: Forum ID er ugyldig."
 
 #: includes/admin/settings.php:2051
 msgid "Edit slug"
@@ -29,11 +29,11 @@ msgstr "Rediger slug"
 
 #: includes/replies/functions.php:1571
 msgid "<strong>ERROR</strong>: There was a problem unapproving the reply."
-msgstr ""
+msgstr "<strong>FEJL</strong>: Der opstod et problem med at fjerne godkendelsen fra svaret."
 
 #: includes/replies/functions.php:1571
 msgid "<strong>ERROR</strong>: There was a problem approving the reply."
-msgstr ""
+msgstr "<strong>FEJL</strong>: Der opstod et problem med at godkende svaret."
 
 #: includes/admin/topics.php:738
 msgid "Topic \"%1$s\" successfully unstuck."
@@ -78,7 +78,7 @@ msgstr "Ingen"
 
 #: includes/topics/template.php:3399
 msgid "&larr; Back to Tags"
-msgstr ""
+msgstr "&larr; Tilbage til tags"
 
 #: includes/topics/template.php:3398
 msgid "Most used topic tags"
@@ -94,19 +94,19 @@ msgstr ""
 
 #: includes/topics/template.php:3395
 msgid "No topic tags"
-msgstr ""
+msgstr "Ingen emnetags"
 
 #: includes/topics/template.php:3394
 msgid "No topic tags found."
-msgstr ""
+msgstr "Ingen emnetags fundet."
 
 #: includes/topics/template.php:3393
 msgid "Choose from the most used tags"
-msgstr ""
+msgstr "Vælg iblandt de mest anvendte tags"
 
 #: includes/topics/template.php:3392
 msgid "Add or remove tags"
-msgstr ""
+msgstr "Tilføj eller fjern tags"
 
 #: includes/topics/template.php:3391
 msgid "Separate topic tags with commas"
@@ -114,11 +114,11 @@ msgstr "Adskil emne-tags med komma"
 
 #: includes/topics/template.php:3385
 msgid "Parent Tag:"
-msgstr ""
+msgstr "Forælder-tag:"
 
 #: includes/topics/template.php:3384
 msgid "Parent Tag"
-msgstr ""
+msgstr "Forælder-tag"
 
 #: includes/topics/template.php:3331
 msgid "This topic is empty."
@@ -130,7 +130,7 @@ msgstr "Dette emne har %1$s og %2$s."
 
 #: includes/topics/template.php:3315
 msgid "This topic has %1$s, %2$s, and was last updated %3$s by %4$s."
-msgstr "Dette emne har %1$s og %2$s og blev senest opdateret %3$s af %4$s."
+msgstr "Dette emne har %1$s og %2$s og blev senest opdateret for %3$s af %4$s."
 
 #: includes/topics/template.php:3059 includes/topics/template.php:3327
 msgid "This topic is pending moderation."
@@ -153,7 +153,7 @@ msgstr "Luk"
 
 #: includes/topics/template.php:77
 msgid "Topic scheduled."
-msgstr ""
+msgstr "Emne planlagt."
 
 #: includes/topics/template.php:76
 msgid "Topic reverted to draft."
@@ -1579,11 +1579,11 @@ msgstr "Fjern godkendelse fra dette emne"
 
 #: includes/admin/topics.php:761
 msgid "There was a problem unapproving the topic \"%1$s\"."
-msgstr ""
+msgstr "Der opstod et problem med at fjerne godkendelsen fra emnet \"%1$s\"."
 
 #: includes/admin/topics.php:755
 msgid "There was a problem approving the topic \"%1$s\"."
-msgstr ""
+msgstr "Der opstod et problem med at godkende emnet \"%1$s\"."
 
 #: includes/admin/topics.php:317
 msgid "Error in unspamming topic."
@@ -1862,7 +1862,7 @@ msgstr "Afventer: %s"
 
 #: includes/forums/template.php:2041
 msgid "This forum has %1$s."
-msgstr ""
+msgstr "Dette forum indeholder %1$s."
 
 #: includes/forums/template.php:2040
 msgid "This category has %1$s."
@@ -1870,7 +1870,7 @@ msgstr "Denne kategori indeholder %1$s."
 
 #: includes/forums/template.php:2022
 msgid "This forum has %1$s, %2$s, and was last updated %3$s by %4$s."
-msgstr ""
+msgstr "Dette forum har %1$s og %2$s, og blev senest opdateret for %3$s af %4$s."
 
 #: includes/forums/template.php:2021
 msgid "This category has %1$s, %2$s, and was last updated %3$s by %4$s."
@@ -1941,7 +1941,7 @@ msgstr "Vis fora"
 #: includes/replies/template.php:53 includes/forums/template.php:52
 #: includes/topics/template.php:51
 msgid "Add New"
-msgstr ""
+msgstr "Tilføj ny"
 
 #: includes/forums/functions.php:593
 msgid "<strong>ERROR</strong>: The following problem(s) have been found with your forum:"
@@ -1977,11 +1977,11 @@ msgstr "Annuller"
 
 #: includes/users/engagements.php:902
 msgid "<strong>ERROR</strong>: There was a problem subscribing."
-msgstr ""
+msgstr "<strong>FEJL</strong>: Der opstod et problem med at abonnere."
 
 #: includes/users/engagements.php:900
 msgid "<strong>ERROR</strong>: There was a problem unsubscribing."
-msgstr ""
+msgstr "<strong>FEJL</strong>: Der opstod et problem med at fjerne abonnementet."
 
 #: includes/users/engagements.php:849
 msgid "<strong>ERROR</strong>: Not found. What are you subscribing/unsubscribing to?"
@@ -3481,7 +3481,7 @@ msgstr "Dette forum er tomt."
 
 #: includes/forums/template.php:2035
 msgid "This forum has %1$s and %2$s."
-msgstr "Dette forum indeholder %1$s og %2$s."
+msgstr "Dette forum har %1$s og %2$s."
 
 #: includes/forums/template.php:2034
 msgid "This category has %1$s and %2$s."
@@ -3489,7 +3489,7 @@ msgstr "Denne kategori indeholder %1$s og %2$s."
 
 #: includes/forums/template.php:2028
 msgid "This forum has %1$s, and was last updated %2$s by %3$s."
-msgstr "Dette forum indeholder %1$s og blev sidst opdateret af %2$s %3$s."
+msgstr "Dette forum har %1$s og blev senest opdateret %2$s af %3$s."
 
 #: includes/forums/template.php:2027
 msgid "This category has %1$s, and was last updated %2$s by %3$s."
