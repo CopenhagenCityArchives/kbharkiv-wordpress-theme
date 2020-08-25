@@ -69,5 +69,10 @@ function theme_color($darkness = 0, $random = 0) {
 		}
 	}
 
+	// catch user profile pages
+	if (is_bbpress() && get_field('color_theme', 'forum_options')) {
+		return color(get_field('color_theme', 'forum_options'), $darkness);
+	}
+
 	return color('default', $darkness);
 }
