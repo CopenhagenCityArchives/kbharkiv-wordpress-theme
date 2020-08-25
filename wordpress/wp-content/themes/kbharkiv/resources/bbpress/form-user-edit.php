@@ -14,6 +14,8 @@ defined( 'ABSPATH' ) || exit;
 
 <form id="bbp-your-profile" method="post" enctype="multipart/form-data">
 
+	<input type="hidden" name="email" id="email" value="<?php bbp_displayed_user_field( 'user_email', 'edit' ); ?>" />
+
 	<?php do_action( 'bbp_user_edit_before' ); ?>
 
 	<h2 class="entry-title"><?php bbp_is_user_home_edit()
