@@ -155,7 +155,7 @@ add_action( 'init', function () {
 });
 
 add_action( 'bbp_theme_after_reply_author_details', function() {
-    $user_id = bbp_get_displayed_user_id();
+    $user_id = bbp_get_reply_author_id(bbp_get_reply_id());
     $description = get_user_meta($user_id, 'description');
     
     if ($description !== false) {
