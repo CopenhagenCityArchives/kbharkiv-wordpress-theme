@@ -58,7 +58,7 @@ function theme_color($darkness = 0, $random = 0) {
 
 	// if any ancestor color_theme exists
 	if (isset($post) && $post->post_parent) {
-		$ancestors = array_reverse( get_post_ancestors($post->ID) );
+		$ancestors = get_post_ancestors($post->ID);
 
 		foreach ( $ancestors as $ancestor_id ) {
 			if (get_field('color_theme', $parent_id)) {
