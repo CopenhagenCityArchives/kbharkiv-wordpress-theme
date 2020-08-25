@@ -156,7 +156,7 @@ add_action( 'init', function () {
 
 add_action( 'bbp_theme_after_reply_author_details', function() {
     $user_id = bbp_get_reply_author_id(bbp_get_reply_id());
-    $description = get_user_meta($user_id, 'description');
+    $description = get_user_meta($user_id, 'description', true);
     
     if ($description !== false) {
         echo "<p>" . $description . "</p>";
