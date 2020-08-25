@@ -64,6 +64,10 @@ function theme_color($darkness = 0, $random = 0) {
 
 		if (get_field('color_theme', $parent_id)) {
 			return color(get_field('color_theme', $parent_id), $darkness);
+		}
+		elseif (get_field('color_theme', get_post_type( $parent_id ) . '_options')) {
+			// fix for forum topics
+			return color(get_field('color_theme', get_post_type( $parent_id ) . '_options'), $darkness);
 		} else {
 			return color('default', $darkness);
 		}
