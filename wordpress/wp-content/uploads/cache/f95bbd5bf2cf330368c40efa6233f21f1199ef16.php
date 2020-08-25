@@ -4,7 +4,7 @@
       <div class="col-lg-7">
         <?php $category = get_the_term_list( get_the_ID(), 'event_category', '', ', ', '' ) ?>
         <?php if($category): ?>
-          <h6><?php echo $category; ?></h6>
+          <h4><?php echo $category; ?></h4>
         <?php endif; ?>
 
         <h1 id="headline"><?php echo App::title(); ?></h1>
