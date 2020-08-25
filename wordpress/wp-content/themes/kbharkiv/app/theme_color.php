@@ -61,10 +61,10 @@ function theme_color($darkness = 0, $random = 0) {
 		$ancestors = get_post_ancestors($post->ID);
 
 		foreach ( $ancestors as $ancestor_id ) {
-			if (get_field('color_theme', $parent_id)) {
-				return color(get_field('color_theme', $parent_id), $darkness);
-			} elseif (get_field('color_theme', get_post_type( $parent_id ) . '_options')) {
-				return color(get_field('color_theme', get_post_type( $parent_id ) . '_options'), $darkness);
+			if (get_field('color_theme', $ancestor_id)) {
+				return color(get_field('color_theme', $ancestor_id), $darkness);
+			} elseif (get_field('color_theme', get_post_type( $ancestor_id ) . '_options')) {
+				return color(get_field('color_theme', get_post_type( $ancestor_id ) . '_options'), $darkness);
 			}
 		}
 	}
