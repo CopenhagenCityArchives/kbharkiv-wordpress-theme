@@ -153,3 +153,12 @@ add_action('after_setup_theme', function () {
 add_action( 'init', function () {
   register_taxonomy_for_object_type( 'post_tag', 'page' );
 });
+
+add_action( 'bbp_theme_after_reply_author_details', function() {
+    $user_id = bbp_get_displayed_user_id();
+    $description = get_user_meta($user_id, 'description');
+    
+    if ($description !== false) {
+        echo "<p>" . $description . "</p>";
+    }
+});
