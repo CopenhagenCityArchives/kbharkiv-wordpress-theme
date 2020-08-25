@@ -28,7 +28,7 @@ function theme_color($darkness = 0, $random = 0) {
 
 	global $post;
 
-	if($random) {
+	if ($random) {
 		return color('random', $darkness);
 	}
 
@@ -36,26 +36,28 @@ function theme_color($darkness = 0, $random = 0) {
 	if (is_front_page()) {
 		return color('white', $darkness);
 	}
-	elseif (is_search() || is_404()) {
+
+	if (is_search() || is_404()) {
 		return color('default', $darkness);
 	}
-	elseif (is_tag()) {
+
+	if (is_tag()) {
 		return color('default', $darkness);
 	}
+
 	// if cpt archive or post archive or single post
-	elseif (is_post_type_archive() || is_home() || is_single()) {
+	if (is_post_type_archive() || is_home() || is_single()) {
 		if (get_field('color_theme', get_post_type() . '_options')) {
 			return color(get_field('color_theme', get_post_type() . '_options'), $darkness);
-		} else {
-			return color('default', $darkness);
 		}
 	}
-	//return get_field('color_theme');
-	elseif (isset($post) && get_field('color_theme', $post->ID)) {
+
+	if (isset($post) && get_field('color_theme', $post->ID)) {
 		return color(get_field('color_theme', $post->ID), $darkness);
 	}
-	// if top level parent color_theme exists
-	elseif (isset($post) && $post->post_parent) {
+
+	// if any ancestor color_theme exists
+	if (isset($post) && $post->post_parent) {
 		$ancestors = array_reverse( get_post_ancestors($post->ID) );
 
 		foreach ( $ancestors as $ancestor_id ) {
@@ -65,10 +67,7 @@ function theme_color($darkness = 0, $random = 0) {
 				return color(get_field('color_theme', get_post_type( $parent_id ) . '_options'), $darkness);
 			}
 		}
-
-		return color('default', $darkness);
-	// else default color theme
-	} else {
-		return color('default', $darkness);
 	}
+
+	return color('default', $darkness);
 }
