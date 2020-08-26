@@ -172,6 +172,9 @@ add_action( 'bbp_theme_after_reply_author_details', function() {
 add_action( 'auth0_user_login', function() {
     $user_id = get_current_user_id();
     $auth0_data = get_user_meta( $user_id, 'wp_auth0_obj', false );
-    $nickname = $auth0_data['nickname'];
-    wp_update_user( array( 'ID' => $user_id, 'display_name' => $nickname) );
+    
+    if ($auth0_data) {
+        $nickname = $auth0_data['nickname'];
+        wp_update_user( array( 'ID' => $user_id, 'display_name' => $nickname) );
+    }
 });
