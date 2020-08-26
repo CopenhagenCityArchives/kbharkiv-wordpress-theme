@@ -154,6 +154,9 @@ add_action( 'init', function () {
   register_taxonomy_for_object_type( 'post_tag', 'page' );
 });
 
+/**
+ * Add biography/description field to bbPress reply author details
+ */
 add_action( 'bbp_theme_after_reply_author_details', function() {
     $user_id = bbp_get_reply_author_id(bbp_get_reply_id());
     $description = get_user_meta($user_id, 'description', true);
@@ -161,4 +164,14 @@ add_action( 'bbp_theme_after_reply_author_details', function() {
     if ($description !== false) {
         echo "<p>" . $description . "</p>";
     }
+});
+
+/**
+ * Update display name with auth0 nickname
+ */
+add_action( 'auth0_user_login', function() {
+    $user_id = get_current_user_id();
+    $auth0_data = get_user_meta( $user_id, 'wp_auth0_obj', false );
+    $nickname = $auth0_data['nickname'];
+    wp_update_user( array( 'ID' => $user_id, 'display_name' => $nickname) );
 });
