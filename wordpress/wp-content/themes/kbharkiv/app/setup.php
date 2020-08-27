@@ -169,12 +169,10 @@ add_action( 'bbp_theme_after_reply_author_details', function() {
 /**
  * Update display name with auth0 nickname
  */
-add_action( 'auth0_user_login', function() {
-    $user_id = get_current_user_id();
-    $auth0_data = get_user_meta( $user_id, 'wp_auth0_obj', false );
+add_action( 'auth0_user_login', function($user_id, $userinfo = null, $is_new = null, $id_token = null, $access_token = null, $refresh_token = null) {
+    $auth0_data = get_auth0userinfo( $user_id );
     
-    if ($auth0_data) {
-        $nickname = $auth0_data['nickname'];
-        wp_update_user( array( 'ID' => $user_id, 'display_name' => $nickname) );
+    if ( $auth0_data ) {
+        wp_update_user( array( 'ID' => $user_id, 'display_name' => $auth0_data->nickname) );
     }
 });
