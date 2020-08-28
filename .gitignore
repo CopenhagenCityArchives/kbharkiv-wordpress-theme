@@ -3,7 +3,7 @@
 # * wordpress/wp-content/themes/kbharkiv
 # * wordpress/wp-content/languages
 
-!wordpress/wp-content/languages
+/wordpress/wp-content/themes/kbharkiv/dist
 
 /wordpress/wp-content/plugins
 
@@ -15,3 +15,5 @@
 /wordpress/wp-content/themes/yarn-error.log
 
 .DS_Store
+.env
+mysql
