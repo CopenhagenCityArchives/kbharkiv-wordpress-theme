@@ -4,4 +4,3 @@
 !wordpress/wp-content/plugins/**
 !wordpress/wp-content/languages/**
 wordpress/wp-content/themes/kbharkiv/node_modules
-!.env
