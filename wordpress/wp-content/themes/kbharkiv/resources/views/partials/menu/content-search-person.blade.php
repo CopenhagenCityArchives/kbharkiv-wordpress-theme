@@ -18,7 +18,13 @@
   </form>
   @if ($field['search_person_group_link'])
     <div class="d-block mt-4">
-      <a class="search-focusable" tabindex="-1" href="{{ $field['search_person_group_link']['url'] }}" target="{{ $field['search_person_group_link']['target'] ? $field['search_person_group_link']['target'] : '_self' }}">@include('partials.icon', ['icon' => 'arrow-right-circle']) {{ $field['search_person_group_link']['title'] }}</a>
+      <a class="search-focusable" tabindex="-1" href="{{ $field['search_person_group_link']['url'] }}" target="{{ $field['search_person_group_link']['target'] ? $field['search_person_group_link']['target'] : '_self' }}">
+        @include('partials.icon', ['icon' => 'arrow-right-circle', 'label' => 'Link ikon'])
+        {{ $field['search_person_group_link']['title'] }}
+        @if ($field['search_person_group_link']['target'] == '_blank')
+          <span class="sr-only"> (Åbner i nyt vindue og fører til anden hjemmeside)</span>
+        @endif
+      </a>
     </div>
   @endif
 

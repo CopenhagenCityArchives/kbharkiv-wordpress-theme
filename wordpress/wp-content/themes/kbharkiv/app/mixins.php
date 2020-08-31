@@ -91,9 +91,9 @@ function block_links( $block ) {
 						$link_title = $link['title'];
 						$link_target = $link['target'] ? $link['target'] : '_self';
 						$sr_only = $link_target == '_blank' ? '<span class="sr-only"> (Åbner i nyt vindue og fører til anden hjemmeside)</span>' : '';
-						echo '<a href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '"><svg class="icon"><use xlink:href="' . App\asset_path('images/feather-sprite.svg') . '#arrow-right-circle"/></svg>' . esc_html( $link_title ) . $sr_only . '</a>';
+						echo '<a href="' . esc_url( $link_url ) . '" target="' . esc_attr( $link_target ) . '"><svg class="icon" role="img" aria-label="Pil til højre ikon"><use xlink:href="' . App\asset_path('images/feather-sprite.svg') . '#arrow-right-circle"/></svg>' . esc_html( $link_title ) . $sr_only . '</a>';
 					elseif( get_sub_field('block_links_type') == 'download') :
-						echo '<a href="' . get_sub_field('block_links_type_download')['url'] . '" download><svg class="icon"><use xlink:href="' . App\asset_path('images/feather-sprite.svg') . '#download"/></svg>' . get_sub_field('block_links_type_title')  . '<span class="sr-only"> (Filen downloades)</span></a>';
+						echo '<a href="' . get_sub_field('block_links_type_download')['url'] . '" download><svg class="icon" role="img" aria-label="Download ikon"><use xlink:href="' . App\asset_path('images/feather-sprite.svg') . '#download"/></svg>' . get_sub_field('block_links_type_title')  . '<span class="sr-only"> (Filen downloades)</span></a>';
 					endif;
 
 				echo '</li>';

@@ -28,15 +28,15 @@
             <div class="p-4 p-lg-0">
               <div class="my-5">
                 <a class="btn-icon btn btn-outline-white mr-2" href="#gallery-{{get_row_index()}}" role="button" data-slide="prev">
-                  @include('partials.icon', ['icon' => 'arrow-left'])
+                  @include('partials.icon', ['icon' => 'arrow-left', 'label' => 'Pil til venstre ikon'])
                   <span class="sr-only">Forrige</span>
                 </a>
                 <a class="btn-icon btn btn-outline-white mr-2" href="#gallery-{{get_row_index()}}" role="button" data-slide="next">
-                  @include('partials.icon', ['icon' => 'arrow-right'])
+                  @include('partials.icon', ['icon' => 'arrow-right', 'label' => 'Pil til højre ikon'])
                   <span class="sr-only">Næste</span>
                 </a>
                 <button class="btn-icon btn btn-outline-white float-right" type="button" data-toggle="modal" data-target="#gallery-modal-{{get_row_index()}}">
-                  @include('partials.icon', ['icon' => 'maximize-2'])
+                  @include('partials.icon', ['icon' => 'maximize-2', 'label' => 'Forstør ikon'])
                   <span class="sr-only">Åbn forstørret galleri</span>
                 </button>
               </div>
@@ -80,15 +80,15 @@
             <div class="col-lg-3">
               <div class="my-5">
                 <a class="btn-icon btn btn-outline-white mr-2" href="#gallery-modal-gallery-{{get_row_index()}}" role="button" data-slide="prev">
-                  @include('partials.icon', ['icon' => 'arrow-left'])
+                  @include('partials.icon', ['icon' => 'arrow-left', 'label' => 'Pil til venstre ikon'])
                   <span class="sr-only">Forrige</span>
                 </a>
                 <a class="btn-icon btn btn-outline-white mr-2" href="#gallery-modal-gallery-{{get_row_index()}}" role="button" data-slide="next">
-                  @include('partials.icon', ['icon' => 'arrow-right'])
+                  @include('partials.icon', ['icon' => 'arrow-right', 'label' => 'Pil til højre ikon'])
                   <span class="sr-only">Næste</span>
                 </a>
                 <button class="btn-icon btn btn-outline-white float-right" type="button" data-dismiss="modal" aria-label="Luk">
-                  @include('partials.icon', ['icon' => 'x'])
+                  @include('partials.icon', ['icon' => 'x', 'label' => 'Luk ikon'])
                   <span class="sr-only">Luk forstørret galleri</span>
                 </button>
               </div>

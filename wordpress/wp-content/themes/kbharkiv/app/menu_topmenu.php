@@ -211,7 +211,7 @@ add_filter('wp_nav_menu_items', function( $items, $args ) {
 
 		$right_menu = $profile .
 									'<li class="search parent" data-level="1" data-color="' . color(get_field('color_theme', 'option'), 0) . '">' .
-										'<a class="d-flex align-items-center sub-menu-btn" href="#">Søg<svg class="icon"><use xlink:href="' . App\asset_path('images/feather-sprite.svg') . '#search"/></svg></a>' .
+										'<a class="d-flex align-items-center sub-menu-btn" href="#">Søg<svg class="icon" role="img" aria-label="Søg ikon"><use xlink:href="' . App\asset_path('images/feather-sprite.svg') . '#search"/></svg></a>' .
 										'<ul class="sub-menu" data-level="1">' .
 											'<li class="nav-back d-lg-none"><a tabindex="0" href="#">Tilbage</a></li>' .
 											$search .

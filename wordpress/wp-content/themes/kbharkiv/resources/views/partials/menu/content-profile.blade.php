@@ -1,6 +1,6 @@
 @if (is_user_logged_in())
   <li class="profile ml-auto parent" data-level="1" data-color="{{ color(get_field('color_theme', 'option'), 0) }}">
-    <a class="d-flex align-items-center sub-menu-btn" href="#">Profil @include("partials.icon", ["icon" => "user"])</a>
+    <a class="d-flex align-items-center sub-menu-btn" href="#">Profil @include('partials.icon', ['icon' => 'user', 'label' => 'Profil ikon'])</a>
     <ul class="sub-menu" data-level="1">
       <li class="nav-back d-lg-none"><a tabindex="-1" href="#">Tilbage</a></li>
       <li><a href="{{ get_field('my_page', 'option')['url'] }}" tabindex="-1">Min side</a></li>
@@ -10,6 +10,6 @@
   </li>
 @else
   <li class="profile ml-auto">
-    <a class="d-flex align-items-center" href="{{ get_field('login_page', 'option')['url'] }}">Log ind @include("partials.icon", ["icon" => "lock"])</a>
+    <a class="d-flex align-items-center" href="{{ get_field('login_page', 'option')['url'] }}">Log ind @include("partials.icon", ['icon' => 'lock', 'label' => 'Log ind ikon'])</a>
   </li>
 @endif

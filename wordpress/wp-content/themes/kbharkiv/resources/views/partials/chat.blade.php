@@ -1,5 +1,5 @@
 <button class="btn btn-primary chat-btn fixed" type="button" name="button" aria-label="Åbn chat">
-  @include("partials.icon", ["icon" => "message-square"])
+  @include("partials.icon", ["icon" => "message-square", "label" => "Besked ikon"])
 </button>
 
 <div class="chat-holder"></div>

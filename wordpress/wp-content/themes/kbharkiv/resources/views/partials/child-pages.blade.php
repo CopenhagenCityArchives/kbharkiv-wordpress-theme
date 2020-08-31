@@ -32,7 +32,7 @@
                   @endif
                   <h3 class="mb-2">
                     <span class="mr-2">{{$link['title']}}</span>
-                    @include('partials.icon', ['icon' => 'arrow-right-circle'])
+                    @include('partials.icon', ['icon' => 'arrow-right-circle', 'label' => 'Pil til højre ikon'])
                   </h3>
                   <div>{{ $text ? $text : '' }}</div>
                 </a>
