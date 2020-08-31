@@ -33,11 +33,11 @@
 
               <div class="form-group">
                 <label for="subscribe_email">E-mail</label>
-                <input type="email" class="form-control" name="email_address" id="subscribe_email" placeholder="Din e-mail">
+                <input type="email" autocomplete="email" class="form-control" name="email_address" id="subscribe_email" placeholder="Indtast e-mail">
               </div>
               <div class="form-group">
                 <label for="subscribe_name">Navn</label>
-                <input type="text" class="form-control" name="data_Fulde Navn" id="subscribe_name" placeholder="Dit navn">
+                <input type="text" autocomplete="name" class="form-control" name="data_Fulde Navn" id="subscribe_name" placeholder="Indtast navn">
               </div>
               <button type="submit" class="btn btn-primary">Tilmeld</button>
             </form>
@@ -64,7 +64,7 @@
 
             <div class="form-group">
               <label for="unsubscribe_email">E-mail</label>
-              <input type="email" class="form-control" name="email_address" id="unsubscribe_email" placeholder="Din e-mail">
+              <input type="email" autocomplete="email" class="form-control" name="email_address" id="unsubscribe_email" placeholder="Indtast e-mail">
             </div>
             <button type="submit" class="btn btn-primary">Afmeld</button>
           </form>

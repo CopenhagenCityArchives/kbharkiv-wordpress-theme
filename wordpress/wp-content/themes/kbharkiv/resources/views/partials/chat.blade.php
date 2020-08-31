@@ -11,7 +11,7 @@
     @endif
     <div class="form-group">
       <label for="chat-name">Navn</label>
-      <input class="form-control" type="text" name="navn" id="chat-name" placeholder="Indtast navn" maxlength="100">
+      <input autocomplete="name" class="form-control" type="text" name="navn" id="chat-name" placeholder="Indtast navn" maxlength="100">
     </div>
     <div class="form-group">
       <label for="chat-spm">Spørgsmål</label>
