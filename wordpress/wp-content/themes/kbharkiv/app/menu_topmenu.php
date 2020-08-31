@@ -40,11 +40,13 @@ class Kbharkiv_Walker_Nav_Menu extends Walker_Nav_Menu {
  		$color = '';
  		$color_logo = '';
  		$tabindex = $item->menu_item_parent ? ' tabindex="-1"' : '';
+		$aria = '';
 
  		if ( in_array( 'menu-item-has-children', $classes ) ) {
  			$new_classes[] = 'parent';
  			$level = ' data-level="' . ($depth + 1) . '"';
- 			$icon_mobile = '<a class="sub-menu-btn d-lg-none" href="#" role="button" aria-haspopup="true" aria-expanded="false" ' . $tabindex . '><span class="sr-only">Se undersider</span><svg class="icon arrow"><use xlink:href="' . App\asset_path('images/feather-sprite.svg') . '#chevron-right"/></svg></a>';
+			$aria = ' aria-haspopup="true" aria-expanded="false"';
+ 			$icon_mobile = '<a class="sub-menu-btn d-lg-none" href="#" role="button"' . $tabindex . $aria . '><span class="sr-only">Se undersider</span><svg class="icon arrow"><use xlink:href="' . App\asset_path('images/feather-sprite.svg') . '#chevron-right"/></svg></a>';
  			$icon_desktop = $depth == 0 ? '<svg class="icon arrow d-none d-lg-inline-block"><use xlink:href="' . App\asset_path('images/feather-sprite.svg') . '#chevron-right"/></svg>' : '';
  			$post_id = get_post_meta( $item->ID, '_menu_item_object_id', true );
 
@@ -85,6 +87,7 @@ class Kbharkiv_Walker_Nav_Menu extends Walker_Nav_Menu {
  		$atts['target'] = ! empty( $item->target )     ? $item->target     : '';
  		$atts['rel']    = ! empty( $item->xfn )        ? $item->xfn        : '';
  		$atts['href']   = ! empty( $item->url )        ? $item->url        : '';
+		$atts['title']  = ! empty( $item->attr_title ) ? $item->attr_title : '';
  		$atts['class']  = 'direct-btn';
 
  		/**
@@ -115,6 +118,7 @@ class Kbharkiv_Walker_Nav_Menu extends Walker_Nav_Menu {
  		}
 
  		$attributes .= $tabindex;
+		$attributes .= $aria;
 
  		$item_output = $args->before;
  		$item_output .= '<a'. $attributes . '>';
