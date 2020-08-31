@@ -24,6 +24,9 @@
               <div class="text">
                 <h4>{{ esc_html( $link_title ) }}</h4>
                 {{ get_sub_field('modules_shortcuts_repeater_copy') }}
+                @if ($link['target'] = '_blank')
+                  <span class="sr-only"> (Åbner i nyt vindue og fører til anden hjemmeside)<span>
+                @endif
               </div>
             </a>
           @endwhile

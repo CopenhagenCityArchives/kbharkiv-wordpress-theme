@@ -11,9 +11,14 @@
             <li>
               @if( get_sub_field('modules_links_links_type') == 'link' )
                 @php $link = get_sub_field('modules_links_links_type_link') @endphp
-                <a href="{{ $link['url'] }}" target="{{ $link['target'] ? $link['target'] : '_self' }}">@include('partials.icon', ['icon' => 'arrow-right-circle']) {{$link['title']}}</a>
+                <a href="{{ $link['url'] }}" target="{{ $link['target'] ? $link['target'] : '_self' }}">
+                  @include('partials.icon', ['icon' => 'arrow-right-circle']) {{$link['title']}}
+                  @if ($link['target'] == '_blank')
+                    <span class="sr-only"> (Åbner i nyt vindue og fører til anden hjemmeside)</span>
+                  @endif
+                </a>
               @elseif( get_sub_field('modules_links_links_type') == 'download')
-                <a href="{{ get_sub_field('modules_links_links_type_download')['url'] }}" download>@include('partials.icon', ['icon' => 'download']) {{ get_sub_field('modules_links_links_type_title') }}</a>
+                <a href="{{ get_sub_field('modules_links_links_type_download')['url'] }}" download>@include('partials.icon', ['icon' => 'download']) {{ get_sub_field('modules_links_links_type_title') }}<span class="sr-only"> (Fil downloades)</span></a>
               @endif
             </li>
           @endwhile

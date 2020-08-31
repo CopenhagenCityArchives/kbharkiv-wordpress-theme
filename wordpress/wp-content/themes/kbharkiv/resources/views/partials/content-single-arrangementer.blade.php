@@ -65,7 +65,7 @@
         <div class="h4">{{ get_field('event_price') ? get_field('event_price') . ' kr.': 'Gratis'}}</div>
 
         @if( get_field('event_link') )
-          <a class="btn btn-primary btn-lg" href="{{ get_field('event_link') }}" role="button" target="_blank">{{ get_field('event_price') || get_field('event_price') > 1 ? 'Køb billet' : 'Tilmeld'}}</a>
+          <a class="btn btn-primary btn-lg" href="{{ get_field('event_link') }}" role="button" target="_blank">{{ get_field('event_price') || get_field('event_price') > 1 ? 'Køb billet' : 'Tilmeld'}}<span class="sr-only"> (Åbner i nyt vindue og fører til anden hjemmeside)</span></a>
         @endif
       </div>
     </div>
