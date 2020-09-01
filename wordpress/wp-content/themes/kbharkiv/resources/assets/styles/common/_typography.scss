@@ -1,3 +1,5 @@
+/* stylelint-disable no-descending-specificity, declaration-no-important */
+
 h1,
 .h1 {
   font-weight: 800;
@@ -10,18 +12,14 @@ h1,
 h6,
 .h6 {
   text-transform: uppercase;
-  opacity: 0.48;
+  color: mix(white, $blue, 43%);
   font-weight: 500;
   font-size: 0.75rem;
   letter-spacing: 0.5px;
-}
 
-* {
-  hyphens: auto;
-  hyphenate-limit-chars: 6 3 3;
-  hyphenate-limit-lines: 2;
-  hyphenate-limit-last: always;
-  hyphenate-limit-zone: 8%;
+  a {
+    color: mix(white, $blue, 43%);
+  }
 }
 
 p {
@@ -35,6 +33,14 @@ p {
       text-decoration: none;
     }
   }
+}
+
+*:not(.brand div) {
+  hyphens: auto;
+  hyphenate-limit-chars: 6 3 3;
+  hyphenate-limit-lines: 2;
+  hyphenate-limit-last: always;
+  hyphenate-limit-zone: 8%;
 }
 
 dt,

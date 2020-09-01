@@ -39,9 +39,14 @@
       margin-bottom: 2.5rem;
     }
 
-    .h6,
     .btn {
       margin-top: 1.5rem;
+    }
+
+    .h6 {
+      margin-top: 1.5rem;
+      color: $white;
+      opacity: 0.72;
     }
   }
 }

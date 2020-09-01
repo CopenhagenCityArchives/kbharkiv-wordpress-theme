@@ -68,3 +68,14 @@ main :target::before {
   height: 7rem;
   margin-top: -7rem;
 }
+
+// Yellow theme custom accessibility
+[class*="665E4F"] {
+  .breadcrumb .breadcrumb-item.active {
+    color: rgba(255, 255, 255, 0.78);
+  }
+
+  .single-arrangementer .event-info .h6 {
+    opacity: 0.78;
+  }
+}

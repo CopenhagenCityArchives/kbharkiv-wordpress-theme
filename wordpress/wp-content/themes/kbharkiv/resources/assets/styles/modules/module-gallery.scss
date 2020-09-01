@@ -55,6 +55,10 @@
     &.active {
       display: block;
     }
+
+    h6 {
+      color: mix(white, $blue, 48%);
+    }
   }
 }
 

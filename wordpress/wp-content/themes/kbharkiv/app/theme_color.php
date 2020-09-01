@@ -2,7 +2,7 @@
 
 function color($color, $darkness) {
 	$colors = [
-		'yellow' => ['#FFEECC', '#817764'],
+		'yellow' => ['#FFEECC', '#665E4F'/*'#817764'*/],
 		'green' => ['#DBEDD7', '#3F5B58'],
 		'purple' => ['#DACBD8', '#685966'],
 		'blue' => ['#C9E4F2', '#04436E'],
