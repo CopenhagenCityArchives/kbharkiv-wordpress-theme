@@ -1,7 +1,6 @@
 h1,
 .h1 {
   font-weight: 800;
-  hyphens: auto;
 
   @include media-breakpoint-down(sm) {
     font-size: 2rem;
@@ -15,6 +14,14 @@ h6,
   font-weight: 500;
   font-size: 0.75rem;
   letter-spacing: 0.5px;
+}
+
+* {
+  hyphens: auto;
+  hyphenate-limit-chars: 6 3 3;
+  hyphenate-limit-lines: 2;
+  hyphenate-limit-last: always;
+  hyphenate-limit-zone: 8%;
 }
 
 p {
