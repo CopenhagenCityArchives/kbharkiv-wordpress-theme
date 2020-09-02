@@ -39,4 +39,5 @@ services:
         volumes:
             - "./wordpress/wp-content/themes/kbharkiv/app:/var/www/html/wp-content/themes/kbharkiv/app"
             - "./wordpress/wp-content/themes/kbharkiv/config:/var/www/html/wp-content/themes/kbharkiv/config"
+            - "./wordpress/wp-content/themes/kbharkiv/dist:/var/www/html/wp-content/themes/kbharkiv/dist"
             - "./wordpress/wp-content/themes/kbharkiv/resources:/var/www/html/wp-content/themes/kbharkiv/resources"
