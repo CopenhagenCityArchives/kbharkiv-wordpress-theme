@@ -21,7 +21,8 @@ deploy:
     script: bash ${TRAVIS_BUILD_DIR}/trigger-deploy.sh master $TRAVIS_TOKEN
     skip_cleanup: true
     on:
-      branch: master
+      all_branches: true
+      condition: $TRAVIS_BRANCH =~ ^(feature-docker|master)$
   - provider: s3
     access_key_id: ${S3_AWS_ACCESS_KEY}
     secret_access_key: ${S3_AWS_SECRET_ACCESS_KEY}
@@ -31,7 +32,8 @@ deploy:
     region: eu-west-1
     on:
       repo: CopenhagenCityArchives/kbharkiv-wordpress-theme
-      branch: master
+      all_branches: true
+      condition: $TRAVIS_BRANCH =~ ^(feature-docker|master)$
     cleanup: false
     edge: true
 
