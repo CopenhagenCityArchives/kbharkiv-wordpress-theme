@@ -2,6 +2,70 @@
   overflow: visible;
   font-size: 0.875rem;
 
+  .bbp-forums {
+    .bbp-forum-voice-count,
+    .bbp-forum-reply-count,
+    .bbp-forum-topic-count {
+      font-size: 0.75rem;
+      text-align: center;
+      width: 10%;
+    }
+
+    .bbp-forum-freshness {
+      font-size: 0.75rem;
+      text-align: center;
+      width: 22%;
+    }
+
+    .bbp-forum-author {
+      text-align: left;
+    }
+  }
+
+  .bbp-topics {
+    .bbp-topic-voice-count,
+    .bbp-topic-reply-count,
+    .bbp-topic-topic-count {
+      font-size: 0.75rem;
+      text-align: center;
+      width: 10%;
+    }
+
+    .bbp-topic-freshness {
+      font-size: 0.75rem;
+      text-align: center;
+      width: 22%;
+    }
+
+    .bbp-topic-author {
+      text-align: left;
+    }
+  }
+
+  .bbp-forums,
+  .bbp-topics,
+  .bbp-replies {
+    border: none;
+
+    .bbp-header {
+      padding: 0.5rem 1rem;
+      text-align: left;
+      border: none;
+      background: #eaeaea;
+    }
+
+    .bbp-body {
+      td,
+      th {
+        padding: 0.7rem;
+      }
+    }
+
+    .bbp-footer {
+      display: none;
+    }
+  }
+
   .bbp-user-page &,
   .bbp-user-edit & {
     overflow: hidden;
@@ -43,52 +107,20 @@
     }
   }
 
-  ul.bbp-forums,
-  ul.bbp-topics,
-  ul.bbp-replies {
-    border: none;
-
-    li.bbp-header {
-      padding: 0.5rem 1rem;
-      text-align: left;
-      border: none;
-      background: #eaeaea;
-
-      div.bbp-forum-author,
-      div.bbp-reply-author,
-      div.bbp-topic-author {
-        text-align: left;
-      }
-    }
-
-    li.bbp-body {
-      ul li {
-        padding: 0.5rem;
-      }
-    }
-
-    li.bbp-footer {
-      display: none;
-    }
-
-    li.bbp-forum-freshness,
-    li.bbp-forum-reply-count,
-    li.bbp-forum-topic-count {
-      font-size: 0.75rem;
-    }
-  }
-
   div.even,
-  ul.even {
+  ul.even,
+  tr.even {
     background-color: #fff;
   }
 
   div.odd,
-  ul.odd {
+  ul.odd,
+  tr.odd {
     background-color: rgba($cyan-light, 0.16);
   }
 
   .bbp-reply-header {
+    background-color: #f4f4f4;
     padding: 0.5rem 1rem;
   }
 
