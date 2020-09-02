@@ -12,7 +12,6 @@ RUN echo "short_open_tag = Off" > $PHP_INI_DIR/conf.d/short_open_tag.ini
 RUN echo "upload_max_filesize = 128M\npost_max_size = 128M\nmax_execution_time = 120\nmemory_limit=128M" > $PHP_INI_DIR/conf.d/max_upload_size.ini
 RUN mkdir /var/www/html/wp-admin || true && chown -R www-data:www-data /var/www/html/wp-admin && chmod -R 0755 /var/www/html/wp-admin
 RUN mkdir -p /var/www/html/wp-content/themes/kbharkiv
-COPY wordpress/wp-content/themes/kbharkiv/dist /var/www/html/wp-content/themes/kbharkiv/dist
 COPY wordpress/wp-content/plugins /var/www/html/wp-content/plugins
 COPY wordpress/wp-content/languages /var/www/html/wp-content/languages
 RUN chown -R www-data:www-data /var/www/html/wp-content && chmod -R 0755 /var/www/html/wp-content
