@@ -38,8 +38,8 @@ script:
 
 deploy:
   - provider: elasticbeanstalk
-    access_key_id: ${EB_AWS_ACCESS_KEY_ID}
-    secret_access_key: ${EB_AWS_SECRET_ACCESS_KEY}
+    access_key_id: ${AWS_ACCESS_KEY_ID}
+    secret_access_key: ${AWS_SECRET_ACCESS_KEY}
     region: eu-west-1
     app: kbharkiv-cms
     env: kbharkiv-cms-dev
