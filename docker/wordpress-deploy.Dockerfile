@@ -2,6 +2,7 @@ FROM wordpress:5.5.0-php7.3-apache
 
 # Copy theme build to temporary directory
 COPY wordpress/wp-content/themes/kbharkiv /usr/src/wordpress/wp-content/themes/kbharkiv
+COPY wordpress/wp-content/languages /usr/src/wordpress/wp-content/languages
 
 # Ownership and permissions on theme directory
 RUN chown -R www-data:www-data /usr/src/wordpress/wp-content && chmod -R 0755 /usr/src/wordpress/wp-content

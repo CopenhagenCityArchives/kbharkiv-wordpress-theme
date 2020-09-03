@@ -64,4 +64,3 @@ services:
             - "80:80"
         volumes:
             - "./wordpress/wp-content/plugins:/var/www/html/wp-content/plugins"
-            - "./wordpress/wp-content/languages:/var/www/html/wp-content/languages"
