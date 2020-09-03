@@ -11,8 +11,16 @@
     ],
     "Volumes": [
       {
-        "HostDirectory": "/wp-content/wp-content-dev",
-        "ContainerDirectory": "/var/www/html/wp-content"
-      }
+        "HostDirectory": "/wp-content/wp-content-dev/plugins",
+        "ContainerDirectory": "/var/www/html/wp-content/plugins"
+      },
+      {
+        "HostDirectory": "/wp-content/wp-content-dev/uploads",
+        "ContainerDirectory": "/var/www/html/wp-content/uploads"
+      },
+      {
+        "HostDirectory": "/wp-content/wp-content-dev/upgrade",
+        "ContainerDirectory": "/var/www/html/wp-content/upgrade"
+      }    
     ]
 }
