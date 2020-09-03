@@ -35,9 +35,33 @@ services:
                 define( 'WP_SITEURL', 'http://localhost' );
                 define( 'WP_CACHE', false );
         ports:
-            - "80:80"
+            - "8000:80"
         volumes:
             - "./wordpress/wp-content/themes/kbharkiv/app:/var/www/html/wp-content/themes/kbharkiv/app"
             - "./wordpress/wp-content/themes/kbharkiv/config:/var/www/html/wp-content/themes/kbharkiv/config"
             - "./wordpress/wp-content/themes/kbharkiv/dist:/var/www/html/wp-content/themes/kbharkiv/dist"
             - "./wordpress/wp-content/themes/kbharkiv/resources:/var/www/html/wp-content/themes/kbharkiv/resources"
+
+    wordpress-dpl:
+        container_name: wordpress-dpl
+        depends_on:
+            - db
+        build:
+            context: .
+            dockerfile: docker/wordpress-deploy.Dockerfile
+        environment: 
+            WORDPRESS_DB_HOST: db
+            WORDPRESS_DB_USER: ${MYSQL_USER}
+            WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
+            WORDPRESS_DB_NAME: ${MYSQL_DATABASE}
+            WORDPRESS_TABLE_PREFIX: wp_
+            WORDPRESS_CONFIG_EXTRA: |
+                define( 'URL', 'http://localhost' );
+                define( 'WP_HOME', 'http://localhost' );
+                define( 'WP_SITEURL', 'http://localhost' );
+                define( 'WP_CACHE', false );
+        ports:
+            - "80:80"
+        volumes:
+            - "./wordpress/wp-content/plugins:/var/www/html/wp-content/plugins"
+            - "./wordpress/wp-content/languages:/var/www/html/wp-content/languages"
