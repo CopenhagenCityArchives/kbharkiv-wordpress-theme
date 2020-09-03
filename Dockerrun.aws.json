@@ -12,7 +12,7 @@
     "Volumes": [
       {
         "HostDirectory": "/wp-content/wp-content-dev",
-        "ContainerDirectory": "/var/www/html/wp-content/wp-content-dev"
+        "ContainerDirectory": "/var/www/html/wp-content"
       }
     ]
 }
