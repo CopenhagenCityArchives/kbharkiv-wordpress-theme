@@ -1,3 +1,6 @@
+os: linux
+dist: xenial
+
 language: php
 
 php:
@@ -6,20 +9,32 @@ php:
 services:
   - docker
 
-install:
-  - cd ./wordpress/wp-content/themes/kbharkiv
-  - yarn install
-  - yarn build:production
-  - composer install --ignore-platform-reqs
+cache:
+  directories:
+    - docker_images
 
-script:
+before_cache:
+  # Cache docker images
+  - docker save -o docker_images/images.tar $(docker images -a -q)
+
+install:
+  # Prepare for deployment of Docker image
+  - pip install --user awscli # install aws cli w/o sudo
   - export PATH=$PATH:$HOME/.local/bin # put aws in the path
   - aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 282251075226.dkr.ecr.eu-west-1.amazonaws.com #needs AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY envvars
 
-  # build and push APACS image
+  - cd ./wordpress/wp-content/themes/kbharkiv
+  
+  - yarn install
+  - yarn build:production
+  
+  - composer install --ignore-platform-reqs
+
+script:
+  # build and push kbharkiv-cms image
   - docker build -f ./docker/wordpress-deploy.Dockerfile -t kbharkiv-wordpress .
   - docker tag kbharkiv-wordpress 282251075226.dkr.ecr.eu-west-1.amazonaws.com/kbharkiv-wordpress:latest
-  - docker push 282251075226.dkr.ecr.eu-west-1.amazonaws.com/apacs:latest
+  - docker push 282251075226.dkr.ecr.eu-west-1.amazonaws.com/kbharkiv-wordpress:latest
 
 deploy:
   - provider: elasticbeanstalk
