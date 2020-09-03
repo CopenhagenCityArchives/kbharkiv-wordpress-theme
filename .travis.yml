@@ -36,4 +36,14 @@ deploy:
       condition: $TRAVIS_BRANCH =~ ^(feature-docker|master)$
     cleanup: false
     edge: true
-
+  - provider: elasticbeanstalk
+    access_key_id: ${EB_AWS_ACCESS_KEY_ID}
+    secret_access_key: ${EB_AWS_SECRET_ACCESS_KEY}
+    region: eu-west-1
+    app: kbharkiv-cms
+    env: kbharkiv-cms-dev
+    bucket: elasticbeanstalk-eu-west-1-282251075226
+    edge: true
+    on:
+      all_branches: true
+      condition: $TRAVIS_BRANCH =~ ^(feature-docker)$
