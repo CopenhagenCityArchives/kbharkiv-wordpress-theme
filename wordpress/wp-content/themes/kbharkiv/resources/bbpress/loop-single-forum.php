@@ -15,6 +15,8 @@ defined( 'ABSPATH' ) || exit;
 <tr id="bbp-forum-<?php bbp_forum_id(); ?>" <?php bbp_forum_class(); ?>>
 	<td class="bbp-forum-info">
 
+		<h5 class="d-custom-none"><?php esc_html_e( 'Forum', 'bbpress' ); ?></h5>
+
 		<?php if ( bbp_is_user_home() && bbp_is_subscriptions() ) : ?>
 
 			<span class="bbp-row-actions">
@@ -51,11 +53,22 @@ defined( 'ABSPATH' ) || exit;
 
 	</td>
 
-	<td class="bbp-forum-topic-count"><?php bbp_forum_topic_count(); ?></td>
+	<td class="bbp-forum-topic-count">
+		<h5 class="d-custom-none"><?php esc_html_e( 'Topics', 'bbpress' ); ?></h5>
+		<?php bbp_forum_topic_count(); ?>
+	</td>
 
-	<td class="bbp-forum-reply-count"><?php bbp_show_lead_topic() ? bbp_forum_reply_count() : bbp_forum_post_count(); ?></td>
+	<td class="bbp-forum-reply-count">
+		<h5 class="d-custom-none"><?php bbp_show_lead_topic()
+					? esc_html_e( 'Replies', 'bbpress' )
+					: esc_html_e( 'Posts',   'bbpress' );
+				?></h5>
+		<?php bbp_show_lead_topic() ? bbp_forum_reply_count() : bbp_forum_post_count(); ?>
+	</td>
 
 	<td class="bbp-forum-freshness">
+
+		<h5 class="d-custom-none"><?php esc_html_e( 'Last Post', 'bbpress' ); ?></h5>
 
 		<?php do_action( 'bbp_theme_before_forum_freshness_link' ); ?>
 

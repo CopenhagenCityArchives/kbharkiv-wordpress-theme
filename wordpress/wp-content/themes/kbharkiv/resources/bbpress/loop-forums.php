@@ -15,7 +15,7 @@ do_action( 'bbp_template_before_forums_loop' ); ?>
 <table id="forums-list-<?php bbp_forum_id(); ?>" class="table table-striped bbp-forums">
 	<thead class="bbp-header">
 
-		<tr class="forum-titles">
+		<tr class="forum-titles d-none d-custom-table-row">
 			<th class="bbp-forum-info"><?php esc_html_e( 'Forum', 'bbpress' ); ?></th>
 			<th class="bbp-forum-topic-count"><?php esc_html_e( 'Topics', 'bbpress' ); ?></th>
 			<th class="bbp-forum-reply-count"><?php bbp_show_lead_topic()

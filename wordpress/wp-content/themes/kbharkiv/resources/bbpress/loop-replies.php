@@ -15,7 +15,7 @@ do_action( 'bbp_template_before_replies_loop' ); ?>
 <table id="topic-<?php bbp_topic_id(); ?>-replies" class="table forums bbp-replies">
 
 	<thead class="bbp-header">
-		<tr>
+		<tr class="d-none d-custom-table-row">
 			<th class="bbp-reply-author"><?php esc_html_e( 'Author',  'bbpress' ); ?></th><!-- .bbp-reply-author -->
 			<th class="bbp-reply-content"><?php bbp_show_lead_topic()
 				? esc_html_e( 'Replies', 'bbpress' )

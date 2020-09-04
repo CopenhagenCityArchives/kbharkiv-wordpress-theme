@@ -2,43 +2,71 @@
   overflow: visible;
   font-size: 0.875rem;
 
-  .bbp-forums {
-    .bbp-forum-voice-count,
-    .bbp-forum-reply-count,
-    .bbp-forum-topic-count {
-      font-size: 0.75rem;
-      text-align: center;
-      width: 10%;
-    }
-
-    .bbp-forum-freshness {
-      font-size: 0.75rem;
-      text-align: center;
-      width: 22%;
-    }
-
-    .bbp-forum-author {
-      text-align: left;
-    }
+  /* Responsive tables */
+  td {
+    display: block;
   }
 
-  .bbp-topics {
-    .bbp-topic-voice-count,
-    .bbp-topic-reply-count,
-    .bbp-topic-topic-count {
-      font-size: 0.75rem;
-      text-align: center;
-      width: 10%;
+  .bbp-reply-content {
+    margin-left: 0 !important;
+  }
+
+  .bbp-reply-post-date,
+  .bbp-topic-post-date {
+    float: none !important;
+  }
+
+  @media screen and (min-width: 481px) {
+    .d-custom-table-row {
+      display: table-row !important;
     }
 
-    .bbp-topic-freshness {
-      font-size: 0.75rem;
-      text-align: center;
-      width: 22%;
+    .d-custom-none {
+      display: none !important;
     }
 
-    .bbp-topic-author {
-      text-align: left;
+    .bbp-forums {
+      .bbp-forum-voice-count,
+      .bbp-forum-reply-count,
+      .bbp-forum-topic-count {
+        font-size: 0.75rem;
+        text-align: center;
+        width: 10%;
+      }
+
+      .bbp-forum-freshness {
+        font-size: 0.75rem;
+        text-align: center;
+        width: 22%;
+      }
+
+      .bbp-forum-author {
+        text-align: left;
+      }
+    }
+
+    .bbp-topics {
+      .bbp-topic-voice-count,
+      .bbp-topic-reply-count,
+      .bbp-topic-topic-count {
+        font-size: 0.75rem;
+        text-align: center;
+        width: 10%;
+      }
+
+      .bbp-topic-freshness {
+        font-size: 0.75rem;
+        text-align: center;
+        width: 22%;
+      }
+
+      .bbp-topic-author {
+        text-align: left;
+      }
+    }
+
+    td {
+      display: table-cell;
     }
   }
 

@@ -15,6 +15,8 @@ defined( 'ABSPATH' ) || exit;
 <tr id="bbp-topic-<?php bbp_topic_id(); ?>" <?php bbp_topic_class(); ?>>
 	<td class="bbp-topic-title">
 
+		<h5 class="d-custom-none"><?php esc_html_e( 'Topic', 'bbpress' ); ?></h5>
+
 		<?php if ( bbp_is_user_home() ) : ?>
 
 			<?php if ( bbp_is_favorites() ) : ?>
@@ -80,11 +82,22 @@ defined( 'ABSPATH' ) || exit;
 
 	</td>
 
-	<td class="bbp-topic-voice-count"><?php bbp_topic_voice_count(); ?></td>
+	<td class="bbp-topic-voice-count">
+		<h5 class="d-custom-none"><?php esc_html_e( 'Voices', 'bbpress' ); ?></h5>
+		<?php bbp_topic_voice_count(); ?>
+	</td>
 
-	<td class="bbp-topic-reply-count"><?php bbp_show_lead_topic() ? bbp_topic_reply_count() : bbp_topic_post_count(); ?></td>
+	<td class="bbp-topic-reply-count">
+		<h5 class="d-custom-none"><?php bbp_show_lead_topic()
+				? esc_html_e( 'Replies', 'bbpress' )
+				: esc_html_e( 'Posts',   'bbpress' );
+			?></h5>
+		<?php bbp_show_lead_topic() ? bbp_topic_reply_count() : bbp_topic_post_count(); ?>
+	</td>
 
 	<td class="bbp-topic-freshness">
+		
+		<h5 class="d-custom-none"><?php esc_html_e( 'Last Post', 'bbpress' ); ?></h5>
 
 		<?php do_action( 'bbp_theme_before_topic_freshness_link' ); ?>
 

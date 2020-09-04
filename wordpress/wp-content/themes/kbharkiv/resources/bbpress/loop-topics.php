@@ -14,7 +14,7 @@ do_action( 'bbp_template_before_topics_loop' ); ?>
 
 <table id="bbp-forum-<?php bbp_forum_id(); ?>" class="table bbp-topics">
 	<thead class="bbp-header">
-		<tr class="forum-titles">
+		<tr class="forum-titles d-none d-custom-table-row">
 			<th class="bbp-topic-title"><?php esc_html_e( 'Topic', 'bbpress' ); ?></th>
 			<th class="bbp-topic-voice-count"><?php esc_html_e( 'Voices', 'bbpress' ); ?></th>
 			<th class="bbp-topic-reply-count"><?php bbp_show_lead_topic()
