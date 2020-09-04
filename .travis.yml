@@ -12,15 +12,6 @@ services:
 cache:
   yarn: true
   pip: true
-  directories:
-    - docker_images
-
-before_cache:
-  # Cache docker images
-  - docker save -o docker_images/images.tar $(docker images -a -q)
-
-before_install:
-  - docker load -i docker_images/images.tar || true
 
 install:
   # Prepare for deployment of Docker image
