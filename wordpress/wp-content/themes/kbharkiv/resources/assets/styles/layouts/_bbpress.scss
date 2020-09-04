@@ -2,6 +2,14 @@
   overflow: visible;
   font-size: 0.875rem;
 
+  /* Style semantic post dates */
+  h5.bbp-reply-post-date {
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1;
+    margin: 0;
+  }
+
   /* Responsive tables */
   td {
     display: block;

@@ -15,7 +15,7 @@ defined( 'ABSPATH' ) || exit;
 <tr id="post-<?php bbp_reply_id(); ?>" class="bbp-reply-header">
 	<td colspan="2">
 		<div class="bbp-meta">
-			<span class="bbp-reply-post-date"><?php bbp_reply_post_date(); ?></span>
+			<h5 class="bbp-reply-post-date"><?php bbp_reply_post_date(); ?></h5>
 
 			<?php if ( bbp_is_single_user_replies() ) : ?>
 
