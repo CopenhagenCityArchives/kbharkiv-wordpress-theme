@@ -35,7 +35,7 @@ services:
                 define( 'WP_SITEURL', 'http://localhost' );
                 define( 'WP_CACHE', false );
         ports:
-            - "8000:80"
+            - "80:80"
         volumes:
             - "./wordpress/wp-content/themes/kbharkiv/app:/var/www/html/wp-content/themes/kbharkiv/app"
             - "./wordpress/wp-content/themes/kbharkiv/config:/var/www/html/wp-content/themes/kbharkiv/config"
