@@ -39,6 +39,8 @@ defined( 'ABSPATH' ) || exit;
 
 <tr <?php bbp_reply_class(); ?>>
 	<td>
+		<h5 class="d-custom-none"><?php esc_html_e( 'Author',  'bbpress' ); ?></h5>
+
 		<div class="bbp-reply-author">
 
 		<?php do_action( 'bbp_theme_before_reply_author_details' ); ?>
@@ -60,6 +62,11 @@ defined( 'ABSPATH' ) || exit;
 	</td>
 
 	<td>
+		<h5 class="d-custom-none"><?php bbp_show_lead_topic()
+				? esc_html_e( 'Replies', 'bbpress' )
+				: esc_html_e( 'Posts',   'bbpress' );
+			?></h5>
+
 		<div class="bbp-reply-content">
 
 			<?php do_action( 'bbp_theme_before_reply_content' ); ?>
