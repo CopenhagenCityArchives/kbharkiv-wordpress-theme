@@ -21,12 +21,12 @@ defined( 'ABSPATH' ) || exit;
 
 				<span class="bbp-header">
 					<?php esc_html_e( 'in reply to: ', 'bbpress' ); ?>
-					<a class="bbp-topic-permalink" href="<?php bbp_topic_permalink( bbp_get_reply_topic_id() ); ?>"><span class="sr-only">Link til denne post </span><?php bbp_topic_title( bbp_get_reply_topic_id() ); ?></a>
+					<a class="bbp-topic-permalink" href="<?php bbp_topic_permalink( bbp_get_reply_topic_id() ); ?>"><?php bbp_topic_title( bbp_get_reply_topic_id() ); ?></a>
 				</span>
 
 			<?php endif; ?>
 
-			<a href="<?php bbp_reply_url(); ?>" class="bbp-reply-permalink">#<?php bbp_reply_id(); ?></a>
+			<a href="<?php bbp_reply_url(); ?>" class="bbp-reply-permalink"><span class="sr-only">Link til denne post </span>#<?php bbp_reply_id(); ?></a>
 
 			<?php do_action( 'bbp_theme_before_reply_admin_links' ); ?>
 
