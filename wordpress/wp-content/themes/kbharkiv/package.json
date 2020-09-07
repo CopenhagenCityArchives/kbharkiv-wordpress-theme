@@ -79,7 +79,7 @@
   "dependencies": {
     "beerslider": "^1.0.3",
     "bootstrap": "v4.3.1",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "lax.js": "^1.2.5",
     "popper.js": "^1.14.7",
     "rellax": "^1.12.1"
