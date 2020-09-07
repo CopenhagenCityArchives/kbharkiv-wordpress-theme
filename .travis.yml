@@ -24,9 +24,9 @@ install:
 
 script:
   - cd ../../../../
-  
+
   # set wp-content dir based on branch
-  - sed -i 's/{wp-content-subfolder}/${WP_CONTENT_DIR}/g' Dockerrun.aws.json
+  - sed -i "s/{wp-content-subfolder}/${WP_CONTENT_DIR}/g" Dockerrun.aws.json
   - sed -i "s/{image-tag}/${IMAGE_TAG}/g" Dockerrun.aws.json
   - cat Dockerrun.aws.json
 
