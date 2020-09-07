@@ -24,24 +24,25 @@ install:
 
 script:
   # set wp-content dir based on branch
-  - if [ "$TRAVIS_BRANCH" == "develop" ]; then sed -i 's/{wp-content-subfolder}/wp-content-dev/g' Dockerrun.aws.json; fi
-  - if [ "$TRAVIS_BRANCH" == "master" ]; then sed -i 's/{wp-content-subfolder}/wp-content-prod/g' Dockerrun.aws.json; fi
+  - sed -i 's/{wp-content-subfolder}/${WP_CONTENT_DIR}/g' Dockerrun.aws.json
+  - sed -i "s/{image-tag}/${IMAGE_TAG}/g" Dockerrun.aws.json
+  - cat Dockerrun.aws.json
 
   - cd ../../../../
   # build and push kbharkiv-cms image
   - docker build -f ./docker/wordpress-deploy.Dockerfile -t kbharkiv-wordpress .
-  - docker tag kbharkiv-wordpress 282251075226.dkr.ecr.eu-west-1.amazonaws.com/kbharkiv-wordpress:latest
-  - docker push 282251075226.dkr.ecr.eu-west-1.amazonaws.com/kbharkiv-wordpress:latest
+  - docker tag kbharkiv-wordpress 282251075226.dkr.ecr.eu-west-1.amazonaws.com/kbharkiv-wordpress:$IMAGE_TAG
+  - docker push 282251075226.dkr.ecr.eu-west-1.amazonaws.com/kbharkiv-wordpress:$IMAGE_TAG
 
 deploy:
   - provider: elasticbeanstalk
     access_key_id: ${AWS_ACCESS_KEY_ID}
     secret_access_key: ${AWS_SECRET_ACCESS_KEY}
     region: eu-west-1
-    app: kbharkiv-cms
-    env: kbharkiv-cms-dev
+    app: $EB_APPLICATION
+    env: $EB_ENVIRONMENT
     bucket: elasticbeanstalk-eu-west-1-282251075226
     edge: true
     on:
       all_branches: true
-      condition: $TRAVIS_BRANCH =~ ^(feature-docker)$
+      condition: $EB_DEPLOY = 'true'
