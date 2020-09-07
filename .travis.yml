@@ -23,6 +23,10 @@ install:
   - composer install --ignore-platform-reqs
 
 script:
+  # set wp-content dir based on branch
+  - if [ "$TRAVIS_BRANCH" = "develop" ]; then sed -i 's/{wp-content-subfolder}/wp-content-dev/g' > Dockerrun.aws.json; fi
+  - if [ "$TRAVIS_BRANCH" = "master" ]; then sed -i 's/{wp-content-subfolder}/wp-content-prod/g' > Dockerrun.aws.json fi
+
   - cd ../../../../
   # build and push kbharkiv-cms image
   - docker build -f ./docker/wordpress-deploy.Dockerfile -t kbharkiv-wordpress .

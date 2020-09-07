@@ -11,15 +11,15 @@
     ],
     "Volumes": [
       {
-        "HostDirectory": "/wp-content/wp-content-dev/plugins",
+        "HostDirectory": "/wp-content/{wp-content-subfolder}/plugins",
         "ContainerDirectory": "/var/www/html/wp-content/plugins"
       },
       {
-        "HostDirectory": "/wp-content/wp-content-dev/uploads",
+        "HostDirectory": "/wp-content/{wp-content-subfolder}/uploads",
         "ContainerDirectory": "/var/www/html/wp-content/uploads"
       },
       {
-        "HostDirectory": "/wp-content/wp-content-dev/upgrade",
+        "HostDirectory": "/wp-content/{wp-content-subfolder}/upgrade",
         "ContainerDirectory": "/var/www/html/wp-content/upgrade"
       }    
     ]
