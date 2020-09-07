@@ -32,8 +32,8 @@ script:
 
   # build and push kbharkiv-cms image
   - docker build -f ./docker/wordpress-deploy.Dockerfile -t kbharkiv-wordpress .
-  - docker tag kbharkiv-wordpress 282251075226.dkr.ecr.eu-west-1.amazonaws.com/kbharkiv-wordpress:$IMAGE_TAG
-  - docker push 282251075226.dkr.ecr.eu-west-1.amazonaws.com/kbharkiv-wordpress:$IMAGE_TAG
+  - docker tag kbharkiv-wordpress 282251075226.dkr.ecr.eu-west-1.amazonaws.com/kbharkiv-wordpress:${IMAGE_TAG}
+  - docker push 282251075226.dkr.ecr.eu-west-1.amazonaws.com/kbharkiv-wordpress:${IMAGE_TAG}
 
 deploy:
   - provider: elasticbeanstalk
