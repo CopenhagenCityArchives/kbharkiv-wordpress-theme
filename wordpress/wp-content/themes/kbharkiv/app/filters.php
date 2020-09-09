@@ -94,7 +94,7 @@ add_filter('comments_template', function ($comments_template) {
  * Redirect user to email verification after creation
  */
 add_filter( 'auth0_verify_email_page', function(){
-    wp_redirect('https://www.kbharkiv.dk/aktiver-din-brugerprofil');
+    wp_redirect('https://kbharkiv.dk/aktiver-din-brugerprofil');
     exit;
 }, 1);
   
