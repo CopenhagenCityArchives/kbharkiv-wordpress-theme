@@ -63,3 +63,22 @@ The following environment variables are used.
 To run the environment simply run:
 
     $ docker-compose up
+
+
+AWS infrastructure and deployment
+==========
+
+Deployment happens using Travis CI. It is therefore highly recommended that when implementing local changes a new deployment process is build in .travis.yml.
+
+The application is running at AWS Elastic Beanstalk.
+
+Create a development environment at Elastic Beanstalk using this command (note that the application works only when deployed through Travis): 
+
+* ``eb create apacs-dev-environment-name --cname apacs-dev --cfg kbharkiv-development``
+
+Where 'cname' is the URL in Elastic Beanstalk (ie. apacs-dev.eu-west-1.elasticbeanstalk.aws.com) and 'cfg' is a configuration for the environment, which is saved in S3.
+
+Create a production environment at Elastic Beanstalk using this command(note that the application works only when deployed through Travis): 
+
+* ``eb create apacs-prod-environment-name --cname apacs-prod --cfg kbharkiv-production``
+

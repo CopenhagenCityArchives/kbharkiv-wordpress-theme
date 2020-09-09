@@ -4,7 +4,16 @@ export function searchArchive() {
       event.preventDefault();
 
       var searchVal = encodeURI($('#catalog_query').val());
-      var url = 'https://kbharkiv.dk/starbas_search.php?catalog_query=' + searchVal;
+      var url = 'https://www.starbas.net/av_soeg_res.php?soeg=' + searchVal + '&a_id=1&art=O01&retur_link=arkivets_forside.php%3Farkiv%3D1';
+
+      if(window.ga){
+        window.ga('send', {
+          hitType: 'event',
+          eventCategory: 'frontpage_search',
+          eventAction: 'starbas',
+          eventLabel: $('#catalog_query').val(),
+        });
+      }
 
       window.open(url, '_blank');
     }
