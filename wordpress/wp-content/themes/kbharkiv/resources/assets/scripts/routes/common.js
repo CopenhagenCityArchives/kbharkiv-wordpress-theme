@@ -37,5 +37,6 @@ export default {
     topMenu();
     searchArchive();
     searchPerson();
+    searchSite();
   },
 };
