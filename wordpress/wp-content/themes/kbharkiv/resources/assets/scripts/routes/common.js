@@ -7,6 +7,7 @@ import { moduleShortcuts } from './components/moduleShortcuts.js';
 import { topMenu } from './components/topMenu.js';
 import { searchArchive } from './components/searchArchive.js';
 import { searchPerson } from './components/searchPerson.js';
+import { searchSite } from './components/searchSite.js';
 
 export default {
   init() {
