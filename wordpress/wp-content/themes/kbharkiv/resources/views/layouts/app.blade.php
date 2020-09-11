@@ -1,19 +1,5 @@
 <!doctype html>
 <html {!! get_language_attributes() !!}>
-  @while ( have_rows( 'enqueue_scripts' ) )
-    @php
-      the_row();
-      wp_enqueue_script( get_sub_field( 'enqueue_scripts_handle' ), get_sub_field( 'enqueue_scripts_path' ), [], null );
-    @endphp
-  @endwhile
-
-  @while ( have_rows( 'enqueue_styles' ) )
-    @php
-      the_row();
-      wp_enqueue_style( get_sub_field( 'enqueue_styles_handle' ), get_sub_field( 'enqueue_styles_path' ) );
-    @endphp
-  @endwhile
-
   @include('partials.head')
   <body @php body_class(theme_color(1)) @endphp>
     @php do_action('get_header') @endphp
