@@ -27,7 +27,7 @@ class App extends Controller
             return sprintf(__('Søgeresultater for %s', 'sage'), get_search_query());
         }
         if (is_404()) {
-            return __('Ikke fundet', 'sage');
+            return __('Siden blev ikke fundet', 'sage');
         }
         if (is_tag()) {
             return sprintf( __( 'Emne: %s' ), single_tag_title( '', false ) );

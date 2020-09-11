@@ -152,7 +152,7 @@ function the_breadcrumb() {
   }
 
   elseif ( is_404() ) {
-
+    $html .= '<li class="breadcrumb-item active">' . __('Siden blev ikke fundet', 'sage') . '</li>';
   }
 
   $html .= '</ol></nav>';
