@@ -1,9 +1,12 @@
-@php $image_col = (has_post_thumbnail() && !get_field('page_hide_image')) ? 'offset-xl-3' : 'offset-xl-2' @endphp
+@php
+  $image_col = (has_post_thumbnail() && !get_field('page_hide_image')) ? 'offset-xl-3' : 'offset-xl-2';
+  $sdk = get_sub_field('modules_sdkkildeviser_test_sdk_url') ? get_sub_field('modules_sdkkildeviser_test_sdk_url') : 'https://static.kbharkiv.dk/kildeviser-sdk/KildeviserSearchSDK.min.js';
+@endphp
 
 <section class="module module-kildeviser {{ get_sub_field('modules_sdkkildeviser_spacing') ? '' : 'small-margin' }}" aria-label="Kildeviser">
   @php
     wp_enqueue_style('KildeviserSearchSDK.min.css', 'https://static.kbharkiv.dk/kildeviser-sdk/KildeviserSearchSDK.min.css');
-    wp_enqueue_script('KildeviserSearchSDK.min.js', 'https://static.kbharkiv.dk/kildeviser-sdk/KildeviserSearchSDK.min.js', [], null);
+    wp_enqueue_script('KildeviserSearchSDK.min.js', $sdk, [], null);
   @endphp
   <div class="container-fluid">
     <div class="row">
