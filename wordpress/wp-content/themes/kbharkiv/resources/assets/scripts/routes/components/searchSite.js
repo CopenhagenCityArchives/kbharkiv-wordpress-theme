@@ -1,5 +1,5 @@
 export function searchSite() {
-    $('#searchform_site').submit(function(event){
+    $('#searchform_site').submit(function(){
       
       var query = $('#searchform_site-query').val().trim();
       
