@@ -1,7 +1,7 @@
 export function searchSite() {
     $('#searchform_site').submit(function(){
       
-      var query = $('#searchform_site-query').val().trim();
+      var query = $('#search-internal').val().trim();
       
       if(query.length > 0){
         if(window.ga){
