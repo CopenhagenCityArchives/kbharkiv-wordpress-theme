@@ -28,6 +28,7 @@ script:
   # set wp-content dir based on branch
   - sed -i "s/{wp-content-subfolder}/${WP_CONTENT_DIR}/g" Dockerrun.aws.json
   - sed -i "s/{image-tag}/${IMAGE_TAG}/g" Dockerrun.aws.json
+  - sed -i "s/{site-url}/${SITE_URL}/g" ./docker/wordpress-deploy.Dockerfile
 
   # build and push kbharkiv-cms image
   - docker build -f ./docker/wordpress-deploy.Dockerfile -t kbharkiv-wordpress .

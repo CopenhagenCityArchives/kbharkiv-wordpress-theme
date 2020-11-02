@@ -25,7 +25,7 @@ RUN echo "short_open_tag = Off" > $PHP_INI_DIR/conf.d/short_open_tag.ini
 RUN echo "upload_max_filesize = 128M\npost_max_size = 128M\nmax_execution_time = 120\nmemory_limit=128M" > $PHP_INI_DIR/conf.d/max_upload_size.ini
 
 # Wordpress configuration
-ENV WORDPRESS_CONFIG_EXTRA="define('FS_METHOD', 'direct'); define('DISABLE_WP_CRON', true);"
+ENV WORDPRESS_CONFIG_EXTRA="define('FS_METHOD', 'direct'); define('DISABLE_WP_CRON', true); define( 'WP_HOME', '{site-url}' ); define( 'WP_SITEURL', '{site-url}' );"
 
 ENV WORDPRESS_DB_HOST=${WORDPRESS_DB_HOST}
 ENV WORDPRESS_DB_USER=${WORDPRESS_DB_USER}
