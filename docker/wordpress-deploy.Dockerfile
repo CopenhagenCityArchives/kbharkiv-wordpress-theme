@@ -16,6 +16,7 @@ RUN crontab /var/www/cron.conf
 # Copy theme build to temporary directory
 COPY wordpress/wp-content/themes/kbharkiv /usr/src/wordpress/wp-content/themes/kbharkiv
 COPY wordpress/wp-content/languages /usr/src/wordpress/wp-content/languages
+COPY wordpress/wp-content/robots.txt /usr/src/wordpress/robots.txt
 
 # Ownership and permissions on theme directory
 RUN chown -R www-data:www-data /usr/src/wordpress/wp-content && chmod -R 0755 /usr/src/wordpress/wp-content
