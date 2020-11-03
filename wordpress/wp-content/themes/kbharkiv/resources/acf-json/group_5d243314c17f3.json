@@ -98,7 +98,7 @@
                             "elements": [
                                 "featured_image"
                             ],
-                            "min": 3,
+                            "min": 0,
                             "max": 6,
                             "return_format": "object",
                             "acfe_bidirectional": {
@@ -154,6 +154,7 @@
                                 "class": "",
                                 "id": ""
                             },
+                            "acfe_permissions": "",
                             "post_type": [
                                 "arrangementer"
                             ],
@@ -166,9 +167,12 @@
                             "elements": [
                                 "featured_image"
                             ],
-                            "min": 2,
+                            "min": 0,
                             "max": 6,
-                            "return_format": "object"
+                            "return_format": "object",
+                            "acfe_bidirectional": {
+                                "acfe_bidirectional_enabled": "0"
+                            }
                         }
                     ],
                     "min": "",
@@ -1031,5 +1035,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1600335466
+    "modified": 1604396102
 }
