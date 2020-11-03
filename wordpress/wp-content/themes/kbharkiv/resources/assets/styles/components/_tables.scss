@@ -6,6 +6,17 @@
   }
 }
 
+table {
+  a {
+    font-weight: 500;
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
 .wp-block-table table {
   width: 100%;
 
