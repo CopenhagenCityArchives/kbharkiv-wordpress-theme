@@ -1,16 +1,14 @@
-{{-- <article @php post_class() @endphp>
-  <header>
-    <h2 class="entry-title"><a href="{{ get_permalink() }}">{{get_post_type()}}{!! get_the_title() !!}</a></h2>
-    @if (get_post_type() === 'post')
-      @include('partials/entry-meta')
-    @endif
-  </header>
-  <div class="entry-summary">
-    @php the_excerpt() @endphp
-  </div>
-</article> --}}
+@php
+  $employee = get_post_type() === 'medarbejdere';
+  $class_wrapper = 'col-sm-6 col-md-4 col-lg-3';
+  $class_col1 = 'col-4 col-sm-12';
+  $class_col2 = 'col-8 col-sm-12';
+@endphp
 
-<a href="{{ get_permalink() }}" class="article-link col-md-3 d-flex align-self-stretch">
+@if ($employee)
+  @include('partials.content-medarbejdere', ['wrapper' => $class_wrapper, 'col1' => $class_col1, 'col2' => $class_col2])
+@else
+<a href="{{ get_permalink() }}" class="article-link d-sm-flex align-self-stretch {{ $class_wrapper }}">
   <article @php post_class('content-search') @endphp>
 
     @if ( has_post_thumbnail())
@@ -23,9 +21,15 @@
     </header>
     <div class="entry-summary">
       {{ get_the_lead(get_the_id()) }}
+
+      @if ($employee)
+        hej
+      @endif
+
     </div>
 
   </article>
 </a>
+@endif
 
-<div class="col-md-1"></div>
+<div class="d-none d-lg-block col-lg-1"></div>

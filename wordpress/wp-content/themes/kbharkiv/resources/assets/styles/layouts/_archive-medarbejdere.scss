@@ -1,9 +1,10 @@
 article.medarbejdere {
-  padding: 1.5rem 0;
+  padding: 2rem 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
-  .profile-image {
+  .wp-post-image {
     filter: grayscale(100%);
+    margin-bottom: 1rem;
   }
 
   dl {

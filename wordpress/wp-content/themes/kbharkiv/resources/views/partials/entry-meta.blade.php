@@ -2,6 +2,8 @@
   <h6>{{ is_tag() || is_search() ? 'Nyhed – ' : ''}}<time class="updated" datetime="{{ get_post_time('c', true) }}">{{ get_the_date() }}</time></h6>
 @elseif (get_post_type() === 'page')
   <h6>Side</h6>
+@elseif (get_post_type() === 'medarbejdere')
+  <h6>Medarbejder</h6>
 @elseif (get_post_type() === 'arrangementer')
   {{-- @php $event_start = strtotime(get_field('event_start')) @endphp --}}
   @php $event_start = strtotime(get_field('event_start')) @endphp

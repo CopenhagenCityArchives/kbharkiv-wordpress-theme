@@ -1,14 +1,14 @@
-<div class="col-sm-6 col-md-4 col-lg-6">
+<div class="d-sm-flex align-self-stretch {{ $wrapper ? $wrapper : 'col-sm-6 col-md-4 col-lg-6' }}">
   <article @php post_class() @endphp aria-label="{{ get_the_title() }}">
     <div class="row">
-      <div class="col-4 col-sm-12 col-lg-4">
+      <div class="{{ $col1 ? $col1 : 'col-4 col-sm-12 col-lg-4' }}">
         @if ( has_post_thumbnail())
-          @php the_post_thumbnail( 'profilex2', ['class' => 'profile-image'] ); @endphp
+          @php the_post_thumbnail( 'profilex2' ); @endphp
         @else
           Billede kommer snart
         @endif
       </div>
-      <div class="col-8 col-sm-12 col-lg-8">
+      <div class="{{ $col2 ? $col2 : 'col-8 col-sm-12 col-lg-8' }}">
         @if (get_field('employee_title'))
           <h6>{{get_field('employee_title')}}</h6>
         @endif
