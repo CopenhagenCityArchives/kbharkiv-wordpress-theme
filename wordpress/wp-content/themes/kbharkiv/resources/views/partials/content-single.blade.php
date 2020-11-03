@@ -26,7 +26,7 @@
         <figure class="row mb-5">
           <div class="col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
             @php the_post_thumbnail( 'herox2' ); @endphp
-            <figcaption class="figure-caption">
+            <figcaption class="figure-caption" aria-hidden="true">
               {{get_post(get_post_thumbnail_id())->post_excerpt}}
             </figcaption>
           </div>

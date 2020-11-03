@@ -8,7 +8,7 @@
       @if (has_post_thumbnail())
         <figure>
           @php the_post_thumbnail( 'herox2' ); @endphp
-          <figcaption class="figure-caption">
+          <figcaption class="figure-caption" aria-hidden="true">
             {{get_post(get_post_thumbnail_id())->post_excerpt}}
           </figcaption>
         </figure>
