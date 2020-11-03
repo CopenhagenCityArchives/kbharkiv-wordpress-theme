@@ -1,5 +1,7 @@
 .module-news {
   .sticky article {
+    padding: 0 0 3rem;
+
     @include media-breakpoint-up(md) {
       position: sticky;
       top: 8rem;
