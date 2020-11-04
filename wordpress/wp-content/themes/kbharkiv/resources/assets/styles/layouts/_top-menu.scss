@@ -13,6 +13,10 @@ header.top-menu {
     line-height: 18px;
     text-decoration: none;
     margin: 0.375rem 0;
+
+    div {
+      hyphens: none;
+    }
   }
 
   .nav-toggle {
