@@ -1,9 +1,12 @@
 section[class^="module"] {
   margin-top: 3rem;
   margin-bottom: 3rem;
+}
 
-  // @include media-breakpoint-up(md) {
-  //   margin-top: 4rem;
-  //   margin-bottom: 4rem;
-  // }
+.home section.module {
+  margin-top: 4rem;
+
+  @include media-breakpoint-up(lg) {
+    margin-top: 6rem;
+  }
 }
