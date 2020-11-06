@@ -1,6 +1,9 @@
 <?php
 
-function color($color, $darkness) {
+global $theme_color;
+$theme_color = theme_color();
+
+function color($color) {
 	$colors = [
 		'yellow' => ['#FFEECC', '#665E4F'/*'#817764'*/],
 		'green' => ['#DBEDD7', '#3F5B58'],
@@ -18,42 +21,36 @@ function color($color, $darkness) {
 		return $colors[$random_color];
 	}
 
-	return array_key_exists($color, $colors) ? $colors[$color][$darkness] : $colors['default'][$darkness];
+	return array_key_exists($color, $colors) ? $colors[$color] : $colors['default'];
 }
 
 // Function for returning color theme array. $darkness boolean is optional for returning the dark theme color
-function theme_color($darkness = 0, $random = 0) {
-	$darkness = $darkness ? 1 : 0;
-	$random = $random ? 1 : 0;
+function theme_color() {
 
 	global $post;
 
-	if ($random) {
-		return color('random', $darkness);
-	}
-
 	// if front page
 	if (is_front_page()) {
-		return color('white', $darkness);
+		return color('random');
 	}
 
 	if (is_search() || is_404()) {
-		return color('default', $darkness);
+		return color('default');
 	}
 
 	if (is_tag()) {
-		return color('default', $darkness);
+		return color('default');
 	}
 
 	// if cpt archive or post archive or single post
 	if (is_post_type_archive() || is_home() || is_single()) {
 		if (get_field('color_theme', get_post_type() . '_options')) {
-			return color(get_field('color_theme', get_post_type() . '_options'), $darkness);
+			return color(get_field('color_theme', get_post_type() . '_options'));
 		}
 	}
 
 	if (isset($post) && get_field('color_theme', $post->ID)) {
-		return color(get_field('color_theme', $post->ID), $darkness);
+		return color(get_field('color_theme', $post->ID));
 	}
 
 	// if any ancestor color_theme exists
@@ -62,17 +59,23 @@ function theme_color($darkness = 0, $random = 0) {
 
 		foreach ( $ancestors as $ancestor_id ) {
 			if (get_field('color_theme', $ancestor_id)) {
-				return color(get_field('color_theme', $ancestor_id), $darkness);
+				return color(get_field('color_theme', $ancestor_id));
 			} elseif (get_field('color_theme', get_post_type( $ancestor_id ) . '_options')) {
-				return color(get_field('color_theme', get_post_type( $ancestor_id ) . '_options'), $darkness);
+				return color(get_field('color_theme', get_post_type( $ancestor_id ) . '_options'));
 			}
 		}
 	}
 
 	// catch user profile pages
 	if (is_bbpress() && get_field('color_theme', 'forum_options')) {
-		return color(get_field('color_theme', 'forum_options'), $darkness);
+		return color(get_field('color_theme', 'forum_options'));
 	}
 
-	return color('default', $darkness);
+	return color('default');
+}
+
+function get_theme_color($darkness = false) {
+	$darkness = $darkness ? 1 : 0;
+	global $theme_color;
+	return $theme_color[$darkness];
 }

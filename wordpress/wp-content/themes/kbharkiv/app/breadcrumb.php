@@ -29,7 +29,7 @@ function custom_get_category_parents( $id, $visited = array() ) {
 function the_breadcrumb() {
   global $post;
 
-  $html = '<nav class="breadcrumb-wrapper container-fluid" aria-label="Brødkrummesti"><ol class="breadcrumb" style="background-color: ' . theme_color(1) . '">';
+  $html = '<nav class="breadcrumb-wrapper container-fluid" aria-label="Brødkrummesti"><ol class="breadcrumb" style="background-color: ' . get_theme_color(1) . '">';
 
   $html .= '<li class="breadcrumb-item"><a href="'.esc_url(home_url('/')).'"><svg class="icon" aria-hidden="true"><use xlink:href="' . App\asset_path('images/feather-sprite.svg') . '#home"/></svg><span class="sr-only">Hjem</span></a></li>';
 

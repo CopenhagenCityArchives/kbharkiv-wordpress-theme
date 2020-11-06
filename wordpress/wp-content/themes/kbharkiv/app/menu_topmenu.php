@@ -51,11 +51,11 @@ class Kbharkiv_Walker_Nav_Menu extends Walker_Nav_Menu {
  			$post_id = get_post_meta( $item->ID, '_menu_item_object_id', true );
 
  			if ($depth == 0 && get_field('color_theme', $post_id)) {
- 				$color = ' data-color="' . color(get_field('color_theme', $post_id), 0) . '"';
- 				$color_logo = ' data-logo-color="' . color(get_field('color_theme', $post_id), 1) . '"';
+ 				$color = ' data-color="' . color(get_field('color_theme', $post_id))[0] . '"';
+ 				$color_logo = ' data-logo-color="' . color(get_field('color_theme', $post_id))[1] . '"';
  			} elseif($depth == 0 && !get_field('color_theme', $post_id)) {
- 				$color = ' data-color="' . color('default', 0) . '"';
- 				$color_logo = ' data-logo-color="' . color('default', 1) . '"';
+ 				$color = ' data-color="' . color('default')[0] . '"';
+ 				$color_logo = ' data-logo-color="' . color('default')[1] . '"';
  			}
  		}
  		if ( in_array( 'current-menu-item', $classes ) )
@@ -210,7 +210,7 @@ add_filter('wp_nav_menu_items', function( $items, $args ) {
 		}
 
 		$right_menu = $profile .
-									'<li class="search parent" data-level="1" data-color="' . color(get_field('color_theme', 'option'), 0) . '">' .
+									'<li class="search parent" data-level="1" data-color="' . color(get_field('color_theme', 'option'))[0] . '">' .
 										'<a class="d-flex align-items-center sub-menu-btn" href="#">Søg<svg class="icon" role="img" aria-label="Søg ikon"><use xlink:href="' . App\asset_path('images/feather-sprite.svg') . '#search"/></svg></a>' .
 										'<ul class="sub-menu" data-level="1">' .
 											'<li class="nav-back d-lg-none"><a tabindex="0" href="#">Tilbage</a></li>' .

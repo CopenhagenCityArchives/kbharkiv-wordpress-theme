@@ -1,6 +1,6 @@
 <section class="module module-newsletter" aria-label="{{ get_sub_field('modules_newsletter_type') == 'true' ? 'Tilmeld nyhedsbrev' : 'Afmeld nyhedsbrev'}}">
   <div class="container-fluid">
-    <div class="module-inner darken-on-scroll" style="background-color: {{ theme_color() }}">
+    <div class="module-inner darken-on-scroll" style="background-color: {{ get_theme_color() }}">
 
       <div class="row">
         <div class="col-lg-6 col-xl-5">

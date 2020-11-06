@@ -29,7 +29,7 @@
 
     </div>
     <div class="offset-lg-1 col-lg-4">
-      <div class="event-info" style="background-color: {{ theme_color(1) }}">
+      <div class="event-info" style="background-color: {{ get_theme_color(1) }}">
         <time class="event-start" datetime="{{ date("Y-m-d H:i", $event_start) }}">
           <div class="date font-weight-bold">{{ date("d", $event_start) }}</div>
           <div class="month font-weight-bolder">{{ date_i18n("F", $event_start) }}</div>

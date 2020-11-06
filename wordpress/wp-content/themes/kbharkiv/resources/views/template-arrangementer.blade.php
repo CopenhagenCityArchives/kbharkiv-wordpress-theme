@@ -20,7 +20,7 @@
     ],
   ));
 
-  $color = theme_color(1);
+  $color = get_theme_color(1);
 
 @endphp
 

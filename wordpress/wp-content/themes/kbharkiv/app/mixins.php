@@ -1,6 +1,5 @@
 <?php
 
-
 add_action('acf/init', function() {
 	if( function_exists('acf_register_block') ) {
 		acf_register_block(array(
@@ -51,7 +50,7 @@ add_action('acf/init', function() {
 
 function block_infobox( $block ) {
   if(function_exists('get_field')):
-    echo '<aside aria-label="Infoboks" class="infobox small" style="background-color: ' . theme_color() . '">' . get_field('block_infobox') . '</aside>';
+    echo '<aside aria-label="Infoboks" class="infobox small" style="background-color: ' . get_theme_color() . '">' . get_field('block_infobox') . '</aside>';
   endif;
 }
 

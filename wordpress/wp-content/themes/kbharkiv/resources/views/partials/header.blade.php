@@ -1,4 +1,4 @@
-<header class="top-menu" data-color="{{ theme_color() }}" style="background-color: {{ theme_color() }}">
+<header class="top-menu" data-color="{{ get_theme_color() }}" style="background-color: {{ get_theme_color() }}">
   <div class="container-fluid d-lg-flex align-items-center">
     <div class="d-flex align-items-center">
       <a class="sr-only sr-only-focusable" href="#content">Gå til hovedindhold</a>
