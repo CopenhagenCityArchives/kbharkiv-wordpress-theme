@@ -8,6 +8,12 @@ php:
 
 services:
   - docker
+  
+stages:
+  - name: script
+    if: branch IN (master, development)
+  - name: deploy
+    if: branch IN (master, development)
 
 install:
   # Prepare for deployment of Docker image
