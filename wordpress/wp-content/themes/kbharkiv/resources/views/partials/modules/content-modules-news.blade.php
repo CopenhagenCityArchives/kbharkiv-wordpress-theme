@@ -29,7 +29,7 @@
                   @php continue @endphp
                 @endif
                 @php setup_postdata($post) @endphp
-                @include('partials.content-news', ['class' => 'offset-md-2 col-md-8'])
+                @include('partials.content-news', ['class' => 'col-lg-6 d-sm-flex align-self-stretch'])
             	@endforeach
               @php wp_reset_postdata() @endphp
             </div>
@@ -57,7 +57,7 @@
 
         @php
           // Show 2 latest posts excluding the one above
-          $posts = get_posts(array('posts_per_page' => 2, 'exclude' => array($post_id)));
+          $posts = get_posts(array('posts_per_page' => 4, 'exclude' => array($post_id)));
         @endphp
 
         @if( $posts )
@@ -65,7 +65,7 @@
             <div class="row">
             	@foreach( $posts as $key => $post )
                 @php setup_postdata($post) @endphp
-                @include('partials.content-news', ['class' => 'offset-md-2 col-md-8'])
+                @include('partials.content-news', ['class' => 'col-lg-6 d-sm-flex align-self-stretch'])
             	@endforeach
               @php wp_reset_postdata() @endphp
             </div>
