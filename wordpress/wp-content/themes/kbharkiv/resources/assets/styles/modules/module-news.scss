@@ -15,8 +15,16 @@
     }
   }
 
+  //first
   .news a:first-child article {
     @include media-breakpoint-up(md) {
+      padding-top: 0;
+    }
+  }
+
+  // first two
+  .news a:nth-child(-n+2) article {
+    @include media-breakpoint-up(lg) {
       padding-top: 0;
     }
   }
