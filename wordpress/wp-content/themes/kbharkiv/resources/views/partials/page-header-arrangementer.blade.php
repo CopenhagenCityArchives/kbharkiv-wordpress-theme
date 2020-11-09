@@ -6,7 +6,6 @@
         @if ($category)
           <h4>{!! $category !!}</h4>
         @endif
-
         <h1 id="headline">{!! App::title() !!}</h1>
       </div>
     </div>

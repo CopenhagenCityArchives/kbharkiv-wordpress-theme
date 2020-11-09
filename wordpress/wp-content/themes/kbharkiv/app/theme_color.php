@@ -1,7 +1,6 @@
 <?php
 
-global $theme_color;
-$theme_color = theme_color();
+$theme_color = [];
 
 function color($color) {
 	$colors = [
@@ -75,7 +74,12 @@ function theme_color() {
 }
 
 function get_theme_color($darkness = false) {
-	$darkness = $darkness ? 1 : 0;
 	global $theme_color;
+	$darkness = $darkness ? 1 : 0;
+
+ 	if(empty($theme_color)) {
+		$theme_color = theme_color();
+	};
+
 	return $theme_color[$darkness];
 }

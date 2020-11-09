@@ -22,6 +22,5 @@
       </div>
     </div>
   </header>
-
   {{ the_breadcrumb() }}
 @endif

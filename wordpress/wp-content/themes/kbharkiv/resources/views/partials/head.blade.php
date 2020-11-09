@@ -25,4 +25,5 @@
   <meta name="msapplication-square310x310logo" content="@asset('mstile-310x310.png')" />
 
   @php wp_head() @endphp
+
 </head>
