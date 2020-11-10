@@ -12,14 +12,11 @@ export function moduleShortcuts() {
 
     if ($this.isInViewport()) {
       var navHeight = $('.top-menu').outerHeight();
-      var elHeight = $(this).height();
-      var viewportHeight = $(window).height();
+      var elHeight = $this.height();
 
-      //offsetDistance = $(window).scrollTop() == 0 ? viewportHeight - $(this)[0].getBoundingClientRect().top : offsetDistance;
-
-      var elDistance = viewportHeight + elHeight - navHeight;
-      var elToTop = $(this)[0].getBoundingClientRect().top - navHeight + elHeight;
-      var elTranslateY = elToTop/elDistance*100-100;
+      var elDistance = $this.parent('figure').offset().top + $this.parent('figure')[0].getBoundingClientRect().height + 24 - navHeight;
+      var elToTop = $this[0].getBoundingClientRect().top - navHeight + elHeight;
+      var elTranslateY = elToTop/elDistance*100-100
 
       $this.css({
         '-webkit-transform' : 'translateY(' + elTranslateY + '%)',
