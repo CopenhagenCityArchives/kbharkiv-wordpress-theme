@@ -1,7 +1,11 @@
+@php
+  $sdk_kildetaster = get_sub_field('modules_sdkkildetaster_test_sdk_url') ? get_sub_field('modules_sdkkildetaster_test_sdk_url') : 'https://static.kbharkiv.dk/kildeviser-sdk/KildeviserSearchSDK.min.js';
+@endphp
+
 <section class="module module-kildetaster" aria-label="Kildetaster">
   @php
     wp_enqueue_style('sdk.css', 'https://kildetaster.kbharkiv.dk/sdk.css');
-    wp_enqueue_script('sdk.js', 'https://kildetaster.kbharkiv.dk/sdk.js', [], null);
+    wp_enqueue_script('sdk.js', $sdk_kildetaster, [], null);
   @endphp
 
   <div class="container-fluid">
