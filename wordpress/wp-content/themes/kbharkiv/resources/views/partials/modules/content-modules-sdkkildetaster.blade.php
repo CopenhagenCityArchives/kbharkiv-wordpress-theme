@@ -1,5 +1,5 @@
 @php
-  $sdk_kildetaster = get_sub_field('modules_sdkkildetaster_test_sdk_url') ? get_sub_field('modules_sdkkildetaster_test_sdk_url') : 'https://static.kbharkiv.dk/kildeviser-sdk/KildeviserSearchSDK.min.js';
+  $sdk_kildetaster = get_sub_field('modules_sdkkildetaster_test_sdk_url') ? get_sub_field('modules_sdkkildetaster_test_sdk_url') : 'https://kildetaster.kbharkiv.dk/sdk.js';
 @endphp
 
 <section class="module module-kildetaster" aria-label="Kildetaster">

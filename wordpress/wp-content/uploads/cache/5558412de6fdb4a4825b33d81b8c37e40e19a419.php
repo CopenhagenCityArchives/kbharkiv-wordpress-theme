@@ -1,8 +1,14 @@
-<section class="module module-kildetaster">
+<?php
+  $sdk_kildetaster = get_sub_field('modules_sdkkildetaster_test_sdk_url') ? get_sub_field('modules_sdkkildetaster_test_sdk_url') : 'https://kildetaster.kbharkiv.dk/sdk.js';
+?>
+
+<section class="module module-kildetaster" aria-label="Kildetaster">
   <?php
     wp_enqueue_style('sdk.css', 'https://kildetaster.kbharkiv.dk/sdk.css');
-    wp_enqueue_script('sdk.js', 'https://kildetaster.kbharkiv.dk/sdk.js', [], null);
+    wp_enqueue_script('sdk.js', $sdk_kildetaster, [], null);
   ?>
+  <?php echo $sdk_kildetaster; ?>
+
 
   <div class="container-fluid">
     <div data-sdk-app>
