@@ -43,6 +43,10 @@ p {
   hyphenate-limit-zone: 8%;
 }
 
+.no-hyphens {
+  hyphens: none;
+}
+
 dt,
 nav {
   font-weight: 500;
