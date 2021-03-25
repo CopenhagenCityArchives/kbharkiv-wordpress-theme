@@ -1,4 +1,4 @@
-FROM wordpress:5.5.0-php7.3-apache
+FROM wordpress:5.7.0-php7.4-apache
 
 # Install cron
 RUN apt-get update && apt-get -y install cron
