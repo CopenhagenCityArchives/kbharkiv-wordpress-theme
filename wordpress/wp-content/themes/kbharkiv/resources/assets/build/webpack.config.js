@@ -178,7 +178,7 @@ let webpackConfig = {
       },
     }),
     new StyleLintPlugin({
-      failOnError: !config.enabled.watcher,
+      failOnError: false,
       emitError: true,
       emitWarning: true,
       quiet: false,
