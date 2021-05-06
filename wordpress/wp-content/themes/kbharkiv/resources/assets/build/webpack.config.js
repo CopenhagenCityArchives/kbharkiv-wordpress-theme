@@ -178,8 +178,9 @@ let webpackConfig = {
       },
     }),
     new StyleLintPlugin({
-      failOnError: !config.enabled.watcher,
-      emitErrors: true,
+      failOnError: false,
+      emitError: true,
+      emitWarning: true,
       quiet: false,
       syntax: 'scss',
     }),
